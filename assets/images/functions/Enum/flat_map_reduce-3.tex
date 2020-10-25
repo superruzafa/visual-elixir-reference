@@ -1,0 +1,107 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix [
+    below=3.5 of a,
+    column sep=.5\masterunit,
+    % nodes={draw},
+] {
+    \placeholder[tc1]{3.5} &
+    \placeholder[tc2]{2.75} &
+    \placeholder[tci]{2.75} &
+    \placeholder[tcn]{2.75} \\
+};
+
+\matrix at (tc1) [fptk, tuplex={t1}{1}] {
+    \placeholder[l]{2.25} & \comma &
+    \elemx{acc}{$acc_1$} \\
+};
+\matrix at (t1l) [fptk, sublist=b] {
+    \elem{1} &
+    \elem{2} &
+    \elem{3} \\
+};
+
+\matrix at (tc2) [fptk, tuplex={t2}{1}] {
+    \placeholder[l]{1.5} & \comma &
+    \elemx{acc}{$acc_2$} \\
+};
+\matrix at (t2l) [fptk, sublist=c] {
+    \elem{1} &
+    \elem{2} \\
+};
+
+\matrix at (tci) [fptk, tuplex={ti}{1}] {
+    \placeholder[l]{1.5} & \comma &
+    \elemx{acc}{$acc_i$} \\
+};
+\matrix at (til) [fptk, sublist=k] {
+    \elem[k]{1} &
+    \elemsafter \\
+};
+
+\matrix at (tcn) [fptk, tuplex={tn}{1}] {
+    \placeholder[l]{1.5} & \comma &
+    \elemx{acc}{$acc_n$} \\
+};
+\matrix at (tnl) [fptk, sublist=l] {
+    \elem[l]{1} &
+    \elemsafter \\
+};
+
+\coordinate (rule) at ($ (t1.north)!.5!(a.south) $);
+
+\foreach \i in {1,2,i,n}{
+    \node (fun\i) at (t\i.north |- rule) [fptk, fun 2];
+    \draw [fptk, flow ->=soft] (a\i.south) -- (fun\i.north io 1);
+    \bracex{t\i.north west}{t\i.north east}
+    \draw [fptk, subflow ->] (fun\i.south io) -- (last brace center);
+}
+
+\matrix [fptk, tuplex={y}{1.25}, below=6 of a] {
+    \placeholder[1]{9.75} & \comma &
+    \elemx{acc}{$acc_n$} \\
+};
+
+\matrix at (y1) [fptk, list=z] {
+    \elemx{b1}{$b_1$} &
+    \elemx{b2}{$b_2$} &
+    \elemx{b3}{$b_3$} &
+    \elemx{c1}{$c_1$} &
+    \elemx{c2}{$c_2$} &
+    \elems[.75] &
+    \elemx{k1}{$k_1$} &
+    \elems[.75] &
+    \elemx{l1}{$l_1$} &
+    \elemsafter \\
+};
+
+\coordinate (rule) at ($ (fun1.north)!.5!(a.south) $);
+\draw [fptk, <- flow] (fun1.north io 2) -- (\currcoord |- rule) -- +(-.5, 0)
+    node [left] {\texttt{acc}};
+\draw [fptk, subflow ->, flow shape |-|={rule}] (t1acc.north) -- (fun2.north io 2);
+\draw [fptk, subflow ->, flow shape |..|={rule}] (t2acc.north) -- (funi.north io 2);
+\draw [fptk, subflow ->, flow shape |..|={rule}] (tiacc.north) -- (funn.north io 2);
+\draw [fptk, flow ->=soft] (tnacc.south) -- (yacc.north);
+
+\bracetobrace
+    {b.south east}{b.south west}
+    {zb1.north west}{zb3.north east}
+
+\bracetobrace
+    {c.south east}{c.south west}
+    {zc1.north west}{zc2.north east}
+
+\bracetobrace
+    {k.south east}{k.south west}
+    {zk1.north west}{[xshift=-.375\masterunit] zl1.north west}
+
+\bracetobrace
+    {l.south east}{l.south west}
+    {zl1.north west}{z.north east}

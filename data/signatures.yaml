@@ -1,0 +1,1064 @@
+- name: Atom
+  functions:
+    - name: to_charlist/1
+      signature: |
+        defmodule Atom do
+          def to_charlist(atom)
+        end
+    - name: to_string/1
+      signature: |
+        defmodule Atom do
+          def to_string(atom)
+        end
+
+- name: Enum
+  functions:
+    - name: all?/2
+      signature: |
+        defmodule Enum do
+          def all?(enumerable, fun \\ fn x -> x end)
+        end
+    - name: any?/2
+      signature: |
+        defmodule Enum do
+          def any?(enumerable, fun \\ fn x -> x end)
+        end
+    - name: at/3
+      signature: |
+        defmodule Enum do
+          def at(enumerable, index, default \\ nil)
+        end
+    - name: chunk_by/2
+      signature: |
+        defmodule Enum do
+          def chunk_by(enumerable, fun)
+        end
+    - name: chunk_every/2
+      signature: |
+        defmodule Enum do
+          def chunk_every(enumerable, count)
+        end
+    - name: chunk_every/4
+      signature: |
+        defmodule Enum do
+          def chunk_every(enumerable, count, step, leftover \\ [])
+        end
+    - name: chunk_while/4
+      signature: |
+        defmodule Enum do
+          def chunk_while(enumerable, acc, chunk_fun, after_fun)
+        end
+    - name: concat/1
+      signature: |
+        defmodule Enum do
+          def concat(enumerables)
+        end
+    - name: concat/2
+      signature: |
+        defmodule Enum do
+          def concat(left, right)
+        end
+    - name: count/1
+      signature: |
+        defmodule Enum do
+          def count(enumerable)
+        end
+    - name: count/2
+      signature: |
+        defmodule Enum do
+          def count(enumerable, fun)
+        end
+    - name: dedup/1
+      signature: |
+        defmodule Enum do
+          def dedup(enumerable)
+        end
+    - name: dedup_by/2
+      signature: |
+        defmodule Enum do
+          def dedup_by(enumerable, fun)
+        end
+    - name: drop/2
+      signature: |
+        defmodule Enum do
+          def drop(enumerable, count)
+        end
+    - name: drop_every/2
+      signature: |
+        defmodule Enum do
+          def drop_every(enumerable, nth)
+        end
+    - name: drop_while/2
+      signature: |
+        defmodule Enum do
+          def drop_while(enumerable, fun)
+        end
+    - name: each/2
+      signature: |
+        defmodule Enum do
+          def each(enumerable, fun)
+        end
+    - name: empty?/1
+      signature: |
+        defmodule Enum do
+          def empty?(enumerable)
+        end
+    - name: fetch/2
+      signature: |
+        defmodule Enum do
+          def fetch(enumerable, index)
+        end
+    - name: fetch!/2
+      signature: |
+        defmodule Enum do
+          def fetch!(enumerable, index)
+        end
+    - name: filter/2
+      signature: |
+        defmodule Enum do
+          def filter(enumerable, fun)
+        end
+    - name: find/3
+      signature: |
+        defmodule Enum do
+          def find(enumerable, default \\ nil, fun)
+        end
+    - name: find_index/2
+      signature: |
+        defmodule Enum do
+          def find_index(enumerable, fun)
+        end
+    - name: find_value/3
+      signature: |
+        defmodule Enum do
+          def find_value(enumerable, default \\ nil, fun)
+        end
+    - name: flat_map/2
+      signature: |
+        defmodule Enum do
+          def flat_map(enumerable, fun)
+        end
+    - name: flat_map_reduce/3
+      signature: |
+        defmodule Enum do
+          def flat_map_reduce(enumerable, acc, fun)
+        end
+    - name: frequencies/1
+      signature: |
+        defmodule Enum do
+          def frequencies(enumerable)
+        end
+    - name: frequencies_by/2
+      signature: |
+        defmodule Enum do
+          def frequencies_by(enumerable, fun)
+        end
+    - name: group_by/3
+      signature: |
+        defmodule Enum do
+          def group_by(enumerable, key_fun, val_fun \\ fn x -> x end)
+        end
+    - name: intersperse/2
+      signature: |
+        defmodule Enum do
+          def intersperse(enumerable, elem)
+        end
+    - name: join/2
+      signature: |
+        defmodule Enum do
+          def join(enumerable, joiner \\ "")
+        end
+    - name: map/2
+      signature: |
+        defmodule Enum do
+          def map(enumerable, fun)
+        end
+    - name: map_every/3
+      signature: |
+        defmodule Enum do
+          def map_every(enumerable, nth, fun)
+        end
+    - name: map_intersperse/3
+      signature: |
+        defmodule Enum do
+          def map_intersperse(enumerable, elem, fun)
+        end
+    - name: map_join/3
+      signature: |
+        defmodule Enum do
+          def map_join(enumerable, joiner \\ "", fun)
+        end
+    - name: map_reduce/3
+      signature: |
+        defmodule Enum do
+          def map_reduce(enumerable, acc, fun)
+        end
+    - name: max/3
+      signature: |
+        defmodule Enum do
+          def max(
+            enumerable,
+            sorter \\ &>=/2,
+            empty_fallback \\ fn -> raise(Enum.EmptyError) end
+          )
+        end
+    - name: max_by/4
+      signature: |
+        defmodule Enum do
+          def max_by(
+            enumerable,
+            fun,
+            sorter \\ &>=/2,
+            empty_fallback \\ fn -> raise(Enum.EmptyError) end)
+          )
+        end
+    - name: member?/2
+      signature: |
+        defmodule Enum do
+          def member?(enumerable, elem)
+        end
+    - name: min/3
+      signature: |
+        defmodule Enum do
+          def min(
+            enumerable,
+            sorter \\ &<=/2,
+            empty_fallback \\ fn -> raise(Enum.EmptyError) end
+          )
+        end
+    - name: min_by/4
+      signature: |
+        defmodule Enum do
+          def min_by(
+            enumerable,
+            fun,
+            sorter \\ &<=/2,
+            empty_fallback \\ fn -> raise(Enum.EmptyError) end)
+          )
+        end
+    - name: min_max/2
+      signature: |
+        defmodule Enum do
+          def min_max(
+            enumerable,
+            empty_fallback \\ fn -> raise(Enum.EmptyError) end
+          )
+        end
+    - name: min_max_by/3
+      signature: |
+        defmodule Enum do
+          def min_max(
+            enumerable,
+            fun,
+            empty_fallback \\ fn -> raise(Enum.EmptyError) end
+          )
+        end
+    - name: random/1
+      signature: |
+        defmodule Enum do
+          def random(enumerable)
+        end
+    - name: reduce/2
+      signature: |
+        defmodule Enum do
+          def reduce(enumerable, fun)
+        end
+    - name: reduce/3
+      signature: |
+        defmodule Enum do
+          def reduce(enumerable, acc, fun)
+        end
+    - name: reduce_while/3
+      signature: |
+        defmodule Enum do
+          def reduce_while(enumerable, acc, fun)
+        end
+    - name: reject/2
+      signature: |
+        defmodule Enum do
+          def reject(enumerable, fun)
+        end
+    - name: reverse/1
+      signature: |
+        defmodule Enum do
+          def reverse(enumerable)
+        end
+    - name: reverse/2
+      signature: |
+        defmodule Enum do
+          def reverse(enumerable, tail)
+        end
+    - name: reverse_slice/3
+      signature: |
+        defmodule Enum do
+          def reverse_slice(enumerable, start, count)
+        end
+    - name: scan/2
+      signature: |
+        defmodule Enum do
+          def scan(enumerable, fun)
+        end
+    - name: scan/3
+      signature: |
+        defmodule Enum do
+          def scan(enumerable, acc, fun)
+        end
+    - name: shuffle/1
+      signature: |
+        defmodule Enum do
+          def shuffle(enumerable)
+        end
+    - name: slice/2
+      signature: |
+        defmodule Enum do
+          def slice(enumerable, range)
+        end
+    - name: slice/3
+      signature: |
+        defmodule Enum do
+          def slice(enumerable, start, count)
+        end
+    - name: sort/1
+      signature: |
+        defmodule Enum do
+          def sort(enumerable)
+        end
+    - name: sort/2
+      signature: |
+        defmodule Enum do
+          def sort(enumerable, fun)
+        end
+    - name: sort_by/3
+      signature: |
+        defmodule Enum do
+          def sort_by(enumerable, mapper, sorter \\ &<=/2)
+        end
+    - name: split/2
+      signature: |
+        defmodule Enum do
+          def split(enumerable, count)
+        end
+    - name: split_while/2
+      signature: |
+        defmodule Enum do
+          def split_while(enumerable, fun)
+        end
+    - name: split_with/2
+      signature: |
+        defmodule Enum do
+          def split_with(enumerable, fun)
+        end
+    - name: sum/1
+      signature: |
+        defmodule Enum do
+          def sum(enumerable)
+        end
+    - name: take/2
+      signature: |
+        defmodule Enum do
+          def take(enumerable, count)
+        end
+    - name: take_every/2
+      signature: |
+        defmodule Enum do
+          def take_every(enumerable, nth)
+        end
+    - name: take_random/2
+      signature: |
+        defmodule Enum do
+          def take_random(enumerable, count)
+        end
+    - name: take_while/2
+      signature: |
+        defmodule Enum do
+          def take_while(enumerable, fun)
+        end
+    - name: uniq/1
+      signature: |
+        defmodule Enum do
+          def uniq(enumerable)
+        end
+    - name: uniq_by/2
+      signature: |
+        defmodule Enum do
+          def uniq_by(enumerable, fun)
+        end
+    - name: unzip/1
+      signature: |
+        defmodule Enum do
+          def unzip(enumerable)
+        end
+    - name: with_index/2
+      signature: |
+        defmodule Enum do
+          def with_index(enumerable, offset \\ 0)
+        end
+    - name: zip/1
+      signature: |
+        defmodule Enum do
+          def zip(enumerables)
+        end
+    - name: zip/2
+      signature: |
+        defmodule Enum do
+          def zip(enumerable1, enumerable2)
+        end
+
+- name: Integer
+  functions:
+    - name: digits/2
+      signature: |
+        defmodule Integer do
+          def digits(integer, base \\ 10)
+        end
+    - name: undigits/2
+      signature: |
+        defmodule Integer do
+          def undigits(digits, base \\ 10)
+        end
+
+- name: List
+  functions:
+    - name: delete/2
+      signature: |
+        defmodule List do
+          def delete(list, elem)
+        end
+    - name: delete_at/2
+      signature: |
+        defmodule List do
+          def delete_at(list, index)
+        end
+    - name: duplicate/2
+      signature: |
+        defmodule List do
+          def duplicate(elem, count)
+        end
+    - name: first/1
+      signature: |
+        defmodule List do
+          def first(list)
+        end
+    - name: flatten/1
+      signature: |
+        defmodule List do
+          def flatten(list)
+        end
+    - name: flatten/2
+      signature: |
+        defmodule List do
+          def flatten(list, tail)
+        end
+    - name: foldl/3
+      signature: |
+        defmodule List do
+          def foldl(list, acc, fun)
+        end
+    - name: foldr/3
+      signature: |
+        defmodule List do
+          def foldr(list, acc, fun)
+        end
+    - name: insert_at/3
+      signature: |
+        defmodule List do
+          def insert_at(list, index, value)
+        end
+    - name: keydelete/3
+      signature: |
+        defmodule List do
+          def keydelete(list, key, position)
+        end
+    - name: keyfind/4
+      signature: |
+        defmodule List do
+          def keyfind(list, key, position, default \\ nil)
+        end
+    - name: keymember?/3
+      signature: |
+        defmodule List do
+          def keymember?(list, key, position)
+        end
+    - name: keyreplace/4
+      signature: |
+        defmodule List do
+          def keyreplace(list, key, position, new_tuple)
+        end
+    - name: keystore/4
+      signature: |
+        defmodule List do
+          def keystore(list, key, position, new_tuple)
+        end
+    - name: keytake/3
+      signature: |
+        defmodule List do
+          def keytake(list, key, position)
+        end
+    - name: last/1
+      signature: |
+        defmodule List do
+          def last(list)
+        end
+    - name: pop_at/3
+      signature: |
+        defmodule List do
+          def pop_at(list, index, default \\ nil)
+        end
+    - name: replace_at/3
+      signature: |
+        defmodule List do
+          def replace_at(list, index, value)
+        end
+    - name: starts_with?/2
+      signature: |
+        defmodule List do
+          def starts_with(list, prefix)
+        end
+    - name: to_integer/1
+      signature: |
+        defmodule List do
+          def to_integer(charlist)
+        end
+    - name: to_integer/2
+      signature: |
+        defmodule List do
+          def to_integer(charlist, base)
+        end
+    - name: to_tuple/1
+      signature: |
+        defmodule List do
+          def to_tuple(list)
+        end
+    - name: update_at/3
+      signature: |
+        defmodule List do
+          def update_at(list, index, fun)
+        end
+    - name: wrap/1
+      signature: |
+        defmodule List do
+          def wrap(term)
+        end
+    - name: zip/1
+      signature: |
+        defmodule List do
+          def zip(list_of_lists)
+        end
+
+- name: Kernel
+  functions:
+    - name: elem/2
+      signature: |
+        defmodule Kernel do
+          def elem(tuple, index)
+        end
+    - name: put_elem/3
+      signature: |
+        defmodule Kernel do
+          def put_elem(tuple, index, value)
+        end
+
+- name: Keyword
+  functions:
+    - name: delete/2
+      signature: |
+        defmodule Keyword do
+          def delete(keywords, key)
+        end
+    - name: delete_first/2
+      signature: |
+        defmodule Keyword do
+          def delete(keywords, key)
+        end
+    - name: drop/2
+      signature: |
+        defmodule Keyword do
+          def drop(keywords, keys)
+        end
+    - name: fetch/2
+      signature: |
+        defmodule Keyword do
+          def fetch(keywords, key)
+        end
+    - name: fetch!/2
+      signature: |
+        defmodule Keyword do
+          def fetch!(keywords, key)
+        end
+    - name: get/3
+      signature: |
+        defmodule Keyword do
+          def get(keywords, key, default \\ nil)
+        end
+    - name: get_lazy/3
+      signature: |
+        defmodule Keyword do
+          def get_lazy(keywords, key, fun)
+        end
+    - name: get_values/2
+      signature: |
+        defmodule Keyword do
+          def get_values(keywords, key)
+        end
+    - name: has_key?/2
+      signature: |
+        defmodule Keyword do
+          def has_key?(keywords, key)
+        end
+    - name: keys/1
+      signature: |
+        defmodule Keyword do
+          def keys(keywords)
+        end
+    - name: keyword?/1
+      signature: |
+        defmodule Keyword do
+          def keyword?(term)
+        end
+    - name: new/0
+      signature: |
+        defmodule Keyword do
+          def new()
+        end
+    - name: new/1
+      signature: |
+        defmodule Keyword do
+          def new(enumerable)
+        end
+    - name: new/2
+      signature: |
+        defmodule Keyword do
+          def new(enumerable, fun)
+        end
+    - name: pop/3
+      signature: |
+        defmodule Keyword do
+          def pop(keywords, key, default \\ nil)
+        end
+    - name: pop!/2
+      signature: |
+        defmodule Keyword do
+          def pop!(keywords, key)
+        end
+    - name: pop_first/3
+      signature: |
+        defmodule Keyword do
+          def pop_first(keywords, key, default \\ nil)
+        end
+    - name: pop_lazy/3
+      signature: |
+        defmodule Keyword do
+          def pop_lazy(keywords, key, fun)
+        end
+    - name: pop_values/2
+      signature: |
+        defmodule Keyword do
+          def pop_values(keywords, key)
+        end
+    - name: put/3
+      signature: |
+        defmodule Keyword do
+          def put(keywords, key, value)
+        end
+    - name: put_new/3
+      signature: |
+        defmodule Keyword do
+          def put_new(keywords, key, value)
+        end
+    - name: put_new_lazy/3
+      signature: |
+        defmodule Keyword do
+          def put_new_lazy(keywords, key, fun)
+        end
+    - name: replace!/3
+      signature: |
+        defmodule Keyword do
+          def replace!(keywords, key, value)
+        end
+    - name: split/2
+      signature: |
+        defmodule Keyword do
+          def split(keywords, keys)
+        end
+    - name: take/2
+      signature: |
+        defmodule Keyword do
+          def take(keywords, keys)
+        end
+    - name: to_list/1
+      signature: |
+        defmodule Keyword do
+          def to_list(keywords)
+        end
+    - name: update/4
+      signature: |
+        defmodule Keyword do
+          def update(keywords, key, value, fun)
+        end
+    - name: update!/3
+      signature: |
+        defmodule Keyword do
+          def update(keywords, key, fun)
+        end
+    - name: values/1
+      signature: |
+        defmodule Keyword do
+          def values(keywords)
+        end
+  
+- name: Map
+  functions:
+    - name: delete/2
+      signature: |
+        defmodule Map do
+          def delete(map, key)
+        end
+    - name: drop/2
+      signature: |
+        defmodule Map do
+          def drop(map, keys)
+        end
+    - name: fetch/2
+      signature: |
+        defmodule Map do
+          def fetch(map, key)
+        end
+    - name: fetch!/2
+      signature: |
+        defmodule Map do
+          def fetch!(map, key)
+        end
+    - name: get/3
+      signature: |
+        defmodule Map do
+          def get(map, key, default \\ nil)
+        end
+    - name: get_and_update/3
+      signature: |
+        defmodule Map do
+          def get_and_update(map, key, fun)
+        end
+    - name: get_and_update!/3
+      signature: |
+        defmodule Map do
+          def get_and_update!(map, key, fun)
+        end
+    - name: get_lazy/3
+      signature: |
+        defmodule Map do
+          def get_lazy(map, key, fun)
+        end
+    - name: has_key?/2
+      signature: |
+        defmodule Map do
+          def has_key?(map, key)
+        end
+    - name: keys/1
+      signature: |
+        defmodule Map do
+          def keys(map)
+        end
+    - name: new/0
+      signature: |
+        defmodule Map do
+          def new()
+        end
+    - name: merge/2
+      signature: |
+        defmodule Map do
+          def merge(map1, map2)
+        end
+    - name: merge/3
+      signature: |
+        defmodule Map do
+          def merge(map1, map2, fun)
+        end
+    - name: new/1
+      signature: |
+        defmodule Map do
+          def new(enumerable)
+        end
+    - name: new/2
+      signature: |
+        defmodule Map do
+          def new(enumerable, fun)
+        end
+    - name: pop!/2
+      signature: |
+        defmodule Map do
+          def pop!(map, key)
+        end
+    - name: pop/3
+      signature: |
+        defmodule Map do
+          def pop(map, key, default \\ nil)
+        end
+    - name: pop_lazy/3
+      signature: |
+        defmodule Map do
+          def pop_lazy(map, key, fun)
+        end
+    - name: put/3
+      signature: |
+        defmodule Map do
+          def put(map, key, value)
+        end
+    - name: put_new/3
+      signature: |
+        defmodule Map do
+          def put_new(map, key, value)
+        end
+    - name: put_new_lazy/3
+      signature: |
+        defmodule Map do
+          def put_new_lazy(map, key, fun)
+        end
+    - name: replace!/3
+      signature: |
+        defmodule Map do
+          def replace!(map, key, value)
+        end
+    - name: split/2
+      signature: |
+        defmodule Map do
+          def split(map, keys)
+        end
+    - name: take/2
+      signature: |
+        defmodule Map do
+          def take(map, keys)
+        end
+    - name: to_list/1
+      signature: |
+        defmodule Map do
+          def to_list(map)
+        end
+    - name: update/4
+      signature: |
+        defmodule Map do
+          def update(map, key, value, fun)
+        end
+    - name: update!/3
+      signature: |
+        defmodule Map do
+          def update(map, key, fun)
+        end
+    - name: values/1
+      signature: |
+        defmodule Map do
+          def values(map)
+        end
+
+- name: Range
+  functions:
+    - name: disjoint?/2
+      signature: |
+        defmodule Range do
+          def disjoint?(range1, range2)
+        end
+    - name: new/2
+      signature: |
+        defmodule Range do
+          def new(first, last)
+        end
+
+- name: Stream
+  functions:
+    - name: chunk_by/2
+      signature: |
+        defmodule Stream do
+          def chunk_by(stream, fun)
+        end
+    - name: chunk_every/2
+      signature: |
+        defmodule Stream do
+          def chunk_every(stream, count)
+        end
+    - name: chunk_every/4
+      signature: |
+        defmodule Stream do
+          def chunk_every(enum, count, step, leftover \\ [])
+        end
+    - name: chunk_while/4
+      signature: |
+        defmodule Stream do
+          def chunk_while(stream, acc, chunk_fun, after_fun)
+        end
+    - name: cycle/1
+      signature: |
+        defmodule Stream do
+          def cycle(stream)
+        end
+    - name: dedup/1
+      signature: |
+        defmodule Stream do
+          def dedup(stream)
+        end
+    - name: dedup_by/2
+      signature: |
+        defmodule Stream do
+          def dedup_by(stream, fun)
+        end
+    - name: drop/2
+      signature: |
+        defmodule Stream do
+          def drop(stream, count)
+        end
+    - name: drop_every/2
+      signature: |
+        defmodule Stream do
+          def drop_every(stream, nth)
+        end
+    - name: drop_while/2
+      signature: |
+        defmodule Stream do
+          def drop_every(stream, fun)
+        end
+    - name: each/2
+      signature: |
+        defmodule Stream do
+          def each(stream, fun)
+        end
+    - name: filter/2
+      signature: |
+        defmodule Stream do
+          def filter(stream, fun)
+        end
+    - name: flat_map/2
+      signature: |
+        defmodule Stream do
+          def flat_map(stream, fun)
+        end
+    - name: intersperse/2
+      signature: |
+        defmodule Stream do
+          def intersperse(stream, elem)
+        end
+    - name: interval/1
+      signature: |
+        defmodule Stream do
+          def interval(n)
+        end
+    - name: iterate/2
+      signature: |
+        defmodule Stream do
+          def iterate(start, fun)
+        end
+    - name: map/2
+      signature: |
+        defmodule Stream do
+          def map(stream, fun)
+        end
+    - name: map_every/3
+      signature: |
+        defmodule Stream do
+          def map_every(stream, nth, fun)
+        end
+    - name: reject/2
+      signature: |
+        defmodule Stream do
+          def reject(stream, fun)
+        end
+    - name: repeatedly/1
+      signature: |
+        defmodule Stream do
+          def repeatedly(fun)
+        end
+    - name: scan/2
+      signature: |
+        defmodule Stream do
+          def scan(stream, fun)
+        end
+    - name: scan/3
+      signature: |
+        defmodule Stream do
+          def scan(stream, acc, fun)
+        end
+    - name: take/2
+      signature: |
+        defmodule Stream do
+          def take(stream, count)
+        end
+    - name: take_while/2
+      signature: |
+        defmodule Stream do
+          def take(stream, fun)
+        end
+    - name: take_every/2
+      signature: |
+        defmodule Stream do
+          def take_every(stream, count)
+        end
+    - name: timer/1
+      signature: |
+        defmodule Stream do
+          def timer(n)
+        end
+    - name: transform/3
+      signature: |
+        defmodule Stream do
+          def transform(stream, acc, fun)
+        end
+    - name: transform/4
+      signature: |
+        defmodule Stream do
+          def transform(stream, start_fun, fun, after_fun)
+        end
+    - name: unfold/2
+      signature: |
+        defmodule Stream do
+          def unfold(acc, fun)
+        end
+    - name: uniq/1
+      signature: |
+        defmodule Stream do
+          def uniq(stream)
+        end
+    - name: uniq_by/2
+      signature: |
+        defmodule Stream do
+          def uniq_by(stream, fun)
+        end
+    - name: with_index/2
+      signature: |
+        defmodule Stream do
+          def with_index(stream, offset \\ 0)
+        end
+    - name: zip/1
+      signature: |
+        defmodule Stream do
+          def zip(stream)
+        end
+    - name: zip/2
+      signature: |
+        defmodule Stream do
+          def zip(left, right)
+        end
+
+- name: Tuple
+  functions:
+    - name: append/2
+      signature: |
+        defmodule Tuple do
+          def append(tuple, value)
+        end
+    - name: delete_at/2
+      signature: |
+        defmodule Tuple do
+          def delete_at(tuple, index)
+        end
+    - name: duplicate/2
+      signature: |
+        defmodule Tuple do
+          def duplicate(value, size)
+        end
+    - name: insert_at/3
+      signature: |
+        defmodule Tuple do
+          def insert_at(tuple, index, value)
+        end
+    - name: to_list/1
+      signature: |
+        defmodule Tuple do
+          def to_list(tuple)
+        end

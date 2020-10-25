@@ -1,0 +1,27 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{an.north}
+\draw [-Stealth, line width=\csname fptk@iteration@linewidth\endcsname, shorten >=.2\masterunit] (an.north) [start angle=0, end angle=180, y radius=1\masterunit, x radius=1.75\masterunit] arc;
+
+\matrix [fptk, list=b, element=a, below=2 of a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} &
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} &
+    \elem{1} &
+    \elemsafter \\
+};
+
+\bigarrowdown{$ (a.south)!.5!(b.north) $}

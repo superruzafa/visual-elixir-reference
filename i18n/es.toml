@@ -1,0 +1,11 @@
+[home_description]
+other = "Representación gráfica de las funciones de Elixir."
+
+[home_keywords]
+other = "funciones de elixir, elixir explicado fácil, aprender elixir, programación funcional, elixir visual, elixir gráfico"
+
+[function_description]
+other = "Función {{ .Title }} de Elixir. Representación gráfica de la function {{ .Title }} de Elixir"
+
+[function_keywords]
+other = "función {{ .Title }}, función {{ .Title }} de elixir"

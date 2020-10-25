@@ -1,0 +1,31 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix [fptk, list=b, below=2 of a] {
+    \elemx{1}{$a_{k1}$} &
+    \elemx{2}{$a_{k2}$} &
+    \elems &
+    \elemx{i}{$a_{ki}$} &
+    \elems &
+    \elemx{n}{$a_{kn}$} \\
+};
+
+\bigarrowdown{$ (a.south)!.5!(b.north) $}
+
+\matrix [
+  matrix of math nodes,
+  column 1/.style={anchor=base west},
+  nodes={inner ysep=.125\masterunit},
+  row sep=.125\masterunit,
+  left delimiter=\{,
+  right=.5 of b
+] {
+  a_{ki} \in \texttt{enumerable} \\
+  a_{ki} \neq a_{kj} \forall i \neq j \\
+};

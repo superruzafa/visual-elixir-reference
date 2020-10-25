@@ -1,0 +1,177 @@
+\makeatletter
+
+\pgfkeys{
+    /fptk/.cd,
+    listx/.code 2 args={
+        \pgfkeys{
+            /fptk/.cd,
+            collection,
+            element=#1,
+        }
+        \pgfkeys{
+            /tikz/.cd,
+            name=#1,
+            nodes={
+                name prefix={#1##1},
+                /fptk/elems before/.default=list,
+                /fptk/elems between/.default=list,
+                /fptk/elems after/.default=list,
+            },
+        }
+        \ifnum\fptk@collection@orientation=\fptk@collection@orientation@horizontal
+            \pgfkeys{
+                /tikz/.cd,
+                nodes={
+                    minimum height=#2 * \masterunit,
+                }
+            }
+        \else
+            \pgfkeys{
+                /tikz/.cd,
+                nodes={
+                    minimum width=#2 * \masterunit,
+                }
+            }
+        \fi
+    },
+    list/.style={
+        /fptk/listx={#1}{1}
+    },
+    list/elastic/.append code={
+        \pgfkeys{
+            /tikz/.cd,
+            nodes={
+                text width=,
+            },
+        },
+    },
+    sublist/.code={
+        \pgfkeys{
+            /fptk/list=#1,
+        }
+        \pgfkeys{
+            /tikz/.cd,
+            nodes={
+                font=\small,
+                minimum height=.75\masterunit,
+                minimum width=.75\masterunit,
+                text width=.75\masterunit,
+            }
+        }
+    },
+    elems before/list/.code={
+        \pgfkeys{
+            /tikz/.cd,
+            draw=none,
+            text width=\fptk@collection@elemssize,
+            minimum width=0pt,
+            node contents={},
+            append after command={
+                \pgfextra{
+                    \path ({\tikzlastnode}.south west);
+                    \pgfgetlastxy{\fptk@list@temp@xa}{\fptk@list@temp@ya}
+                    \path ({\tikzlastnode}.north east);
+                    \pgfgetlastxy{\fptk@list@temp@xb}{\fptk@list@temp@yb}
+                    \edef\fptk@list@temp@southwest{\fptk@list@temp@xa,\fptk@list@temp@ya}
+                    \edef\fptk@list@temp@northwest{\fptk@list@temp@xa,\fptk@list@temp@yb}
+                    \edef\fptk@list@temp@southeast{\fptk@list@temp@xb,\fptk@list@temp@ya}
+                    \edef\fptk@list@temp@northeast{\fptk@list@temp@xb,\fptk@list@temp@yb}
+                    \draw
+                        [line width=\collectionelementlinewidth, solid]
+                        (\fptk@list@temp@southeast) -- ($ (\fptk@list@temp@southeast)!.15!(\fptk@list@temp@southwest) $)
+                        % (\fptk@list@temp@southwest) -- ($ (\fptk@list@temp@southwest)!.15!(\fptk@list@temp@southeast) $)
+                        (\fptk@list@temp@northeast) -- ($ (\fptk@list@temp@northeast)!.15!(\fptk@list@temp@northwest) $)
+                        % (\fptk@list@temp@northwest) -- ($ (\fptk@list@temp@northwest)!.15!(\fptk@list@temp@northwest) $)
+                    ;
+                    \draw
+                        [line width=\collectionelementlinewidth, dashed]
+                        ($ (\fptk@list@temp@southeast)!.15!(\fptk@list@temp@southwest) $) -- (\fptk@list@temp@southwest)
+                        ($ (\fptk@list@temp@northeast)!.15!(\fptk@list@temp@northwest) $) -- (\fptk@list@temp@northwest)
+                    ;
+                }
+            }
+        }
+    },
+    elems between/list/.code={
+        \pgfkeys{
+            /tikz/.cd,
+            draw=none,
+            node contents={},
+            text width=\fptk@collection@elemssize,
+            append after command={
+                \pgfextra{
+                    \path ({\tikzlastnode}.south west);
+                    \pgfgetlastxy{\fptk@list@temp@xa}{\fptk@list@temp@ya}
+                    \path ({\tikzlastnode}.north east);
+                    \pgfgetlastxy{\fptk@list@temp@xb}{\fptk@list@temp@yb}
+                    \edef\fptk@list@temp@southwest{\fptk@list@temp@xa,\fptk@list@temp@ya}
+                    \edef\fptk@list@temp@northwest{\fptk@list@temp@xa,\fptk@list@temp@yb}
+                    \edef\fptk@list@temp@southeast{\fptk@list@temp@xb,\fptk@list@temp@ya}
+                    \edef\fptk@list@temp@northeast{\fptk@list@temp@xb,\fptk@list@temp@yb}
+                    \ifnum\fptk@collection@orientation=\fptk@collection@orientation@horizontal
+                        \draw
+                            [line width=\collectionelementlinewidth, solid]
+                            (\fptk@list@temp@southwest) -- ($ (\fptk@list@temp@southwest)!.15!(\fptk@list@temp@southeast) $)
+                            (\fptk@list@temp@southeast) -- ($ (\fptk@list@temp@southeast)!.15!(\fptk@list@temp@southwest) $)
+                            (\fptk@list@temp@northwest) -- ($ (\fptk@list@temp@northwest)!.15!(\fptk@list@temp@northeast) $)
+                            (\fptk@list@temp@northeast) -- ($ (\fptk@list@temp@northeast)!.15!(\fptk@list@temp@northwest) $)
+                        ;
+                        \draw
+                            [line width=\collectionelementlinewidth, dashed]
+                            ($ (\fptk@list@temp@southwest)!.15!(\fptk@list@temp@southeast) $) -- ($ (\fptk@list@temp@southeast)!.15!(\fptk@list@temp@southwest) $)
+                            ($ (\fptk@list@temp@northwest)!.15!(\fptk@list@temp@northeast) $) -- ($ (\fptk@list@temp@northeast)!.15!(\fptk@list@temp@northwest) $)
+                        ;
+                    \else
+                        \draw
+                            [line width=\collectionelementlinewidth, solid]
+                            (\fptk@list@temp@northwest) -- ($ (\fptk@list@temp@northwest)!.15!(\fptk@list@temp@southwest) $)
+                            (\fptk@list@temp@northeast) -- ($ (\fptk@list@temp@northeast)!.15!(\fptk@list@temp@southeast) $)
+                            (\fptk@list@temp@southwest) -- ($ (\fptk@list@temp@southwest)!.15!(\fptk@list@temp@northwest) $)
+                            (\fptk@list@temp@southeast) -- ($ (\fptk@list@temp@southeast)!.15!(\fptk@list@temp@northeast) $)
+                        ;
+                        \draw
+                            [line width=\collectionelementlinewidth, dashed]
+                            ($ (\fptk@list@temp@northwest)!.15!(\fptk@list@temp@southwest) $) -- ($ (\fptk@list@temp@southwest)!.15!(\fptk@list@temp@northwest) $)
+                            ($ (\fptk@list@temp@northeast)!.15!(\fptk@list@temp@southeast) $) -- ($ (\fptk@list@temp@southeast)!.15!(\fptk@list@temp@northeast) $)
+                        ;
+                    \fi
+                }
+            }
+        }
+    },
+    elems after/list/.code={
+        \pgfkeys{
+            /tikz/.cd,
+            draw=none,
+            text width=\fptk@collection@elemssize,
+            minimum width=0pt,
+            node contents={},
+            append after command={
+                \pgfextra{
+                    \path ({\tikzlastnode}.south west);
+                    \pgfgetlastxy{\fptk@list@temp@xa}{\fptk@list@temp@ya}
+                    \path ({\tikzlastnode}.north east);
+                    \pgfgetlastxy{\fptk@list@temp@xb}{\fptk@list@temp@yb}
+                    \edef\fptk@list@temp@southwest{\fptk@list@temp@xa,\fptk@list@temp@ya}
+                    \edef\fptk@list@temp@northwest{\fptk@list@temp@xa,\fptk@list@temp@yb}
+                    \edef\fptk@list@temp@southeast{\fptk@list@temp@xb,\fptk@list@temp@ya}
+                    \edef\fptk@list@temp@northeast{\fptk@list@temp@xb,\fptk@list@temp@yb}
+                    \draw
+                        [line width=\collectionelementlinewidth, solid]
+                        (\fptk@list@temp@southwest) -- ($ (\fptk@list@temp@southwest)!.15!(\fptk@list@temp@southeast) $)
+                        % (\fptk@list@temp@southeast) -- ($ (\fptk@list@temp@southeast)!.15!(\fptk@list@temp@southwest) $)
+                        (\fptk@list@temp@northwest) -- ($ (\fptk@list@temp@northwest)!.15!(\fptk@list@temp@northeast) $)
+                        % (\fptk@list@temp@northeast) -- ($ (\fptk@list@temp@northeast)!.15!(\fptk@list@temp@northwest) $)
+                    ;
+                    \draw
+                        [line width=\collectionelementlinewidth, dashed]
+                        ($ (\fptk@list@temp@southwest)!.15!(\fptk@list@temp@southeast) $) -- (\fptk@list@temp@southeast)
+                        ($ (\fptk@list@temp@northwest)!.15!(\fptk@list@temp@northeast) $) -- (\fptk@list@temp@northeast)
+                    ;
+                }
+            }
+        }
+    }
+}
+
+\makeatother

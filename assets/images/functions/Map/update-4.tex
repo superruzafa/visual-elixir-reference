@@ -1,0 +1,48 @@
+\matrix [fptk, map=a] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{i} &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{ai.north}
+
+\foreach \i/\e/\d in {
+    1/\ne/.5,
+    2/\ne/1,
+    i/=/.5
+}{
+    \predtop[\d]{a\i.north}{$k_{\i}\e\texttt{key}$}
+}
+
+\matrix [fptk, map=b, below=2 of a] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvaluex[i]{$k_i$}{\texttt{value}}; &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\node (fun) at ($ (ai=>v.south)!.5!(bi.north) + (.33, 0) $) [fptk, fun];
+\draw [fptk, subflow ->] (ai=>v.east) -| (fun.north io);
+\draw [fptk, flow] (fun.south io) -- (\currcoord |- b.north) coordinate (x);
+\draw [fptk, flow] [loosely dash dot] (x) -- (\currcoord |- bi.south) coordinate (x);
+\draw [fptk, flow ->] (x) -- (\currcoord |- bi=>v.north);
+
+\bracetobrace
+    {[yshift=-\masterunit] ai.south west}
+    {[yshift=-\masterunit] a1.south west}
+    {b1.north west}
+    {bi.north west}
+
+\bracetobrace
+    {[yshift=-\masterunit] an.south east}
+    {[yshift=-\masterunit] ai.south east}
+    {bi.north east}
+    {bn.north east}

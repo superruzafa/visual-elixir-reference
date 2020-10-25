@@ -1,0 +1,37 @@
+\matrix [fptk, map=a] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \keyvalue{3} &
+    \elems &
+    \keyvalue{n-1} &
+    \keyvalue{n} \\
+};
+
+\matrix [fptk, tuplex={b}{1.25}, below=1.5 of a] {
+    \placeholder[1]{4.5} & \comma &
+    \placeholder[2]{3.5} \\
+};
+
+\matrix at (b1.base) [fptk, map=b, matrix anchor=base] {
+    \keyvalue{1} &
+    \keyvalue{3} &
+    \elems &
+    \keyvalue{n-1} \\
+};
+
+\matrix at (b2.base) [fptk, map=b, matrix anchor=base] {
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\foreach \i/\e/\d /\p in {
+    1/\in/.5/247.5,
+    2/\notin/1/292.5,
+    3/\in/.5/247.5,
+    n-1/\in/.5/247.5,
+    n/\notin/1/292.5
+}{
+    \predtop[\d]{a\i.north}{$k_{\i}\e\texttt{keys}$}
+    \draw [fptk, flow ->=soft] (a\i.\p) -- (b\i.north);
+}

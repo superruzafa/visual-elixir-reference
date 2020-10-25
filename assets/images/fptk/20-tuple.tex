@@ -1,0 +1,68 @@
+\makeatletter
+
+\pgfkeys{
+    /fptk/.cd,
+    tuplex/.code 2 args={
+        \pgfkeys{
+            /tikz/.cd,
+            % /tikz/.cd,
+            anchor=base,
+            % draw=red,
+            inner sep=0pt,
+            % inner ysep=.1\masterunit,
+            minimum height=#2\masterunit,
+            name=#1,
+            nodes={
+                anchor=base,
+                % draw=yellow,
+                inner sep=0pt,
+                minimum height=0pt,
+                % inner xsep=-.25em,
+                name prefix={#1##1},
+                text depth=1ex,
+                text height=2ex,
+            },
+            text depth=1ex,
+            text height=2ex,
+            left delimiter=\{,
+            right delimiter=\},
+        }
+        \pgfkeys{
+            /fptk/.cd,
+            element=#1,
+            elems after/.default=tuple,
+            elems before/.default=tuple,
+            elems between/.default=tuple,
+        }
+    },
+    tuple/.style={
+        tuplex={#1}{0}
+    },
+    subtuple/.style={
+        tuple=#1,
+        nodes={
+            font=\normalsize,
+        }
+    },
+    elems before/tuple/.style={
+        inner sep=0pt, 
+        node contents={\ldots},
+        text width=,
+    },
+    elems between/tuple/.style={
+        inner sep=0pt, 
+        node contents={\ldots},
+        text width=,
+    },
+    elems after/tuple/.style={
+        inner sep=0pt, 
+        node contents={\ldots},
+        text width=,
+    },
+}
+
+\newcommand{\comma}{
+    \node [inner sep=0pt] {,\hspace*{.5em}};
+}
+
+\makeatother

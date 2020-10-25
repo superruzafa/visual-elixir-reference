@@ -1,0 +1,19 @@
+\matrix [fptk, list=a] {
+    \elem{0} &
+    \elem{1} &
+    \elems &
+    \elem{i} &
+    \elemsafter \\
+};
+
+\matrix [fptk, list=b, below=2 of a, nodes={font=\small}] {
+    \elemx{0}{$\{a_0,0\}$} &
+    \elemx{1}{$\{a_1,1\}$} &
+    \elems &
+    \elemx{i}{$\{a_i,i\}$} &
+    \elemsafter \\
+};
+
+\foreach \i in {0,1,i} {
+    \draw [fptk, flow ->] (a\i.south) -- (b\i.north);
+}

@@ -1,0 +1,32 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix [fptk, list=b, below=2 of a] {
+    \elem[a]{1} &
+    \elem[b]{2} &
+    \elems &
+    \elem[b]{i} &
+    \elems &
+    \elem[b]{n} \\
+};
+
+\foreach \i in {1,2,i,n}{
+    \node (fun\i) at ($ (a\i)!.5!(b\i) $) [fptk, fun 2];
+    \draw [fptk, <- flow] (fun\i.north io 1) -- (\currcoord |- a\i.south);
+    \draw [fptk, flow ->] (fun\i.south io) -- (b\i.north);
+}
+
+\coordinate (top rule) at ($ (a2.south)!.5!(fun2.north io 2) $);
+\coordinate (bottom rule) at ($ (b2.north)!.5!(fun2.south io 2) $);
+
+\draw [fptk, <- flow] (fun1.north io 2) -- (\currcoord |- top rule) -- +(-1, 0)
+    node [left] {\texttt{acc}};
+\draw [fptk, subflow ->, flow shape -|-|={b1.east}{top rule}] (b1.north |- bottom rule) -- (fun2.north io 2);
+\draw [fptk, subflow ->, flow shape -|..|={b2.east}{top rule}] (b2.north |- bottom rule) -- (funi.north io 2);
+\draw [fptk, subflow ->, flow shape -|..|={bi.east}{top rule}] (bi.north |- bottom rule) -- (funn.north io 2);

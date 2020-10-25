@@ -1,0 +1,40 @@
+\makeatletter
+
+\pgfkeys{
+    fptk/.cd,
+    keyword list/.code={
+        \pgfkeys{
+            /tikz/.cd,
+            name=#1,
+            nodes={
+                name prefix={#1##1},
+                /fptk/elems before/.default=list,
+                /fptk/elems between/.default=list,
+                /fptk/elems after/.default=list,
+            }
+        }
+        \pgfkeys{
+            /fptk/list={#1},
+        },
+    },
+}
+
+\newcommand\keywordx[3][last keyword]{
+    \node (#1) {$#2$:\ $#3$};
+}
+
+\newcommand\keyword[1]{
+    \node (#1) {$k_{#1}$:\ $v_{#1}$};
+}
+
+\newcommand{\keywordtwolinesx}[3][last keyword]{
+    \node (#1) {};
+    \node [draw=none, above=of #1.center, minimum height=0pt, font=\fontsize{12pt}{20pt}\selectfont, align=center] {#2:};
+    \node [draw=none, below=of #1.center, minimum height=0pt, font=\fontsize{12pt}{20pt}\selectfont, align=center] {#3};
+}
+
+\newcommand{\keywordtwolines}[1]{
+    \keywordtwolinesx[#1]{$k_{#1}$}{$v_{#1}$}
+}
+
+\makeatother

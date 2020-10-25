@@ -1,0 +1,10 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\draw [fptk/measure, fptk/measure/label=$n>0$, fptk/measure/position=below] (a1.south west) -- (an.south east);
+\draw [fptk, flow ->] (last measure label) -- +(0, -1)
+    node [below] {\false};

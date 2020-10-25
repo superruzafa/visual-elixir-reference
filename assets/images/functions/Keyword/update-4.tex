@@ -1,0 +1,45 @@
+\matrix [fptk, keyword list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{i} &
+    \elems[.5] &
+    \keyword{j} &
+    \elems[.5] &
+    \keyword{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{ai.north}
+
+\foreach \i/\e/\d in {
+    1/\ne/.5,
+    2/\ne/1,
+    i/=/.5,
+    j/=/.5,
+    n/\ne/1
+}{
+    \predtop[\d]{a\i.north}{$k_{\i}\e\texttt{key}$}
+    \node also [alias=pred\i] (last predicate);
+}
+
+\matrix [fptk, keyword list=b, below=2 of ai, matrix anchor=bi.north] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \node (i) {$k_i\!:\!v^\prime_i$}; &
+    \elems &
+    \keyword{n} \\
+};
+
+\node (fun) at ($ (ai.300)!.5!(bi.60) $) [fptk, fun];
+\draw [fptk, <- flow] (fun.north io) -- ($ (\currcoord |- ai.base) + (0, -1ex) $);
+\draw [fptk, flow ->] (fun.south io) -- ($ (\currcoord |- bi.base) + (0, 2ex) $);
+
+\draw [fptk, group] (predi.west) -- (predj.east);
+
+\foreach \i in {1,2,n}{
+    \draw [fptk, flow ->=soft] (a\i.south) -- (b\i.north);
+}

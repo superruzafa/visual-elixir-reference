@@ -1,0 +1,21 @@
+\matrix [fptk, list=a] {
+    \elem{0} &
+    \elems &
+    \elem{i} &
+    \elems &
+    \elem{j} &
+    \elems &
+    \elem{n-1} \\
+};
+
+\rangetop{ai.north west}{aj.north east}{{2/7}/solid,{5/7}/dashed,1/solid}{$i$}{$j$};
+
+\matrix [fptk, list=b, element=a, below=2 of ai.south, matrix anchor=bi.north] {
+    \elem{i}; &
+    \elems &
+    \elem{j}; \\
+};
+
+\bracetobrace
+    {aj.south east}{ai.south west}
+    {bi.north west}{bj.north east}

@@ -1,0 +1,34 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elem{i+1} &
+    \elem{i+2} &
+    \elemsafter \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{ai.north}
+\iteratefromto{ai.north}{ai+1.north}
+
+\foreach \i/\r in {
+    1/\true,
+    2/\true,
+    i/\true,
+    i+1/\false
+}{
+    \applyfuntop{a\i.north}{\r}
+}
+
+\matrix [fptk, list=b, element=a, below=2 of ai+1.south, matrix anchor=bi+1.north] {
+    \elem{i+1} &
+    \elem{i+2} &
+    \elemsafter \\
+};
+
+\bracetobrace
+    {a.south east}{ai+1.south west}
+    {bi+1.north west}{b.north east}

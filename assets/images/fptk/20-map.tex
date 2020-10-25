@@ -1,0 +1,43 @@
+\makeatletter
+
+\pgfkeys{
+    fptk/.cd,
+    map/.code={
+        \pgfkeys{
+            /tikz/.cd,
+            name=#1,
+            nodes={
+                name prefix={#1##1},
+                /fptk/elems before/.default=list,
+                /fptk/elems between/.default=list,
+                /fptk/elems after/.default=list,
+            }
+        }
+        \pgfkeys{
+            /fptk/collection,
+        }
+    },
+    map ->/.code={
+        \pgfkeys{
+            /tikz/.cd,
+            -{Implies},
+            double,
+            double distance=4\defaultpenwidth,
+            line width=4\defaultpenwidth,
+            shorten <= -.4\defaultpenwidth,
+        }
+    }
+}
+
+\newcommand{\keyvaluex}[3][last key value]{
+    \node (#1) {#2};
+    \path [use as bounding box] (-.5, -.5\masterunit + .5ex) rectangle +(1, - 1\masterunit - 2ex);
+    \draw [fptk, map ->] [shorten >=2ex] (0, -.5\masterunit + .5ex + \defaultpenwidth) -- +(0, -1)
+        node (#1=>v) [draw=none, minimum size=0pt, text width=, inner sep=0pt, anchor=base] {#3};
+}
+
+\newcommand{\keyvalue}[1]{
+    \keyvaluex[#1]{$k_{#1}$}{$v_{#1}$}
+}
+
+\makeatother

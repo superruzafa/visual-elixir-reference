@@ -1,0 +1,17 @@
+\matrix [fptk, list=a] {
+    \elemx{0}{0} &
+    \elemx{1}{1} &
+    \elemx{2}{2} &
+    \elemx{3}{3} &
+    \elemsafter \\
+};
+
+\iterateto{a0.north}
+\node at (last iteration) [above] {\texttt{n} ms};
+
+\foreach \i [remember=\i as \j (initially 0)] in {1, 2, 3}{
+    \iteratefromto{a\j.north}{a\i.north}
+    \node at (last iteration) [above] {\texttt{n} ms};
+}
+\iteratefrom{a3.north}
+\node at (last iteration) [above] {\texttt{n} ms};

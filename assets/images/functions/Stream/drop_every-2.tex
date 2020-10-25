@@ -1,0 +1,45 @@
+\newcommand\nth{\texttt{\small{nth}}}
+
+\matrix [fptk, list=a] {
+    \elem{0} &
+    \elem{1} &
+    \elems[.75] &
+    \elemx{1nth-1}{$a_{\nth\!-\!1}$} &
+    \elemx{1nth}{$a_\nth$} &
+    \elemx{1nth+1}{$a_{\nth\!+\!1}$} &
+    \elems &
+    \elemx{inth-1}{$a_{i\nth\!-\!1}$} &
+    \elemx{inth}{$a_{i\nth}$} &
+    \elemx{inth+1}{$a_{i\nth\!+\!1}$} &
+    \elemsafter \\
+};
+
+\iterateto{a0.north}
+\iteratefromto{a0.north}{a1nth.north}
+\node at (last iteration) [label, above] {$+\texttt{nth}$};
+\iteratefrom{a1nth.north}
+\node at (last iteration) [label, above] {$+\texttt{nth}$};
+\iterateto{ainth.north}
+\iteratefrom{ainth.north}
+\node at (last iteration) [label, above] {$+\texttt{nth}$};
+
+\matrix [fptk, list=b, below=2 of a] {
+    \elem{1} &
+    \elems[.75] &
+    \elemx{1nth-1}{$a_{\nth\!-\!1}$} &
+    \elemx{1nth+1}{$a_{\nth\!+\!1}$} &
+    \elems &
+    \elemx{inth-1}{$a_{i\nth\!-\!1}$} &
+    \elemx{inth+1}{$a_{i\nth\!+\!1}$} &
+    \elemsafter \\
+};
+
+\bracetobrace
+    {a1nth-1.south east}{a1.south west}
+    {b.north west}{b1nth-1.north east}
+\bracetobrace
+    {ainth-1.south east}{a1nth+1.south west}
+    {b1nth+1.north west}{binth-1.north east}
+\bracetobrace
+    {a.south east}{ainth+1.south west}
+    {binth+1.north west}{b.north east}

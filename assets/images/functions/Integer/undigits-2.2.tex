@@ -1,0 +1,12 @@
+\matrix [fptk, list=a] {
+    \elem[?a]{n-1} &
+    \elems &
+    \elem[?a]{2} &
+    \elem[?a]{1} &
+    \elem[?a]{0} \\
+};
+
+\def\base{\texttt{base}}
+\node (b) [below=2 of a, align=center] {$?a_{n-1} \cdot \base^{n-1} + \ldots + ?a_2 \cdot \base^2 + ?a_1 \cdot \base + ?a_0=$\\\\$\displaystyle\sum_{i=0}^{n-1}?a_i\cdot\base^{i}$};
+
+\bigarrowdown{$ (a.south)!.5!(b.north) $}

@@ -1,0 +1,22 @@
+\matrix [fptk, list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{an.north}
+
+\foreach \i/\d in {
+    1/.5,
+    2/1,
+    n/.5
+}{
+    \predtop[\d]{a\i.north}{$k_{\i}\ne\texttt{key}$}
+}
+
+\node (b) [fptk, exception=KeyError, below right=1 and 1 of a, anchor=north];
+\draw [fptk, throw ->] (an.north) .. controls +(1, 1) and +(0, 2) .. (b);

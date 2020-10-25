@@ -1,0 +1,23 @@
+\newcommand{\cnt}{\texttt{\small{c}}}
+
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elemx{c}{$a_\cnt$} &
+    \elemx{c+1}{$a_{\cnt+1}$} &
+    \elems &
+    \elem{n} \\
+};
+
+\draw [fptk/measure, fptk/measure/label=\texttt{count}] (a1.north west) -- (ac.north east);
+
+\matrix [fptk, list=b, element=a, below=2 of a.south east, matrix anchor=bn.north east] {
+    \elem{i+1}; &
+    \elems &
+    \elem{n}; \\
+};
+
+\bracetobrace
+    {an.south east}{ac+1.south west}
+    {b.north west}{b.north east}

@@ -1,0 +1,15 @@
+\matrix [fptk, list=a] {
+    \elemsbefore &
+    \elem{-i} &
+    \elems &
+    \elem{-2} &
+    \elem{-1} \\
+};
+
+\iterateto[backward]{a-1.north}
+\iteratefromto[backward]{a-1.north}{a-2.north}
+\iteratefrom[backward]{a-2.north}
+\iterateto[backward]{a-i.north}
+
+\draw [fptk, flow ->] (a-i.south) -- +(0, -1)
+    node (b) [below] {$a_{-i}$};

@@ -1,0 +1,66 @@
+\def\stp{\texttt{\small{s}}}
+\def\cnt{\texttt{\small{c}}}
+
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elems[.75] &
+    \elemx{c}{$a_{\cnt}$}; &
+    \elems[1] &
+    \elemx{s+1}{$a_{\stp+1}$}; &
+    \elems[.75] &
+    \elemx{s+c}{$a_{\stp+\cnt}$}; &
+    \elems[1.5] &
+    \elemx{is+1}{$a_{i\stp+1}$}; &
+    \elems[.5] &
+    \elemx{is+c}{$a_{i\stp+c}$}; &
+    \elemsafter \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{as+1.north}
+\node at (last iteration) [label, above] {$+\texttt{step}$};
+\iteratefrom{as+1.north}
+\node at (last iteration) [label, above] {$+\texttt{step}$};
+\iteratetofrom{ais+1.north}
+\node at (last iteration) [label, above] {$+\texttt{step}$};
+
+\matrix [fptk, listx={b}{1.25}, below=3 of a] {
+    \placeholder[1]{3.25} &
+    \placeholder[2]{3.25} &
+    \elems[.75] &
+    \placeholder[i]{3.25} &
+    \elemsafter \\
+};
+
+\matrix at (b1) [fptk, list=c, element=a] {
+    \elem{1} &
+    \elems[.5] &
+    \elemx{2}{$a_{\cnt}$}; \\
+};
+
+\matrix at (b2) [fptk, list=c, element=a] {
+    \elemx{1}{$a_{\stp+1}$}; &
+    \elems[.5] &
+    \elemx{2}{$a_{\stp+\cnt}$}; \\
+};
+
+\matrix at (bi) [fptk, list=c, element=a] {
+    \elemx{1}{$a_{i\stp\!+\!1}$}; &
+    \elems[.25] &
+    \elemx{2}{$a_{i\stp\!+\!\cnt}$}; \\
+};
+
+\measurebottom{a1.south west}{ac.south east}{\texttt{count}}
+\bracetobrace
+    {[yshift=-.5\masterunit] ac.south east}{[yshift=-.5\masterunit] a1.south west}
+    {b1.north west}{b1.north east}
+
+\measurebottom{as+1.south west}{as+c.south east}{\texttt{count}}
+\bracetobrace
+    {[yshift=-.5\masterunit] as+c.south east}{[yshift=-.5\masterunit] as+1.south west}
+    {b2.north west}{b2.north east}
+
+\measurebottom{ais+1.south west}{ais+c.south east}{\texttt{count}}
+\bracetobrace
+    {[yshift=-.5\masterunit] ais+c.south east}{[yshift=-.5\masterunit] ais+1.south west}
+    {bi.north west}{bi.north east}

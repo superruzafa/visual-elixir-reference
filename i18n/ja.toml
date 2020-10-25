@@ -1,0 +1,11 @@
+[home_description]
+other = "Elixir 関数の図解"
+
+[home_keywords]
+other = "elixir 関数, elixir をわかりやすく説明, elixir を学ぶ, 関数プログラミング, 視覚的 elixir, elixir 図解"
+
+[function_description]
+other = "Elixir {{ .Title }} 関数. Elixir　の {{ .Title }} 関数の図解"
+
+[function_keywords]
+other = "{{ .Title }} 関数, elixir {{ .Title }} 関数"

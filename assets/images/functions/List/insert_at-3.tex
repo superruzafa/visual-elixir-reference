@@ -1,0 +1,33 @@
+\matrix [fptk, list=a] {
+    \elem{0} &
+    \elem{1} &
+    \elems &
+    \elemx{i}{$a_{\texttt{\small{i}}}$}; &
+    \elems &
+    \elem{n-1} \\
+};
+
+\iterateto{a0.north}
+\iteratefromto{a0.north}{a1.north}
+\iteratefrom{a1.north}
+\iterateto{ai.north}
+
+\matrix [fptk, list=b, element=a, below=2 of a] {
+    \elem{0} &
+    \elem{1} &
+    \elems &
+    \elemx{value}{\texttt{\small{value}}}; &
+    \elemx{i}{$a_{\texttt{\small{i}}}$}; &
+    \elems &
+    \elem{n-1} \\
+};
+
+\bracetobrace
+    {ai.south west}{a0.south west}
+    {b0.north west}{bvalue.north west}
+
+\bracetobrace
+    {an-1.south east}{ai.south west}
+    {bi.north west}{bn-1.north east}
+
+\draw [fptk, <- flow] (bvalue.north) -- +(0, 1);

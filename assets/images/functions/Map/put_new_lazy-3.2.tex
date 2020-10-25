@@ -1,0 +1,34 @@
+\matrix [fptk, map=a] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{an.north}
+
+\foreach \i/\d in {1/.5, 2/1, n/.5}{
+    \predtop[\d]{a\i.north}{$k_{\i}\ne\texttt{key}$}
+}
+
+\matrix (b) [fptk, map=b, below=3 of a1.south, matrix anchor=b1.north] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} &
+    \keyvaluex[n+1]{\texttt{key}}{$v_{\texttt{\small{key}}}$}; \\
+};
+
+\bracetobrace
+    {[yshift=-\masterunit] an.south east}
+    {[yshift=-\masterunit] a1.south west}
+    {b1.north west}
+    {bn.north east}
+
+\draw [fptk, <- flow] (bn+1.north) -- +(0, 1);
+
+\node (fun) [fptk, fun 0, right=.5 of bn+1];
+\draw [fptk, flow ->] (fun.south io) |- (bn+1=>v);

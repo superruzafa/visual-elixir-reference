@@ -1,0 +1,10 @@
+\matrix [fptk, list=a] {
+    \elemx{1}{$1$} &
+    \elemx{2}{$2$} &
+    \elemx{3}{$3$} &
+    \elemx{4}{$4$} \\
+};
+
+\bracex{a1.north west}{a4.north east}
+\draw [fptk, <- flow] (last brace center) -- +(0, 1)
+    node [above] {$1\_234$};

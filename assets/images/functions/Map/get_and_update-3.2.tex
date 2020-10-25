@@ -1,0 +1,48 @@
+\matrix [fptk, map=a] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{an.north}
+
+\foreach \i/\d in {
+    1/.5,
+    2/1,
+    n/.5
+}{
+    \predtop[\d]{a\i.north}{$k_\i\ne\texttt{key}$}
+}
+
+\matrix [fptk, tuplex={t}{1.25}, below=3 of a] {
+    \elemx{b}{$b$}; & \comma &
+    \placeholder[2]{5.5} \\
+};
+
+
+\matrix at (t2.base) [fptk, map=m, anchor=base] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} &
+    \keyvaluex[n+1]{\texttt{key}}{$v_{\texttt{\small{key}}}$} \\
+};
+
+\node at ($ (a.south)!.4!(t.north) $) (fun) [fptk, fun];
+\draw [fptk, <- subflow] (fun.north io) -- +(0, .25)
+    node [above] {\nil};
+\draw [fptk, subflow ->] (fun.south io) -- +(0, -.25)
+    node (fb) [below] {$\{b,\,v_{\texttt{\footnotesize{key}}}\}$};
+
+\coordinate (rule) at ($ (fb.south)!.5!(m.north) $);
+
+\draw [fptk, flow ->] (fb.215) -- (\currcoord |- rule) -| (tb);
+\draw [fptk, flow] (fb.310) -- (\currcoord |- m.north) coordinate (x);
+\draw [fptk, flow] [loosely dash dot] (x) -- (\currcoord |- mn.south) coordinate (x);
+\draw [fptk, flow ->] (x) -- (\currcoord |- mn+1=>v) -- +(0, -.5) -| (mn+1=>v);
+
+\draw [fptk, <- flow] (mn+1.north) -- +(0, 1);

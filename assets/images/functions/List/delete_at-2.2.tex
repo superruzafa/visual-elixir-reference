@@ -1,0 +1,31 @@
+\matrix [fptk, list=a] {
+    \elemx{-n}{$a_{-n}$}; &
+    \elems &
+    \elemx{-i-1}{$a_{-\small\texttt{i}-1}$}; &
+    \elemx{-i}{$a_{-\small\texttt{i}}$}; &
+    \elems &
+    \elemx{-2}{$a_{-2}$}; &
+    \elemx{-1}{$a_{-1}$}; \\
+};
+
+\iterateto[backward]{a-1.north}
+\iteratefromto[backward]{a-1.north}{a-2.north}
+\iteratefrom[backward]{a-2.north}
+\iterateto[backward]{a-i.north}
+
+\matrix [fptk, list=b, below=2 of a] {
+    \elemx{-n}{$a_{-n}$}; &
+    \elems &
+    \elemx{-i-1}{$a_{-\small\texttt{i}-1}$}; &
+    \elems &
+    \elemx{-2}{$a_{-2}$}; &
+    \elemx{-1}{$a_{-1}$}; \\
+};
+
+\bracetobrace
+    {a-i-1.south east}{a-n.south west}
+    {b-n.north west}{b-i-1.north east}
+
+\bracetobrace
+    {a-1.south east}{a-i.south east}
+    {b-i-1.north east}{b-1.north east}

@@ -1,0 +1,13 @@
+{{- $module_name := .Page.Parent.Title -}}
+{{- $function_name := .Page.Title -}}
+{{- range $.Site.Data.signatures -}}
+    {{- if eq $module_name .name -}}
+        {{- range .functions -}}
+            {{- if eq $function_name .name -}}
+<div class="signature">
+    {{- highlight .signature "elixir" "" -}}
+</div>
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

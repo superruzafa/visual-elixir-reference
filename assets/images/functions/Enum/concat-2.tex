@@ -1,0 +1,32 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix [fptk, list=b, base right=1 of a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{m} \\
+};
+
+\matrix [fptk, list=c, below=2 of $ (a.south)!.5!(b.south) $] {
+    \elemx{a1}{$a_1$}; &
+    \elemx{a2}{$a_2$}; &
+    \elems &
+    \elemx{an}{$a_n$}; &
+    \elemx{b1}{$b_1$}; &
+    \elemx{b2}{$b_2$}; &
+    \elems &
+    \elemx{bm}{$b_m$}; \\
+};
+
+\bracetobrace
+    {an.south east}{a1.south west}
+    {ca1.north west}{can.north east}
+
+\bracetobrace
+    {b.south east}{b.south west}
+    {cb1.north west}{cbm.north east}

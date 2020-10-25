@@ -1,0 +1,29 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elemx{3}{$a_2$} &
+    \elemx{4}{$a_3$} &
+    \elemx{5}{$a_4$} &
+    \elemx{6}{$a_4$} &
+    \elemx{7}{$a_4$} &
+    \elemx{8}{$a_2$} &
+    \elemsafter \\
+};
+
+\draw [fptk, group]
+    (a2.center) -- (a3.center)
+    (a5.center) -- (a7.center)
+;
+
+\matrix [fptk, list=b, below=2 of a] {
+    \elemx{1}{$a_1$} &
+    \elemx{2}{$a_2$} &
+    \elemx{4}{$a_3$} &
+    \elemx{5}{$a_4$} &
+    \elemx{8}{$a_2$} &
+    \elemsafter \\
+};
+
+\foreach \i in {1,2,4,5,8}{
+    \draw [fptk, flow ->=soft] (a\i.south) -- (b\i.north);
+}

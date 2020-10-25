@@ -1,0 +1,112 @@
+\makeatletter
+
+\def\fptk@collection@orientation@vertical{1}
+\def\fptk@collection@orientation@horizontal{0}
+\let\fptk@collection@orientation\fptk@collection@orientation@horizontal
+
+\pgfkeys{
+    /fptk/.cd,
+    element/.initial=a,
+    collection/.code={
+        \pgfkeys{
+            /tikz/.cd,
+            align=center,
+            column sep=-\collectionelementlinewidth,
+            draw=none,
+            inner sep=0pt,
+            nodes={
+                align=center,
+                anchor=base,
+                draw,
+                font=\large,
+                inner sep=0pt,
+                outer sep=0pt,
+                node distance=0pt,
+                font=\large,
+                % text=defaultpencolor,
+                line width=\collectionelementlinewidth,
+                minimum height=\masterunit,
+                minimum width=\masterunit,
+                text depth=1ex,
+                text height=2ex,
+                text width=\masterunit,
+            },
+            outer sep=-.5\collectionelementlinewidth,
+            row sep=-\collectionelementlinewidth,
+        },
+    },
+    collection/orientation/.initial=\fptk@collection@orientation@horizontal,
+    collection/orientation/.is choice,
+    collection/orientation/horizontal/.code={
+        \let\fptk@collection@orientation\fptk@collection@orientation@horizontal
+    },
+    collection/orientation/vertical/.code={
+        \let\fptk@collection@orientation\fptk@collection@orientation@vertical
+    },
+    elems size/.store in=\fptk@collection@elemssize,
+    elems before/.is choice,
+    elems between/.is choice,
+    elems after/.is choice,
+    empty collection/.style={
+        decorate,
+        decoration={
+            amplitude=0.025\masterunit,
+            angle=45,
+            border,
+            segment length=0.05\masterunit,
+        },
+        draw,
+        line width=2\defaultpenwidth,
+        minimum height=\masterunit,
+        minimum width=0.3\masterunit,
+        name=#1,
+        node contents={},
+        text depth=1ex,
+        text height=2ex,
+        tips=false,
+    }
+}
+
+\newcommand{\elemx}[2]{
+    \node (#1) {#2};
+}
+
+\newcommand{\elem}[2][]{
+    \def\param{#1}
+    \ifx\param\empty
+        \elemx{#2}{${\pgfkeysvalueof{/fptk/element}}_{#2}$};
+    \else
+        \elemx{#2}{${#1}_{#2}$};
+    \fi
+}
+
+\newcommand{\elemsbefore}[1][.75]{
+    \pgfkeys{/fptk/elems size=#1\masterunit}
+    \node [/fptk/elems before];
+}
+
+\newcommand{\elems}[1][1.5]{
+    \pgfkeys{/fptk/elems size=#1\masterunit}
+    \node [/fptk/elems between];
+}
+
+\newcommand{\elemsafter}[1][.75]{
+    \pgfkeys{/fptk/elems size=#1\masterunit}
+    \node [/fptk/elems after];
+}
+
+\newcommand{\placeholder}[2][last placeholder]{
+    \ifnum\fptk@collection@orientation=\fptk@collection@orientation@horizontal
+        \node (#1) [
+            inner sep=0pt,
+            text width=#2 * \masterunit,
+        ] {};
+    \else
+        \node (#1) [
+            inner sep=0pt,
+            minimum height=#2 * \masterunit,
+        ] {};
+    \fi
+}
+
+\makeatother

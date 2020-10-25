@@ -1,0 +1,60 @@
+\makeatletter
+
+\newlength{\masterunit}
+\setlength{\masterunit}{1.3cm}
+
+\newlength{\defaultpenwidth}
+\setlength{\defaultpenwidth}{.01\masterunit}
+
+\def\extractxy#1#2#3{
+    \path (#1);
+    \pgfgetlastxy{#2}{#3}
+}
+
+\pgfkeys{
+    /tikz/fptk/.style={/fptk/.cd},
+    /fptk/.search also={/tikz},
+    % tikz/fptk/.style={/fptk/.cd},
+    % /tikz/.search also={/fptk},
+    % fptk/.unknown/.code={%
+    %     \let\fptk@searchname=\pgfkeyscurrentname%
+    %     \pgfkeysalso{%
+    %         /tikz/\fptk@searchname={#1}
+    %     }
+    % },
+}
+
+
+\ifdebug
+\definecolor{defaultpencolor}{RGB}{255, 255, 255}
+\else
+\definecolor{defaultpencolor}{RGB}{74, 86, 89}
+\fi
+
+\newlength{\collectionelementlinewidth}
+\setlength{\collectionelementlinewidth}{4\defaultpenwidth}
+
+\newcommand\currcoord{\the\tikz@lastxsaved,\the\tikz@lastysaved}
+
+\newcommand\true{\texttt{true}}
+\newcommand\false{\texttt{false}}
+\newcommand\nil{\texttt{nil}}
+
+\tikzset{
+    every node/.style={
+        % anchor=base,
+        font=\large,
+        inner sep=.1\masterunit,
+        node distance=0pt,
+        outer sep=0pt,
+    },
+}
+
+\def\drawbg{
+    \begin{scope}[on background layer]
+        \fill [white] ($ (current bounding box.south west) + (-.5, -.5) $) rectangle ($ (current bounding box.north east) + (.5, .5) $);
+    \end{scope}
+}
+
+\makeatother
+

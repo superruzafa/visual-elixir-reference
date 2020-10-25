@@ -1,0 +1,39 @@
+{{ define "title" }}{{ .Title }} - {{ $.Site.Title }}{{ end }}
+{{ define "meta_description" }}{{ i18n "function_description" .Page }}{{ end }}
+{{ define "meta_keywords" }}{{ i18n "function_keywords" .Page }}{{ end }}
+
+{{ define "partials/safe" }}
+    {{ $scratch := newScratch }}
+    {{ $scratch.Set "url" .Permalink }}
+    {{ $alias := index .Aliases 0 }}
+    {{ if $alias }}
+        {{ $url := replace $alias "?" "%3F" }}
+        {{ $scratch.Set "url" (printf "%s%s" $.Site.BaseURL (strings.TrimLeft "/" $url)) }}
+    {{ end }}
+    {{ return $scratch.Get "url" }}
+{{ end }}
+
+{{ define "main" }}
+
+{{- if not hugo.IsProduction -}}
+{{ $module := .Title }}
+<div class="dev-tools">
+    <ul>
+        <li><a href="https://hexdocs.pm/elixir/{{ $module }}.html">Official doc</a></li>
+    </ul>
+</div>
+{{- end -}}
+
+<!-- <h1>{{ .Title }}</h1> -->
+{{ .Content }}
+
+<strong>Functions of the {{ .Title }} module:</strong>
+
+<ul class="function-list">
+{{ range .Pages }}
+    <li class="function-item{{ if .Draft }} draft{{ end }}"><a href="{{ partial "safe" . }}">{{ .Title }}</a></li>
+{{ end }}
+</ul>
+
+{{ partial "translations.html" . }}
+{{ end }}

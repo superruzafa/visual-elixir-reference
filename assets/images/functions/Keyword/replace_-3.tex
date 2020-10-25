@@ -1,0 +1,40 @@
+\matrix [fptk, list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{i} &
+    \elems &
+    \keyword{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{ai.north}
+
+\foreach \i/\r/\d in {
+    1/\ne/.5,
+    2/\ne/1,
+    i/=/.5
+}{
+    \predtop[\d]{a\i.north}{$k_\i\r\texttt{key}$}
+}
+
+\matrix [fptk, list=b, below=2 of a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keywordtwolinesx[i]{$k_i$}{\texttt{\small{value}}} &
+    \elems &
+    \keyword{n} \\
+};
+
+\bracetobrace
+    {ai.south west}{a1.south west}
+    {b1.north west}{bi.north west}
+
+\bracetobrace
+    {an.south east}{ai.south east}
+    {bi.north east}{bn.north east}
+
+\draw [fptk, <- flow] (bi.north) -- +(0, 1);

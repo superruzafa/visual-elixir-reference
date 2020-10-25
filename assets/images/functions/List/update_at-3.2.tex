@@ -1,0 +1,34 @@
+\matrix [fptk, list=a] {
+    \elem{-n} &
+    \elems &
+    \elemx{-i}{$a_{-\small\texttt{i}}$}; &
+    \elems &
+    \elem{-2} &
+    \elem{-1} \\
+};
+
+\iterateto[backward]{a-1.north}
+\iteratefromto[backward]{a-1.north}{a-2.north}
+\iteratefrom[backward]{a-2.north}
+\iterateto[backward]{a-i.north}
+
+\matrix [fptk, list=b, element=a, below=2 of a] {
+    \elem{-n} &
+    \elems &
+    \elemx{-i}{$b_{-\small\texttt{i}}$}; &
+    \elems &
+    \elem{-2} &
+    \elem{-1} \\
+};
+
+\bracetobrace
+    {a-i.south west}{a-n.south west}
+    {b-n.north west}{b-i.north west}
+
+\bracetobrace
+    {a-1.south east}{a-i.south east}
+    {b-i.north east}{b-1.north east}
+
+\node (fun-i) at ($ (a-i.south)!.5!(b-i.north) $) [fptk, fun];
+\draw [fptk, flow ->] (a-i.south) -- (fun-i.north io);
+\draw [fptk, flow ->] (fun-i.south io) -- (b-i.north);

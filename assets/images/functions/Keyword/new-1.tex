@@ -1,0 +1,18 @@
+\matrix [fptk, list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \keywordx[3]{k_1}{v^{\prime}_1} &
+    \elems &
+    \keywordx[4]{k_1}{v^{\prime\prime}_1} &
+    \keywordx[5]{k_2}{v^{\prime}_2} &
+    \keyword{n} \\
+};
+
+\matrix [fptk, keyword list=b, below=2 of a] {
+    \keywordx[1]{k_1}{v^{\prime\prime}_1} &
+    \keywordx[2]{k_2}{v^{\prime}_2} &
+    \elems &
+    \keyword{n} \\
+};
+
+\bigarrowdown{$ (a.south)!.5!(b.north) $}

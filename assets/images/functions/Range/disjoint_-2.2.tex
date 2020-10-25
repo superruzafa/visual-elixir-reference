@@ -1,0 +1,30 @@
+\draw
+    [line width=3\defaultpenwidth]
+    [
+        fptk,
+        range,
+        range segments={{2/9}/solid,{4/9}/solid,{7/9}/dashed,1/solid},
+        range start label=$first_1$,
+        range end label=$last_1$,
+    ]
+    (0, 0) -- (4.5, 0);
+
+\begin{scope}[shift={(3.5\masterunit, -1\masterunit)}]
+\draw [line width=3\defaultpenwidth]
+    [
+        fptk,
+        range,
+        range segments={{2/9}/solid,{4/9}/solid,{7/9}/dashed,1/solid},
+        range start label=$first_2$,
+        range end label=$last_2$,
+    ]
+    (0, 0) -- (4.5, 0);
+\end{scope}
+
+\draw [dashed]
+    (3.5, .25) -- +(0, -1.5)
+    (4.5, .25) -- +(0, -1.5)
+;
+
+\bigarrowdown{$ (4, -2) $}
+\node [below=.5 of last bigarrow.east] {\false};

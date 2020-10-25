@@ -1,0 +1,4 @@
+\node [fptk, empty collection=a];
+\node (acc) [base left=1 of a.base] {\texttt{acc}};
+\draw [fptk, flow ->] (acc.south) -- +(0, -1)
+    node [below] {\texttt{acc}};

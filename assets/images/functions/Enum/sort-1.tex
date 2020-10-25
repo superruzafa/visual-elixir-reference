@@ -1,0 +1,24 @@
+\matrix [fptk, list=a] {
+    \elem{2} &
+    \elems &
+    \elem{n} &
+    \elems &
+    \elem{1} &
+    \elems &
+    \elem{i} \\
+};
+
+\matrix [fptk, list=b, element=a, below=2 of a] {
+    \elem{k1} &
+    \elem{k2} &
+    \elems &
+    \elem{ki} &
+    \elems &
+    \elem{kn} \\
+};
+
+\bracetobrace
+    {a.south east}{a.south west}
+    {b.north west}{b.north east}
+
+\node [right=1em of bkn] {$a_{kj} \leq a_{kl} \forall j < l$};

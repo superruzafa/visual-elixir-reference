@@ -1,0 +1,39 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elem{3} &
+    \elems &
+    \elem{i} &
+    \elem{i+1} &
+    \elems &
+    \elem{n} \\
+};
+
+\foreach \i/\j/\d in {
+    1/1/.5,
+    2/2/1.25,
+    3/1/.5,
+    i/m/2,
+    i+1/2/1.25,
+    n/m/2
+}{
+    \node (fun\i) at ($ (a\i.north) + (0, .5) $) [fptk, fun, anchor=south io];
+    \draw [fptk, subflow ->] (a\i.north) -- (fun\i.south io);
+    \draw [fptk, subflow ->, shorten >=1ex] (fun\i.north io) -- +(0, \d)
+        node [anchor=base] (v\i) {$k_{\j}$};
+}
+
+\draw [fptk, group] (v1.center) -- (v3.center);
+\draw [fptk, group] (v2.center) -- (vi+1.center);
+\draw [fptk, group] (vi.center) -- (vn.center);
+
+\matrix [fptk, list=b, below=2 of a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} \\
+};
+
+\foreach \i in {1, 2, i}{
+    \draw [fptk, flow ->=soft] (a\i.south) -- (b\i.north);
+}

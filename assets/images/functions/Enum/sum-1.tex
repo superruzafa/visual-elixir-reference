@@ -1,0 +1,13 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\bracex{an.south east}{a1.south west}
+
+\draw [fptk, flow ->] (last brace center) -- +(0, -1)
+    node [below]
+    {$a_1 + a_2 + \dots + a_n = \displaystyle\sum_{i=1}^n a_i$};
+ 

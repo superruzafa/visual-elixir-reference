@@ -1,0 +1,7 @@
+\node [fptk, empty collection=a];
+\draw node (fun) [fptk, fun 0={\texttt{empty}\\\texttt{fallback}}, right=1 of a];
+
+\bigarrowright{$ (a.east)!.5!(fun.west) $}
+
+\node (b) [fptk, exception=Enum.EmptyError, below right=1 and 1 of fun, anchor=north];
+\draw [fptk, throw ->, out=0, in=90] (fun.east) to (b.north);

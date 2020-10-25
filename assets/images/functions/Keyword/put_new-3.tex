@@ -1,0 +1,34 @@
+\matrix [fptk, keyword list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{i} &
+    \elems &
+    \keyword{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{ai.north}
+
+\foreach \i/\r/\d in {
+    1/\ne/.5,
+    2/\ne/1,
+    i/=/.5
+}{
+    \predtop[\d]{a\i.north}{$k_\i\r\texttt{key}$}
+}
+
+\matrix [fptk, keyword list=b, below=2 of a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{i} &
+    \elems &
+    \keyword{n} \\
+};
+
+\bracetobrace
+    {a.south east}{a.south west}
+    {b.north west}{b.north east}

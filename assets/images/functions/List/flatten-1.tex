@@ -1,0 +1,48 @@
+\matrix [fptk, listx={a}{1.5}] {
+    \placeholder[1]{5.75} &
+    \elems &
+    \placeholder[2]{2.25} \\
+};
+
+\matrix at (a1) [fptk, listx={b}{1.25}, element=a] {
+    \placeholder[1]{2.25} &
+    \placeholder[2]{2.25} &
+    \elem{5} \\
+};
+
+\matrix at (b1) [fptk, list=c, element=a] {
+    \elem{1} &
+    \elem{2} \\
+};
+
+\matrix at (b2) [fptk, list=c, element=a] {
+    \elem{3} &
+    \elem{4} \\
+};
+
+\matrix at (a2) [fptk, listx={c}{1.25}, element=a] {
+    \elem{n-1} &
+    \elem{n} \\
+};
+
+\matrix (a) [fptk, list=d, element=a] [below=2 of a] {
+    \elem{1} &
+    \elem{2} &
+    \elem{3} &
+    \elem{4} &
+    \elem{5} &
+    \elems &
+    \elem{n-1} &
+    \elem{n} \\
+};
+
+\bracetobrace
+    {[yshift=-.25\masterunit] c2.south east}{[yshift=-.25\masterunit] c1.south west}
+    {d1.north west}{d2.north east}
+\bracetobrace
+    {[yshift=-.25\masterunit] c4.south east}{[yshift=-.25\masterunit] c3.south west}
+    {d3.north west}{d4.north east}
+\draw [fptk, flow ->] (b5.south) -- (d5.north);
+\bracetobrace
+    {[yshift=-.15\masterunit] cn.south east}{[yshift=-.15\masterunit] cn-1.south west}
+    {dn-1.north west}{dn.north east}

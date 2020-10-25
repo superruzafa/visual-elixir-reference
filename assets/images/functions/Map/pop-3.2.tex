@@ -1,0 +1,39 @@
+\matrix [fptk, map=a] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{an.north}
+
+\foreach \i/\e/\d in {
+    1/.5,
+    2/1,
+    n/.5
+}{
+    \predtop[\d]{a\i.north}{$k_{\i}\ne\texttt{key}$}
+}
+
+\matrix (b) [fptk, tuplex={t}{1.25}, below=2 of a] {
+    \elemx{b}{\texttt{default}}; & \comma &
+    \placeholder[2]{4.5} \\
+};
+
+\draw [fptk, <- flow] (tb) -- +(0, 1);
+
+\matrix at (t2.base) [fptk, map=b, matrix anchor=base] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\bracetobrace
+    {[yshift=-\masterunit] an.south east}
+    {[yshift=-\masterunit] a1.south west}
+    {b1.north west}
+    {bn.north east}

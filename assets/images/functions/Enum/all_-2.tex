@@ -1,0 +1,18 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{an.north}
+
+\foreach \i/\r in {1, 2, n}{
+    \applyfuntop{a\i.north}{\true}
+}
+
+\node (b) [below right=1 and 1 of a, anchor=north] {\true};
+\draw [fptk, flow ->] (an.north) .. controls +(1, 1) and +(0, 2) .. (b);

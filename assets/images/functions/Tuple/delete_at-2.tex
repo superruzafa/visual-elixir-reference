@@ -1,0 +1,34 @@
+\matrix [fptk, tuple=a] {
+    \elem{0} & \comma &
+    \elem{1} & \comma &
+    \elems & \comma &
+    \elem{i-1} & \comma &
+    \elem{i} & \comma &
+    \elem{i+1} & \comma &
+    \elems & \comma &
+    \elem{n-1} \\
+};
+
+\iterateto{a0.north}
+\iteratefromto{a0.north}{a1.north}
+\iteratefrom{a1.north}
+\iterateto{ai-1.north}
+\iteratefromto{ai-1.north}{ai.north}
+
+\matrix (b) [fptk, tuple=b] [below=2 of a1.south, matrix anchor=b1.north] {
+    \elem{0} & \comma &
+    \elem{1}; & \comma &
+    \elems & \comma &
+    \elem{i-1} & \comma &
+    \elem{i+1} & \comma &
+    \elems & \comma &
+    \elem{n-1} \\
+};
+
+\bracetobrace
+    {ai-1.south east}{a0.south west}
+    {b0.north west}{bi-1.north east}
+
+\bracetobrace
+    {an-1.south east}{ai+1.south west}
+    {bi+1.north west}{bn-1.north east}

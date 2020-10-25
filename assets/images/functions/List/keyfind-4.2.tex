@@ -1,0 +1,17 @@
+\renewcommand\ldots{...}
+\newcommand\pos{\texttt{\small{p}}}
+
+\matrix (a) [fptk, list=a, list/elastic] {
+    \elemx{1}{$\{a_{11},\ldots,a_{1\pos},\ldots\}$} &
+    \elems &
+    \elemx{n}{$\{a_{n1},\ldots,a_{n\pos},\ldots\}$} \\
+};
+
+\iteratetofrom{a1.north}
+\iterateto{an.north}
+
+\predtop{a1.north}{$a_{1\pos}\ne\texttt{key}$}
+\predtop{an.north}{$a_{n\pos}\ne\texttt{key}$}
+
+\node (b) [below right=1 and 1 of a, anchor=north] {\texttt{default}};
+\draw [fptk, flow ->] (an.north) .. controls +(1, 1) and +(0, 2) .. (b);

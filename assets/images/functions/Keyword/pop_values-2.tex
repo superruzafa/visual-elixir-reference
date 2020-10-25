@@ -1,0 +1,55 @@
+\matrix [fptk, list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keywordtwolines{i-1} &
+    \keyword{i} &
+    \elems &
+    \keywordtwolines{n-1} &
+    \keyword{n} \\
+};
+
+\foreach \i/\e/\d in {
+    1/\ne/.5,
+    2/=/1,
+    i-1/=/1,
+    i/\ne/.5,
+    n-1/=/1,
+    n/\ne/.5
+}{
+    \predtop[\d]{a\i.north}{$k_{\i}\e\texttt{key}$}
+}
+
+\matrix [fptk, tuplex={t}{1.25}, below=2 of a] {
+    \placeholder[1]{5} & \comma &
+    \placeholder[2]{5} \\
+};
+
+\matrix at (t1) [fptk, list=v] {
+    \elem{2} &
+    \elems[.5] &
+    \elem{i-1} &
+    \elems[.5] &
+    \elem{n-1} \\
+};
+
+\matrix at (t2) [fptk, keyword list=b] {
+    \keyword{1} &
+    \elems[.5] &
+    \keyword{i} &
+    \elems[.5] &
+    \keyword{n} \\
+};
+
+\draw [fptk, flow] ([xshift=1em, yshift=-1ex] a2.base) -- (\currcoord |- a2.south) coordinate (x);
+\draw [fptk, flow ->=zigzag] (x) -- (v2.north);
+
+\draw [fptk, flow] ([yshift=-2.5ex] ai-1.base) -- (\currcoord |- ai-1.south) coordinate (x);
+\draw [fptk, flow ->=zigzag] (x) -- (vi-1.north);
+
+\draw [fptk, flow] ([yshift=-2.5ex] an-1.base) -- (\currcoord |- an-1.south) coordinate (x);
+\draw [fptk, flow ->=zigzag] (x) -- (vn-1.north);
+
+\foreach \i in {1,i,n}{
+    \draw [fptk, flow ->=zigzag] (a\i.south) -- (b\i.north);
+}

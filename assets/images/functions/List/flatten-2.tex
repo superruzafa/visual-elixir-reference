@@ -1,0 +1,44 @@
+\matrix [fptk, listx={a}{1.25}] {
+    \placeholder[1]{2.25} &
+    \elems &
+    \placeholder[2]{2.25} \\
+};
+
+\matrix [fptk, list=e, element=b, base right=1 of a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{m} \\
+};
+
+\matrix at (a1) [fptk, list=c, element=a] {
+    \elem{1} &
+    \elem{2} \\
+};
+
+\matrix at (a2) [fptk, list=c, element=a] {
+    \elem{n-1} &
+    \elem{n} \\
+};
+
+\matrix (a) [fptk, list=d, element=a, below=2 of $ (a.west)!.5!(e.east) $] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n-1} &
+    \elem{n} &
+    \elemx{n+1}{$b_1$} &
+    \elemx{n+2}{$b_2$} &
+    \elems &
+    \elemx{n+m}{$b_m$} \\
+};
+
+\bracetobrace
+    {[yshift=-.25\masterunit] c2.south east}{[yshift=-.25\masterunit] c1.south west}
+    {d1.north west}{d2.north east}
+\bracetobrace
+    {[yshift=-.25\masterunit] cn.south east}{[yshift=-.25\masterunit] cn-1.south west}
+    {dn-1.north west}{dn.north east}
+\bracetobrace
+    {em.south east}{e1.south west}
+    {dn+1.north west}{dn+m.north east}

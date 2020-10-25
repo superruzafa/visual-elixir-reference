@@ -1,0 +1,73 @@
+\tikzset{chunk fun/.style={
+    /fptk/fun 2,
+    /tikz/font=\footnotesize,
+    /tikz/node contents={\texttt{chunk}\\\texttt{fun}},
+}}
+
+\tikzset{after fun/.style={
+    /fptk/fun,
+    /tikz/font=\footnotesize,
+    /tikz/node contents={\texttt{after}\\\texttt{fun}},
+}}
+
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elemsafter \\
+};
+
+\foreach \i in {1, 2, i}{
+    \draw [fptk, flow ->] (a\i.south) -- +(0, -1)
+        node (cf\i) [chunk fun, anchor=north io 1];
+}
+
+\coordinate (rule) at ($ (a1.south)!.5!(cf1.north) $);
+\draw [fptk, <- flow] (cf1.north io 2) |- (\currcoord |- rule) -- +(-1, 0)
+    node [left] {\texttt{acc}};
+
+\path let
+    \p1=(cf1.east),
+    \p2=(cf2.west),
+    \n1={(\x2 - \x1) / 2}
+in
+    \pgfextra{
+        \xdef\offset{\n1}
+    }
+;
+
+\coordinate (x) at ([xshift=\offset] cf1.east);
+\matrix [fptk, tuple=t1, nodes={font=\small}, below=.5 of cf1.south io -| x, matrix anchor=t1acc.north] {
+    \elemx{cont}{\texttt{:cont}} & \comma &
+    \elemx{acc}{$acc_1$} \\
+};
+\draw [fptk, subflow ->] (cf1.south io) -- (\currcoord |- t1.north);
+\draw [fptk, subflow ->, flow shape |-|=rule] (t1acc.north) -- (cf2.north io 2);
+
+\coordinate (x) at ([xshift=\offset] cf2.east);
+\matrix [fptk, tuple=t2, nodes={font=\small}, below=1.5 of cf2.south io -| x, matrix anchor=t2acc.north] {
+    \elemx{cont}{\texttt{:cont}} & \comma &
+    \elemx{b}{$b_1$} & \comma &
+    \elemx{acc}{$acc_2$} \\
+};
+\draw [fptk, subflow ->] (cf2.south io) -- (\currcoord |- t2.north);
+\draw [fptk, subflow ->, flow shape |..|=rule] (t2acc.north) -- (cfi.north io 2);
+
+\matrix [fptk, tuple=ti, nodes={font=\small}, below=.5 of cfi.south io] {
+    \elemx{halt}{\texttt{:halt}} & \comma &
+    \elemx{acc}{$acc_n$} \\
+};
+\draw [fptk, subflow ->] (cfi.south io) -- (\currcoord |- ti.north);
+
+\draw [fptk, subflow ->] (tiacc.south) -- +(0, -.5)
+    node (after fun) [below, after fun];
+
+\matrix [fptk, list=b] [below=1 of t2b.south, matrix anchor=b1.north] {
+    \elem{1} &
+    \elems[2.1] &
+    \elem{m} \\
+};
+
+\draw [fptk, flow ->] (t2b.south) -- (\currcoord |- b1.north);
+\draw [fptk, flow ->] (after fun.south io) -- (\currcoord |- bm.north);

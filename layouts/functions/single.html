@@ -1,0 +1,29 @@
+{{ define "title" }}{{ printf "%s.%s" .Parent.Title .Title }} - {{ $.Site.Title }}{{ end }}
+{{ define "meta_description" }}{{ i18n "function_description" .Page }}{{ end }}
+{{ define "meta_keywords" }}{{ i18n "function_keywords" .Page }}{{ end }}
+
+{{ define "main" }}
+
+{{- if not hugo.IsProduction -}}
+{{ $module := .Page.Parent.Title }}
+{{ $function := .Title}}
+<div class="dev-tools">
+    <ul>
+        <li><a href="https://hexdocs.pm/elixir/{{ $module }}.html#{{ $function }}">Official doc</a></li>
+    </ul>
+</div>
+{{- end -}}
+
+<main class="function">
+    <nav class="breadcrumbs">
+        {{ with .Parent }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} / 
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </nav>
+    {{ .Content }}
+    <nav class="prev-next">
+        {{ with .NextInSection }}<a class="prev-next__prev" href="{{ .Permalink }}">← {{ .Title }}</a>{{ end }}
+        {{ with .PrevInSection }}<a class="prev-next__next"  href="{{ .Permalink }}">{{ .Title }} →</a>{{ end }}
+    </nav>
+</main>
+{{ partial "translations.html" . }}
+{{ end }}

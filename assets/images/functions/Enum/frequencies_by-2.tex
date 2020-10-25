@@ -1,0 +1,26 @@
+\matrix [fptk, map=b] {
+    \keyvaluex[1]{$a_1$}{$c_1$} &
+    \keyvaluex[2]{$a_2$}{$c_2$} &
+    \elems &
+    \keyvaluex[n]{$a_n$}{$c_n$} \\
+};
+
+\node (legend) [right=.5 of bn]
+    {$c_j=\displaystyle\sum_{i=1}^{n}1|\texttt{fun}(a_i)=k_j$};
+
+\coordinate (x) at ($ (b1.west)!.5!(legend.east) $);
+\matrix [fptk, list=a] [above=2 of x |- b.north] {
+    \elem{1} &
+    \elem{2} &
+    \elem{3} &
+    \elems &
+    \elem{i} &
+    \elems &
+    \elem{n} \\
+};
+
+\foreach \i/\j in {1/1,2/2,3/1,i/m,n/2}{
+    \applyfuntop{a\i.north}{$k_\j$}
+}
+
+\bigarrowdown{$ (b.north)!.5!(b.north |- a.south) $};

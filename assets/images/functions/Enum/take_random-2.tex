@@ -1,0 +1,21 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix [fptk, list=b, below=2 of a] {
+    \elemx{1}{$a_{k1}$}; &
+    \elems &
+    \elemx{m}{$a_{km}$}; \\
+};
+
+\bigarrowdown{$ (a.south)!.5!(b.north) $}
+
+\measurebottom{b.south west}{b.south east}{$\texttt{count}\le n$}
+
+\matrix [matrix of math nodes, column 1/.style={anchor=base west}, nodes={inner ysep=.125\masterunit}, row sep=.125\masterunit, left delimiter=\{, right=.5 of b] {
+    a_{ki} \in \texttt{enum} \\
+    a_{ki} \neq a_{kj} \forall i \neq j \\
+};

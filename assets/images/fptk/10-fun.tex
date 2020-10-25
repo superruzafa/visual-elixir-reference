@@ -1,0 +1,45 @@
+\makeatletter
+
+\pgfkeys{
+    fptk/.cd,
+    fun/.default=\texttt{fun},
+    fun/.code={
+        \pgfkeys{
+            /function/.cd,
+            io width=.2\masterunit,
+            io narrow width=.133\masterunit,
+            io height=.1\masterunit,
+            io sep=.1\masterunit,
+        }
+        \pgfkeys{
+            tikz/.cd,
+            align=center,
+            inner xsep=.1\masterunit,
+            inner ysep=.15\masterunit,
+            font=\normalsize,
+            line width=2\defaultpenwidth,
+            node contents={#1},
+            shape=function,
+        }
+    },
+    fun 0/.style={
+        /fptk/fun=#1,
+        /function/north io=0,
+    },
+    fun 2/.style={
+        /fptk/fun=#1,
+        /function/north io=2,
+    },
+    fun 2 east/.style={
+        /fptk/fun 2=#1,
+        /function/south io=0,
+        /function/east io=1,
+    },
+    fun 2 west/.style={
+        /fptk/fun 2=#1,
+        /function/south io=0,
+        /function/west io=1,
+    }
+}
+
+\makeatother

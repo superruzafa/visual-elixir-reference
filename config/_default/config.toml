@@ -1,0 +1,24 @@
+baseURL = "https://superruzafa.github.io/visual-elixir-reference/"
+languageCode = "en"
+title = "Visual Elixir Reference"
+disablePathToLower = true
+
+[languages]
+  [languages.en]
+    contentDir = "content/en"
+    languageName = "English"
+
+[permalinks]
+functions = "/:slug"
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "github"
+    tabWidth = 2

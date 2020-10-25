@@ -1,0 +1,35 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\renewcommand\applyfunbottom[2]{
+    \draw [fptk, subflow ->] (#1) -- +(0, -.5)
+        node (fun) [fptk, fun, below];
+    \draw [fptk, subflow ->, shorten >=1.75ex] (fun.south io) -- +(0, -.5\masterunit - 1.75ex)
+        node (last applied fun value) [anchor=base] {#2};
+}
+
+\foreach \i in {1, 2, n}{
+  \applyfunbottom{a\i.south}{$w_\i$}
+  \coordinate (w\i) at (last applied fun value);
+}
+
+\node (b) [below=4 of a] {\{$a_{min}$,\,$a_{max}$\}};
+
+\coordinate (rule) at ($ (w1.south)!.5!(b.north) $);
+
+\bigarrowdown{b |- rule}
+
+\matrix [
+  matrix of math nodes,
+  nodes={inner ysep=.125\masterunit},
+  row sep=.125\masterunit,
+  left delimiter=\{,
+  right=.5 of b
+] {
+  \texttt{fun}(a_{min}) \leq \texttt{fun}(a_k) \forall a_k \in \texttt{enumerable} \\
+  \texttt{fun}(a_{max}) \geq \texttt{fun}(a_k) \forall a_k \in \texttt{enumerable} \\
+};

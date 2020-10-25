@@ -1,0 +1,21 @@
+\matrix [fptk, map=a] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\matrix [fptk, keyword list=b, below=1 of a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{n} \\
+};
+
+\foreach \i\ in {1, 2, n}{
+    \draw [fptk, flow ->, shorten <=.2\masterunit]
+        (a\i.center) -- ++(-.33, -.33) -- (\currcoord |- b\i.north) -- +(0, -.25);
+
+    \draw [fptk, flow ->]
+        (a\i=>v) -- ++(.33, -.33) -- (\currcoord |- b\i.north) -- +(0, -.25);
+}

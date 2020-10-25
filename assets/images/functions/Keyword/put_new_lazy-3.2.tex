@@ -1,0 +1,34 @@
+\matrix [fptk, list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{an.north}
+
+\foreach \i/\d in {
+    1/.5,
+    2/1,
+    n/.5
+}{
+    \predtop[\d]{a\i.north}{$k_\i\ne\texttt{key}$}
+}
+
+\matrix [fptk, list=b, below=2 of a.south west, matrix anchor=north west] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{n} &
+    \keywordtwolinesx[n+1]{$\texttt{\small{key}}$}{$v_{\texttt{\small{key}}}$} \\
+};
+
+\node (fun) [fptk, fun 0, right=.5 of b.north east, anchor=north west];
+\draw [fptk, flow ->] (fun.south io) |- (bn+1.330) -- +(-.75em, 0);
+
+\bracetobrace
+    {a.south east}{a.south west}
+    {b.north west}{bn.north east}

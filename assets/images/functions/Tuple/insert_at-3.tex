@@ -1,0 +1,33 @@
+\matrix [fptk, tuple=a] {
+    \elem{0} & \comma &
+    \elem{1} & \comma &
+    \elems & \comma &
+    \elem{i} & \comma &
+    \elems & \comma &
+    \elem{n-1} \\
+};
+
+\iterateto{a0.north}
+\iteratefromto{a0.north}{a1.north}
+\iteratefrom{a1.north}
+\iterateto{ai.north}
+
+\matrix [fptk, tuple=b] [below=2 of a.south west, anchor=north west] {
+    \elem{0} & \comma &
+    \elem{1} & \comma &
+    \elems & \comma &
+    \elemx{value}{\texttt{value}} & \comma &
+    \elem{i} & \comma &
+    \elems & \comma &
+    \elem{n-1} \\
+};
+
+\bracetobrace
+    {ai.south west}{a0.south west}
+    {b0.north west}{bvalue.north west}
+
+\bracetobrace
+    {an-1.south east}{ai.south west}
+    {bi.north west}{bn-1.north east}
+
+\draw [fptk, <- flow] (bvalue.north) -- +(0, 1);

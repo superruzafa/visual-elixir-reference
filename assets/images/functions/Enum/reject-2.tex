@@ -1,0 +1,33 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elem{i+1} &
+    \elems &
+    \elem{n-1} &
+    \elem{n} \\
+};
+
+\matrix [fptk, list=b, below=2 of a] {
+    \elem{1} &
+    \elems &
+    \elem{i+1} &
+    \elems &
+    \elem{n} \\
+};
+
+\foreach \i/\r in {
+    1/\false,
+    2/\true,
+    i/\true,
+    i+1/\false,
+    n-1/\true,
+    n/\false
+}{
+    \applyfuntop{a\i.north}{\r}
+}
+
+\foreach \i in {1, i+1, n}{
+    \draw [fptk, flow ->=soft] (a\i.south) -- (b\i.north);
+}

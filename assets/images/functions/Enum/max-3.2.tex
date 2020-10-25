@@ -1,0 +1,7 @@
+\node [fptk, empty collection=a];
+\draw node (fun) [fptk, fun 0={\texttt{empty}\\\texttt{fallback}}, right=1 of a];
+
+\bigarrowright{$ (a.east)!.5!(fun.west) $}
+
+\draw [fptk, flow ->] (fun.south io) -- +(0, -.5)
+    node [below] {$b$};

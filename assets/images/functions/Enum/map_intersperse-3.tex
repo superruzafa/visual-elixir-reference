@@ -1,0 +1,28 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n-1} &
+    \elem{n} \\
+};
+
+\matrix [fptk, list=b, below=2 of a1.south, matrix anchor=b1.north] {
+    \elem{1} &
+    \elemx{elem1}{\texttt{elem}} &
+    \elem{2} &
+    \elemx{elem2}{\texttt{elem}} &
+    \elems &
+    \elemx{elemn-1}{\texttt{elem}} &
+    \elem{n-1} &
+    \elemx{elemn}{\texttt{elem}} &
+    \elem{n} \\
+};
+
+\coordinate (rule) at ([yshift=.5\masterunit] b1.north);
+
+\foreach \i in {1, 2, n-1, n}{
+    \node (fun\i) at (b\i |- rule) [fptk, fun, anchor=south io];
+    \draw [fptk, flow ->=zigzag, flow shape/zigzag/segment length=.25\masterunit] (a\i.south) -- (fun\i.north io);
+    \draw [fptk, flow ->] (fun\i.south) -- (b\i.north);
+    \draw [fptk, <- flow] (belem\i.north) -- +(0, .5);
+}

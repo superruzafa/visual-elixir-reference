@@ -1,0 +1,15 @@
+ \matrix [fptk, list=a] {
+    \elem{0} &
+    \elems &
+    \elem{i} &
+    \elems &
+    \elem{j} &
+    \elems &
+    \elem{n-1} \\
+};
+
+\rangeinversetop{ai.north west}{aj.north east}{{2/7}/solid,{5/7}/dashed,1/solid}{$i$}{$j$}
+
+\bracex {aj.south east}{ai.south west}
+\draw [fptk, flow ->] (last brace center) -- +(0, -1)
+    node [fptk, empty collection, below];

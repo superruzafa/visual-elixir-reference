@@ -1,0 +1,2 @@
+baseURL = "https://192.168.0.13:1313/visual-elixir-reference/"
+buildDrafts = true

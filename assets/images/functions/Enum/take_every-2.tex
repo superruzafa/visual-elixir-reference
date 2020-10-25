@@ -1,0 +1,35 @@
+\newcommand\nth{\texttt{\small{nth}}}
+
+\matrix [fptk, list=a] {
+    \elem{0} &
+    \elems[.75] &
+    \elemx{nth}{$a_{\nth}$}; &
+    \elems[.75] &
+    \elemx{2nth}{$a_{2\nth}$}; &
+    \elems &
+    \elemx{inth}{$a_{i\nth}$}; &
+    \elemsafter \\
+};
+
+\iterateto{a0.north}
+\iteratefromto{a0.north}{anth.north}
+\node at (last iteration) [label, above] {$+\texttt{nth}$};
+\iteratefromto{anth.north}{a2nth.north}
+\node at (last iteration) [label, above] {$+\texttt{nth}$};
+\iteratefrom{a2nth.north}
+\node at (last iteration) [label, above] {$+\texttt{nth}$};
+\iteratetofrom{ainth.north}
+\node at (last iteration) [label, above] {$+\texttt{nth}$};
+
+\matrix [fptk, list=b, below=2 of a0.south, matrix anchor=b0.north] {
+    \elem{0}; &
+    \elemx{nth}{$a_{\nth}$}; &
+    \elemx{2nth}{$a_{2\nth}$}; &
+    \elems &
+    \elemx{inth}{$a_{i\nth}$}; &
+    \elemsafter \\
+};
+
+\foreach \i in {0, nth, 2nth, inth}{
+    \draw [fptk, flow ->=zigzag] (a\i.south) -- (b\i.north);
+}

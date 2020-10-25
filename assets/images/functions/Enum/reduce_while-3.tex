@@ -1,0 +1,44 @@
+\newcommand{\cont}{\texttt{:cont}}
+\newcommand{\halt}{\texttt{:halt}}
+\def \txacc#1{t#1acc}
+
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elemsafter \\
+};
+
+\foreach \i in {1,2,i}{
+    \draw [fptk, flow ->] (a\i.south) -- +(0, -1)
+        node (fun\i) [fptk, fun 2, anchor=north io 1];
+}
+
+\coordinate (rule) at ($ (a1.south)!.5!(fun1.north io) $);
+
+\makeatletter
+\extractxy{fun1.east}{\fptk@temp@xa}{\fptk@temp@ya}
+\extractxy{fun2.west}{\fptk@temp@xb}{\fptk@temp@yb}
+\pgfmathparse{(\fptk@temp@xb - \fptk@temp@xa) / 2}
+\let\offset\pgfmathresult
+\makeatother
+
+\foreach \i/\j/\c in {
+    1/.5/\cont,
+    2/1.5/\cont,
+    i/.5/\halt
+}{
+    \coordinate (x) at ($ (fun\i.east) + (\offset pt, 0) $);
+    \matrix [fptk, subtuple=t\i, below=of {$ (fun\i.south io) + (0, -\j) $} -| x, ampersand replacement=\&, matrix anchor=\txacc\i.north] {
+        \elemx{acc}{\c} \& \comma \&
+        \elemx{acc}{$acc_{\i}$} \\
+    };
+    \draw [fptk, subflow ->] (fun\i.south io) -- (\currcoord |- t\i.north);
+}
+
+\draw [fptk, subflow ->, flow shape |-|=rule] (t1acc.north) -- (fun2.north io 2);
+\draw [fptk, subflow ->, flow shape |..|=rule] (t2acc.north) -- (funi.north io 2);
+
+\draw [fptk, flow ->] (tiacc.south) -- + (0, -1)
+    node [below] {$acc_i$};

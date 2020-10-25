@@ -1,0 +1,29 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elem{3} &
+    \elems &
+    \elem{n-2} &
+    \elem{n-1} &
+    \elem{n} \\
+};
+
+\foreach \i/\v in {
+    1/$\{k_1{,}v_1\}$,
+    2/$\{k_2{,}v_2\}$,
+    3/$\{k_1{,}v^\prime_1\}$,
+    n-2/$\{k_1{,}v^{\prime\prime}_1\}$,
+    n-1/$\{k_2{,}v^\prime_2\}$,
+    n/$\{k_n{,}v_n\}$
+}{
+    \applyfunbottom{a\i.south}{\normalsize{\v}};
+}
+
+\matrix [fptk, keyword list=b, below=3.5 of a] {
+    \keywordx[1]{k_1}{v^{\prime\prime}_1} &
+    \keywordx[1]{k_2}{v^{\prime}_2} &
+    \elems &
+    \keyword{n} \\
+};
+
+\bigarrowdown{$ (a.south)!.75!(b.north) $}

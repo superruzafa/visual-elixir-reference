@@ -1,0 +1,17 @@
+\matrix [fptk, map=a] {
+    \keyvalue{1} &
+    \keyvalue{2} &
+    \elems &
+    \keyvalue{n} \\
+};
+
+\matrix [fptk, list=v, below=1 of a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\foreach \i in {1,2,n}{
+    \draw [fptk, flow ->] (a\i=>v.south) -- (v\i.north);
+}

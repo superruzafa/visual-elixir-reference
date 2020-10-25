@@ -1,0 +1,41 @@
+\matrix [fptk, keyword list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \keyword{3} &
+    \elems &
+    \keywordtwolines{n-1} &
+    \keyword{n} \\
+};
+
+\foreach \i/\e/\d in {
+    1/\in/.5,
+    2/\notin/1,
+    3/\in/.5,
+    n-1/\in/.5,
+    n/\notin/1
+}{
+    \predtop[\d]{a\i.north}{$k_{\i}\e\texttt{keys}$}
+}
+
+\matrix (b) [fptk, tuplex={t}{1.25}, below=2 of a] {
+    \placeholder[1]{5} & \comma &
+    \placeholder[2]{3} \\
+};
+
+\matrix at (t1) [fptk, keyword list=b] {
+    \keyword{1} &
+    \elems[.75] &
+    \keyword{3} &
+    \elems[.75] &
+    \keywordtwolines{n-1} \\
+};
+
+\matrix at (t2) [fptk, keyword list=b] {
+    \keyword{2} &
+    \elems[.75] &
+    \keyword{n} \\
+};
+
+\foreach \i in {1, 2, 3, n-1, n}{
+    \draw [fptk, flow ->=zigzag] (a\i.south) -- (b\i.north);
+}

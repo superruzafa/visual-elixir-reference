@@ -1,0 +1,23 @@
+\newcommand\cnt{\texttt{\small{c}}}
+
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elemx{c}{$a_\cnt$} &
+    \elemx{c+1}{$a_{\cnt+1}$} &
+    \elemsafter \\
+};
+
+\measuretop{a1.north west}{ac.north east}{\texttt{count}}
+
+\matrix [fptk, list=b, below=2 of a1.south, matrix anchor=b1.north] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elemx{c}{$a_\cnt$}; \\
+};
+
+\bracetobrace
+    {ac.south east}{a1.south west}
+    {b.north west}{b.north east}

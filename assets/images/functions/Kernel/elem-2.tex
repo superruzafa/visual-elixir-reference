@@ -1,0 +1,16 @@
+\matrix [fptk, tuple=a] {
+    \elem{0} & \comma &
+    \elem{1} & \comma &
+    \elems & \comma &
+    \elem{i} & \comma &
+    \elems & \comma &
+    \elem{n-1} \\
+};
+
+\iterateto{a0.north}
+\iteratefromto{a0.north}{a1.north}
+\iteratefrom{a1.north}
+\iterateto{ai.north}
+
+\draw [fptk, flow ->] (ai.south) -- +(0, -1)
+    node [below] {$a_i$};

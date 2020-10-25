@@ -1,0 +1,30 @@
+\matrix [fptk, list=a, nodes={font=\small}] {
+    \elemx{1}{$\{a_1,a^\prime_1\}$} &
+    \elemx{2}{$\{a_2,a^\prime_2\}$} &
+    \elems &
+    \elemx{n}{$\{a_n,a^\prime_n\}$} \\
+};
+
+\matrix [fptk, tuplex={t}{1.25}, below=2 of a]{
+    \placeholder[1]{4.5} & \comma &
+    \placeholder[2]{4.5} \\
+};
+
+\matrix at (t1) [fptk, list=b, element=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix at (t2) [fptk, list=c] {
+    \elemx{1}{$a^\prime_1$} &
+    \elemx{2}{$a^\prime_2$} &
+    \elems &
+    \elemx{n}{$a^\prime_n$} \\
+};
+
+\foreach \i in {1,2,n}{
+    \draw [fptk, flow ->=zigzag] ($ (a\i.base) + (-.75em, -.5ex) $) to (b\i.north);
+    \draw [fptk, flow ->=zigzag] ($ (a\i.base) + (.75em, -.5ex) $) to (c\i.north);
+}

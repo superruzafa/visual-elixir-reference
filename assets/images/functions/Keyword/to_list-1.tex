@@ -1,0 +1,17 @@
+\matrix [fptk, keyword list=a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{n} \\
+};
+
+\matrix [fptk, keyword list=b, below=2 of a] {
+    \keyword{1} &
+    \keyword{2} &
+    \elems &
+    \keyword{n} \\
+};
+
+\bracetobrace
+    {a.south east}{a.south west}
+    {b.north west}{b.north east}

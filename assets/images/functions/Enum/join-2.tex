@@ -1,0 +1,43 @@
+\tikzset{joined string/.style={
+    nodes={
+        minimum width=.5\masterunit,
+        anchor=base,
+    },
+    column sep=0,
+}}
+
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix (b) [joined string, below=1 of a] {
+    \node {$``$}; &
+    \elemx{b1}{$a_1$}; &
+    \elemx{c1}{,}; &
+    \elemx{b2}{$a_2$}; &
+    \elemx{c2}{,}; &
+    \node [minimum width=1\masterunit] {\ldots}; &
+    \elemx{c3}{,}; &
+    \elemx{bi}{$a_i$}; &
+    \elemx{c4}{,}; &
+    \node [minimum width=1\masterunit] {\ldots}; &
+    \elemx{c5}{,}; &
+    \elemx{bn} {$a_n$}; &
+    \node {''}; \\
+};
+
+\foreach \i in {1, 2, i, n}{
+    \draw [fptk, <- flow, shorten <=.1\masterunit] (b\i.north) -- (\currcoord |- a\i.south);
+}
+
+\node (joiner) [below=1 of b] {\texttt{joiner}};
+\draw [fptk, flow] (joiner) -- ($ (joiner.north)!.5!(b.south) $) coordinate (x);
+
+\foreach \i in {1, 2, 3, 4, 5}{
+    \draw [fptk, flow ->, shorten >=.1\masterunit] (x) -| (c\i);
+}

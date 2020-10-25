@@ -1,0 +1,50 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i-1} &
+    \elem{i} &
+    \elems &
+    \elem{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefrom{a2.north}
+\iterateto{ai-1.north}
+\iteratefromto{ai-1.north}{ai.north}
+
+\foreach \i/\r in {
+    1/\true,
+    2/\true,
+    i-1/\true,
+    i/\false
+}{
+    \applyfuntop{a\i.north}{\r}
+}
+
+\matrix [fptk, tuplex={t}{1.25}, below=2 of a] {
+    \placeholder[1]{4.5} & \comma &
+    \placeholder[2]{3.5} \\
+};
+
+\matrix at (t1) [fptk, list=b, element=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i-1} \\
+};
+
+\matrix at (t2) [fptk, list=b, element=a] {
+    \elem{i}; &
+    \elems &
+    \elem{n}; \\
+};
+
+\bracetobrace
+    {ai-1.south east}{a1.south west}
+    {b1.north west}{bi-1.north east}
+
+\bracetobrace
+    {an.south east}{ai.south west}
+    {bi.north west}{bn.north east}

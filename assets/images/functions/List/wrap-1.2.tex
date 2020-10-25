@@ -1,0 +1,17 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix [fptk, list=b, element=a, below=2 of a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\bracetobrace
+    {an.south east}{a1.south west}
+    {b1.north west}{bn.north east}

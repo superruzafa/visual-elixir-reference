@@ -1,0 +1,17 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{n} \\
+};
+
+\matrix [fptk, tuple=b, element=a] [below=2 of a] {
+    \elem{1} & \comma &
+    \elem{2} & \comma &
+    \elems & \comma &
+    \elem{n} \\
+};
+
+\foreach \i in {1,2,n}{
+    \draw [fptk, flow ->=soft] (a\i.south) -- (b\i.north);
+}

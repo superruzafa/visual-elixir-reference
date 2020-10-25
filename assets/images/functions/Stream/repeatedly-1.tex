@@ -1,0 +1,12 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elemsafter \\
+};
+
+\foreach \i in {1, 2, i}{
+    \draw [fptk, <- flow] (a\i.north) -- +(0, 1)
+        node [fptk, fun 0, above];
+}

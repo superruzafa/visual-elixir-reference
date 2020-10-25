@@ -1,0 +1,55 @@
+\matrix [fptk, list] {
+    \elemx{b1}{$b_1$} &
+    \elemx{b2}{$b_2$} &
+    \elemx{b3}{$b_3$} &
+    \elemx{c1}{$c_1$} &
+    \elemx{c2}{$c_2$} &
+    \elems &
+    \elemx{k1}{$k_1$} &
+    \elems[1] &
+    \elemx{km}{$k_m$} &
+    \elemsafter \\
+};
+
+\matrix [fptk, list=mb, above=1 of $ (b1.north)!.5!(b3.north) $, nodes={scale=.75}] {
+    \elem[b]{1}; &
+    \elem[b]{2}; &
+    \elem[b]{3}; \\
+};
+\bracetobrace
+    {mb3.south east}{mb1.south west}
+    {b1.north west}{b3.north east}
+
+\matrix [fptk, list=mc, above=1 of $ (c1.north)!.5!(c2.north) $, nodes={scale=.75}] {
+    \elem[c]{1}; &
+    \elem[c]{2}; \\
+};
+\bracetobrace
+    {mc2.south east}{mc1.south west}
+    {c1.north west}{c2.north east}
+
+\matrix [fptk, list=mk, above=1 of $ (k1.north)!.5!(km.north) $, nodes={scale=.75}] {
+    \elem[k]{1}; &
+    \elems[1] &
+    \elem[k]{m}; \\
+};
+\bracetobrace
+    {mkm.south east}{mk1.south west}
+    {k1.north west}{km.north east}
+
+\matrix [fptk, list=a, above=2 of $ (mb1.north west)!.5!(mkm.north east) $] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elem{i} &
+    \elemsafter \\
+};
+
+\coordinate (rule) at ($ (a.south)!.5!(mb.north) $);
+
+\foreach \i/\j in {b/1, c/2, k/i}{
+    \node (fun\i) at ({$ (m\i.north west)!.5!(m\i.north east) $} |- rule) [fptk, fun];
+    \bracex{m\i.north west}{m\i.north east}
+    \draw [fptk, flow ->=zigzag, flow shape/zigzag/segment length=.25\masterunit] (a\j.south) -- (fun\i.north io);
+    \draw [fptk, subflow ->] (fun\i.south io) to (last brace center);
+}

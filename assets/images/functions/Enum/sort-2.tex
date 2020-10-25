@@ -1,0 +1,46 @@
+\pgfkeys{
+    /fptk/lefun/.style={
+        fun 2,
+        /function/north io sep=.2\masterunit,
+    }
+}
+
+\matrix [fptk, list=a] {
+    \elem{2} &
+    \elems &
+    \elem{n} &
+    \elems &
+    \elem{1} &
+    \elems &
+    \elem{i} \\
+};
+
+\matrix [fptk, list=b, element=a, below=4 of a] {
+    \elem{1}; &
+    \elem{2}; &
+    \elems &
+    \elem{i}; &
+    \elems &
+    \elem{n}; \\
+};
+
+\matrix [below=2 of a, matrix anchor=center, column sep=1em, anchor=base]{
+    \node (fun1) [fptk, lefun]; &
+    \node (fun2) [fptk, lefun]; &
+    \node (fun3) [fptk, lefun]; &
+    \node (fun4) [fptk, lefun]; &
+    \node [minimum height=.6\masterunit] {$\ldots$}; &
+    \node (fun5) [fptk, lefun]; \\
+};
+
+\foreach \a/\b/\r [count=\i] in {
+    2/n/\true,
+    n/1/\false,
+    1/i/\true,
+    2/1/\false,
+    n/i/\false
+}{
+    \draw [fptk, <- subflow] [shorten >=1ex] (fun\i.north io 1) -- +(0, .5) node [anchor=base, font=\normalsize] {$a_\a$};
+    \draw [fptk, <- subflow] [shorten >=1ex] (fun\i.north io 2) -- +(0, .5) node [anchor=base, font=\normalsize] {$a_\b$};
+    \draw [fptk, subflow ->] [shorten >=2ex] (fun\i.south io 1) -- ++(0, -.5) -- +(0, -2ex) node [below, anchor=base, font=\normalsize] {\r};
+}

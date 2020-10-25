@@ -1,0 +1,5 @@
+\node [fptk, empty collection=a];
+\draw [fptk/measure, fptk/measure/label={$n=0$}, fptk/measure/position=below right] (a.south west) -- (a.south east);
+
+\draw [fptk, flow ->] (last measure label) -- +(0, -1)
+    node [below] {\true};

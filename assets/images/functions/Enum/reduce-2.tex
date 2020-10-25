@@ -1,0 +1,46 @@
+\pgfkeys{
+    /fptk/fun2/.style={/fptk/fun 2 east},
+    /fptk/fun3/.style={/fptk/fun 2 east},
+    /fptk/funi/.style={/fptk/fun 2 east},
+    /fptk/funn/.style={/fptk/fun 2}
+}
+
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elem{3} &
+    \elems &
+    \elem{i} &
+    \elems &
+    \elem{n} \\
+};
+
+\foreach \i in {2, 3, i, n}{
+    \draw [fptk, flow ->] (a\i.south) -- +(0, -1)
+        node (fun\i) [fptk, fun\i, anchor=north io 1];
+}
+
+\coordinate (rule) at ($ (fun2.north io 1)!.5!(a2.south) $);
+\path let
+    \p1=(fun2.east),
+    \p2=(fun3.west),
+    \n1={(\x2 - \x1) / 2}
+in
+    \pgfextra{
+        \xdef\offset{\n1}
+    }
+;
+
+\draw [fptk, flow ->, flow shape |-|=rule] (a1.south) -- (fun2.north io 2);
+
+\coordinate (x) at ($ (fun2.east io) + (\offset, 0) $);
+\draw [fptk, subflow ->, flow shape -|-|={x}{rule}] (fun2.east io) -- (fun3.north io 2);
+
+\coordinate (x) at ($ (fun3.east io) + (.1, 0) $);
+\draw [fptk, subflow ->, flow shape -|..|={x}{rule}] (fun3.east io) -- (funi.north io 2);
+
+\coordinate (x) at ($ (funi.east io) + (.1, 0) $);
+\draw [fptk, subflow ->, flow shape -|..|={x}{rule}] (funi.east io) -- (funn.north io 2);
+
+\draw [fptk, flow ->] (funn.south io) -- +(0, -1)
+    node [below] {$b$};

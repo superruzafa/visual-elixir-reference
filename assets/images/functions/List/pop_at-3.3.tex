@@ -1,0 +1,31 @@
+\newcommand\idx{\texttt{\small{i}}}
+
+\matrix [fptk, list=a] {
+    \elem{0} &
+    \elem{1} &
+    \elems &
+    \elem{i-j} \\
+};
+
+\iterateto{a0.north}
+\iteratefromto{a0.north}{a1.north}
+\iteratefrom{a1.north}
+\iterateto{ai-j.north}
+
+\matrix [fptk, tuplex={t}{1.25}, below=2 of a] {
+    \elemx{i}{\texttt{default}} & \comma &
+    \placeholder[2]{4.5} \\
+};
+
+\matrix at (t2) [fptk, list=b, element=a] {
+    \elem{0} &
+    \elem{1} &
+    \elems &
+    \elem{i-j} \\
+};
+
+\draw [fptk, <- flow] (ti.north) -- +(0, 1);
+
+\bracetobrace
+    {ai-j.south east}{a0.south west}
+    {b0.north west}{bi-j.north east}

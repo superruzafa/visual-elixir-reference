@@ -1,0 +1,4 @@
+\node [fptk, empty collection=a];
+
+\node (b) [fptk, exception=Enum.EmptyError, below right=1 and 1 of a, anchor=north];
+\draw [fptk, throw ->, out=0, in=90] (a.east) to (b.north);

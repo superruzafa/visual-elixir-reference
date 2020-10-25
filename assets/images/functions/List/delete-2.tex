@@ -1,0 +1,30 @@
+\matrix [fptk, list=a] {
+    \elem{1} &
+    \elem{2} &
+    \elemx{3}{\texttt{elem}}; &
+    \elems &
+    \elemx{i}{\texttt{elem}}; &
+    \elems &
+    \elem{n} \\
+};
+
+\iterateto{a1.north}
+\iteratefromto{a1.north}{a2.north}
+\iteratefromto{a2.north}{a3.north}
+
+\matrix [fptk, list=b, element=a, below=2 of a] {
+    \elem{1} &
+    \elem{2} &
+    \elems &
+    \elemx{i}{\texttt{elem}}; &
+    \elems &
+    \elem{n} \\
+};
+
+\bracetobrace
+    {a2.south east}{a1.south west}
+    {b1.north west}{b2.north east}
+
+\bracetobrace
+    {an.south east}{a3.south east}
+    {b2.north east}{bn.north east}
