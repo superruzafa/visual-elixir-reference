@@ -1,6 +1,6 @@
 ---
 title: to_charlist/1
-url: es/Atom/to_charlist/1
+url: Atom/to_charlist/1
 ---
 
 # Atom.to_charlist/1
