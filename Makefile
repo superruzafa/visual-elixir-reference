@@ -19,6 +19,7 @@ resources/_gen/images/functions/%.pdf: resources/_gen/images/functions/%.tex
 
 
 $(FPTK_TARGET): $(FPTK_FILES)
+	mkdir -p $(dir $@)
 	cat $^ > $@
 
 resources/_gen/images/functions/%.tex: assets/images/functions/%.tex $(FPTK_TARGET) # $(SHARED_TEX_FILES)
