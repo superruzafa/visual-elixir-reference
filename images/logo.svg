@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="logo.svg"
+   id="svg881"
+   version="1.1"
+   height="20.320034"
+   width="263.65106">
+  <metadata
+     id="metadata887">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs885" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg881"
+     inkscape:window-maximized="1"
+     inkscape:window-y="23"
+     inkscape:window-x="0"
+     inkscape:cy="9.3273411"
+     inkscape:cx="139.1336"
+     inkscape:zoom="2.5129002"
+     showgrid="false"
+     id="namedview883"
+     inkscape:window-height="1005"
+     inkscape:window-width="1680"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#000000" />
+  <text
+     transform="scale(0.98523964,1.0149815)"
+     id="text891"
+     y="19.704824"
+     x="-0.34155029"
+     style="font-style:normal;font-weight:normal;font-size:26.2731px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.98524"
+     xml:space="preserve"><tspan
+       rotate="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.2731px;font-family:DaytonaW01-Regular;-inkscape-font-specification:DaytonaW01-Regular;fill:#ffffff;fill-opacity:1;stroke-width:0.98524"
+       y="19.704824"
+       x="-0.34155029"
+       id="tspan889"
+       sodipodi:role="line">visual elixir reference</tspan></text>
+</svg>
