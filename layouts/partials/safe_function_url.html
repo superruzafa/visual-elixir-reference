@@ -1,0 +1,8 @@
+{{ $scratch := newScratch }}
+{{ $scratch.Set "url" .Permalink }}
+{{ $alias := index .Aliases 0 }}
+{{ if $alias }}
+    {{ $url := replace $alias "?" "%3F" }}
+    {{ $scratch.Set "url" (printf "%s%s" $.Site.BaseURL (strings.TrimLeft "/" $url)) }}
+{{ end }}
+{{ return $scratch.Get "url" }}
