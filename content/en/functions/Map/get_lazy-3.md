@@ -3,7 +3,7 @@ title: get_lazy/3
 url: Map/get_lazy/3
 ---
 
-# `Map.get_lazy/3`
+# Map.get_lazy/3
 
 {{< signature >}}
 
