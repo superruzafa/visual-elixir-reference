@@ -1,7 +1,7 @@
 ---
 title: has_key?/2
-url: Keyword/has_key_/2
-aliases: ['/Keyword/has_key?/2']
+url: /Keyword/has_key_/2
+aliases: ['/Keyword/has_key?/2/']
 ---
 
 # Keyword.has_key?/2
