@@ -15,8 +15,8 @@ By default, the comparison is done with the `>=` sorter function. If multiple el
 
 If the enumerable is empty, the provided `empty_fallback` is called.
 
-{{< figure src="images/functions/Enum/max_by-3.2.svg" >}}
+{{< figure src="images/functions/Enum/max_by-4.2.svg" >}}
 
 The default `empty_fallback` raises `Enum.EmptyError`.
 
-{{< figure src="images/functions/Enum/max_by-3.3.svg" >}}
+{{< figure src="images/functions/Enum/max_by-4.3.svg" >}}
