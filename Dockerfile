@@ -7,6 +7,7 @@ RUN tlmgr install standalone
 RUN tlmgr install pgf
 RUN tlmgr install grfext
 RUN tlmgr install upquote
+RUN tlmgr install everyshi
 
 COPY entrypoint.sh /entrypoint.sh
 
