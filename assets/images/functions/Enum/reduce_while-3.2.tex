@@ -15,6 +15,8 @@
 }
 
 \coordinate (rule) at ($ (a1.south)!.5!(fun1.north io) $);
+\draw [fptk, <- flow] (fun1.north io 2) |- (\currcoord |- rule) -- +(-1, 0)
+    node [left] {\texttt{acc}};
 
 \makeatletter
 \extractxy{fun1.east}{\fptk@temp@xa}{\fptk@temp@ya}
