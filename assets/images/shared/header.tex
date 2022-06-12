@@ -1,8 +1,37 @@
+%
+
 \begin{document}
-    \begin{tikzpicture}[
-        x=\masterunit,
-        y=\masterunit,
-        draw=defaultpencolor,
-        line width=\defaultpenwidth,
-        text=defaultpencolor,
-    ]
+\begin{tikzpicture}[use funprog]
+
+\tikzset{
+	x=1.3cm,
+	y=1.3cm,
+	node distance=0pt,
+	every function/.style={
+		line width=0.4mm,
+		font=\large,
+	},
+	every list/.style={
+		nodes={
+			anchor=center,
+			draw,
+			font=\Large,
+			inner sep=0pt,
+			minimum size=1.3cm,
+			outer sep=auto,
+		},
+		line width=0.8mm,
+		column sep=-\pgflinewidth,
+		row sep=-\pgflinewidth,
+		outer sep=-.5\pgflinewidth,,
+		inner sep=0,
+	},
+	every list elements between/.style={
+		minimum width=1.7cm,
+	},
+	->/.style={
+		line width=0.4mm,
+		-{Triangle[angle=45:2.4mm .25]}
+	}
+}
+

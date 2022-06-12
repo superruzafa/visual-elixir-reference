@@ -1,4 +1,8 @@
+%
 
-    \drawbg
-    \end{tikzpicture}
+\begin{scope}[on background layer]
+    \fill[white] ($ (current bounding box.north east) + (1cm, 1cm) $) rectangle ($ (current bounding box.south west) + (-1cm, -1cm) $);
+\end{scope}
+
+\end{tikzpicture}
 \end{document}
