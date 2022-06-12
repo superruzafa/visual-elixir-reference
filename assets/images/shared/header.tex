@@ -31,7 +31,33 @@
 	},
 	->/.style={
 		line width=0.4mm,
-		-{Triangle[angle=45:2.4mm .25]}
+		-{Triangle[angle=45:2.4mm .25]},
+	},
+	2>/.style={
+		-{Triangle[angle=45:1.6mm .25]},
+		line width=0.2mm,
+	},
+	s>/.style={
+		->,
+		out=270,
+		in=90,
+	},
+}
+
+\tikzset{
+	apply fun/.style={
+		decoration={
+			show path construction,
+			lineto code={
+				\node (last function) [function] at ($ (\tikzinputsegmentfirst)!.5!(\tikzinputsegmentlast) $) {#1};
+				\draw [2>] (\tikzinputsegmentfirst) -- (last function.south port 1);
+				\draw [2>] (last function.north port 1) -- (\tikzinputsegmentlast);
+			}
+		},
+		decorate
 	}
 }
 
+\def\true{\texttt{true}}
+\def\false{\texttt{false}}
+\def\nil{\texttt{nil}}

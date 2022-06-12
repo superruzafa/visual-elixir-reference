@@ -27,7 +27,7 @@ resources/_gen/%.tex: assets/%.fp.tex $(SHARED_TEX_FILES) tikzlibraryfunprog.cod
 .PHONY: watch
 watch:
 	while true; do \
-		inotifywait -q -r -e modify -e create -e delete -e move --exclude '^_.*\.fp.tex' assets/images/functions | while read path action file; do \
+		inotifywait -q -r -e modify -e create -e delete -e move assets/images/functions | while read path action file; do \
 			echo $$path$$file | sed s/assets/static/ | sed s/\.fp.tex/\.svg/ | xargs make; \
 		done; \
 	done
