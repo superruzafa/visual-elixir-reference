@@ -29,6 +29,15 @@
 	every list elements between/.style={
 		minimum width=1.7cm,
 	},
+	every list elements after/.style={
+		minimum width=.7cm,
+	},
+	every measure label/.style={
+		font=\large
+	},
+}
+
+\tikzset{
 	->/.style={
 		line width=0.4mm,
 		-{Triangle[angle=45:2.4mm .25]},
@@ -56,6 +65,14 @@
 		},
 		decorate
 	}
+}
+
+\newcommand\braceflow[4]{
+	\draw [line width=0.4mm, decorate, decoration={brace, amplitude=2.5mm, raise=2.5mm}] (#1) -- (#2);
+	\draw [line width=0.4mm, decorate, decoration={brace, amplitude=2.5mm, raise=2.5mm}] (#3) -- (#4);
+	\coordinate (last first brace) at ($ ($ (#1)!.5!(#2) $) + (0, -5mm) $);
+	\coordinate (last second brace) at ($ ($ (#3)!.5!(#4) $) + (0, 5mm) $);
+	\draw [->] (last first brace) -- (last second brace);
 }
 
 \def\true{\texttt{true}}

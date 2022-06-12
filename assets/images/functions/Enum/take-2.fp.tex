@@ -1,0 +1,19 @@
+\matrix [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=i]; &
+	\node [index={i+1}]; &
+	\node [elements after]; \\
+};
+
+\matrix [list=b, element=a, below=2 of list a.south west, matrix anchor=north west] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=i]; \\
+};
+
+\draw [measure={$\texttt{count}$}] (a1.north west) -- (ai.north east);
+
+\braceflow{ai.south east}{a1.south west}{b1.north west}{bi.north east}

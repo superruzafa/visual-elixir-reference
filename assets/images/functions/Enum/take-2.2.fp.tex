@@ -1,0 +1,21 @@
+\newcommand\cnt{\texttt{\small{c}}}
+
+\matrix [list=a] {
+	\node [elements before]; &
+	\node [index=-i-1]; &
+	\node [index=-i]; &
+    \node [elements between]; &
+	\node [index=-2]; &
+	\node [index=-1]; \\
+};
+
+\matrix [list=b, element=a, below=2 of list a.south east, matrix anchor=north east] {
+	\node [index=-i]; &
+    \node [elements between]; &
+	\node [index=-2]; &
+	\node [index=-1]; \\
+};
+
+\draw [measure={$\texttt{|count|}$}] (a-i.north west) -- (a-1.north east);
+
+\braceflow{a-1.south east}{a-i.south west}{b-i.north west}{b-1.north east}

@@ -2,6 +2,8 @@
 
 \usetikzlibrary{decorations}
 
+\newcommand\funprog@currcoord{\the\tikz@lastxsaved,\the\tikz@lastysaved}
+
 \pgfkeys{
     /tikz/.cd,
     funprog/.is family,
@@ -26,9 +28,18 @@
             %
             every list/.style={},
 			every list elements between/.style={},
+			every list elements after/.style={},
             list/.prefix style={funprog,list=##1},
             index/.prefix style={funprog,\funprog@datastruct/index=##1},
+            elements before/.prefix style={funprog,\funprog@datastruct/elements before=##1},
             elements between/.prefix style={funprog,\funprog@datastruct/elements between=##1},
+            elements after/.prefix style={funprog,\funprog@datastruct/elements after=##1},
+			%
+			every measure/.style={},
+			every measure label/.style={},
+			measure/.prefix style={funprog,measure=##1},
+			measure distance/.prefix style={funprog,measure distance=##1},
+			measure overflow/.prefix style={funprog,measure overflow=##1},
         }
     }
 }
@@ -47,6 +58,40 @@
         name=\funprog@datastruct@id#1,
         node contents={$\funprog@datastruct@element_{#1}$},
     },
+	list/elements before/.style={
+		draw=none,
+		node contents={},
+		every list elements after,
+		append after command={
+			\pgfextra
+			\draw
+				let
+					\p1=(\tikzlastnode.north west),
+					\p2=(\tikzlastnode.north east),
+					\p3=(\tikzlastnode.south west),
+					\p4=(\tikzlastnode.south east),
+					\p5=($ (\p2)!.25!(\p1) $),
+					\p6=($ (\p4)!.25!(\p3) $),
+				in
+					(\p2) -- (\p5)
+					(\p4) -- (\p6)
+				;
+			\draw
+				[dashed]
+				let
+					\p1=(\tikzlastnode.north west),
+					\p2=(\tikzlastnode.north east),
+					\p3=(\tikzlastnode.south west),
+					\p4=(\tikzlastnode.south east),
+					\p5=($ (\p2)!.25!(\p1) $),
+					\p6=($ (\p4)!.25!(\p3) $),
+				in
+					(\p5) -- (\p1)
+					(\p6) -- (\p3)
+				;
+			\endpgfextra
+		},
+	},
 	list/elements between/.style={
 		draw=none,
 		node contents={},
@@ -87,6 +132,81 @@
 			\endpgfextra
 		},
 	},
+	list/elements after/.style={
+		draw=none,
+		node contents={},
+		every list elements after,
+		append after command={
+			\pgfextra
+			\draw
+				let
+					\p1=(\tikzlastnode.north west),
+					\p2=(\tikzlastnode.north east),
+					\p3=(\tikzlastnode.south west),
+					\p4=(\tikzlastnode.south east),
+					\p5=($ (\p1)!.25!(\p2) $),
+					\p6=($ (\p3)!.25!(\p4) $),
+				in
+					(\p1) -- (\p5)
+					(\p3) -- (\p6)
+				;
+			\draw
+				[dashed]
+				let
+					\p1=(\tikzlastnode.north west),
+					\p2=(\tikzlastnode.north east),
+					\p3=(\tikzlastnode.south west),
+					\p4=(\tikzlastnode.south east),
+					\p5=($ (\p1)!.25!(\p2) $),
+					\p6=($ (\p3)!.25!(\p4) $),
+				in
+					(\p5) -- (\p2)
+					(\p6) -- (\p4)
+				;
+			\endpgfextra
+		},
+	},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% measure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\funprog@measure@label\empty
+\let\funprog@measure@distance\empty
+\let\funprog@measure@overflow\empty
+
+\pgfkeys{
+    /tikz/funprog/.cd,
+	every measure/.style={},
+	every measure label/.style={},
+	measure label/.store in=\funprog@measure@label,
+	measure overflow/.store in=\funprog@measure@overflow,
+	measure overflow=2mm,
+	measure distance/.store in=\funprog@measure@distance,
+	measure distance=1cm,
+	measure ->/.style={
+		-{Latex}
+	},
+	measure/.style={
+		every measure,
+		measure label=#1,
+		decorate,
+		decoration={
+			show path construction,
+			lineto code={
+				\draw
+					[line width=0.1mm]
+					(\tikzinputsegmentfirst) -- ++(0, \funprog@measure@distance) -- ++(0, \funprog@measure@overflow)
+					(\tikzinputsegmentlast) -- ++(0, \funprog@measure@distance) -- ++(0, \funprog@measure@overflow)
+					;
+					\path (\tikzinputsegmentfirst) -- ++(0, \funprog@measure@distance) -- node [every measure label] (last label) {\funprog@measure@label} (\funprog@currcoord -| \tikzinputsegmentlast)
+				;
+				\draw [funprog/measure ->] (last label.west) -- (last label.west -| \tikzinputsegmentfirst);
+				\draw [funprog/measure ->] (last label.east) -- (last label.east -| \tikzinputsegmentlast);
+			}
+		},
+	}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
