@@ -1,0 +1,51 @@
+\tikzset{
+	fun/.style={function, anchor=north port 1, north ports=2, node contents={\texttt{fun}}},
+	fun1/.style={fun,},
+	fun2/.style={fun,},
+	funi/.style={fun,},
+	funn/.style={fun},
+}
+
+\matrix [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=i]; &
+    \node [elements between]; &
+	\node [index=n]; \\
+};
+
+\foreach \i in {1,2,i,n}{
+	\draw [->] (a\i.south) -- +(0, -1)
+		node (fun\i) [fun\i];
+}
+
+\coordinate (rule) at ($ (fun2.north port 1)!.5!(a2.south) $);
+\path let
+	\p1=(fun1.east),
+	\p2=(fun2.west),
+	\n1={(\x2 - \x1) / 2}
+in
+	\pgfextra{
+		\xdef\offset{\n1}
+	}
+;
+
+\draw [<-] (fun1.north port 2) -- (fun1.north port 2 |- rule) -- +(-1, 0)
+	node [value, left] {\texttt{acc}};
+
+\draw [->] (fun1.south port 1) -- ++(0, -.5) -| ($ (fun1)!.5!(fun2) $) |- (rule) -| (fun2.north port 2);
+
+\draw [-1] (fun2.south port 1) -- ++(0, -.5) -| (\currcoord -| fun2.east) coordinate (a);
+\draw [<-] (funi.north port 2) -- (\currcoord |- rule) -- (\currcoord -| funi.west) coordinate (b);
+\coordinate (c) at ($ (a)!.5!(b) $);
+\draw [-1, dashed] (a) -- (a -| c) |- (b);
+
+\draw [-1] (funi.south port 1) -- ++(0, -.5) -| (\currcoord -| funi.east) coordinate (a);
+\draw [<-] (funn.north port 2) -- (\currcoord |- rule) -- (\currcoord -| funn.west) coordinate (b);
+\coordinate (c) at ($ (a)!.5!(b) $);
+\draw [-1, dashed] (a) -- (a -| c) |- (b);
+
+\draw [->] (funn.south port 1) -- +(0, -1)
+	node [below, value] {$b$};
+

@@ -38,9 +38,17 @@
 }
 
 \tikzset{
-	->/.style={
+	value/.style={font=\Large},
+	-1/.style={
 		line width=0.4mm,
+	},
+	->/.style={
+		-1,
 		-{Triangle[angle=45:2.4mm .25]},
+	},
+	<-/.style={
+		-1,
+		{Triangle[angle=45:2.4mm .25]}-,
 	},
 	2>/.style={
 		-{Triangle[angle=45:1.6mm .25]},
@@ -67,6 +75,10 @@
 	}
 }
 
+\makeatletter
+\newcommand\currcoord{\the\tikz@lastxsaved,\the\tikz@lastysaved}
+\makeatother
+
 \newcommand\braceflow[4]{
 	\draw [line width=0.4mm, decorate, decoration={brace, amplitude=2.5mm, raise=2.5mm}] (#1) -- (#2);
 	\draw [line width=0.4mm, decorate, decoration={brace, amplitude=2.5mm, raise=2.5mm}] (#3) -- (#4);
@@ -78,3 +90,5 @@
 \def\true{\texttt{true}}
 \def\false{\texttt{false}}
 \def\nil{\texttt{nil}}
+
+
