@@ -8,6 +8,7 @@
     funprog/.search also={/tikz},
 }
 
+\let\funprog@datastruct@id\empty
 \let\funprog@datastruct@element\empty
 \let\funprog@datastruct@type\empty
 
@@ -16,8 +17,10 @@
         \pgfkeys{
             /tikz/.cd,
             %
+            datastruct id/.store in=\funprog@datastruct@id,
             datastruct element/.store in=\funprog@datastruct@element,
             datastruct type/.store in=\funprog@datastruct@type,
+            element/.forward to=/tikz/datastruct element,
             %
             every function/.style={},
             function/.prefix style={funprog,function=##1},
@@ -41,6 +44,7 @@
 \pgfkeys{
     /tikz/funprog/.cd,
     list/.style={
+        datastruct id=#1,
         datastruct element=#1,
         datastruct type=list,
         name=list #1,
@@ -57,7 +61,7 @@
         every list,
     },
     list/index/.style={
-        name={\funprog@datastruct@element#1},
+        name={\funprog@datastruct@id#1},
         node contents={$\funprog@datastruct@element_{#1}$},
     },
     list/elements between/.style={
