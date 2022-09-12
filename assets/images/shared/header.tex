@@ -7,8 +7,11 @@
 }
 
 \tikzset{
-    ->/.style={
+    --/.style={
         line width=0.4mm,
+    },
+    ->/.style={
+        --,
         -{Triangle[angle=37.5:2.5mm]}
     },
     every list/.style={
@@ -24,7 +27,46 @@
     every function/.style={
         line width=0.4mm,
         font=\large,
-    }
+    },
+    |-|-|>/.style n args={3}{
+	    decorate,
+	    decoration={
+		    show path construction,
+		    lineto code={
+			    \draw [->] let \p1 = (\tikzinputsegmentfirst),
+					   \p2 = (\tikzinputsegmentfirst |- #2),
+					   \p3 = (\p2 -| #3),
+					   \p4 = (\p3 |- #1),
+					   \p5 = (\tikzinputsegmentlast)
+			    in
+			    (\p1) -- (\p2) -- (\p3) -- (\p4) -| (\p5);
+		    }
+	    },
+    },
+    |..|..|>/.style n args={3}{
+	    decorate,
+	    decoration={
+		    show path construction,
+		    lineto code={
+			    \draw [->] let \p1 = (\tikzinputsegmentfirst),
+					   \p2 = (\tikzinputsegmentfirst |- #2),
+					   \p3 = (\p2 -| #3),
+					   \p4 = (\p3 |- #1),
+					   \p5 = (\tikzinputsegmentlast)
+			    in
+			    (\p1) -- (\p2) -- (\p3)  (\p4) -| (\p5);
+			    \draw [--, dashed] let \p1 = (\tikzinputsegmentfirst),
+					   \p2 = (\tikzinputsegmentfirst |- #2),
+					   \p3 = (\p2 -| #3),
+					   \p4 = (\p3 |- #1),
+			    in
+			    (\p3) -- (\p4);
+		    }
+	    },
+    },
+    value/.style={
+        font=\Large,
+    },
 }
 
 \def\true{$\texttt{true}$}

@@ -1,0 +1,36 @@
+\tikzset{
+	fun/.style={
+		function,
+		arity=2,
+		node contents={$\texttt{fun}$},
+	}
+}
+
+\matrix [list=a] {
+	\node [index=1]; &
+	\node [index=2]; &
+	\node [index=3]; &
+	\node [elements between]; &
+	\node [index=i]; &
+	\node [elements between]; &
+	\node [index=n]; \\
+};
+
+\foreach \i in {2,3,i,n}{
+	\draw [->] (a\i.south) -- +(0, -1)
+	node (fun\i) [fun, anchor=in 1];
+}
+
+\path
+	let \p1 = (a2.south), \p2 = (fun2.in 1), \p3 = (fun2.out), \n1 = {(\y1 - \y2) / 2} in
+	coordinate (top guide) at (\x1, \y2 + \n1)
+	coordinate (bottom guide) at (\x1, \y3 - \n1);
+
+\node (acc) at (a1 |- top guide) [value] {$\texttt{acc}$};
+\draw [->] (acc) -| (fun2.in 2);
+
+\draw [|-|-|>={top guide}{bottom guide}{{$ (fun2)!.5!(fun3) $}}] (fun2.out) -- (fun3.in 2);
+\draw [|..|..|>={top guide}{bottom guide}{{$ (fun3)!.5!(funi) $}}] (fun3.out) -- (funi.in 2);
+\draw [|..|..|>={top guide}{bottom guide}{{$ (funi)!.5!(funn) $}}] (funi.out) -- (funn.in 2);
+\draw [->] (funn.out) -- +(0, -1) node [value, below] {$b$};
+
