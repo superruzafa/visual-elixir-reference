@@ -1,0 +1,18 @@
+\matrix [list=a] {
+	\node [index=1]; &
+	\node [index=2]; &
+	\node [index=3]; &
+	\node [elements between]; &
+	\node [index=n]; \\
+};
+
+\draw [starting iteration] (a1.north) -- (a2.north) -- (a3.north);
+\draw [iteration={dashed}] (a3.north) -- (an.north);
+
+\foreach \i/\r in {1, 2, n}{
+	\applyfunabove{a\i.north}{$\texttt{fun}$}{\true}
+}
+
+\node (b) [value, below right=1 and 1 of list a, anchor=north] {\true};
+\draw [->] (an.north) .. controls +(1, 1) and +(0, 2) .. (b);
+
