@@ -6,17 +6,19 @@
         funprog/.search also={/tikz},
 }
 
-\let\funprog@element\empty
-\let\funprog@struct\empty
+\let\funprog@struct@id\empty
+\let\funprog@struct@element\empty
+\let\funprog@struct@type\empty
 
 \pgfkeys{
     /tikz/use funprog/.append code={
         \pgfkeys{
             /tikz/.cd,
-            struct/.store in=\funprog@struct,
-            element/.store in=\funprog@element,
-            index/.prefix style={funprog, \funprog@struct/index=##1},
-            elements between/.prefix style={funprog, \funprog@struct/elements between=##1},
+            struct/.store in=\funprog@struct@type,
+            struct id/.store in=\funprog@struct@id,
+            element/.store in=\funprog@struct@element,
+            index/.prefix style={funprog, \funprog@struct@type/index=##1},
+            elements between/.prefix style={funprog, \funprog@struct@type/elements between=##1},
             list/.prefix style={funprog, list=##1},
             every list/.style={},
             every list elements between/.style={},
@@ -30,6 +32,7 @@
     /tikz/funprog/.cd,
         list/.style={
             struct=list,
+            struct id=#1,
             element=#1,
             name=list #1,
             draw=none,
@@ -46,8 +49,8 @@
             every list,
         },
         list/index/.style={
-            name=\funprog@element#1,
-            node contents={$\funprog@element_{#1}$},
+            name=\funprog@struct@id#1,
+            node contents={$\funprog@struct@element_{#1}$},
             draw,
         },
         list/elements between/.style={

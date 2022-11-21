@@ -24,3 +24,14 @@
 	}
 }
 
+\def\true{\texttt{true}}
+\def\false{\texttt{false}}
+\def\nil{\texttt{nil}}
+
+\newcommand\predicateabove[4][2]{
+    \node (last label) at ($ (#2) + (0, #1) $) {#4};
+    \node at ($ (#2)!.5!($ (#2) + (0, #1) $) $) (last function) [funprog/function/in=south, funprog/function/out=north, function=fun] {#3};
+    \draw [->] (#2) -- (function fun.in);
+    \draw [->, shorten >=1mm] (function fun.out) -- (last label.base);
+}
+
