@@ -66,6 +66,34 @@
         },
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% iterations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+  every start iteration/.style={},
+  start iteration/.style={
+    decorate,
+    decoration={
+      show path construction,
+      moveto code={
+        \draw (\tikzinputsegmentfirst) [<-, radius=1cm, start angle=60, end angle=120, every start iteration, #1] arc;
+      }
+    }
+  },
+  start iteration/.default={},
+  every iteration/.style={},
+  iteration/.style={
+    decorate,
+    decoration={
+      show path construction,
+      lineto code={
+        \draw [->, bend left=30, every iteration, #1] (\tikzinputsegmentfirst) to (\tikzinputsegmentlast);
+      }
+    }
+  },
+  iteration/.default={},
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % function

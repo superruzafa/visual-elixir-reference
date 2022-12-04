@@ -1,0 +1,51 @@
+\matrix [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=n]; \\
+};
+
+\foreach \i in {1,2,n}{
+    \predicateabove{a\i.north}{\texttt{fun}}{\true}
+}
+
+\tikzset{
+  every start iteration/.style={
+    <-,
+    radius=1.3,
+    start angle=60,
+    end angle=120,
+  },
+  every iteration/.style={
+    ->,
+    bend left=30,
+  },
+  every start iteration/.style={},
+  start iteration/.style={
+    decorate,
+    decoration={
+      show path construction,
+      moveto code={
+        \draw (\tikzinputsegmentfirst) [<-, radius=1cm, start angle=60, end angle=120, every start iteration, #1] arc;
+      }
+    }
+  },
+  start iteration/.default={},
+  iteration/.style={
+    decorate,
+    decoration={
+      show path construction,
+      lineto code={
+        \draw [->, bend left=30, every iteration, #1] (\tikzinputsegmentfirst) to (\tikzinputsegmentlast);
+      }
+    }
+  },
+  iteration/.default={},
+}
+
+\draw [start iteration] (a1.north);
+\draw [iteration] (a1.north) to (a2.north);
+\draw [iteration={dashed}] (a2.north) to (an.north);
+
+\node (b) [value, below right=1 and 1 of list a, anchor=north] {\true};
+\draw [->] (an.north) .. controls +(1, 1) and +(0, 2) .. (b);

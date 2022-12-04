@@ -18,10 +18,30 @@
 		line width=0.4mm,
 		font=\large,
 	},
+  every start iteration/.style={
+    <-,
+    radius=1.3cm,
+    start angle=60,
+    end angle=120,
+  },
+  every iteration/.style={
+    ->,
+    bend left=30,
+  },
 	->/.style={
 		-Stealth,
 		line width=0.4mm,
-	}
+	},
+	<-/.style={
+		Stealth-,
+		line width=0.4mm,
+	},
+}
+
+\tikzset{
+  value/.style={
+    font=\Large,
+  },
 }
 
 \def\true{\texttt{true}}
