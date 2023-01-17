@@ -13,6 +13,7 @@
   every list/.style={},
   list/.forward to={funprog, list},
   index/.forward to={funprog, \funprog@datastructtype/index},
+  element/.forward to={funprog, data struct element=#1},
   every list between elements/.style={},
   elements between/.forward to={funprog, \funprog@datastructtype/elements between},
 }
@@ -72,261 +73,283 @@
 \let\funprog@function@out\funprog@function@south
 \def\funprog@function@arity{1}
 
+\tikzset{
+  every function/.style={},
+  function/.forward to={funprog, function=#1},
+  function arity/.forward to={funprog, function/arity=#1},
+  function in/.forward to={funprog, function/in=#1},
+  function out/.forward to={funprog, function/out=#1},
+}
+
+\pgfkeys{
+  funprog,
+  function/.style={
+    name=function #1,
+    draw,
+    shape=function,
+    every function,
+  },
+  %
+  function/.cd,
+  port width/.initial=2.5mm,
+  port height/.initial=1mm,
+  port funnel width/.initial=1.75mm,
+  port separation/.initial=2.5mm,
+  north ports/.initial=1,
+  south ports/.initial=1,
+  east ports/.initial=0,
+  west ports/.initial=0,
+}
+
 \def\funprog@function@update{
   \pgfkeys{
-    /tikz/funprog/function/.cd,
-      north ports=0,
-      south ports=0,
-      east ports=0,
-      west ports=0,
+    funprog,
+    function/.cd,
+    north ports=0,
+    south ports=0,
+    east ports=0,
+    west ports=0,
   }
   %
   \ifnum\funprog@function@in=\funprog@function@north
-  \pgfkeysalso{/tikz/funprog/function/north ports=\funprog@function@arity}
+  \pgfkeysalso{/funprog/function/north ports=\funprog@function@arity}
   \fi
   \ifnum\funprog@function@in=\funprog@function@south
-  \pgfkeysalso{/tikz/funprog/function/south ports=\funprog@function@arity}
+  \pgfkeysalso{/funprog/function/south ports=\funprog@function@arity}
   \fi
   \ifnum\funprog@function@in=\funprog@function@west
-  \pgfkeysalso{/tikz/funprog/function/west ports=\funprog@function@arity}
+  \pgfkeysalso{/funprog/function/west ports=\funprog@function@arity}
   \fi
   \ifnum\funprog@function@in=\funprog@function@east
-  \pgfkeysalso{/tikz/funprog/function/east ports=\funprog@function@arity}
+  \pgfkeysalso{/funprog/function/east ports=\funprog@function@arity}
   \fi
   %
   \ifnum\funprog@function@out=\funprog@function@north
-  \pgfkeysalso{/tikz/funprog/function/north ports=1}
+  \pgfkeysalso{/funprog/function/north ports=1}
   \fi
   \ifnum\funprog@function@out=\funprog@function@south
-  \pgfkeysalso{/tikz/funprog/function/south ports=1}
+  \pgfkeysalso{/funprog/function/south ports=1}
   \fi
   \ifnum\funprog@function@out=\funprog@function@west
-  \pgfkeysalso{/tikz/funprog/function/west ports=1}
+  \pgfkeysalso{/funprog/function/west ports=1}
   \fi
   \ifnum\funprog@function@out=\funprog@function@east
-  \pgfkeysalso{/tikz/funprog/function/east ports=1}
+  \pgfkeysalso{/funprog/function/east ports=1}
   \fi
 }
 
 \pgfkeys{
-  /tikz/funprog/.cd,
-    function/.style={
-      name=function #1,
-      draw,
-      shape=function,
-      every function,
-    },
-    function/.cd,
-    port width/.initial=2.5mm,
-    port height/.initial=1mm,
-    port funnel width/.initial=1.75mm,
-    port separation/.initial=2.5mm,
-    north ports/.initial=1,
-    south ports/.initial=1,
-    east ports/.initial=0,
-    west ports/.initial=0,
-    in/.is choice,
-    in/north/.code={
-      \let\funprog@function@in\funprog@function@north
-      \funprog@function@update
-    },
-    in/south/.code={
-      \let\funprog@function@in\funprog@function@south
-      \funprog@function@update
-    },
-    in/east/.code={
-      \let\funprog@function@in\funprog@function@east
-      \funprog@function@update
-    },
-    in/west/.code={
-      \let\funprog@function@in\funprog@function@west
-      \funprog@function@update
-    },
-    out/.is choice,
-    out/north/.code={
-      \let\funprog@function@out\funprog@function@north
-      \funprog@function@update
-    },
-    out/south/.code={
-      \let\funprog@function@out\funprog@function@south
-      \funprog@function@update
-    },
-    out/east/.code={
-      \let\funprog@function@out\funprog@function@east
-      \funprog@function@update
-    },
-    out/west/.code={
-      \let\funprog@function@out\funprog@function@west
-      \funprog@function@update
-    },
-    arity/.code={
-      \def\funprog@function@arity{#1}
-      \funprog@function@update
-    },
-    in=north,
-    out=south,
-    arity=1
+  funprog,
+  function/.cd,
+  in/.is choice,
+  in/north/.code={
+    \let\funprog@function@in\funprog@function@north
+    \funprog@function@update
+  },
+  in/south/.code={
+    \let\funprog@function@in\funprog@function@south
+    \funprog@function@update
+  },
+  in/east/.code={
+    \let\funprog@function@in\funprog@function@east
+    \funprog@function@update
+  },
+  in/west/.code={
+    \let\funprog@function@in\funprog@function@west
+    \funprog@function@update
+  },
+  %
+  out/.is choice,
+  out/north/.code={
+    \let\funprog@function@out\funprog@function@north
+    \funprog@function@update
+  },
+  out/south/.code={
+    \let\funprog@function@out\funprog@function@south
+    \funprog@function@update
+  },
+  out/east/.code={
+    \let\funprog@function@out\funprog@function@east
+    \funprog@function@update
+  },
+  out/west/.code={
+    \let\funprog@function@out\funprog@function@west
+    \funprog@function@update
+  },
+  %
+  arity/.code={
+    \def\funprog@function@arity{#1}
+    \funprog@function@update
+  },
+  %
+  in=north,
+  out=south,
+  arity=1
 }
 
 % sets \pgf@x and \pgf@y to the south west corner of the function box
 \def\funprog@function@anchor@southwest{
-  \pgfmathsetlength\@tempdima{\pgfkeysvalueof{/tikz/funprog/function/port width} + \pgfkeysvalueof{/tikz/funprog/function/port separation}}
+  \pgfmathsetlength\@tempdima{\pgfkeysvalueof{/funprog/function/port width} + \pgfkeysvalueof{/funprog/function/port separation}}
+  %
   % Calculate x
-    %
-    % First, is width < minimum width?
-    \pgf@x=\wd\pgfnodeparttextbox%
-    \pgfmathsetlength\pgf@xc{\pgfkeysvalueof{/pgf/inner xsep}}%
-    \advance\pgf@x by 2\pgf@xc%
-    \pgfmathsetlength\pgf@xb{\pgfkeysvalueof{/pgf/minimum width}}%
-    \ifdim\pgf@x<\pgf@xb%
-    % yes, too small. Enlarge...
-    \pgf@x=\pgf@xb%
-    \fi%
-    \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/funprog/function/north ports} * \@tempdima}
-    \ifdim\pgf@x<\pgf@xa%
-    % yes, too small. Enlarge...
-    \pgf@x=\pgf@xa%
-    \fi%
-    \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/funprog/function/south ports} * \@tempdima}
-    \ifdim\pgf@x<\pgf@xa%
-    % yes, too small. Enlarge...
-    \pgf@x=\pgf@xa%
-    \fi%
-    % Now, calculate left border: .5\wd\pgfnodeparttextbox - .5 \pgf@x - outer sep
-    \pgf@x=-.5\pgf@x%
-    \advance\pgf@x by.5\wd\pgfnodeparttextbox%
-    \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/outer xsep}}%
-    \advance\pgf@x by-\pgf@xa%
-    % Calculate y
-    %
-    % First, is height+depth < minimum height?
-    \pgf@y=\ht\pgfnodeparttextbox%
-    \advance\pgf@y by\dp\pgfnodeparttextbox%
-    \pgfmathsetlength\pgf@yc{\pgfkeysvalueof{/pgf/inner ysep}}%
-    \advance\pgf@y by 2\pgf@yc%
-    \pgfmathsetlength\pgf@yb{\pgfkeysvalueof{/pgf/minimum height}}%
-    \ifdim\pgf@y<\pgf@yb%
-    % yes, too small. Enlarge...
-    \pgf@y=\pgf@yb%
-    \fi%
-    \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/funprog/function/east ports} * \@tempdima}
-    \ifdim\pgf@y<\pgf@ya%
-    % yes, too small. Enlarge...
-    \pgf@y=\pgf@ya%
-    \fi%
-    \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/funprog/function/west ports} * \@tempdima}
-    \ifdim\pgf@y<\pgf@ya%
-    % yes, too small. Enlarge...
-    \pgf@y=\pgf@ya%
-    \fi%
-    % Now, calculate upper border: .5\ht-.5\dp - .5 \pgf@y - outer sep
-    \pgf@y=-.5\pgf@y%
-    \advance\pgf@y by-.5\dp\pgfnodeparttextbox%
-    \advance\pgf@y by.5\ht\pgfnodeparttextbox%
-    \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/pgf/outer ysep}}%
-    \advance\pgf@y by-\pgf@ya%
+  %
+  % First, is width < minimum width?
+  \pgf@x=\wd\pgfnodeparttextbox%
+  \pgfmathsetlength\pgf@xc{\pgfkeysvalueof{/pgf/inner xsep}}%
+  \advance\pgf@x by 2\pgf@xc%
+  \pgfmathsetlength\pgf@xb{\pgfkeysvalueof{/pgf/minimum width}}%
+  \ifdim\pgf@x<\pgf@xb%
+  % yes, too small. Enlarge...
+  \pgf@x=\pgf@xb%
+  \fi%
+  \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/funprog/function/north ports} * \@tempdima}
+  \ifdim\pgf@x<\pgf@xa%
+  % yes, too small. Enlarge...
+  \pgf@x=\pgf@xa%
+  \fi%
+  \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/funprog/function/south ports} * \@tempdima}
+  \ifdim\pgf@x<\pgf@xa%
+  % yes, too small. Enlarge...
+  \pgf@x=\pgf@xa%
+  \fi%
+  % Now, calculate left border: .5\wd\pgfnodeparttextbox - .5 \pgf@x - outer sep
+  \pgf@x=-.5\pgf@x%
+  \advance\pgf@x by.5\wd\pgfnodeparttextbox%
+  \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/outer xsep}}%
+  \advance\pgf@x by-\pgf@xa%
+  %
+  % Calculate y
+  %
+  % First, is height+depth < minimum height?
+  \pgf@y=\ht\pgfnodeparttextbox%
+  \advance\pgf@y by\dp\pgfnodeparttextbox%
+  \pgfmathsetlength\pgf@yc{\pgfkeysvalueof{/pgf/inner ysep}}%
+  \advance\pgf@y by 2\pgf@yc%
+  \pgfmathsetlength\pgf@yb{\pgfkeysvalueof{/pgf/minimum height}}%
+  \ifdim\pgf@y<\pgf@yb%
+  % yes, too small. Enlarge...
+  \pgf@y=\pgf@yb%
+  \fi%
+  \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/funprog/function/east ports} * \@tempdima}
+  \ifdim\pgf@y<\pgf@ya%
+  % yes, too small. Enlarge...
+  \pgf@y=\pgf@ya%
+  \fi%
+  \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/funprog/function/west ports} * \@tempdima}
+  \ifdim\pgf@y<\pgf@ya%
+  % yes, too small. Enlarge...
+  \pgf@y=\pgf@ya%
+  \fi%
+  % Now, calculate upper border: .5\ht-.5\dp - .5 \pgf@y - outer sep
+  \pgf@y=-.5\pgf@y%
+  \advance\pgf@y by-.5\dp\pgfnodeparttextbox%
+  \advance\pgf@y by.5\ht\pgfnodeparttextbox%
+  \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/pgf/outer ysep}}%
+  \advance\pgf@y by-\pgf@ya%
 }
 
 % sets \pgf@x and \pgf@y to the north east corner of the function box
 \def\funprog@function@anchor@northeast{
-  \pgfmathsetlength\@tempdima{\pgfkeysvalueof{/tikz/funprog/function/port width} + \pgfkeysvalueof{/tikz/funprog/function/port separation}}
+  \pgfmathsetlength\@tempdima{\pgfkeysvalueof{/funprog/function/port width} + \pgfkeysvalueof{/funprog/function/port separation}}
+  %
   % Calculate x
-    %
-    % First, is width < minimum width?
-    \pgf@x=\the\wd\pgfnodeparttextbox%
-    \pgfmathsetlength\pgf@xc{\pgfkeysvalueof{/pgf/inner xsep}}%
-    \advance\pgf@x by 2\pgf@xc%
-    \pgfmathsetlength\pgf@xb{\pgfkeysvalueof{/pgf/minimum width}}%
-    \ifdim\pgf@x<\pgf@xb%
-    % yes, too small. Enlarge...
-    \pgf@x=\pgf@xb%
-    \fi%
-    \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/funprog/function/north ports} * \@tempdima}
-    \ifdim\pgf@x<\pgf@xa%
-    % yes, too small. Enlarge...
-    \pgf@x=\pgf@xa%
-    \fi%
-    \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/tikz/funprog/function/south ports} * \@tempdima}
-    \ifdim\pgf@x<\pgf@xa%
-    % yes, too small. Enlarge...
-    \pgf@x=\pgf@xa%
-    \fi%
-    % Now, calculate right border: .5\wd\pgfnodeparttextbox + .5 \pgf@x + outer sep
-    \pgf@x=.5\pgf@x%
-    \advance\pgf@x by.5\wd\pgfnodeparttextbox%
-    \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/outer xsep}}%
-    \advance\pgf@x by\pgf@xa%
-    % Calculate y
-    %
-    % First, is height+depth < minimum height?
-    \pgf@y=\ht\pgfnodeparttextbox%
-    \advance\pgf@y by\dp\pgfnodeparttextbox%
-    \pgfmathsetlength\pgf@yc{\pgfkeysvalueof{/pgf/inner ysep}}%
-    \advance\pgf@y by 2\pgf@yc%
-    \pgfmathsetlength\pgf@yb{\pgfkeysvalueof{/pgf/minimum height}}%
-    \ifdim\pgf@y<\pgf@yb%
-    % yes, too small. Enlarge...
-    \pgf@y=\pgf@yb%
-    \fi%
-    \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/funprog/function/east ports} * \@tempdima}
-    \ifdim\pgf@y<\pgf@ya%
-    % yes, too small. Enlarge...
-    \pgf@y=\pgf@ya%
-    \fi%
-    \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/tikz/funprog/function/west ports} * \@tempdima}
-    \ifdim\pgf@y<\pgf@ya%
-    % yes, too small. Enlarge...
-    \pgf@y=\pgf@ya%
-    \fi%
-    % Now, calculate upper border: .5\ht-.5\dp + .5 \pgf@y + outer sep
-    \pgf@y=.5\pgf@y%
-    \advance\pgf@y by-.5\dp\pgfnodeparttextbox%
-    \advance\pgf@y by.5\ht\pgfnodeparttextbox%
-    \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/pgf/outer ysep}}%
-    \advance\pgf@y by\pgf@ya%
+  %
+  % First, is width < minimum width?
+  \pgf@x=\the\wd\pgfnodeparttextbox%
+  \pgfmathsetlength\pgf@xc{\pgfkeysvalueof{/pgf/inner xsep}}%
+  \advance\pgf@x by 2\pgf@xc%
+  \pgfmathsetlength\pgf@xb{\pgfkeysvalueof{/pgf/minimum width}}%
+  \ifdim\pgf@x<\pgf@xb%
+  % yes, too small. Enlarge...
+  \pgf@x=\pgf@xb%
+  \fi%
+  \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/funprog/function/north ports} * \@tempdima}
+  \ifdim\pgf@x<\pgf@xa%
+  % yes, too small. Enlarge...
+  \pgf@x=\pgf@xa%
+  \fi%
+  \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/funprog/function/south ports} * \@tempdima}
+  \ifdim\pgf@x<\pgf@xa%
+  % yes, too small. Enlarge...
+  \pgf@x=\pgf@xa%
+  \fi%
+  % Now, calculate right border: .5\wd\pgfnodeparttextbox + .5 \pgf@x + outer sep
+  \pgf@x=.5\pgf@x%
+  \advance\pgf@x by.5\wd\pgfnodeparttextbox%
+  \pgfmathsetlength\pgf@xa{\pgfkeysvalueof{/pgf/outer xsep}}%
+  \advance\pgf@x by\pgf@xa%
+  %
+  % Calculate y
+  %
+  % First, is height+depth < minimum height?
+  \pgf@y=\ht\pgfnodeparttextbox%
+  \advance\pgf@y by\dp\pgfnodeparttextbox%
+  \pgfmathsetlength\pgf@yc{\pgfkeysvalueof{/pgf/inner ysep}}%
+  \advance\pgf@y by 2\pgf@yc%
+  \pgfmathsetlength\pgf@yb{\pgfkeysvalueof{/pgf/minimum height}}%
+  \ifdim\pgf@y<\pgf@yb%
+  % yes, too small. Enlarge...
+  \pgf@y=\pgf@yb%
+  \fi%
+  \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/funprog/function/east ports} * \@tempdima}
+  \ifdim\pgf@y<\pgf@ya%
+  % yes, too small. Enlarge...
+  \pgf@y=\pgf@ya%
+  \fi%
+  \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/funprog/function/west ports} * \@tempdima}
+  \ifdim\pgf@y<\pgf@ya%
+  % yes, too small. Enlarge...
+  \pgf@y=\pgf@ya%
+  \fi%
+  % Now, calculate upper border: .5\ht-.5\dp + .5 \pgf@y + outer sep
+  \pgf@y=.5\pgf@y%
+  \advance\pgf@y by-.5\dp\pgfnodeparttextbox%
+  \advance\pgf@y by.5\ht\pgfnodeparttextbox%
+  \pgfmathsetlength\pgf@ya{\pgfkeysvalueof{/pgf/outer ysep}}%
+  \advance\pgf@y by\pgf@ya%
 }
 
 % draws a port
 \def\funprog@function@portpath{
   \pgf@xa=0pt
-    \pgf@ya=0pt
-    \advance\pgf@xa by\halfportseparation
-    \advance\pgf@xa by\halfportshadow
-    \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
-    \pgf@xb=\pgf@xa \pgf@yb=\pgf@ya
-    \advance\pgf@xa by-\halfportshadow
-    \advance\pgf@ya by\portheight
-    {
-      \edef\funprog@xa{\the\pgf@xa}
-      \edef\funprog@ya{\the\pgf@ya}
-      \edef\funprog@xb{\the\pgf@xb}
-      \edef\funprog@yb{\the\pgf@yb}
-      \pgfcurveto
-      {\pgfpoint{\funprog@xb}{\funprog@yb + \halfportheight}}
-      {\pgfpoint{\funprog@xa}{\funprog@ya - \halfportheight}}
-      {\pgfpoint{\funprog@xa}{\funprog@ya}}
-    }
-    \pgf@xb=\pgf@xa \pgf@yb=\pgf@ya
-    \advance\pgf@xa by\portwidth
-    \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
+  \pgf@ya=0pt
+  \advance\pgf@xa by\halfportseparation
+  \advance\pgf@xa by\halfportshadow
+  \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
+  \pgf@xb=\pgf@xa \pgf@yb=\pgf@ya
+  \advance\pgf@xa by-\halfportshadow
+  \advance\pgf@ya by\portheight
+  {
+    \edef\funprog@xa{\the\pgf@xa}
+    \edef\funprog@ya{\the\pgf@ya}
+    \edef\funprog@xb{\the\pgf@xb}
+    \edef\funprog@yb{\the\pgf@yb}
+    \pgfcurveto
+    {\pgfpoint{\funprog@xb}{\funprog@yb + \halfportheight}}
+    {\pgfpoint{\funprog@xa}{\funprog@ya - \halfportheight}}
+    {\pgfpoint{\funprog@xa}{\funprog@ya}}
+  }
+  \pgf@xb=\pgf@xa \pgf@yb=\pgf@ya
+  \advance\pgf@xa by\portwidth
+  \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
 
-    \pgf@xb=\pgf@xa \pgf@yb=\pgf@ya
-    \advance\pgf@xa by-\halfportshadow
-    \advance\pgf@ya by-\portheight
-    {
-      \edef\funprog@xa{\the\pgf@xa}
-      \edef\funprog@ya{\the\pgf@ya}
-      \edef\funprog@xb{\the\pgf@xb}
-      \edef\funprog@yb{\the\pgf@yb}
-      \pgfcurveto
-      {\pgfpoint{\funprog@xb}{\funprog@yb - \halfportheight}}
-      {\pgfpoint{\funprog@xa}{\funprog@ya + \halfportheight}}
-      {\pgfpoint{\funprog@xa}{\funprog@ya}}
-    }
-  % \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
-    \advance\pgf@xa by\halfportshadow
-    \advance\pgf@xa by\halfportseparation
-    \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
+  \pgf@xb=\pgf@xa \pgf@yb=\pgf@ya
+  \advance\pgf@xa by-\halfportshadow
+  \advance\pgf@ya by-\portheight
+  {
+    \edef\funprog@xa{\the\pgf@xa}
+    \edef\funprog@ya{\the\pgf@ya}
+    \edef\funprog@xb{\the\pgf@xb}
+    \edef\funprog@yb{\the\pgf@yb}
+    \pgfcurveto
+    {\pgfpoint{\funprog@xb}{\funprog@yb - \halfportheight}}
+    {\pgfpoint{\funprog@xa}{\funprog@ya + \halfportheight}}
+    {\pgfpoint{\funprog@xa}{\funprog@ya}}
+  }
+% \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
+  \advance\pgf@xa by\halfportshadow
+  \advance\pgf@xa by\halfportseparation
+  \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
 }
 
 \pgfdeclareshape{function}{%
@@ -348,21 +371,21 @@
 
   \savedanchor\northeastincludingports{
     \pgf@process{\funprog@function@anchor@northeast}
-    \ifnum\pgfkeysvalueof{/tikz/funprog/function/north ports}>0
-      \advance\pgf@y by\pgfkeysvalueof{/tikz/funprog/function/port height}
+    \ifnum\pgfkeysvalueof{/funprog/function/north ports}>0
+    \advance\pgf@y by\pgfkeysvalueof{/funprog/function/port height}
     \fi
-    \ifnum\pgfkeysvalueof{/tikz/funprog/function/east ports}>0
-      \advance\pgf@x by\pgfkeysvalueof{/tikz/funprog/function/port height}
+    \ifnum\pgfkeysvalueof{/funprog/function/east ports}>0
+    \advance\pgf@x by\pgfkeysvalueof{/funprog/function/port height}
     \fi
   }
 
   \savedanchor\southwestincludingports{
     \funprog@function@anchor@southwest
-    \ifnum\pgfkeysvalueof{/tikz/funprog/function/south ports}>0
-      \advance\pgf@y by-\pgfkeysvalueof{/tikz/funprog/function/port height}
+    \ifnum\pgfkeysvalueof{/funprog/function/south ports}>0
+    \advance\pgf@y by-\pgfkeysvalueof{/funprog/function/port height}
     \fi
-    \ifnum\pgfkeysvalueof{/tikz/funprog/function/west ports}>0
-      \advance\pgf@x by-\pgfkeysvalueof{/tikz/funprog/function/port height}
+    \ifnum\pgfkeysvalueof{/funprog/function/west ports}>0
+    \advance\pgf@x by-\pgfkeysvalueof{/funprog/function/port height}
     \fi
   }
 
@@ -371,10 +394,10 @@
       \pgf@process{\funprog@function@anchor@southwest} \pgf@xa=\pgf@x
       \pgf@process{\funprog@function@anchor@northeast}
       \pgfmathsetlength\pgf@x{.5*(\pgf@x + \pgf@xa)}
-      \advance \pgf@y by\pgfkeysvalueof{/tikz/funprog/function/port height}
-      \pgfkeysgetvalue{/tikz/funprog/function/port width}{\pgf@xa}
-      \pgfkeysgetvalue{/tikz/funprog/function/port separation}{\pgf@xb}
-      \pgfkeysgetvalue{/tikz/funprog/function/north ports}{\pgf@xc}
+      \advance \pgf@y by\pgfkeysvalueof{/funprog/function/port height}
+      \pgfkeysgetvalue{/funprog/function/port width}{\pgf@xa}
+      \pgfkeysgetvalue{/funprog/function/port separation}{\pgf@xb}
+      \pgfkeysgetvalue{/funprog/function/north ports}{\pgf@xc}
       \pgfmathsetlength\@tempdima{\pgf@xc * (\pgf@xa + \pgf@xb)}
       \advance \pgf@x by-.5\@tempdima
       \pgfmathsetlength\@tempdima{\pgf@xa / 2 + \pgf@xb / 2}
@@ -384,10 +407,10 @@
       \pgf@process{\funprog@function@anchor@northeast} \pgf@xa=\pgf@x
       \pgf@process{\funprog@function@anchor@southwest}
       \pgfmathsetlength\pgf@x{.5*(\pgf@x + \pgf@xa)}
-      \advance \pgf@y by-\pgfkeysvalueof{/tikz/funprog/function/port height}
-      \pgfkeysgetvalue{/tikz/funprog/function/port width}{\pgf@xa}
-      \pgfkeysgetvalue{/tikz/funprog/function/port separation}{\pgf@xb}
-      \pgfkeysgetvalue{/tikz/funprog/function/south ports}{\pgf@xc}
+      \advance \pgf@y by-\pgfkeysvalueof{/funprog/function/port height}
+      \pgfkeysgetvalue{/funprog/function/port width}{\pgf@xa}
+      \pgfkeysgetvalue{/funprog/function/port separation}{\pgf@xb}
+      \pgfkeysgetvalue{/funprog/function/south ports}{\pgf@xc}
       \pgfmathsetlength\@tempdima{\pgf@xc * (\pgf@xa + \pgf@xb)}
       \advance \pgf@x by-.5\@tempdima
       \pgfmathsetlength\@tempdima{\pgf@xa / 2 + \pgf@xb / 2}
@@ -397,10 +420,10 @@
       \pgf@process{\funprog@function@anchor@southwest} \pgf@ya=\pgf@y
       \pgf@process{\funprog@function@anchor@northeast}
       \pgfmathsetlength\pgf@y{.5 * (\pgf@y + \pgf@ya)}
-      \advance \pgf@x by\pgfkeysvalueof{/tikz/funprog/function/port height}
-      \pgfkeysgetvalue{/tikz/funprog/function/port width}{\pgf@ya}
-      \pgfkeysgetvalue{/tikz/funprog/function/port separation}{\pgf@yb}
-      \pgfkeysgetvalue{/tikz/funprog/function/east ports}{\pgf@yc}
+      \advance \pgf@x by\pgfkeysvalueof{/funprog/function/port height}
+      \pgfkeysgetvalue{/funprog/function/port width}{\pgf@ya}
+      \pgfkeysgetvalue{/funprog/function/port separation}{\pgf@yb}
+      \pgfkeysgetvalue{/funprog/function/east ports}{\pgf@yc}
       \pgfmathsetlength\@tempdima{\pgf@yc * (\pgf@ya + \pgf@yb)}
       \advance \pgf@y by.5\@tempdima
       \pgfmathsetlength\@tempdima{\pgf@ya / 2 + \pgf@yb / 2}
@@ -410,10 +433,10 @@
       \pgf@process{\funprog@function@anchor@northeast} \pgf@ya=\pgf@y
       \pgf@process{\funprog@function@anchor@southwest}
       \pgfmathsetlength\pgf@y{.5 * (\pgf@y + \pgf@ya)}
-      \advance \pgf@x by-\pgfkeysvalueof{/tikz/funprog/function/port height}
-      \pgfkeysgetvalue{/tikz/funprog/function/port width}{\pgf@ya}
-      \pgfkeysgetvalue{/tikz/funprog/function/port separation}{\pgf@yb}
-      \pgfkeysgetvalue{/tikz/funprog/function/west ports}{\pgf@yc}
+      \advance \pgf@x by-\pgfkeysvalueof{/funprog/function/port height}
+      \pgfkeysgetvalue{/funprog/function/port width}{\pgf@ya}
+      \pgfkeysgetvalue{/funprog/function/port separation}{\pgf@yb}
+      \pgfkeysgetvalue{/funprog/function/west ports}{\pgf@yc}
       \pgfmathsetlength\@tempdima{\pgf@yc * (\pgf@ya + \pgf@yb)}
       \advance \pgf@y by.5\@tempdima
       \pgfmathsetlength\@tempdima{\pgf@ya / 2 + \pgf@yb / 2}
@@ -426,10 +449,10 @@
       \pgf@process{\funprog@function@anchor@southwest} \pgf@xa=\pgf@x
       \pgf@process{\funprog@function@anchor@northeast}
       \pgfmathsetlength\pgf@x{.5*(\pgf@x + \pgf@xa)}
-      \advance \pgf@y by\pgfkeysvalueof{/tikz/funprog/function/port height}
-      \pgfkeysgetvalue{/tikz/funprog/function/port width}{\pgf@xa}
-      \pgfkeysgetvalue{/tikz/funprog/function/port separation}{\pgf@xb}
-      \pgfkeysgetvalue{/tikz/funprog/function/north ports}{\pgf@xc}
+      \advance \pgf@y by\pgfkeysvalueof{/funprog/function/port height}
+      \pgfkeysgetvalue{/funprog/function/port width}{\pgf@xa}
+      \pgfkeysgetvalue{/funprog/function/port separation}{\pgf@xb}
+      \pgfkeysgetvalue{/funprog/function/north ports}{\pgf@xc}
       \pgfmathsetlength\@tempdima{\pgf@xc * (\pgf@xa + \pgf@xb)}
       \advance \pgf@x by-.5\@tempdima
       \pgfmathsetlength\@tempdima{\pgf@xa / 2 + \pgf@xb / 2}
@@ -441,10 +464,10 @@
       \pgf@process{\funprog@function@anchor@northeast} \pgf@xa=\pgf@x
       \pgf@process{\funprog@function@anchor@southwest}
       \pgfmathsetlength\pgf@x{.5*(\pgf@x + \pgf@xa)}
-      \advance \pgf@y by-\pgfkeysvalueof{/tikz/funprog/function/port height}
-      \pgfkeysgetvalue{/tikz/funprog/function/port width}{\pgf@xa}
-      \pgfkeysgetvalue{/tikz/funprog/function/port separation}{\pgf@xb}
-      \pgfkeysgetvalue{/tikz/funprog/function/south ports}{\pgf@xc}
+      \advance \pgf@y by-\pgfkeysvalueof{/funprog/function/port height}
+      \pgfkeysgetvalue{/funprog/function/port width}{\pgf@xa}
+      \pgfkeysgetvalue{/funprog/function/port separation}{\pgf@xb}
+      \pgfkeysgetvalue{/funprog/function/south ports}{\pgf@xc}
       \pgfmathsetlength\@tempdima{\pgf@xc * (\pgf@xa + \pgf@xb)}
       \advance \pgf@x by-.5\@tempdima
       \pgfmathsetlength\@tempdima{\pgf@xa / 2 + \pgf@xb / 2}
@@ -456,10 +479,10 @@
       \pgf@process{\funprog@function@anchor@southwest} \pgf@ya=\pgf@y
       \pgf@process{\funprog@function@anchor@northeast}
       \pgfmathsetlength\pgf@y{.5*(\pgf@y + \pgf@ya)}
-      \advance \pgf@x by\pgfkeysvalueof{/tikz/funprog/function/port height}
-      \pgfkeysgetvalue{/tikz/funprog/function/port width}{\pgf@ya}
-      \pgfkeysgetvalue{/tikz/funprog/function/port separation}{\pgf@yb}
-      \pgfkeysgetvalue{/tikz/funprog/function/east ports}{\pgf@yc}
+      \advance \pgf@x by\pgfkeysvalueof{/funprog/function/port height}
+      \pgfkeysgetvalue{/funprog/function/port width}{\pgf@ya}
+      \pgfkeysgetvalue{/funprog/function/port separation}{\pgf@yb}
+      \pgfkeysgetvalue{/funprog/function/east ports}{\pgf@yc}
       \pgfmathsetlength\@tempdima{\pgf@yc * (\pgf@ya + \pgf@yb)}
       \advance \pgf@y by.5\@tempdima
       \pgfmathsetlength\@tempdima{\pgf@ya / 2 + \pgf@yb / 2}
@@ -471,10 +494,10 @@
       \pgf@process{\funprog@function@anchor@northeast} \pgf@ya=\pgf@y
       \pgf@process{\funprog@function@anchor@southwest}
       \pgfmathsetlength\pgf@y{.5*(\pgf@y + \pgf@ya)}
-      \advance \pgf@x by-\pgfkeysvalueof{/tikz/funprog/function/port height}
-      \pgfkeysgetvalue{/tikz/funprog/function/port width}{\pgf@ya}
-      \pgfkeysgetvalue{/tikz/funprog/function/port separation}{\pgf@yb}
-      \pgfkeysgetvalue{/tikz/funprog/function/west ports}{\pgf@yc}
+      \advance \pgf@x by-\pgfkeysvalueof{/funprog/function/port height}
+      \pgfkeysgetvalue{/funprog/function/port width}{\pgf@ya}
+      \pgfkeysgetvalue{/funprog/function/port separation}{\pgf@yb}
+      \pgfkeysgetvalue{/funprog/function/west ports}{\pgf@yc}
       \pgfmathsetlength\@tempdima{\pgf@yc * (\pgf@ya + \pgf@yb)}
       \advance \pgf@y by.5\@tempdima
       \pgfmathsetlength\@tempdima{\pgf@ya / 2 + \pgf@yb / 2}
@@ -489,25 +512,25 @@
       \pgf@process{\funprog@function@anchor@southwest} \pgf@xa=\pgf@x
       \pgf@process{\funprog@function@anchor@northeast}
       \pgfmathsetlength\pgf@x{.5*(\pgf@x + \pgf@xa)}
-      \advance \pgf@y by\pgfkeysvalueof{/tikz/funprog/function/port height}
+      \advance \pgf@y by\pgfkeysvalueof{/funprog/function/port height}
     \fi
     \ifnum\funprog@function@out=\funprog@function@south
       \pgf@process{\funprog@function@anchor@northeast} \pgf@xa=\pgf@x
       \pgf@process{\funprog@function@anchor@southwest}
       \pgfmathsetlength\pgf@x{.5*(\pgf@x + \pgf@xa)}
-      \advance \pgf@y by-\pgfkeysvalueof{/tikz/funprog/function/port height}
+      \advance \pgf@y by-\pgfkeysvalueof{/funprog/function/port height}
     \fi
     \ifnum\funprog@function@out=\funprog@function@east
       \pgf@process{\funprog@function@anchor@southwest} \pgf@ya=\pgf@y
       \pgf@process{\funprog@function@anchor@northeast}
       \pgfmathsetlength\pgf@y{.5*(\pgf@y + \pgf@ya)}
-      \advance \pgf@x by\pgfkeysvalueof{/tikz/funprog/function/port height}
+      \advance \pgf@x by\pgfkeysvalueof{/funprog/function/port height}
     \fi
     \ifnum\funprog@function@out=\funprog@function@west
       \pgf@process{\funprog@function@anchor@northeast} \pgf@ya=\pgf@y
       \pgf@process{\funprog@function@anchor@southwest}
       \pgfmathsetlength\pgf@y{.5*(\pgf@y + \pgf@ya)}
-      \advance \pgf@x by-\pgfkeysvalueof{/tikz/funprog/function/port height}
+      \advance \pgf@x by-\pgfkeysvalueof{/funprog/function/port height}
     \fi
   }
 
@@ -517,43 +540,43 @@
   }
 
   \saveddimen\northportswidth{
-    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/tikz/funprog/function/north ports} * (\pgfkeysvalueof{/tikz/funprog/function/port width} + \pgfkeysvalueof{/tikz/funprog/function/port separation})}
+    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/funprog/function/north ports} * (\pgfkeysvalueof{/funprog/function/port width} + \pgfkeysvalueof{/funprog/function/port separation})}
   }
 
   \saveddimen\southportswidth{
-    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/tikz/funprog/function/south ports} * (\pgfkeysvalueof{/tikz/funprog/function/port width} + \pgfkeysvalueof{/tikz/funprog/function/port separation})}
+    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/funprog/function/south ports} * (\pgfkeysvalueof{/funprog/function/port width} + \pgfkeysvalueof{/funprog/function/port separation})}
   }
 
   \saveddimen\eastportswidth{
-    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/tikz/funprog/function/east ports} * (\pgfkeysvalueof{/tikz/funprog/function/port width} + \pgfkeysvalueof{/tikz/funprog/function/port separation})}
+    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/funprog/function/east ports} * (\pgfkeysvalueof{/funprog/function/port width} + \pgfkeysvalueof{/funprog/function/port separation})}
   }
 
   \saveddimen\westportswidth{
-    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/tikz/funprog/function/west ports} * (\pgfkeysvalueof{/tikz/funprog/function/port width} + \pgfkeysvalueof{/tikz/funprog/function/port separation})}
+    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/funprog/function/west ports} * (\pgfkeysvalueof{/funprog/function/port width} + \pgfkeysvalueof{/funprog/function/port separation})}
   }
 
   \saveddimen\halfportseparation{
-    \pgfmathsetlength\pgf@x{.5 * \pgfkeysvalueof{/tikz/funprog/function/port separation}}
+    \pgfmathsetlength\pgf@x{.5 * \pgfkeysvalueof{/funprog/function/port separation}}
   }
 
   \saveddimen\portseparation{
-    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/tikz/funprog/function/port separation}}
+    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/funprog/function/port separation}}
   }
 
   \saveddimen\portheight{
-    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/tikz/funprog/function/port height}}
+    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/funprog/function/port height}}
   }
 
   \saveddimen\halfportheight{
-    \pgfmathsetlength\pgf@x{.5 * \pgfkeysvalueof{/tikz/funprog/function/port height}}
+    \pgfmathsetlength\pgf@x{.5 * \pgfkeysvalueof{/funprog/function/port height}}
   }
 
   \saveddimen\portwidth{
-    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/tikz/funprog/function/port width}}
+    \pgfmathsetlength\pgf@x{\pgfkeysvalueof{/funprog/function/port width}}
   }
 
   \saveddimen\halfportshadow{
-    \pgfmathsetlength\pgf@x{.5 * (\pgfkeysvalueof{/tikz/funprog/function/port width} - \pgfkeysvalueof{/tikz/funprog/function/port funnel width})}
+    \pgfmathsetlength\pgf@x{.5 * (\pgfkeysvalueof{/funprog/function/port width} - \pgfkeysvalueof{/funprog/function/port funnel width})}
   }
 
   \anchor{north excluding ports}{
@@ -653,8 +676,8 @@
     \pgfpathlineto{\pgfpoint{\pgf@xc}{\pgf@yc}}
 
     % draw the north ports
-    \ifnum\pgfkeysvalueof{/tikz/funprog/function/north ports}>0
-      \foreach \i in {1,...,\pgfkeysvalueof{/tikz/funprog/function/north ports}} {
+    \ifnum\pgfkeysvalueof{/funprog/function/north ports}>0
+      \foreach \i in {1,...,\pgfkeysvalueof{/funprog/function/north ports}} {
         \pgftransformshift{\pgfpoint{\pgf@xc}{\pgf@yc}}
         {\funprog@function@portpath}
         \pgftransformreset
@@ -673,8 +696,8 @@
     \pgfpathlineto{\pgfpoint{\pgf@xc}{\pgf@yc}}
 
     % draw the east ports
-    \ifnum\pgfkeysvalueof{/tikz/funprog/function/east ports}>0
-      \foreach \i in {1,...,\pgfkeysvalueof{/tikz/funprog/function/east ports}} {
+    \ifnum\pgfkeysvalueof{/funprog/function/east ports}>0
+      \foreach \i in {1,...,\pgfkeysvalueof{/funprog/function/east ports}} {
         \pgftransformshift{\pgfpoint{\pgf@xc}{\pgf@yc}}
         \pgftransformrotate{-90}
         {\funprog@function@portpath}
@@ -694,8 +717,8 @@
     \pgfpathlineto{\pgfpoint{\pgf@xc}{\pgf@yc}}
 
     % draw the south ports
-    \ifnum\pgfkeysvalueof{/tikz/funprog/function/south ports}>0
-      \foreach \i in {1,...,\pgfkeysvalueof{/tikz/funprog/function/south ports}} {
+    \ifnum\pgfkeysvalueof{/funprog/function/south ports}>0
+      \foreach \i in {1,...,\pgfkeysvalueof{/funprog/function/south ports}} {
         \pgftransformshift{\pgfpoint{\pgf@xc}{\pgf@yc}}
         \pgftransformscale{-1}
         {\funprog@function@portpath}
@@ -715,8 +738,8 @@
     \pgfpathlineto{\pgfpoint{\pgf@xc}{\pgf@yc}}
 
     % draw the east ports
-    \ifnum\pgfkeysvalueof{/tikz/funprog/function/west ports}>0
-    \foreach \i in {1,...,\pgfkeysvalueof{/tikz/funprog/function/west ports}} {
+    \ifnum\pgfkeysvalueof{/funprog/function/west ports}>0
+    \foreach \i in {1,...,\pgfkeysvalueof{/funprog/function/west ports}} {
       \pgftransformshift{\pgfpoint{\pgf@xc}{\pgf@yc}}
       \pgftransformrotate{90}
       {\funprog@function@portpath}
