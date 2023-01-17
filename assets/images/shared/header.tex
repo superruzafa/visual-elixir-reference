@@ -1,8 +1,29 @@
 \begin{document}
-    \begin{tikzpicture}[
-        x=\masterunit,
-        y=\masterunit,
-        draw=defaultpencolor,
-        line width=\defaultpenwidth,
-        text=defaultpencolor,
-    ]
+\begin{tikzpicture}
+
+\tikzset{
+  x=1.3cm,
+  y=1.3cm,
+  every list/.style={
+    line width=.8mm,
+    nodes={
+      font=\Large,
+      minimum size=1.3cm,
+    }
+  },
+  every list elements between/.style={
+    minimum width=0.75cm,
+  },
+  fun/.style={
+    shape=function,
+    line width=.4mm,
+    draw,
+    node contents={#1},
+  },
+  fun/.default={\texttt{fun}},
+  ->/.style={
+    -Stealth,
+    line width=0.4mm,
+  },
+}
+
