@@ -79,6 +79,10 @@
   function arity/.forward to={funprog, function/arity=#1},
   function in/.forward to={funprog, function/in=#1},
   function out/.forward to={funprog, function/out=#1},
+  function port width/.forward to={funprog, function/port width},
+  function port height/.forward to={funprog, function/port height},
+  function port funnel width/.forward to={funprog, function/port funnel width},
+  function port separation/.forward to={funprog, function/port separation},
 }
 
 \pgfkeys{
@@ -88,6 +92,7 @@
     draw,
     shape=function,
     every function,
+    node contents=#1,
   },
   %
   function/.cd,

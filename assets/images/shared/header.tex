@@ -4,6 +4,9 @@
 \tikzset{
   x=1.3cm,
   y=1.3cm,
+  value/.style={
+    font=\Large,
+  },
   every list/.style={
     line width=.8mm,
     nodes={
@@ -16,6 +19,10 @@
   },
   fun/.style={
     shape=function,
+    function port width=2.5mm,
+    function port funnel width=1.25mm,
+    function port separation=1.25mm,
+    function port height=1.25mm,
     line width=.4mm,
     draw,
     node contents={#1},
@@ -25,7 +32,15 @@
     -Stealth,
     line width=0.4mm,
   },
+  <-/.style={
+    Stealth-,
+    line width=0.4mm,
+  },
 }
+
+\makeatletter
+\newcommand\currcoord{\the\tikz@lastxsaved,\the\tikz@lastysaved}
+\makeatother
 
 \newcommand\applyfuntop[4][2]{
   \node (last label) [above=#1 of #2] {#4};
