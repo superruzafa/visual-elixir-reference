@@ -1,0 +1,29 @@
+\matrix [list=a] {
+    \node (a1) [index=1]; &
+    \node (a21) {$a_2$}; &
+    \node (a22) {$a_2$}; &
+    \node (a3) {$a_3$}; &
+    \node (a41) {$a_4$}; &
+    \node (a42) {$a_4$}; &
+    \node (a43) {$a_4$}; &
+    \node (a23) {$a_2$}; &
+    \node [elements after]; \\
+};
+
+\draw [rounded corners=2.5mm] ($ (a21.mid) + (-.25, -.25) $) rectangle ($ (a22.mid) + (.25, .25) $);
+
+\draw [rounded corners=2.5mm] ($ (a41.mid) + (-.25, -.25) $) rectangle ($ (a43.mid) + (.25, .25) $);
+
+\matrix [list=b, below= 2 of list a] {
+    \node (b1) [index=1]; &
+    \node (b21) {$a_2$}; &
+    \node (b3) {$a_3$}; &
+    \node (b41) {$a_4$}; &
+    \node (b23) {$a_2$}; &
+    \node [elements after]; \\
+};
+
+\foreach \i in {1,21,3,41,23}{
+    \draw [->] (a\i.south) -- (b\i.north);
+}
+

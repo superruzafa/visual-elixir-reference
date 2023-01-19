@@ -14,8 +14,12 @@
   list/.forward to={funprog, list},
   index/.forward to={funprog, \funprog@datastructtype/index},
   element/.forward to={funprog, data struct element=#1},
+  every list before elements/.style={},
   every list between elements/.style={},
+  every list after elements/.style={},
+  elements before/.forward to={funprog, \funprog@datastructtype/elements before},
   elements between/.forward to={funprog, \funprog@datastructtype/elements between},
+  elements after/.forward to={funprog, \funprog@datastructtype/elements after},
 }
 
 \pgfkeys{
@@ -44,7 +48,31 @@
     name=\funprog@datastructid#1,
     node contents={$\funprog@datastructelement_{#1}$},
   },
+  list/elements before/.style={
+    draw=none,
+    node contents={},
+    append after command={
+      \pgfextra
+      \draw [dashed]
+            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      \endpgfextra
+    },
+    every list elements before,
+  },
   list/elements between/.style={
+    draw=none,
+    node contents={},
+    append after command={
+      \pgfextra
+      \draw [dashed]
+            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      \endpgfextra
+    },
+    every list elements between,
+  },
+  list/elements after/.style={
     draw=none,
     node contents={},
     append after command={
