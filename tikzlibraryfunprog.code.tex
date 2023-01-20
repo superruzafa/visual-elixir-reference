@@ -117,6 +117,44 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% brace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+  every brace/.style={},
+  brace/.forward to={funprog, brace},
+  brace amplitude/.forward to={funprog, brace amplitude},
+  brace raise/.forward to={funprog, brace raise},
+}
+
+\pgfkeys{
+  funprog,
+  brace amplitude/.initial=1mm,
+  brace raise/.initial=0,
+  brace/.style={
+    decorate,
+    decoration={
+      show path construction,
+      lineto code={
+        \draw
+          [every brace, decorate, decoration={brace, amplitude=\pgfkeysvalueof{/funprog/brace amplitude}, raise=\pgfkeysvalueof{/funprog/brace raise}}] 
+          (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+        \draw let
+          \p1=(\tikzinputsegmentfirst),
+          \p2=(\tikzinputsegmentlast),
+          \p3=($ (\p2) - (\p1) $),
+          \n1={veclen(\x3, \y3)},
+          \p4=(-\y3 / \n1, \x3 / \n1),
+          \n2={\pgfkeysvalueof{/funprog/brace amplitude} + \pgfkeysvalueof{/funprog/brace raise}},
+          \p5=(\x4 * \n2, \y4 * \n2)
+        in
+          coordinate (last brace) at ($ ($ (\p1)!.5!(\p2) $) + (\x5, \y5) $);
+      }
+    }
+  }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

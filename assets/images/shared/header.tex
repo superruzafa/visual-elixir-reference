@@ -14,6 +14,13 @@
       minimum size=1.3cm,
     }
   },
+  sublist/.style={
+    line width=.6mm,
+    nodes={
+      font=\large,
+      minimum size=1cm,
+    }
+  },
   every list elements between/.style={
     minimum width=0.75cm,
   },
@@ -38,6 +45,22 @@
   },
 }
 
+\tikzset{
+  every brace/.style={
+    line width=.4mm,
+  },
+  brace amplitude=2mm,
+  brace raise=1mm,
+}
+
+\newcommand\bracetobrace[4]{
+  \draw [brace] (#1) -- (#2);
+  \coordinate (first brace) at (last brace);
+  \draw [brace] (#3) -- (#4);
+  \draw [->] (first brace) -- (last brace);
+}
+
+
 \makeatletter
 \newcommand\currcoord{\the\tikz@lastxsaved,\the\tikz@lastysaved}
 \makeatother
@@ -47,14 +70,6 @@
   \node (last function) at ($ (last label.base)!.5!(#2) $) [function in=south, function out=north, fun=#3];
   \draw [->] (#2) -- (last function.in);
   \draw [->, shorten >=1mm] (last function.out) -- (last label.base);
-}
-
-\newcommand\bracetobrace[4]{
-  \draw [line width=.4mm, decorate, decoration={brace, raise=1mm, amplitude=2mm}] (#1) -- (#2);
-  \draw [line width=.4mm, decorate, decoration={brace, raise=1mm, amplitude=2mm}] (#3) -- (#4);
-  \coordinate (last brace start) at  ($ (#1)!.5!(#2) + (0, -3mm) $); 
-  \coordinate (last brace end) at  ($ (#3)!.5!(#4) + (0, 3mm) $); 
-  \draw [->] (last brace start) -- (last brace end);
 }
 
 \def\true{\texttt{true}}
