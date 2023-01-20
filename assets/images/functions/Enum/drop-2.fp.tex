@@ -1,0 +1,22 @@
+\matrix [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node (ac) {$a_{\texttt{\tiny{count}}}$}; &
+    \node (ac+1) {$a_{\texttt{\tiny{count+1}}}$}; &
+    \node [elements between]; &
+    \node [index=n]; \\
+};
+
+\draw [measure=\texttt{count}, measure amplitude=5mm, measure overflow=1mm] (a1.north west) -- (ac.north east);
+
+\matrix [list=b, element=a, below=2 of an.south east, matrix anchor=bn.north east] {
+    \node (bc+1) {$a_{\texttt{\tiny{count+1}}}$}; &
+    \node [elements between]; &
+    \node [index=n];; \\
+};
+
+\bracetobrace
+    {an.south east}{ac+1.south west}
+    {bc+1.north west}{bn.north east}
+

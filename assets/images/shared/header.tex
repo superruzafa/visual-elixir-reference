@@ -49,6 +49,14 @@
   \draw [->, shorten >=1mm] (last function.out) -- (last label.base);
 }
 
+\newcommand\bracetobrace[4]{
+  \draw [line width=.4mm, decorate, decoration={brace, raise=1mm, amplitude=2mm}] (#1) -- (#2);
+  \draw [line width=.4mm, decorate, decoration={brace, raise=1mm, amplitude=2mm}] (#3) -- (#4);
+  \coordinate (last brace start) at  ($ (#1)!.5!(#2) + (0, -3mm) $); 
+  \coordinate (last brace end) at  ($ (#3)!.5!(#4) + (0, 3mm) $); 
+  \draw [->] (last brace start) -- (last brace end);
+}
+
 \def\true{\texttt{true}}
 \def\false{\texttt{false}}
 \def\nil{\texttt{nil}}

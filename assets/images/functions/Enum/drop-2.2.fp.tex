@@ -1,0 +1,45 @@
+\matrix [list=a] {
+    \node [index=-n]; &
+    \node [elements between]; &
+    \node (a-c-1) {$a_{\texttt{\tiny{-count-1}}}$}; &
+    \node (a-c) {$a_{\texttt{\tiny{-count}}}$}; &
+    \node [elements between]; &
+    \node [index=-2]; &
+    \node [index=-1]; \\
+};
+
+\draw [measure=\texttt{|count|}, measure amplitude=5mm, measure overflow=1mm] (a-c.north west) -- (a-1.north east);
+
+\matrix [list=b, element=a, below=2 of a-n.south west, matrix anchor=b-n.north west] {
+    \node [index=-n]; &
+    \node [elements between]; &
+    \node (b-c-1) {$a_{\texttt{\tiny{-count-1}}}$}; \\
+};
+
+\bracetobrace
+    {a-c-1.south east}{a-n.south west}
+    {b-n.north west}{b-c-1.north east}
+
+%\newcommand{\cnt}{\texttt{\small{c}}}
+
+%\matrix [fptk, list=a] {
+    %\elem{-n} &
+    %\elems &
+    %\elemx{-c-1}{$a_{-\cnt-1}$} &
+    %\elemx{-c}{$a_{-\cnt}$} &
+    %\elems &
+    %\elem{-2} &
+    %\elem{-1} \\
+%};
+
+%\draw [fptk/measure, fptk/measure/label=$\mid\texttt{count}\mid$] (a-c.north west) -- (a-1.north east);
+
+%\matrix [fptk, list=b, element=a, below=2 of a-n.south east, matrix anchor=b-n.north east] {
+    %\elem{-n} &
+    %\elems &
+    %\elemx{-c-1}{$a_{-\cnt-1}$} \\
+%};
+
+%\bracetobrace
+    %{a-c-1.south east}{a-n.south west}
+    %{b-n.north west}{b-c-1.north east}

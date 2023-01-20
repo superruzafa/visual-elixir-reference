@@ -87,6 +87,36 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% measure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+  measure/.forward to={funprog, measure},
+  measure amplitude/.forward to={funprog, measure amplitude},
+  measure overflow/.forward to={funprog, measure overflow},
+}
+
+\pgfkeys{
+  funprog,
+  measure amplitude/.initial=1cm,
+  measure overflow/.initial=1cm,
+  measure/.style={
+    decorate,
+    decoration={
+      show path construction,
+      lineto code={
+        \draw (\tikzinputsegmentfirst) -- ++(0, \pgfkeysvalueof{/funprog/measure amplitude}) coordinate (measure left junction) -- ++(0, \pgfkeysvalueof{/funprog/measure overflow});
+        \draw (\tikzinputsegmentlast) -- ++(0, \pgfkeysvalueof{/funprog/measure amplitude}) coordinate (measure right junction) -- ++(0, \pgfkeysvalueof{/funprog/measure overflow});
+        \node (last measure label) at ($ (measure left junction)!.5!(measure right junction) $) {#1};
+        \draw [Stealth-] (measure left junction) -- (last measure label);
+        \draw [-Stealth] (last measure label) -- (measure right junction);
+      }
+    }
+  },
+  measure/.default=\texttt{length},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
