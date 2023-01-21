@@ -8,15 +8,13 @@
 \let\funprog@datastructtype\empty
 \let\funprog@datastructid\empty
 \let\funprog@datastructelement\empty
+\let\funprog@datastructelementsize\empty
 
 \tikzset{
-  every list/.style={},
-  list/.forward to={funprog, list},
+  element/.forward to={funprog, data struct element},
+  element size/.forward to={funprog, data struct element size},
   index/.forward to={funprog, \funprog@datastructtype/index},
-  element/.forward to={funprog, data struct element=#1},
-  every list before elements/.style={},
-  every list between elements/.style={},
-  every list after elements/.style={},
+  placeholder/.forward to={funprog, \funprog@datastructtype/placeholder},
   elements before/.forward to={funprog, \funprog@datastructtype/elements before},
   elements between/.forward to={funprog, \funprog@datastructtype/elements between},
   elements after/.forward to={funprog, \funprog@datastructtype/elements after},
@@ -27,7 +25,23 @@
   data struct type/.store in=\funprog@datastructtype,
   data struct id/.store in=\funprog@datastructid,
   data struct element/.store in=\funprog@datastructelement,
-  list/.style={
+  data struct element size/.store in=\funprog@datastructelementsize,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+  every list/.style={},
+  every placeholder list/.style={},
+  list/.forward to={funprog, list},
+  placeholder list/.forward to={funprog, placeholder list},
+}
+
+\pgfkeys{
+  funprog,
+  base list/.style={
     data struct type=list,
     data struct id=#1,
     data struct element=#1,
@@ -37,12 +51,24 @@
       anchor=center,
       inner sep=0pt,
       outer sep=auto,
+      minimum size=\funprog@datastructelementsize,
     },
     column sep=-\pgflinewidth,
     row sep=-\pgflinewidth,
     outer sep=-.5\pgflinewidth,
     inner sep=0pt,
+  },
+  list/.style={
+    base list=#1,
     every list,
+  },
+  placeholder list/.style={
+    base list=#1,
+    every placeholder list,
+  },
+  list/placeholder/.style={
+    node contents={},
+    minimum width=#1 * \funprog@datastructelementsize,
   },
   list/index/.style={
     name=\funprog@datastructid#1,
@@ -51,6 +77,8 @@
   list/elements before/.style={
     draw=none,
     node contents={},
+    minimum width=.5 * \funprog@datastructelementsize,
+    minimum height=\funprog@datastructelementsize,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -58,11 +86,12 @@
             (\tikzlastnode.south west) -- (\tikzlastnode.south east);
       \endpgfextra
     },
-    every list elements before,
   },
   list/elements between/.style={
     draw=none,
     node contents={},
+    minimum width=.5 * \funprog@datastructelementsize,
+    minimum height=\funprog@datastructelementsize,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -70,11 +99,12 @@
             (\tikzlastnode.south west) -- (\tikzlastnode.south east);
       \endpgfextra
     },
-    every list elements between,
   },
   list/elements after/.style={
     draw=none,
     node contents={},
+    minimum width=.5 * \funprog@datastructelementsize,
+    minimum height=\funprog@datastructelementsize,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -82,7 +112,6 @@
             (\tikzlastnode.south west) -- (\tikzlastnode.south east);
       \endpgfextra
     },
-    every list elements between,
   },
 }
 

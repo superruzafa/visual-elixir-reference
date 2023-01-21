@@ -7,23 +7,26 @@
   value/.style={
     font=\Large,
   },
+}
+
+\tikzset{
   every list/.style={
+    element size=1.3cm,
+    font=\Large,
     line width=.8mm,
-    nodes={
-      font=\Large,
-      minimum size=1.3cm,
-    }
+  },
+  every placeholder list/.style={
+    element size=1.5cm,
+    line width=.8mm,
   },
   sublist/.style={
     line width=.6mm,
-    nodes={
-      font=\large,
-      minimum size=1cm,
-    }
+    element size=1cm,
+    font=\large,
   },
-  every list elements between/.style={
-    minimum width=0.75cm,
-  },
+}
+
+\tikzset{
   fun/.style={
     shape=function,
     function port width=2.5mm,
@@ -35,6 +38,9 @@
     node contents={#1},
   },
   fun/.default={\texttt{fun}},
+}
+
+\tikzset{
   ->/.style={
     -Stealth,
     line width=0.4mm,
@@ -59,7 +65,6 @@
   \draw [brace] (#3) -- (#4);
   \draw [->] (first brace) -- (last brace);
 }
-
 
 \makeatletter
 \newcommand\currcoord{\the\tikz@lastxsaved,\the\tikz@lastysaved}
