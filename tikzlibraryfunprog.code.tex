@@ -34,9 +34,7 @@
 
 \tikzset{
   every list/.style={},
-  every placeholder list/.style={},
   list/.forward to={funprog, list},
-  placeholder list/.forward to={funprog, placeholder list},
 }
 
 \pgfkeys{
@@ -50,7 +48,7 @@
       draw,
       anchor=center,
       inner sep=0pt,
-      outer sep=auto,
+      outer sep=0pt,
       minimum size=\funprog@datastructelementsize,
     },
     column sep=-\pgflinewidth,
@@ -61,10 +59,6 @@
   list/.style={
     base list=#1,
     every list,
-  },
-  placeholder list/.style={
-    base list=#1,
-    every placeholder list,
   },
   list/placeholder/.style={
     node contents={},
@@ -77,7 +71,7 @@
   list/elements before/.style={
     draw=none,
     node contents={},
-    minimum width=.5 * \funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastructelementsize,
     minimum height=\funprog@datastructelementsize,
     append after command={
       \pgfextra
@@ -87,10 +81,11 @@
       \endpgfextra
     },
   },
+  list/elements before/.default=.5,
   list/elements between/.style={
     draw=none,
     node contents={},
-    minimum width=.5 * \funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastructelementsize,
     minimum height=\funprog@datastructelementsize,
     append after command={
       \pgfextra
@@ -100,10 +95,11 @@
       \endpgfextra
     },
   },
+  list/elements between/.default=.5,
   list/elements after/.style={
     draw=none,
     node contents={},
-    minimum width=.5 * \funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastructelementsize,
     minimum height=\funprog@datastructelementsize,
     append after command={
       \pgfextra
@@ -113,6 +109,7 @@
       \endpgfextra
     },
   },
+  list/elements after/.default=.5,
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
