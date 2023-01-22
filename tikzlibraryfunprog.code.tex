@@ -120,27 +120,52 @@
   measure/.forward to={funprog, measure},
   measure amplitude/.forward to={funprog, measure amplitude},
   measure overflow/.forward to={funprog, measure overflow},
+  every measure arrow/.style={
+    -{Triangle[angle=30:1mm 2mm]},
+  },
 }
 
 \pgfkeys{
   funprog,
-  measure amplitude/.initial=1cm,
-  measure overflow/.initial=1cm,
+  measure amplitude/.initial=5mm,
+  measure overflow/.initial=1mm,
+  measure/.default={},
   measure/.style={
     decorate,
     decoration={
       show path construction,
       lineto code={
-        \draw (\tikzinputsegmentfirst) -- ++(0, \pgfkeysvalueof{/funprog/measure amplitude}) coordinate (measure left junction) -- ++(0, \pgfkeysvalueof{/funprog/measure overflow});
-        \draw (\tikzinputsegmentlast) -- ++(0, \pgfkeysvalueof{/funprog/measure amplitude}) coordinate (measure right junction) -- ++(0, \pgfkeysvalueof{/funprog/measure overflow});
-        \node (last measure label) at ($ (measure left junction)!.5!(measure right junction) $) {#1};
-        \draw [Stealth-] (measure left junction) -- (last measure label);
-        \draw [-Stealth] (last measure label) -- (measure right junction);
+        \path let
+          \p1=(\tikzinputsegmentfirst),
+          \p2=(\tikzinputsegmentlast),
+          \p3=(\x2 - \x1, \y2 - \y1),
+          \n1={veclen(\x3, \y3)},
+          \p4=(-\y3 / \n1, \x3 / \n1),
+          \n2={\pgfkeysvalueof{/funprog/measure amplitude}},
+          \n3={\pgfkeysvalueof{/funprog/measure overflow} * sign(\pgfkeysvalueof{/funprog/measure amplitude})}
+        in
+          coordinate (last measure point a) at ($ (\p1) + (\x4 * \n2, \y4 * \n2) $)
+          coordinate (last measure point b) at ($ (\p2) + (\x4 * \n2, \y4 * \n2) $)
+          coordinate (last measure point c) at ($ (last measure point a) + (\x4 * \n3, \y4 * \n3) $)
+          coordinate (last measure point d) at ($ (last measure point b) + (\x4 * \n3, \y4 * \n3) $)
+          coordinate (last measure label) at ($ (last measure point a)!.5!(last measure point b) $)
+        ;
+        \draw (\tikzinputsegmentfirst) -- (last measure point c);
+        \draw (\tikzinputsegmentlast) -- (last measure point d);
+        \path let
+          \p1=(\tikzinputsegmentfirst),
+          \p2=(\tikzinputsegmentlast),
+          \p3=(\x2 - \x1, \y2 - \y1),
+          \n1={atan2(\y3, \x3)}
+        in
+         node (last measure label) at (last measure label) [rotate=\n1] {#1};
+        \draw [every measure arrow] (last measure label) -- (last measure point a);
+        \draw [every measure arrow] (last measure label) -- (last measure point b);
       }
     }
-  },
-  measure/.default=\texttt{length},
+  }
 }
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % brace
