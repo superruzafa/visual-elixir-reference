@@ -1,0 +1,35 @@
+\matrix [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=n]; \\
+};
+
+\matrix [list=b, base right=1 of list a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=m]; \\
+};
+
+\matrix [list=c, below=2 of $ (list a.south)!.5!(list b.south) $] {
+    \node (ca1) {$a_1$}; &
+    \node {$a_2$}; &
+    \node [elements between]; &
+    \node (can) {$a_n$}; &
+    \node (cb1) {$b_1$}; &
+    \node {$b_2$}; &
+    \node [elements between]; &
+    \node (cbm) {$b_m$}; \\
+};
+
+\draw [brace] (an.south east) -- (a1.south west);
+\coordinate (first brace) at (last brace);
+\draw [brace] (ca1.north west) -- (can.north east);
+\draw [->, out=270, in=90] (first brace) to (last brace);
+
+\draw [brace] (bm.south east) -- (b1.south west);
+\coordinate (first brace) at (last brace);
+\draw [brace] (cb1.north west) -- (cbm.north east);
+\draw [->, out=270, in=90] (first brace) to (last brace);
+
