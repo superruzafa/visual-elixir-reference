@@ -1,0 +1,37 @@
+\matrix [list=a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node (as) {$a_\texttt{\tiny{start}}$}; &
+  \node [elements between]; &
+  \node (asc1) {$a_{\tiny\texttt{start}+\texttt{count}+1}$}; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\draw [<-, shorten >=1ex] (as.north west) -- +(0, 1)
+    node [value, anchor=base] {\texttt{start}};
+\draw [measure=\texttt{count}] (as.north west) -- (asc1.north east);
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node (bsc1) {$a_{\tiny\texttt{start}+\texttt{count}+1}$}; &
+  \node [elements between]; &
+  \node (bs) {$a_\texttt{\tiny{start}}$}; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\bracetobrace
+    {as.south west}{a0.south west}
+    {b0.north west}{bsc1.north west}
+
+\bracetobrace
+    {an-1.south east}{asc1.south east}
+    {bs.north east}{bn-1.north east}
+
+\draw [->, out=270, in=90] (as.south) to (bs.north);
+\draw [->, out=270, in=90] (asc1.south) to (bsc1.north);
+
