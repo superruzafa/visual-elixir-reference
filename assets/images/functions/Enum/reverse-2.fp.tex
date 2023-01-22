@@ -1,0 +1,32 @@
+\matrix [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=n]; \\
+};
+
+\matrix [list=c, element=b, right=1 of list a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=m]; \\
+};
+
+\matrix [list=b, below=2 of list a.south west, anchor=north west] {
+    \node (ban) {$a_n$}; &
+    \node [elements between]; &
+    \node (ba2) {$a_2$}; &
+    \node (ba1) {$a_1$}; &
+    \node (bc1) {$b_1$}; &
+    \node (bc2) {$b_2$}; &
+    \node [elements between]; &
+    \node (bcm) {$b_m$}; \\
+};
+
+\foreach \i in {1,2,n}{
+  \draw [->] [out=270, in=90] (a\i.south) to (ba\i.north);
+}
+
+\bracetobrace
+    {cm.south east}{c1.south west}
+    {bc1.north west}{bcm.north east}
