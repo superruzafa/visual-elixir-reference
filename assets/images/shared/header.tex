@@ -78,6 +78,13 @@
   \draw [->, shorten >=1mm] (last function.out) -- (last label.base);
 }
 
+\newcommand\applyfunbottom[4][2]{
+  \node (last label) [below=#1 of #2] {#4};
+  \node (last function) at ($ (last label)!.5!(#2) $) [fun=#3];
+  \draw [->] (#2) -- (last function.in);
+  \draw [->] (last function.out) -- (last label);
+}
+
 \def\true{\texttt{true}}
 \def\false{\texttt{false}}
 \def\nil{\texttt{nil}}
