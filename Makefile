@@ -24,5 +24,14 @@ resources/_gen/%.tex: assets/%.fp.tex $(SHARED_TEX_FILES)
 		assets/images/shared/footer.tex \
 		> $@; \
 
+.PHONY: watch
+watch:
+	while true; do \
+		inotifywait --monitor --recursive ./ --include '.fp.tex' --event modify | \
+		while read path action file; do \
+			echo $${path}$${file} | sed s/assets/static/ | sed s/\.fp\.tex/\.svg/ | xargs make; \
+		done \
+	done
+
 .SECONDARY: $(TEX_PDF_FILES) $(PDF_FILES)
 
