@@ -1,0 +1,49 @@
+\matrix [list=a] {
+  \node [elements before]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node [elements between]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\matrix [list=b, element=a, below=4 of list a] {
+  \node [index=1];; &
+  \node [index=2];; &
+  \node [elements between]; &
+  \node [index=i];; &
+  \node [elements between]; &
+  \node [index=n];; \\
+};
+
+\tikzset{
+  sort fun/.style={
+    fun,
+    function arity=2
+  }
+}
+
+\matrix [below=2 of list a, column sep=1em, anchor=base]{%, matrix anchor=center, column sep=1em, anchor=base]{
+  \node (fun1) [sort fun]; &
+  \node (fun2) [sort fun]; &
+  \node (fun3) [sort fun]; &
+  \node (fun4) [sort fun]; &
+  \node {$\ldots$}; &
+  \node (fun5) [sort fun]; \\
+};
+
+\foreach \a/\b/\r [count=\i] in {
+  2/n/\true,
+  n/1/\false,
+  1/i/\true,
+  n/i/\false,
+  2/i/\false
+}{
+  \draw [<-] [shorten >=1ex] (fun\i.in 1) -- +(0, .5) node [anchor=base, font=\normalsize] {$a_\a$};
+  \draw [<-] [shorten >=1ex] (fun\i.in 2) -- +(0, .5) node [anchor=base, font=\normalsize] {$a_\b$};
+  \draw [->] [shorten >=2ex] (fun\i.out) -- ++(0, -.5) -- +(0, -2ex) node [below, anchor=base, font=\normalsize] {\r};
+}
+
