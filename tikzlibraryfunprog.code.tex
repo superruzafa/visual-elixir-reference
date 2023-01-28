@@ -1,3 +1,6 @@
+\usetikzlibrary {matrix}
+\usetikzlibrary {fit}
+
 \makeatletter
 
 \pgfkeys{
@@ -14,6 +17,7 @@
   element/.forward to={funprog, data struct element},
   element size/.forward to={funprog, data struct element size},
   index/.forward to={funprog, \funprog@datastructtype/index},
+  separator/.forward to={funprog, \funprog@datastructtype/separator},
   placeholder/.forward to={funprog, \funprog@datastructtype/placeholder},
   elements before/.forward to={funprog, \funprog@datastructtype/elements before},
   elements between/.forward to={funprog, \funprog@datastructtype/elements between},
@@ -26,6 +30,77 @@
   data struct id/.store in=\funprog@datastructid,
   data struct element/.store in=\funprog@datastructelement,
   data struct element size/.store in=\funprog@datastructelementsize,
+  data struct alias/.style={
+    append after command={
+      \pgfextra
+      \node[name=#1, fit=(\tikzlastnode), inner sep=0pt] {};
+      \endpgfextra
+    },
+  },
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tuple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\funprog@tuple@delimiter@left\empty
+\let\funprog@tuple@delimiter@right\empty
+
+\tikzset{
+  every tuple/.style={},
+  tuple/.forward to={funprog, tuple},
+  tuple delimiter/.forward to={funprog, tuple/delimiter},
+}
+
+\pgfkeys{
+  funprog,
+  tuple/.style={
+    data struct type=tuple,
+    data struct id=#1,
+    data struct element=#1,
+    data struct alias=tuple #1,
+    left delimiter=\funprog@tuple@delimiter@left,
+    right delimiter=\funprog@tuple@delimiter@right,
+    nodes={
+      anchor=center,
+      inner sep=0pt,
+      outer sep=0pt,
+      minimum height=\funprog@datastructelementsize,
+    },
+    column sep=-\pgflinewidth,
+    row sep=-\pgflinewidth,
+    outer sep=-.5\pgflinewidth,
+    inner sep=0pt,
+    every tuple,
+  },
+  tuple/separator/.style={
+    node contents={\,,\,\,},
+  },
+  tuple/placeholder/.style={
+    node contents={},
+    minimum width=#1 * \funprog@datastructelementsize,
+  },
+  tuple/delimiter/left/.store in=\funprog@tuple@delimiter@left,
+  tuple/delimiter/right/.store in=\funprog@tuple@delimiter@right,
+  tuple/delimiter/.is choice,
+  tuple/delimiter/parenthesis/.style={
+    tuple/delimiter/left=(,
+    tuple/delimiter/right=),
+  },
+  tuple/delimiter/braces/.style={
+    tuple/delimiter/left=\{,
+    tuple/delimiter/right=\},
+  },
+  tuple/delimiter/brackets/.style={
+    tuple/delimiter/left=[,
+    tuple/delimiter/right=],
+  },
+  tuple/delimiter=parenthesis,
+  tuple/index/.style={
+    alias=\funprog@datastructid#1,
+    node contents={$\funprog@datastructelement_{#1}$},
+    minimum width=\funprog@datastructelementsize,
+  },
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,11 +114,11 @@
 
 \pgfkeys{
   funprog,
-  base list/.style={
+  list/.style={
     data struct type=list,
     data struct id=#1,
     data struct element=#1,
-    name=list #1,
+    data struct alias=list #1,
     nodes={
       draw,
       anchor=center,
@@ -55,9 +130,6 @@
     row sep=-\pgflinewidth,
     outer sep=-.5\pgflinewidth,
     inner sep=0pt,
-  },
-  list/.style={
-    base list=#1,
     every list,
   },
   list/placeholder/.style={
@@ -65,7 +137,7 @@
     minimum width=#1 * \funprog@datastructelementsize,
   },
   list/index/.style={
-    name=\funprog@datastructid#1,
+    alias=\funprog@datastructid#1,
     node contents={$\funprog@datastructelement_{#1}$},
   },
   list/elements before/.style={
@@ -209,7 +281,7 @@
 % function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\pgfutil@useanchor#1#2{\csname pgf@anchor@#1@#2\endcsname}
+\def\pgfutil@useanchor#1#2{\csalias pgf@anchor@#1@#2\endcsalias}
 
 \def\funprog@function@north{1}
 \def\funprog@function@south{2}
@@ -235,7 +307,7 @@
 \pgfkeys{
   funprog,
   function/.style={
-    name=function #1,
+    alias=function #1,
     draw,
     shape=function,
     every function,

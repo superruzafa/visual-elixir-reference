@@ -23,6 +23,18 @@
 }
 
 \tikzset{
+  tuple delimiter=braces,
+  every tuple/.style={
+    element size=0pt,
+    font=\Large,
+    nodes={
+      text height=1em,
+      text depth=.75em
+    }
+  },
+}
+
+\tikzset{
   fun/.style={
     shape=function,
     function port width=2.5mm,
