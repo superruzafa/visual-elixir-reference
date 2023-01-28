@@ -1,0 +1,26 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [list=b, right=1 of list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [list=z, below=3 of $(list a)!.5!(list b) $] {
+  \node (z1) {$\{a_1, b_1\}$}; &
+  \node (z2) {$\{a_2, b_2\}$}; &
+  \node [elements between]; &
+  \node (zn) {$\{a_n, b_n\}$}; \\
+};
+
+\foreach \i in {1, 2, n}{
+  \draw [->, out=270, in=90] (a\i.south) to ($ (z\i.north) + (-1em, 0) $) -- +(0, -2.75ex);
+  \draw [->, out=270, in=90] (b\i.south) to ($ (z\i.north) + (1em, 0) $) -- +(0, -2.75ex);
+}
+
