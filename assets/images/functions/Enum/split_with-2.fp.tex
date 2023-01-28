@@ -1,0 +1,50 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=i-1]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\r in {
+  1/\true,
+  2/\false,
+  3/1,
+  i-1/\true,
+  i/\nil,
+  n-1/\texttt{:atom},
+    n/\false
+}{
+    \applyfuntop{a\i.north}{\texttt{fun}}{\r}
+}
+
+\matrix [tuple, element size=1.7cm, below=2 of list a] {
+    \node (t1) [placeholder=4]; & \node [separator]; &
+    \node (t2) [placeholder=3.25]; \\
+};
+
+\matrix at (t1) [list=b, element=a] {
+  \node [index=1]; &
+  \node [index=3]; &
+  \node [elements between];[1] &
+  \node [index=i-1]; &
+  \node [elements between];[1] &
+  \node [index=n-1]; \\
+};
+
+\matrix at (t2) [list=b, element=a] {
+  \node [index=2]; &
+  \node [elements between];[1] &
+  \node [index=i]; &
+  \node [elements between];[1] &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1, 2, 3, i-1, i, n-1, n}{
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}
+
