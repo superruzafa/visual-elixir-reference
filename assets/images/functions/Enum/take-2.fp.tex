@@ -1,0 +1,22 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (acount) {$a_{\texttt{\tiny{count}}}$}; &
+  \node (acount+1) {$a_{\texttt{\tiny{count+1}}}$}; &
+  \node [elements after]; \\
+};
+
+\draw [measure=\texttt{count}] (a1.north west) -- (acount.north east);
+
+\matrix [list=b, element=a, below=2 of a1.south, matrix anchor=b1.north] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (bcount) {$a_{\texttt{\tiny{count}}}$}; \\
+};
+
+\bracetobrace
+  {acount.south east}{a1.south west}
+  {b1.north west}{bcount.north east}
+
