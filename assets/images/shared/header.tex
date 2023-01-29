@@ -50,11 +50,11 @@
 
 \tikzset{
   ->/.style={
-    -Stealth,
+    -{Stealth[#1]},
     line width=0.4mm,
   },
   <-/.style={
-    Stealth-,
+    {Stealth[#1]}-,
     line width=0.4mm,
   },
 }
