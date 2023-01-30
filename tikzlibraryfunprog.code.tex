@@ -123,7 +123,7 @@
       draw,
       anchor=center,
       inner sep=0pt,
-      outer sep=0pt,
+      outer sep=.5\pgflinewidth,
       minimum size=\funprog@datastructelementsize,
     },
     column sep=-\pgflinewidth,
@@ -143,6 +143,7 @@
   list/elements before/.style={
     draw=none,
     node contents={},
+    outer sep=0pt,
     minimum width=#1 * \funprog@datastructelementsize,
     minimum height=\funprog@datastructelementsize,
     append after command={
@@ -157,6 +158,7 @@
   list/elements between/.style={
     draw=none,
     node contents={},
+    outer sep=0pt,
     minimum width=#1 * \funprog@datastructelementsize,
     minimum height=\funprog@datastructelementsize,
     append after command={
@@ -171,6 +173,7 @@
   list/elements after/.style={
     draw=none,
     node contents={},
+    outer sep=0pt,
     minimum width=#1 * \funprog@datastructelementsize,
     minimum height=\funprog@datastructelementsize,
     append after command={
@@ -182,6 +185,60 @@
     },
   },
   list/elements after/.default=.5,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% iteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+  iteration position/.forward to={funprog, iteration/position},
+  iteration direction/.forward to={funprog, iteration/direction},
+  every enter iteration/.style={},
+  enter iteration/.forward to={
+    funprog, iteration/enter/\pgfkeysvalueof{/funprog/iteration/position}/\pgfkeysvalueof{/funprog/iteration/direction}=#1
+  },
+  every iteration/.style={},
+  iteration/.forward to={
+    funprog, iteration/direct/\pgfkeysvalueof{/funprog/iteration/position}/\pgfkeysvalueof{/funprog/iteration/direction}=#1
+  },
+  every exit iteration/.style={},
+  exit iteration/.forward to={
+    funprog, iteration/exit/\pgfkeysvalueof{/funprog/iteration/position}/\pgfkeysvalueof{/funprog/iteration/direction}=#1
+  },
+}
+
+\pgfkeys{
+  funprog,
+  iteration/position/.initial=top,
+  iteration/direction/.initial=from left to right,
+  iteration/enter/top/from left to right/.style={
+    decorate,
+    decoration={
+      show path construction,
+      moveto code={
+        \draw [start angle=30, end angle=90, radius=1cm, every enter iteration, #1] (\tikzinputsegmentfirst) arc;
+      },
+    }
+  },
+  iteration/direct/top/from left to right/.style={
+    decorate,
+    decoration={
+      show path construction,
+      lineto code={
+        \draw [bend left=45, every iteration, #1] (\tikzinputsegmentfirst) to (\tikzinputsegmentlast);
+      },
+    }
+  },
+  iteration/exit/top/from left to right/.style={
+    decorate,
+    decoration={
+      show path construction,
+      moveto code={
+        \draw [start angle=150, end angle=90, radius=1cm, every exit iteration, #1] (\tikzinputsegmentfirst) arc;
+      },
+    }
+  },
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
