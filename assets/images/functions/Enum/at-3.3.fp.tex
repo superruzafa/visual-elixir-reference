@@ -1,0 +1,17 @@
+\matrix [list=a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [value, measure={$<\texttt{index}$}, measure below] (a0.south west) -- (an.south east);
+
+\draw [enter iteration] (a0.north);
+\draw [iteration] (a0.north) -- (a1.north);
+\draw [exit iteration] (a1.north);
+\draw [enter iteration] (an.north);
+
+\draw [->] (an.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2)
+  node [value, below, anchor=north] {\texttt{default}};
+

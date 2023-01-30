@@ -221,6 +221,15 @@
       },
     }
   },
+  iteration/enter/top/from right to left/.style={
+    decorate,
+    decoration={
+      show path construction,
+      moveto code={
+        \draw [start angle=150, end angle=90, radius=1cm, every enter iteration, #1] (\tikzinputsegmentfirst) arc;
+      },
+    }
+  },
   iteration/direct/top/from left to right/.style={
     decorate,
     decoration={
@@ -230,12 +239,30 @@
       },
     }
   },
+  iteration/direct/top/from right to left/.style={
+    decorate,
+    decoration={
+      show path construction,
+      lineto code={
+        \draw [bend right=45, every iteration, #1] (\tikzinputsegmentfirst) to (\tikzinputsegmentlast);
+      },
+    }
+  },
   iteration/exit/top/from left to right/.style={
     decorate,
     decoration={
       show path construction,
       moveto code={
         \draw [start angle=150, end angle=90, radius=1cm, every exit iteration, #1] (\tikzinputsegmentfirst) arc;
+      },
+    }
+  },
+  iteration/exit/top/from right to left/.style={
+    decorate,
+    decoration={
+      show path construction,
+      moveto code={
+        \draw [start angle=30, end angle=90, radius=1cm, every exit iteration, #1] (\tikzinputsegmentfirst) arc;
       },
     }
   },
