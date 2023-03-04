@@ -1,0 +1,27 @@
+\matrix at (0, -3) [map=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index={i-1}]; &
+  \node [key value={\texttt{key}}{$v_{\texttt{\tiny{key}}}$}]; &
+  \node [index={i+1}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [map=b, below=2 of map a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index={i-1}]; &
+  \node [index={i+1}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\bracetobrace
+  {ai-1.south east}{a1.south west}
+  {b1.north west}{bi-1.north east}
+
+\bracetobrace
+  {an.south east}{ai+1.south west}
+  {bi+1.north west}{bn.north east}
+
