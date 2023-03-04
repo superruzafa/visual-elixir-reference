@@ -17,6 +17,7 @@
   element/.forward to={funprog, data struct element},
   element size/.forward to={funprog, data struct element size},
   index/.forward to={funprog, \funprog@datastructtype/index},
+  key value/.forward to={funprog, \funprog@datastructtype/key value},
   separator/.forward to={funprog, \funprog@datastructtype/separator},
   placeholder/.forward to={funprog, \funprog@datastructtype/placeholder},
   elements before/.forward to={funprog, \funprog@datastructtype/elements before},
@@ -102,6 +103,120 @@
     minimum width=\funprog@datastructelementsize,
   },
 }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% map
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+  every map/.style={},
+  map/.forward to={funprog, map},
+}
+
+\pgfkeys{
+  funprog,
+  map/.style={
+    data struct type=map,
+    data struct id=#1,
+    data struct element=#1,
+    data struct alias=map #1,
+    nodes={
+      draw,
+      anchor=center,
+      inner sep=0pt,
+      outer sep=.5\pgflinewidth,
+      minimum size=\funprog@datastructelementsize,
+    },
+    column sep=-\pgflinewidth,
+    row sep=-\pgflinewidth,
+    outer sep=-.5\pgflinewidth,
+    inner sep=0pt,
+    every list,
+  },
+  %list/placeholder/.style={
+    %node contents={},
+    %minimum width=#1 * \funprog@datastructelementsize,
+  %},
+  map/index/.style={
+    alias=\funprog@datastructid#1,
+    %node contents={$\funprog@datastructelement_{#1}$},
+    key value={$k_{#1}$}{$v_{#1}$}
+  },
+  map/key value/.style 2 args={
+    alias=\funprog@datastructid#1,
+    %node contents={$\funprog@datastructelement_{#1}$},
+    node contents={},
+    append after command={
+      \pgfextra
+      \draw [line width=.75\pgflinewidth] ($(\tikzlastnode.west) + (\pgflinewidth, 0) $) -- ($ (\tikzlastnode.east) + (-\pgflinewidth, 0) $);
+      \coordinate (_funprog_n) at ($ (\tikzlastnode.north) + (0, -.5\pgflinewidth) $);
+      \coordinate (_funprog_s) at ($ (\tikzlastnode.south) + (0, .5\pgflinewidth) $);
+      \coordinate (_funprog_k) at ($ (_funprog_n)!.25!(_funprog_s) $);
+      \coordinate (_funprog_v) at ($ (_funprog_n)!.75!(_funprog_s) $);
+      %\draw (n) circle [radius=1pt];
+      %\draw (s) circle [radius=1pt];
+      %\draw (k) circle [radius=1pt];
+      %\draw (v) circle [radius=1pt];
+      %\draw (\tikzlastnode.center) circle [radius=1pt];
+      %\coordinate (a) at ($ (\tikzlastnode.north)!.25!(\tikzlastnode.south) $);
+      %\draw [very thin, red] (\tikzlastnode.west |- k) -- (\tikzlastnode.east |- k);
+      %\draw [very thin, red] (\tikzlastnode.west |- v) -- (\tikzlastnode.east |- v);
+      %\node (k1) [anchor=base, yshift={height("x") / -2}] at (k) {x};
+      \node (last key) [draw=none, minimum size=0, anchor=base, yshift={height("x") / -2}] at (_funprog_k) {#1};
+      \node (last value) [draw=none, minimum size=0, anchor=base, yshift={height("x") / -2}] at (_funprog_v) {#2};
+      \endpgfextra
+    }
+  },
+  map/elements before/.style={
+    draw=none,
+    node contents={},
+    outer sep=0pt,
+    minimum width=#1 * \funprog@datastructelementsize,
+    minimum height=\funprog@datastructelementsize,
+    append after command={
+      \pgfextra
+      \draw [dashed]
+            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      \endpgfextra
+    },
+  },
+  map/elements before/.default=.5,
+  map/elements between/.style={
+    draw=none,
+    node contents={},
+    outer sep=0pt,
+    minimum width=#1 * \funprog@datastructelementsize,
+    minimum height=\funprog@datastructelementsize,
+    append after command={
+      \pgfextra
+      \draw [dashed]
+            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      \endpgfextra
+    },
+  },
+  map/elements between/.default=.5,
+  map/elements after/.style={
+    draw=none,
+    node contents={},
+    outer sep=0pt,
+    minimum width=#1 * \funprog@datastructelementsize,
+    minimum height=\funprog@datastructelementsize,
+    append after command={
+      \pgfextra
+      \draw [dashed]
+            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      \endpgfextra
+    },
+  },
+  map/elements after/.default=.5,
+}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % list
