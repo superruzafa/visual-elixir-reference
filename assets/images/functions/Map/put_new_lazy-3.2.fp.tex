@@ -1,0 +1,31 @@
+\tikzset{
+  put_new_lazy fun/.style={
+    fun,
+    function arity=0,
+  }
+}
+
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [map=b, below=2 of map a.south west, matrix anchor=north west] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node (bkey) [key value={\texttt{key}}{$v_{\texttt{\tiny{key}}}$}]; \\
+};
+
+\bracetobrace
+  {an.south east}{a1.south west}
+  {b1.north west}{bn.north east}
+
+\draw [<-] (bkey.north) -- +(0, 1);
+
+\draw [<-] (last value) -- ++(1, 0) -- ++(0, 1)
+  node [put_new_lazy fun, anchor=out];
+
