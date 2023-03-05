@@ -1,0 +1,19 @@
+\matrix [list=a] {
+  \node (a1) {$k_1$: $v_1$}; &
+  \node (a2) {$k_2$: $v_2$}; &
+  \node (a1') {$k_1$: $v^\prime_1$}; &
+  \node [elements between]; &
+  \node (a1'') {$k_1$: $v^{\prime\prime}_1$}; &
+  \node (a2') {$k_2$: $v^{\prime}_2$}; &
+  \node (an) {$k_n$: $v_n$}; \\
+};
+
+\matrix [map=b, below=2 of list a] {
+  \node [key value={$k_1$}{$v^{\prime\prime}_1$}]; &
+  \node [key value={$k_2$}{$v^{\prime}_2$}]; &
+  \node [elements between]; &
+  \node [key value={$k_n$}{$v_n$}]; \\
+};
+
+\node at ($ (list a)!.5!(map b) $) [draw, rotate=-90, single arrow, single arrow head extend=1mm] {};
+

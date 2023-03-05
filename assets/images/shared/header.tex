@@ -10,15 +10,17 @@
 }
 
 \tikzset{
+  every empty collection/.style={
+    element size=1.3cm,
+    line width=.4mm,
+  },
+}
+
+\tikzset{
   every list/.style={
     element size=1.3cm,
     %font=\Large,
     line width=.8mm,
-  },
-  sublist/.style={
-    line width=.6mm,
-    element size=1cm,
-    %font=\large,
   },
 }
 
@@ -108,8 +110,8 @@
 }
 
 \newcommand\applyfunbottom[4][2]{
-  \node (last label) [below=#1 of #2] {#4};
-  \node (last function) at ($ (last label)!.5!(#2) $) [fun=#3];
+  \node (last label) [below=#1 of #2, anchor=base] {#4};
+  \node (last function) at ($ ($ (last label.base) + (0, 1ex) $)!.5!(#2) $) [fun=#3];
   \draw [->] (#2) -- (last function.in);
   \draw [->] (last function.out) -- (last label);
 }

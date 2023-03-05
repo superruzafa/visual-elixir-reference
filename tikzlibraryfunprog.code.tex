@@ -217,6 +217,34 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% empty collection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+  every empty collection/.style={},
+  empty collection/.forward to={funprog, empty collection},
+}
+
+\pgfkeys{
+  funprog,
+  empty collection/.style={
+    every empty collection,
+    %data struct id=#1,
+    %data struct element=#1,
+    %data struct alias=list #1,
+    draw,
+    densely dashed,
+    node contents={},
+    inner sep=0pt,
+    outer sep=.5\pgflinewidth,
+    minimum height=\funprog@datastructelementsize,
+    minimum width=.3 * \funprog@datastructelementsize,
+  },
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % list
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
