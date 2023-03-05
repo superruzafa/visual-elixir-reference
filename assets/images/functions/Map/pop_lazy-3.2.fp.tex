@@ -1,0 +1,33 @@
+\tikzset{
+  pop_lazy fun/.style={
+    fun,
+    function arity=0,
+  }
+}
+
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple,  below=2 of map a]{
+  \node (b) {$b$}; & \node [separator]; &
+  \node (t2) [element size=1.7cm, placeholder=3]; \\
+};
+
+\matrix at (t2) [map=b] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\bracetobrace
+  {an.south east}{a1.south west}
+  {b1.north west}{bn.north east}
+
+\draw [<-] (b.north) -- +(0, 1)
+  node [pop_lazy fun, anchor=out];
+
