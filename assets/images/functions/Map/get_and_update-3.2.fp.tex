@@ -1,0 +1,48 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration={dashed}] (a2.north) -- (an.north);
+
+\matrix [tuple=t, below=3 of map a]{
+  \node (b) {$b$}; & \node [separator]; &
+  \node (t2) [element size=1.7cm, placeholder=3.5]; \\
+};
+
+\matrix at (t2) [map=b] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node (bkey) [key value={\texttt{key}}{$\vof{fun}$}];
+    \coordinate (vfun) at (last value.west); \\
+};
+
+\draw [->] (an.north) .. controls +(.5, .5) and +(0, 1) .. +(1, -1)
+  node (nil) [value, below, anchor=north] {\nil};
+
+\node (fun) at ($ ($ (map a)!.33!(map b) $) + (.08, 0) $) [fun];
+
+\begin{scope}
+  [start chain=tuple going base right, every node/.style={on chain=tuple, inner sep=0}, node distance=0]
+  \node [below left=.75 and 0 of fun] {$\{$};
+  \node (res b) {$b$};
+  \node {,\,};
+  \node (res vfun) {$\vof{fun}$};
+  \node {$\}$};
+\end{scope}
+
+\draw [->] (nil) -| (fun.in);
+\node (res) [fit=(res b) (res vfun)] {};
+\draw [->] (fun.out) -- (res.north);
+
+\draw [<-] (bkey.north) -- +(0, 1);
+
+\draw [->, shorten <=.5ex] (res b.base) -- +(0, -.5) -| (b.north);
+\draw [->, shorten <=.5ex] (res vfun.base) -- +(0, -.5) -| ($ (vfun) + (-.14, 0) $) -- (vfun);
+
