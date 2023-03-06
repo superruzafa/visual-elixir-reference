@@ -1,0 +1,42 @@
+\tikzset{
+  merge fun/.style={
+    fun,
+    function arity=3,
+  }
+}
+
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i];
+    \coordinate (ki) at (last key.west);
+    \coordinate (vi) at (last value.west); \\
+};
+
+\matrix [map=b, below=1 of ai.south west, anchor=bi.north west] {
+  \node (bi) [key value={$k_i$}{$v_i^\prime$}];
+    \coordinate (vi') at (last value.south); &
+  \node [elements between]; &
+  \node (bn) [key value={$k_n$}{$v_n^\prime$}]; \\
+};
+
+\matrix [map=c, below=2.5 of bi.south west, anchor=ci.north west] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node (ci) [key value={$k_i$}{$\vof{fun}$}];
+    \coordinate (vfun) at (last value.west); &
+  \node [elements between]; &
+  \node (cn) [key value={$k_n$}{$v_n^\prime$}]; \\
+};
+
+\node (fun) [merge fun, below=1 of bi, anchor=in 3];
+
+\draw [->] (ki) -| (fun.in 1);
+\draw [->] (vi) -| (fun.in 2);
+\draw [->] (vi') -- (fun.in 3);
+\draw [->] (fun.out) |- (vfun);
+
+\draw [dashed]
+  ($ (ai.north west) + (0, .5) $) -- ($ (bi.south west) + (0, -.5) $)
+  ($ (ai.north east) + (0, .5) $) -- ($ (bi.south east) + (0, -.5) $);
+
