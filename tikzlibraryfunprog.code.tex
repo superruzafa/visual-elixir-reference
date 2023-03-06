@@ -148,7 +148,13 @@
     node contents={},
     append after command={
       \pgfextra
-      \draw [line width=.75\pgflinewidth] ($(\tikzlastnode.west) + (\pgflinewidth, 0) $) -- ($ (\tikzlastnode.east) + (-\pgflinewidth, 0) $);
+      \coordinate (_funprog_x)  ($ (\tikzlastnode.west)!.5!(\tikzlastnode.east) $);
+      \draw [line width=.75\pgflinewidth] 
+        ($(\tikzlastnode.west) + (\pgflinewidth, 0) $) --
+        ($(_funprog_x) + (-1mm, 0)$) --
+        ($(_funprog_x) + (0, -1mm)$) --
+        ($(_funprog_x) + (1mm, 0)$) --
+        ($ (\tikzlastnode.east) + (-\pgflinewidth, 0) $);
       \coordinate (_funprog_n) at ($ (\tikzlastnode.north) + (0, -.5\pgflinewidth) $);
       \coordinate (_funprog_s) at ($ (\tikzlastnode.south) + (0, .5\pgflinewidth) $);
       \coordinate (_funprog_k) at ($ (_funprog_n)!.25!(_funprog_s) $);
