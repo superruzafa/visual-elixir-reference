@@ -1,0 +1,9 @@
+\matrix [list=a] {
+  \node (a1) {\texttt{elem}}; &
+  \node (a2) {\texttt{elem}}; &
+  \node [elements between]; &
+  \node (an) {\texttt{elem}}; \\
+};
+
+\draw [measure=\texttt{count}] (a1.north west) -- (an.north east);
+
