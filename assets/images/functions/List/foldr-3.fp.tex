@@ -1,0 +1,39 @@
+\tikzset{
+  foldr fun/.style={
+    fun,
+    function arity=2,
+    function out=west,
+  }
+}
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1, i, n-1, n}{
+    \draw [->] (a\i.south) -- +(0, -1)
+        node (fun\i) [foldr fun, anchor=in];
+}
+
+\coordinate (rule) at ($ (an.south)!.5!(funn.in) $);
+
+\draw [<-] (funn.in 2) |- (\currcoord |- rule) -- ++(1, 0)
+  node [value, right] {\texttt{acc}};
+
+\coordinate (p) at ($ (funn.out)!.5!(funn-1.east) $);
+\draw [->] (funn.out) -- (p) |- (\currcoord |- rule) -| (funn-1.in 2);
+
+\coordinate (p) at ($ (funn-1.out)!.5!(funi.east) $);
+\draw [->, dashed] (funn-1.out) -- (p) |- (\currcoord |- rule) -| (funi.in 2);
+
+\coordinate (p) at ($ (funi.out)!.5!(fun1.east) $);
+\draw [->, dashed] (funi.out) -- (p) |- (\currcoord |- rule) -| (fun1.in 2);
+
+\draw [->] (fun1.out) -| ++(-.5, -1)
+  node [value, below] {$b$};
+
