@@ -1,0 +1,21 @@
+\matrix [tuple=a] {
+  \node [index=1]; & \node [separator]; &
+  \node [index=2]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple=b, element=a, below=2 of a1.south, matrix anchor=b1.north] {
+  \node [index=1]; & \node [separator]; &
+  \node [index=2]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node [index=n]; & \node [separator]; &
+  \node (bn+1) {\texttt{value}}; \\
+};
+
+\bracetobrace
+  {an.south east}{a1.south west}
+  {b1.north west}{bn.north east}
+
+\draw [<-] (bn+1.north) -- +(0, 1);
+
