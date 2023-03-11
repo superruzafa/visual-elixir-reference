@@ -1,0 +1,14 @@
+\matrix [tuple=a] {
+  \node [index=0]; & \node [separator]; &
+  \node [index=1]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node (aindex-j) {$a_{\texttt{\scriptsize{index}}-j}$}; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration] (a0.north) -- (a1.north);
+\draw [iteration=dashed] (a1.north) -- (aindex-j.north);
+
+\draw [exception, ->] (aindex-j.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2) coordinate (b);
+\node at (b) [exception, draw, below, anchor=north] {\texttt{ArgumentError}};
+
