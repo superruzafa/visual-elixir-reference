@@ -1,0 +1,14 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (an.north);
+
+\draw [exception, ->] (an.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2) coordinate (b);
+\node at (b) [exception, draw, below, anchor=north] {\texttt{KeyError}};
+
