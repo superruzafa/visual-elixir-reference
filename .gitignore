@@ -1,3 +1,5 @@
 public/
 resources/
 static/images/functions/
+.hugo_build.lock
+
