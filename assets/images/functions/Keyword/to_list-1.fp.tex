@@ -1,0 +1,18 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [keyword list=b, below=2 of keyword list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\bracetobrace
+  {an.south east}{a1.south west}
+  {b1.north west}{bn.north east}
+
