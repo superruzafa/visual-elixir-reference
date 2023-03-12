@@ -1,0 +1,23 @@
+\matrix [keyword list=a] {
+  \node [key value={\texttt{key}}{$v_1$}]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [key value={\texttt{key}}{$v_i-1$}]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [key value={\texttt{key}}{$v_n-1$}]; &
+  \node [index=n]; \\
+};
+
+\matrix [keyword list=b, below=2 of keyword list a] {
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {2, i, n} {
+  \draw [->] (a\i.south) -- (b\i.north);
+}
+

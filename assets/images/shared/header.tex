@@ -10,6 +10,15 @@
 }
 
 \tikzset{
+  keyword list/.style={
+    /funprog/.cd,
+    map=#1,
+    data struct alias=keyword list #1,
+  }
+}
+
+
+\tikzset{
   every empty collection/.style={
     element size=1.3cm,
     line width=.4mm,
