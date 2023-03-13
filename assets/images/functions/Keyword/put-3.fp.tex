@@ -1,0 +1,25 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [key value={\key}{$v_{\texttt{\scriptsize{key}}}$}]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n-2]; &
+  \node [key value={\key}{$v^\prime_{\texttt{\scriptsize{key}}}$}]; &
+  \node [index=n]; \\
+};
+
+\matrix [keyword list=b, below=2 of keyword list a] {
+  \node [index=1]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n-2]; &
+  \node [index=n]; &
+  \node (bkey) [key value={\texttt{key}}{\texttt{value}}]; \\
+};
+
+\foreach \i in {1, 3, n-2, n}{
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}
+
+\draw [<-] (bkey.north) -- +(0, .75);
+
