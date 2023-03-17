@@ -391,7 +391,7 @@
     decoration={
       show path construction,
       lineto code={
-        \draw [bend left=45, every iteration, #1] (\tikzinputsegmentfirst) to (\tikzinputsegmentlast);
+        \draw [bend left=45, every iteration, #1] (\tikzinputsegmentfirst) to coordinate (last iteration) (\tikzinputsegmentlast);
       },
     }
   },
