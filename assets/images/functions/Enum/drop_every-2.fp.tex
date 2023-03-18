@@ -1,0 +1,49 @@
+\matrix [list=a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node (a1nth-1) {$a_{\texttt{\scriptsize{nth}}-1}$}; &
+  \node (a1nth) {$a_{\texttt{\scriptsize{nth}}}$}; &
+  \node (a1nth+1) {$a_{\texttt{\scriptsize{nth}}+1}$}; &
+  \node [elements between=1]; &
+  \node (ainth-1) {$a_{i\cdot\texttt{\scriptsize{nth}}-1}$}; &
+  \node (ainth) {$a_{i\cdot\texttt{\scriptsize{nth}}}$}; &
+  \node (ainth+1) {$a_{i\cdot\texttt{\scriptsize{nth}}+1}$}; &
+  \node [elements between=1]; &
+  \node [index=n-1]; \\
+};
+
+
+\draw [measure={$\texttt{nth}$}, measure amplitude=1.3cm] (a0.north west) -- (a1nth-1.north east);
+\draw [measure={$\texttt{nth}\mid i$}, measure amplitude=1.3cm] (a1nth.north west) -- (ainth-1.north east);
+\draw [measure={$<\texttt{nth}$}, measure amplitude=1.3cm] (ainth.north west) -- (an-1.north east);
+
+
+\draw [enter iteration] (a0.north);
+\draw [iteration=dashed] (a0.north) -- (a1nth.north);
+\draw [iteration=dashed] (a1nth.north) -- (ainth.north);
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node (b1nth-1) {$a_{\texttt{\scriptsize{nth}}-1}$}; &
+  \node (b1nth+1) {$a_{\texttt{\scriptsize{nth}}+1}$}; &
+  \node [elements between=1]; &
+  \node (binth-1) {$a_{i\cdot\texttt{\scriptsize{nth}}-1}$}; &
+  \node (binth+1) {$a_{i\cdot\texttt{\scriptsize{nth}}+1}$}; &
+  \node [elements between=1]; &
+  \node [index=n-1]; \\
+};
+
+\bracetobrace
+  {a1nth-1.south east}{a1.south west}
+  {b1.north west}{b1nth-1.north east}
+
+\bracetobrace
+  {ainth-1.south east}{a1nth+1.south west}
+  {b1nth+1.north west}{binth-1.north east}
+
+\bracetobrace
+  {an-1.south east}{ainth+1.south west}
+  {binth+1.north west}{bn-1.north east}
+
