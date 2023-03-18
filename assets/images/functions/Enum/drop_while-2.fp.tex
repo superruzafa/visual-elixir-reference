@@ -1,0 +1,31 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [index=i+1]; &
+  \node [index=i+2]; &
+  \node (a inf) [elements after]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration=dashed] (a1.north) -- (ai.north);
+\draw [iteration] (ai.north) -- (ai+1.north);
+
+\foreach \i/\r in {
+  1/\true,
+  i/\true,
+  i+1/\false
+}{
+  \applyfuntop{a\i.north}{\texttt{fun}}{\r}
+}
+
+\matrix [list=b, element=a, below=2 of ai+1.south west, anchor=bi+1.north west] {
+  \node [index=i+1]; &
+  \node [index=i+2]; &
+  \node (b inf) [elements after]; \\
+};
+
+\bracetobrace
+  {a inf.south east}{ai+1.south west}
+  {bi+1.north west}{b inf.north east}
+
