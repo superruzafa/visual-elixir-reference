@@ -1,0 +1,15 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [brace] (an.south east) -- (a1.south west);
+
+
+\draw [->] (last brace) -- +(0, -1)
+  node (b) [below, inner xsep=0, outer sep=0] {$a_i$};
+
+\node [base right=0 of b] {$\in \texttt{enumerable}$};
+
