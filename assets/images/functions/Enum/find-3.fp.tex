@@ -1,0 +1,23 @@
+\matrix [list=a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration] (a0.north) -- (a1.north);
+\draw [iteration=dashed] (a1.north) -- (ai.north);
+
+\foreach \i/\r in {
+  0/\false,
+  1/\false,
+  i/\true
+}{
+  \applyfuntop{a\i.north}{\texttt{fun}}{\r}
+}
+
+\draw [->] (ai.south) -- +(0, -1)
+  node [below] {$a_i$};
+
