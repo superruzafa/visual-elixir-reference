@@ -1,0 +1,28 @@
+\matrix [map=b] {
+  \node [key value={$a_1$}{$c_1$}]; &
+  \node [key value={$a_2$}{$c_2$}]; &
+  \node [elements between]; &
+  \node [key value={$a_n$}{$c_n$}]; \\
+};
+
+\node (legend) [right=.5 of map b]
+  {$c_j=\displaystyle\sum_{i=1}^{n}1|a_i=a_j$};
+
+\coordinate (x) at ($ (map b.west)!.5!(legend.east) $);
+
+\matrix [list=a, above=2 of x |- map b.north] {
+  \node [index=2]; &
+  \node [index=1]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node [index=2]; \\
+};
+
+\coordinate (x) at ($ (map b.north)!.5!(map b.north |- list a.south) $);
+
+\node at (x) [draw, rotate=-90, single arrow, single arrow head extend=1mm] {};
+
