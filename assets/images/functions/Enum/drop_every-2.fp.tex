@@ -13,11 +13,9 @@
   \node [index=n-1]; \\
 };
 
-
 \draw [measure={$\texttt{nth}$}, measure amplitude=1.3cm] (a0.north west) -- (a1nth-1.north east);
 \draw [measure={$\texttt{nth}\mid i$}, measure amplitude=1.3cm] (a1nth.north west) -- (ainth-1.north east);
 \draw [measure={$<\texttt{nth}$}, measure amplitude=1.3cm] (ainth.north west) -- (an-1.north east);
-
 
 \draw [enter iteration] (a0.north);
 \draw [iteration=dashed] (a0.north) -- (a1nth.north);
