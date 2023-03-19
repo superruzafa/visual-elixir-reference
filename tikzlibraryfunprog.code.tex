@@ -438,10 +438,15 @@
 % measure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\def\funprog@measure@position@above{1}
+\def\funprog@measure@position@below{-1}
+\let\funprog@measure@position\funprog@measure@position@above
+
 \tikzset{
   measure/.forward to={funprog, measure},
   measure amplitude/.forward to={funprog, measure amplitude},
   measure overflow/.forward to={funprog, measure overflow},
+  measure position/.forward to={funprog, measure position},
   every measure arrow/.style={
     -{Triangle[angle=30:1mm 2mm]},
   },
@@ -451,6 +456,13 @@
   funprog,
   measure amplitude/.initial=5mm,
   measure overflow/.initial=1mm,
+  measure position/.is choice,
+  measure position/above/.code={
+    \let\funprog@measure@position\funprog@measure@position@above
+  },
+  measure position/below/.code={
+    \let\funprog@measure@position\funprog@measure@position@below
+  },
   measure/.default={},
   measure/.style={
     decorate,
@@ -463,8 +475,8 @@
           \p3=(\x2 - \x1, \y2 - \y1),
           \n1={veclen(\x3, \y3)},
           \p4=(-\y3 / \n1, \x3 / \n1),
-          \n2={\pgfkeysvalueof{/funprog/measure amplitude}},
-          \n3={\pgfkeysvalueof{/funprog/measure overflow} * sign(\pgfkeysvalueof{/funprog/measure amplitude})}
+          \n2={\funprog@measure@position * \pgfkeysvalueof{/funprog/measure amplitude}},
+          \n3={\pgfkeysvalueof{/funprog/measure overflow} * \funprog@measure@position * sign(\pgfkeysvalueof{/funprog/measure amplitude})}
         in
           coordinate (last measure point a) at ($ (\p1) + (\x4 * \n2, \y4 * \n2) $)
           coordinate (last measure point b) at ($ (\p2) + (\x4 * \n2, \y4 * \n2) $)
