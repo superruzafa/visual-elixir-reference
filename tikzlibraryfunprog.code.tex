@@ -11,11 +11,17 @@
 \let\funprog@datastructtype\empty
 \let\funprog@datastructid\empty
 \let\funprog@datastructelement\empty
-\let\funprog@datastructelementsize\empty
+\let\funprog@datastructelement\empty
+\let\funprog@datastruct@elementsize\empty
+\def\funprog@datastruct@elementpadding{0}
+\let\funprog@placeholdersize\empty
+
+\newcounter{placeholder}
 
 \tikzset{
   element/.forward to={funprog, data struct element},
   element size/.forward to={funprog, data struct element size},
+  element padding/.forward to={funprog, data struct element padding},
   index/.forward to={funprog, \funprog@datastructtype/index},
   key value/.forward to={funprog, \funprog@datastructtype/key value},
   separator/.forward to={funprog, \funprog@datastructtype/separator},
@@ -30,7 +36,8 @@
   data struct type/.store in=\funprog@datastructtype,
   data struct id/.store in=\funprog@datastructid,
   data struct element/.store in=\funprog@datastructelement,
-  data struct element size/.store in=\funprog@datastructelementsize,
+  data struct element size/.store in=\funprog@datastruct@elementsize,
+  data struct element padding/.store in=\funprog@datastruct@elementpadding,
   data struct alias/.style={
     append after command={
       \pgfextra
@@ -39,16 +46,14 @@
     },
   },
   reset placeholder counter/.code={
-    \newcounter{placeholder}
+    \setcounter{placeholder}{0}
   },
   next placeholder counter/.code={
     \stepcounter{placeholder}
   },
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % tuple
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \let\funprog@tuple@delimiter@left\empty
 \let\funprog@tuple@delimiter@right\empty
@@ -72,7 +77,7 @@
       anchor=center,
       inner sep=0pt,
       outer sep=0pt,
-      minimum height=\funprog@datastructelementsize,
+      minimum height=\funprog@datastruct@elementsize,
     },
     column sep=-\pgflinewidth,
     row sep=-\pgflinewidth,
@@ -88,7 +93,7 @@
     next placeholder counter,
     alias={\funprog@datastructid placeholder\the\value{placeholder}},
     node contents={},
-    minimum width=#1 * \funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize,
   },
   tuple/delimiter/left/.store in=\funprog@tuple@delimiter@left,
   tuple/delimiter/right/.store in=\funprog@tuple@delimiter@right,
@@ -109,7 +114,7 @@
   tuple/index/.style={
     alias=\funprog@datastructid#1,
     node contents={$\funprog@datastructelement_{#1}$},
-    minimum width=\funprog@datastructelementsize,
+    minimum width=\funprog@datastruct@elementsize,
   },
   tuple/elements before/.style={
     node contents={\ldots},
@@ -122,11 +127,7 @@
   },
 }
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % map
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tikzset{
   every map/.style={},
@@ -145,7 +146,7 @@
       anchor=center,
       inner sep=0pt,
       outer sep=.5\pgflinewidth,
-      minimum size=\funprog@datastructelementsize,
+      minimum size=\funprog@datastruct@elementsize,
     },
     column sep=-\pgflinewidth,
     row sep=-\pgflinewidth,
@@ -153,10 +154,6 @@
     inner sep=0pt,
     every list,
   },
-  %list/placeholder/.style={
-    %node contents={},
-    %minimum width=#1 * \funprog@datastructelementsize,
-  %},
   map/index/.style={
     alias=\funprog@datastructid#1,
     %node contents={$\funprog@datastructelement_{#1}$},
@@ -195,8 +192,8 @@
     draw=none,
     node contents={},
     outer sep=0pt,
-    minimum width=#1 * \funprog@datastructelementsize,
-    minimum height=\funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize,
+    minimum height=\funprog@datastruct@elementsize,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -210,8 +207,8 @@
     draw=none,
     node contents={},
     outer sep=0pt,
-    minimum width=#1 * \funprog@datastructelementsize,
-    minimum height=\funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize,
+    minimum height=\funprog@datastruct@elementsize,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -225,8 +222,8 @@
     draw=none,
     node contents={},
     outer sep=0pt,
-    minimum width=#1 * \funprog@datastructelementsize,
-    minimum height=\funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize,
+    minimum height=\funprog@datastruct@elementsize,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -238,11 +235,7 @@
   map/elements after/.default=.5,
 }
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% empty collection
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% empty collection ------------------------------------------------------------
 
 \tikzset{
   every empty collection/.style={},
@@ -262,16 +255,12 @@
     node contents={},
     inner sep=0pt,
     outer sep=.5\pgflinewidth,
-    minimum height=\funprog@datastructelementsize,
-    minimum width=.3 * \funprog@datastructelementsize,
+    minimum height=\funprog@datastruct@elementsize,
+    minimum width=.3 * \funprog@datastruct@elementsize,
   },
 }
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % list
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tikzset{
   every list/.style={},
@@ -280,6 +269,7 @@
 
 \pgfkeys{
   funprog,
+  list/.default=a,
   list/.style={
     data struct type=list,
     data struct id=#1,
@@ -290,17 +280,22 @@
       anchor=center,
       inner sep=0pt,
       outer sep=0pt,
-      minimum size=\funprog@datastructelementsize,
+      minimum size=\funprog@datastruct@elementsize,
     },
     column sep=-\pgflinewidth,
     row sep=-\pgflinewidth,
     outer sep=-.5\pgflinewidth,
     inner sep=0pt,
     every list,
+    reset placeholder counter,
   },
+  list/placeholder/.default=1,
   list/placeholder/.style={
+    next placeholder counter,
+    alias={\funprog@datastructid placeholder\the\value{placeholder}},
     node contents={},
-    minimum width=#1 * \funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
   },
   list/index/.style={
     alias=\funprog@datastructid#1,
@@ -310,8 +305,8 @@
     draw=none,
     node contents={},
     outer sep=0pt,
-    minimum width=#1 * \funprog@datastructelementsize,
-    minimum height=\funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -325,8 +320,8 @@
     draw=none,
     node contents={},
     outer sep=0pt,
-    minimum width=#1 * \funprog@datastructelementsize,
-    minimum height=\funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -340,8 +335,8 @@
     draw=none,
     node contents={},
     outer sep=0pt,
-    minimum width=#1 * \funprog@datastructelementsize,
-    minimum height=\funprog@datastructelementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
     append after command={
       \pgfextra
       \draw [dashed]
