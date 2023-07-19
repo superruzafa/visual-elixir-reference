@@ -1,0 +1,10 @@
+\matrix [list=b] {
+  \node {\texttt{?a}}; &
+  \node {\texttt{?t}}; &
+  \node {\texttt{?o}}; &
+  \node {\texttt{?m}}; \\
+};
+
+\node (a) [above=2 of list b] {\texttt{:atom}};
+\draw [->] (a) -- (list b);
+
