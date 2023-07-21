@@ -9,7 +9,8 @@
   \node [index=1]; &
   \node [index=2]; &
   \node [elements between]; &
-  \node [index=n]; \\
+  \node [index=n]; &
+  \node [elements after]; \\
 };
 
 \matrix [list=z, below=3 of $(list a)!.5!(list b) $] {
@@ -20,7 +21,7 @@
 };
 
 \foreach \i in {1, 2, n}{
-  \draw [->, out=270, in=90] (a\i.south) to ($ (z\i.north) + (-1em, 0) $) -- +(0, -2.75ex);
-  \draw [->, out=270, in=90] (b\i.south) to ($ (z\i.north) + (1em, 0) $) -- +(0, -2.75ex);
+  \draw [->, out=270, in=90] (a\i.south) to ($ (z\i.north) + (-1em, 0) $) -- +(0, -3ex);
+  \draw [->, out=270, in=90] (b\i.south) to ($ (z\i.north) + (1em, 0) $) -- +(0, -3ex);
 }
 

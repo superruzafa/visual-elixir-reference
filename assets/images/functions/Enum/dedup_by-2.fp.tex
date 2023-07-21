@@ -29,6 +29,6 @@
 };
 
 \foreach \i in {1,2,4,5,8}{
-  \draw [->] (a\i.south) -- (b\i.north);
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
 }
 

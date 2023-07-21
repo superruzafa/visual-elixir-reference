@@ -1,18 +1,18 @@
 \matrix [list=a] {
-  \node [index=0]; &
   \node [index=1]; &
+  \node [index=2]; &
   \node [elements between]; &
-  \node [index=n-1]; \\
+  \node [index=n]; \\
 };
 
-\draw [enter iteration] (a0.north);
-\draw [iteration] (a0.north) -- (a1.north);
-\draw [iteration=dashed] (a1.north) -- (an-1.north);
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (an.north);
 
-\foreach \i in {0, 1, n-1}{
+\foreach \i in {1, 2, n}{
   \applyfuntop{a\i.north}{\texttt{fun}}{\false}
 }
 
-\draw [->] (an-1.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2)
-  node [below, anchor=north] {\nil};
+\draw [->] (an.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2)
+  node [below, anchor=north] {\texttt{default}};
 

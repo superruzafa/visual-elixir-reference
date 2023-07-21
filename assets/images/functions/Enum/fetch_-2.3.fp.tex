@@ -9,8 +9,7 @@
 
 \draw [enter iteration] (a0.north);
 \draw [iteration] (a0.north) -- (a1.north);
-\draw [exit iteration] (a1.north);
-\draw [enter iteration] (an.north);
+\draw [iteration=dashed] (a1.north) -- (an.north);
 
 \draw [exception, ->] (an.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2) coordinate (b);
 \node at (b) [draw, exception, value, below, anchor=north] {\texttt{OutOfBoundsError}};

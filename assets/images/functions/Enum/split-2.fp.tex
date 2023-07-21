@@ -1,36 +1,36 @@
 \matrix [list=a] {
   \node [index=1]; &
   \node [elements between]; &
-  \node (acount) {$a_{\tiny{\texttt{count}}}$}; &
-  \node (acount+1) {$a_{\tiny{\texttt{count+1}}}$}; &
+  \node (acount) {$a_{\small{\texttt{count}}}$}; &
+  \node (acount+1) {$a_{\small{\texttt{count+1}}}$}; &
   \node [elements between]; &
   \node [index=n]; \\
 };
 
 \draw [measure=\texttt{count}] (a1.north west) -- (acount.north east);
 
-\matrix [tuple=a, element size=1.7cm, below=2 of list a] {
-  \node (t1) [placeholder=2]; & \node [separator]; &
-  \node (t2) [placeholder=2]; \\
+\matrix [tuple=t, wrapper, element size=2cm, below=2 of list a] {
+  \node (t1) [placeholder=2.5]; & \node [separator]; &
+  \node (t2) [placeholder=2.5]; \\
 };
 
 \matrix at (t1) [list, element=a] {
     \node (b1) [index=1]; &
-    \node [elements between]; &
-    \node (bcount) {$a_{\tiny{\texttt{count}}}$}; \\
+    \node [elements between=.5]; &
+    \node (bcount) {$a_{\small{\texttt{count}}}$}; \\
 };
 
 \matrix at (t2) [list, element=a] {
-  \node (bcount+1) {$a_{\tiny{\texttt{count+1}}}$};&
-  \node [elements between]; &
+  \node (bcount+1) {$a_{\small{\texttt{count+1}}}$};&
+  \node [elements between=.5]; &
   \node (bn) [index=n]; \\
 };
 
 \bracetobrace
-    {acount.south east}{a1.south west}
-    {b1.north west}{bcount.north east}
+  {acount.south east}{a1.south west}
+  {b1.north west}{bcount.north east}
 
 \bracetobrace
-    {an.south east}{acount+1.south west}
-    {bcount+1.north west}{bn.north east}
+  {an.south east}{acount+1.south west}
+  {bcount+1.north west}{bn.north east}
 

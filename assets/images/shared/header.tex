@@ -2,8 +2,9 @@
 \begin{tikzpicture}
 
 \tikzset{
-  x=1.3cm,
-  y=1.3cm,
+  x=2cm,
+  y=2cm,
+  font=\LARGE,
   value/.style={
     %font=\Large,
   },
@@ -19,30 +20,24 @@
 
 \tikzset{
   every empty collection/.style={
-    element size=1.3cm,
+    element size=2cm,
     line width=.4mm,
   },
 }
 
 \tikzset{
   every list/.style={
-    element size=1.3cm,
-    %font=\Large,
-    line width=.8mm,
+    element size=2cm,
+    wrapper padding=4mm,
+    line width=1mm,
   },
-}
-
-\tikzset{
-  placeholder list/.style={
-    list=#1,
-    element padding=2.5mm,
-  }
 }
 
 \tikzset{
   tuple delimiter=braces,
   every tuple/.style={
     element size=0pt,
+    wrapper padding=4mm,
     %font=\Large,
     nodes={
       text height=1em,
@@ -54,11 +49,12 @@
 \tikzset{
   fun/.style={
     shape=function,
-    function port width=2.5mm,
-    function port funnel width=1.25mm,
+    function port width=5mm,
+    function port funnel width=2.5mm,
     function port separation=1.25mm,
-    function port height=1.25mm,
-    line width=.4mm,
+    function port height=1.875mm,
+    line width=.8mm,
+    font=\Large,
     draw,
     node contents={#1},
   },
@@ -68,11 +64,11 @@
 \tikzset{
   ->/.style={
     -{Stealth[#1]},
-    line width=0.4mm,
+    line width=0.8mm,
   },
   <-/.style={
     {Stealth[#1]}-,
-    line width=0.4mm,
+    line width=0.8mm,
   },
 }
 
@@ -85,32 +81,40 @@
 }
 
 \tikzset{
-  every enter iteration/.style={<-, radius=.65cm},
+  enter iteration start angle=30,
+  enter iteration delta angle=60,
+  exit iteration start angle=150,
+  exit iteration delta angle=60,
+  every enter iteration/.style={<-, radius=.85cm},
   every iteration/.style={->},
-  every exit iteration/.style={->, radius=.65cm},
+  every exit iteration/.style={->, radius=.85cm},
 }
 
 \tikzset{
-  measure amplitude=5mm,
-  measure overflow=1mm,
+  every measure arrow/.style={
+    ->,
+    line width=.4mm,
+  },
+  measure amplitude=1cm,
+  measure overflow=2.5mm,
   measure below/.style={
-    measure amplitude=-5mm,
+    measure amplitude=-1cm,
   }
 }
 
 \tikzset{
   every brace/.style={
-    line width=.4mm,
+    line width=.6mm,
   },
-  brace amplitude=2mm,
-  brace raise=1mm,
+  brace amplitude=5mm,
+  brace raise=2.5mm,
 }
 
 \newcommand\bracetobrace[4]{
   \draw [brace] (#1) -- (#2);
   \coordinate (first brace) at (last brace);
   \draw [brace] (#3) -- (#4);
-  \draw [->] (first brace) -- (last brace);
+  \draw [->, out=270, in=90] (first brace) to (last brace);
 }
 
 \makeatletter
@@ -138,5 +142,5 @@
 \def\error{\texttt{:error}}
 
 \def\key{\texttt{key}}
-\newcommand\vof[1]{v_\texttt{\tiny{#1}}}
+\newcommand\vof[1]{v_\texttt{\small{#1}}}
 \newcommand{\vkey}{\vof{key}}

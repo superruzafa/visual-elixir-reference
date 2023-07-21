@@ -1,18 +1,18 @@
 \matrix [list=a] {
-  \node [index=0]; &
   \node [index=1]; &
+  \node [index=2]; &
   \node [elements between]; &
   \node [index=i]; &
   \node [elements after]; \\
 };
 
-\draw [enter iteration] (a0.north);
-\draw [iteration] (a0.north) -- (a1.north);
-\draw [iteration=dashed] (a1.north) -- (ai.north);
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (ai.north);
 
 \foreach \i/\r in {
-  0/\false,
   1/\false,
+  2/\false,
   i/\true
 }{
   \applyfuntop{a\i.north}{\texttt{fun}}{\r}

@@ -9,8 +9,7 @@
 
 \draw [enter iteration] (a0.north);
 \draw [iteration] (a0.north) -- (a1.north);
-\draw [exit iteration] (a1.north);
-\draw [enter iteration] (an.north);
+\draw [iteration=dashed] (a1.north) -- (an.north);
 
 \draw [->] (an.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2)
   node [value, below, anchor=north] {\texttt{default}};

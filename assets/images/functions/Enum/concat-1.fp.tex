@@ -1,36 +1,36 @@
-\matrix [list=p, element size=1.7cm] {
-    \node (pa) [placeholder=2.75]; &
-    \node (pb) [placeholder=2.75]; &
-    \node [elements between]; &
-    \node (pk) [placeholder=2.75]; \\
+\matrix [list=p, wrapper] {
+  \node (pa) [placeholder=2.75]; &
+  \node (pb) [placeholder=2.75]; &
+  \node [elements between]; &
+  \node (pk) [placeholder=2.75]; \\
 };
 
 \matrix at (pa) [list=a] {
-    \node [index=1]; &
-    \node [elements between=.75]; &
-    \node [index=n]; \\
+  \node [index=1]; &
+  \node [elements between=.75]; &
+  \node [index=n]; \\
 };
 \matrix at (pb) [list=b] {
-    \node [index=1]; &
-    \node [elements between=.75]; &
-    \node [index=m]; \\
+  \node [index=1]; &
+  \node [elements between=.75]; &
+  \node [index=m]; \\
 };
 \matrix at (pk) [list=k] {
-    \node [index=1]; &
-    \node [elements between=.75]; &
-    \node [index=p]; \\
+  \node [index=1]; &
+  \node [elements between=.75]; &
+  \node [index=p]; \\
 };
 
 \matrix [list=q, below=2 of list p]{
-    \node (qa1) {$a_1$}; &
-    \node [elements between=.75]; &
-    \node (qan) {$a_n$}; &
-    \node (qb1) {$b_1$}; &
-    \node [elements between=.75]; &
-    \node (qbm) {$b_n$}; &
-    \node (qk1) {$k_1$}; &
-    \node [elements between=.75]; &
-    \node (qkp) {$k_p$}; \\
+  \node (qa1) {$a_1$}; &
+  \node [elements between=.75]; &
+  \node (qan) {$a_n$}; &
+  \node (qb1) {$b_1$}; &
+  \node [elements between=.75]; &
+  \node (qbm) {$b_n$}; &
+  \node (qk1) {$k_1$}; &
+  \node [elements between=.75]; &
+  \node (qkp) {$k_p$}; \\
 };
 
 \draw [brace, brace raise=4mm] (an.south east) -- (a1.south west);

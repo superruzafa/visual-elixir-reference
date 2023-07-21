@@ -2,9 +2,9 @@
   \node [index=0]; & \node [separator]; &
   \node [index=1]; & \node [separator]; &
   \node [elements between]; & \node [separator]; &
-  \node [index=i-1]; & \node [separator]; &
-  \node [index=i]; & \node [separator]; &
-  \node [index=i+1]; & \node [separator]; &
+  \node (ai-1) {$a_{\small\texttt{index}-1}$}; & \node [separator]; &
+  \node (ai) {$a_{\small\texttt{index}}$}; & \node [separator]; &
+  \node (ai+1) {$a_{\small\texttt{index}+1}$}; & \node [separator]; &
   \node [elements between]; & \node [separator]; &
   \node [index=n-1]; \\
 };
@@ -13,8 +13,8 @@
   \node [index=0]; & \node [separator]; &
   \node [index=1]; & \node [separator]; &
   \node [elements between]; & \node [separator]; &
-  \node [index=i-1]; & \node [separator]; &
-  \node [index=i+1]; & \node [separator]; &
+  \node (bi-1) {$a_{\small\texttt{index}-1}$}; & \node [separator]; &
+  \node (bi+1) {$a_{\small\texttt{index}+1}$}; & \node [separator]; &
   \node [elements between]; & \node [separator]; &
   \node [index=n-1]; \\
 };

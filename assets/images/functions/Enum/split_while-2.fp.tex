@@ -22,22 +22,22 @@
   \applyfuntop{a\i.north}{\texttt{fun}}{\r}
 }
 
-\matrix [tuple=t, element size=1.7cm, below=2 of list a] {
-  \node [placeholder=3]; & \node [separator]; &
-  \node [placeholder=2.25]; \\
+\matrix [tuple=t, wrapper, element size=2cm, below=2 of list a] {
+  \node [placeholder=3.5]; & \node [separator]; &
+  \node [placeholder=2.5]; \\
 };
 
 \matrix at (tplaceholder1) [list=b, element=a] {
   \node [index=1]; &
   \node [index=2]; &
-  \node [elements between]; &
+  \node [elements between=.5]; &
   \node [index=i-1]; \\
 };
 
 \matrix at (tplaceholder2) [list=b, element=a] {
-    \node [index=i];; &
-    \node [elements between]; &
-    \node [index=n];; \\
+    \node [index=i]; &
+    \node [elements between=.5]; &
+    \node [index=n]; \\
 };
 
 \bracetobrace

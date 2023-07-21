@@ -2,15 +2,14 @@
   \node [index=0]; &
   \node [index=1]; &
   \node [elements between]; &
-  \node (aindex) {$a_{\tiny\texttt{index}}$}; &
+  \node (aindex) {$a_{\texttt{\small{index}}}$}; &
   \node [elements after]; \\
 };
 
 \draw [enter iteration] (a0.north);
 \draw [iteration] (a0.north) -- (a1.north);
-\draw [exit iteration] (a1.north);
-\draw [enter iteration] (aindex.north);
+\draw [iteration=dashed] (a1.north) -- (aindex.north);
 
 \draw [->] (aindex.south) -- +(0, -1)
-  node [value, below, anchor=north] {$a_{\tiny\texttt{index}}$};
+  node [value, below, anchor=north] {$a_{\texttt{\small{index}}}$};
 

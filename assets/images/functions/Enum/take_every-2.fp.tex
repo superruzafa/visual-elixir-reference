@@ -1,13 +1,13 @@
 \matrix [list=a] {
   \node [index=0]; &
   \node [elements between]; &
-  \node (anth) {$a_{\texttt{\scriptsize{nth}}}$}; &
+  \node (anth) {$a_{\texttt{\small{nth}}}$}; &
   \node [elements between]; &
-  \node (a2nth) {$a_{2\cdot\texttt{\scriptsize{nth}}}$}; &
+  \node (a2nth) {$a_{2\cdot\texttt{\small{nth}}}$}; &
   \node [elements between=1]; &
-  \node (ainth) {$a_{i\cdot\texttt{\scriptsize{nth}}}$}; &
+  \node (ainth) {$a_{i\cdot\texttt{\small{nth}}}$}; &
   \node [elements between=1]; &
-  \node (ajnth) {$a_{j\cdot\texttt{\scriptsize{nth}}}$}; &
+  \node (ajnth) {$a_{j\cdot\texttt{\small{nth}}}$}; &
   \node [index=n-1]; \\
 };
 
@@ -17,18 +17,18 @@
 \draw [iteration] (anth.north) -- (a2nth.north);
 \node at (last iteration) [above] {\texttt{nth}};
 \draw [iteration=dashed] (a2nth.north) -- (ainth.north);
-\node at (last iteration) [above] {\texttt{nth}};
+\node at (last iteration) [above] {$v\cdot\texttt{nth}$};
 \draw [iteration=dashed] (ainth.north) -- (ajnth.north);
-\node at (last iteration) [above] {\texttt{nth}};
+\node at (last iteration) [above] {$w\cdot\texttt{nth}$};
 
 \matrix [list=b, element=a, below=2 of list a] {
   \node [index=0]; &
-  \node (bnth) {$a_{\texttt{\scriptsize{nth}}}$}; &
-  \node (b2nth) {$a_{2\cdot\texttt{\scriptsize{nth}}}$}; &
+  \node (bnth) {$a_{\texttt{\small{nth}}}$}; &
+  \node (b2nth) {$a_{2\cdot\texttt{\small{nth}}}$}; &
   \node [elements between=1]; &
-  \node (binth) {$a_{i\cdot\texttt{\scriptsize{nth}}}$}; &
+  \node (binth) {$a_{i\cdot\texttt{\small{nth}}}$}; &
   \node [elements between=1]; &
-  \node (bjnth) {$a_{j\cdot\texttt{\scriptsize{nth}}}$}; \\
+  \node (bjnth) {$a_{j\cdot\texttt{\small{nth}}}$}; \\
 };
 
 \foreach \i in {0, nth, 2nth, inth, jnth}{

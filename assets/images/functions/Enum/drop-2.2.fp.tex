@@ -1,19 +1,19 @@
 \matrix [list=a] {
     \node [index=-n]; &
     \node [elements between]; &
-    \node (a-c-1) {$a_{\texttt{\tiny{-count-1}}}$}; &
-    \node (a-c) {$a_{\texttt{\tiny{-count}}}$}; &
+    \node (a-c-1) {$a_{\texttt{\small{-count-1}}}$}; &
+    \node (a-c) {$a_{\texttt{\small{-count}}}$}; &
     \node [elements between]; &
     \node [index=-2]; &
     \node [index=-1]; \\
 };
 
-\draw [measure=\texttt{|count|}, measure amplitude=5mm, measure overflow=1mm] (a-c.north west) -- (a-1.north east);
+\draw [measure=\texttt{|count|}] (a-c.north west) -- (a-1.north east);
 
 \matrix [list=b, element=a, below=2 of a-n.south west, matrix anchor=b-n.north west] {
     \node [index=-n]; &
     \node [elements between]; &
-    \node (b-c-1) {$a_{\texttt{\tiny{-count-1}}}$}; \\
+    \node (b-c-1) {$a_{\texttt{\small{-count-1}}}$}; \\
 };
 
 \bracetobrace

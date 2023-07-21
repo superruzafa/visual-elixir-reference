@@ -8,8 +8,7 @@
 
 \draw [enter iteration] (a1.north);
 \draw [iteration] (a1.north) -- (a2.north);
-\draw [exit iteration] (a2.north);
-\draw [enter iteration] (ai.north);
+\draw [iteration=dashed] (a2.north) -- (ai.north);
 
 \foreach \i/\r in {
     1/\true,

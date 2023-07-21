@@ -36,7 +36,7 @@
 
 \node (res) [fit=(res b) (res vfun)] {};
 \draw [->] (vkey) -| (fun.north);
-\draw [->] (fun.out) -- (res.north);
+\draw [->] (fun.out) -- (\currcoord |- res.north);
 
 \draw [->, shorten <=.5ex] (res b) -- +(0, -.5) -| (b.north);
 \draw [->, shorten <=.5ex] (res vfun) |- (vfun);

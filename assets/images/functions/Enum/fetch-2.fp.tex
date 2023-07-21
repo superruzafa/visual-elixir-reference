@@ -2,7 +2,7 @@
   \node [index=0]; &
   \node [index=1]; &
   \node [elements between]; &
-  \node (ai-1) {$a_{\tiny{\texttt{index}-1}}$}; &
+  \node (ai-1) {$a_{\small{\texttt{index}-1}}$}; &
   \node [elements between]; \\
 };
 
@@ -11,5 +11,5 @@
 \draw [iteration=dashed] (a1.north) -- (ai-1.north);
 
 \draw [->] (ai-1.south) -- +(0, -1)
-  node [below] {\{\ok,\,$a_{\tiny{\texttt{index}-1}}$\}};
+  node [below] {\{\ok,\,$a_{\small{\texttt{index}-1}}$\}};
 

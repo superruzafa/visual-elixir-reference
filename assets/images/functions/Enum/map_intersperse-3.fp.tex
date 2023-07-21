@@ -18,11 +18,11 @@
   \node [index=n]; \\
 };
 
-\coordinate (rule) at ($ (list a)!.5!(list b) $);
+\coordinate (rule) at ($ (list a)!.6!(list b) $);
 
 \foreach \i in {1, 2, n-1, n}{
   \node (fun\i) at (b\i |- rule) [fun];
-  \draw [->={flex}, out=270, in=90] (a\i.south) to (fun\i.in);
+  \draw [->, out=270, in=90] (a\i.south) to (fun\i.in);
   \draw [->] (fun\i.out) to (b\i.north);
   \draw [<-] (be\i.north) -- +(0, 1);
 }

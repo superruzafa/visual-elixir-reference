@@ -1,28 +1,28 @@
 \matrix [list=a] {
   \node [index=-n]; &
   \node [elements between]; &
-  \node (a-count-1) {$a_{\tiny{\texttt{-count-1}}}$}; &
-  \node (a-count) {$a_{\tiny{\texttt{-count}}}$}; &
+  \node (a-count-1) {$a_{\small{\texttt{-count-1}}}$}; &
+  \node (a-count) {$a_{\small{\texttt{-count}}}$}; &
   \node [elements between]; &
   \node [index=-1]; \\
 };
 
 \draw [measure=\texttt{|count|}] (a-count.north west) -- (a-1.north east);
 
-\matrix [tuple=a, element size=1.7cm, below=2 of list a] {
-  \node (t1) [placeholder=2]; & \node [separator]; &
-  \node (t2) [placeholder=2]; \\
+\matrix [tuple=a, wrapper, element size=2cm, below=2 of list a] {
+  \node (t1) [placeholder=2.5]; & \node [separator]; &
+  \node (t2) [placeholder=2.5]; \\
 };
 
 \matrix at (t1) [list, element=a] {
   \node (b-n) [index=-n]; &
-  \node [elements between]; &
-  \node (b-count-1) {$a_{\tiny{\texttt{-count-1}}}$}; \\
+  \node [elements between=.5]; &
+  \node (b-count-1) {$a_{\small{\texttt{-count-1}}}$}; \\
 };
 
 \matrix at (t2) [list, element=a] {
-  \node (b-count) {$a_{\tiny{\texttt{-count}}}$}; &
-  \node [elements between]; &
+  \node (b-count) {$a_{\small{\texttt{-count}}}$}; &
+  \node [elements between=.5]; &
   \node (b-1) [index=-1]; \\
 };
 

@@ -13,21 +13,23 @@
   \coordinate (k\i) at (last label);
 }
 
-\draw [rounded corners=2.5mm] ($ (k1.mid) + (-.25, -.25) $) rectangle ($ (k2.mid) + (.25, .25) $);
-\draw (k3.mid) circle [radius=3mm];
-\draw (k4.mid) circle [radius=3mm];
-\draw [rounded corners=2.5mm] ($ (k5.mid) + (-.25, -.25) $) rectangle ($ (k6.mid) + (.25, .25) $);
+\begin{scope}
+  [rounded corners=2.5mm]
+  \draw ($ (k1.mid) + (-.25, -.25) $) rectangle ($ (k2.mid) + (.25, .25) $);
+  \draw ($ (k3.mid) + (.25, .25) $) rectangle +(-.5, -.5);
+  \draw ($ (k4.mid) + (.25, .25) $) rectangle +(-.5, -.5);
+  \draw ($ (k5.mid) + (-.25, -.25) $) rectangle ($ (k6.mid) + (.25, .25) $);
+\end{scope}
 
-\matrix [list=p, element size=1.7cm, below=2 of list a] {
-  \node (p1) [placeholder=1.75]; &
+\matrix [list=p, wrapper, element size=2cm, below=2 of list a] {
+  \node (p1) [placeholder=2]; &
   \node (p2) [placeholder=1]; &
   \node (p3) [placeholder=1]; &
-  \node (p4) [placeholder=1.75]; &
+  \node (p4) [placeholder=2]; &
   \node [elements after]; \\
 };
 
 \begin{scope}
-  \tikzset{every list/.style={sublist}}
   \matrix [list=b1, element=a] at (p1) {
     \node [index=1]; &
     \node [index=2]; \\

@@ -1,53 +1,53 @@
 \matrix [list=a] {
   \node [index=1]; &
   \node [elements between]; &
-  \node (acount) {$a_{\texttt{\tiny{count}}}$}; &
+  \node (acount) {$a_{\texttt{\small{count}}}$}; &
   \node [elements between]; &
-  \node (astep+1) {$a_{\texttt{\tiny{step}}+1}$}; &
+  \node (astep+1) {$a_{\texttt{\small{step}}+1}$}; &
   \node [elements between]; &
-  \node (astep+count) {$a_{\texttt{\tiny{step}}+\texttt{\tiny{count}}}$}; &
+  \node (astep+count) {$a_{\texttt{\small{step}}+\texttt{\small{count}}}$}; &
   \node [elements between=.75]; &
-  \node (aistep+1) {$a_{i\cdot\texttt{\tiny{step}}+1}$}; &
+  \node (aistep+1) {$a_{i\cdot\texttt{\small{step}}+1}$}; &
   \node [elements between]; &
-  \node (aistep+j) {$a_{i\cdot\texttt{\tiny{step}}+j}$}; \\
+  \node (aistep+j) {$a_{i\cdot\texttt{\small{step}}+j}$}; \\
 };
 
-\matrix [placeholder list=b, below=2 of list a] {
+\matrix [list=b, wrapper, below=2 of list a] {
   \node [placeholder=2.5]; &
-  \node [placeholder=2.5]; &
+  \node [placeholder=2.8]; &
   \node [elements between]; &
-  \node [placeholder=2.5]; \\
+  \node [placeholder=2.6]; \\
 };
 
 \matrix at (bplaceholder1) [list=b1] {
   \node {$a_1$}; &
   \node [elements between]; &
-  \node {$a_{\texttt{\tiny{count}}}$}; \\
+  \node {$a_{\texttt{\small{count}}}$}; \\
 };
 
 \matrix at (bplaceholder2) [list=b2] {
-  \node {$a_{\texttt{\tiny{step}}+1}$}; &
+  \node {$a_{\texttt{\small{step}}+1}$}; &
   \node [elements between]; &
-  \node {$a_{\texttt{\tiny{step}}+\texttt{\tiny{count}}}$}; \\
+  \node {$a_{\texttt{\small{step}}+\texttt{\small{count}}}$}; \\
 };
 
 \matrix at (bplaceholder3) [list=b3] {
-  \node {$a_{i\cdot\texttt{\tiny{step}}+1}$}; &
+  \node {$a_{i\cdot\texttt{\small{step}}+1}$}; &
   \node [elements between]; &
-  \node {$a_{i\cdot\texttt{\tiny{step}}+j}$}; \\
+  \node {$a_{i\cdot\texttt{\small{step}}+j}$}; \\
 };
 
 \draw [enter iteration] (a1.north);
 \draw [iteration] (a1.north) -- (astep+1.north);
 \draw [iteration=dashed] (astep+1.north) -- (aistep+1.north);
 
-\draw [measure=\texttt{count}, measure amplitude=1.3cm]
+\draw [measure=\texttt{count}, measure amplitude=2cm]
   (a1.north west) -- (acount.north east);
 
-\draw [measure=\texttt{count}, measure amplitude=1.3cm]
+\draw [measure=\texttt{count}, measure amplitude=2cm]
   (astep+1.north west) -- (astep+count.north east);
 
-\draw [measure={$j\le\texttt{count}$}, measure amplitude=1.3cm]
+\draw [measure={$j\le\texttt{count}$}, measure amplitude=2cm]
   (aistep+1.north west) -- (aistep+j.north east);
 
 \bracetobrace

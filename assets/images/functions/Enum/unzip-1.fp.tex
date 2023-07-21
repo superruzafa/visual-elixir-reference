@@ -5,22 +5,22 @@
   \node (an) {$\{a_n,a^\prime_n\}$}; \\
 };
 
-\matrix [tuple, element size=1.7cm, below=2 of list a]{
-  \node (t1) [placeholder=3]; & \node [separator]; &
-  \node (t2) [placeholder=3]; \\
+\matrix [tuple, wrapper, element size=2cm, below=2 of list a]{
+  \node (t1) [placeholder=3.5]; & \node [separator]; &
+  \node (t2) [placeholder=3.5]; \\
 };
 
 \matrix at (t1) [list=b, element=a] {
   \node [index=1]; &
   \node [index=2]; &
-  \node [elements between]; &
+  \node [elements between=.5]; &
   \node [index=n]; \\
 };
 
 \matrix at (t2) [list] {
   \node (b1') {$a^\prime_1$}; &
   \node (b2') {$a^\prime_2$}; &
-  \node [elements between]; &
+  \node [elements between=.5]; &
   \node (bn') {$a^\prime_n$}; \\
 };
 

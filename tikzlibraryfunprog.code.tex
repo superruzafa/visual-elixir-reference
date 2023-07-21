@@ -13,7 +13,8 @@
 \let\funprog@datastructelement\empty
 \let\funprog@datastructelement\empty
 \let\funprog@datastruct@elementsize\empty
-\def\funprog@datastruct@elementpadding{0}
+\def\funprog@datastruct@wrapperpadding{0}
+\def\funprog@datastruct@wrapperlevel{0}
 \let\funprog@placeholdersize\empty
 
 \newcounter{placeholder}
@@ -21,7 +22,8 @@
 \tikzset{
   element/.forward to={funprog, data struct element},
   element size/.forward to={funprog, data struct element size},
-  element padding/.forward to={funprog, data struct element padding},
+  wrapper/.forward to={funprog, data struct wrapper level},
+  wrapper padding/.forward to={funprog, data struct wrapper padding},
   index/.forward to={funprog, \funprog@datastructtype/index},
   key value/.forward to={funprog, \funprog@datastructtype/key value},
   separator/.forward to={funprog, \funprog@datastructtype/separator},
@@ -37,7 +39,9 @@
   data struct id/.store in=\funprog@datastructid,
   data struct element/.store in=\funprog@datastructelement,
   data struct element size/.store in=\funprog@datastruct@elementsize,
-  data struct element padding/.store in=\funprog@datastruct@elementpadding,
+  data struct wrapper level/.store in=\funprog@datastruct@wrapperlevel,
+  data struct wrapper level/.default=1,
+  data struct wrapper padding/.store in=\funprog@datastruct@wrapperpadding,
   data struct alias/.style={
     append after command={
       \pgfextra
@@ -93,7 +97,8 @@
     next placeholder counter,
     alias={\funprog@datastructid placeholder\the\value{placeholder}},
     node contents={},
-    minimum width=#1 * \funprog@datastruct@elementsize,
+    minimum width=#1 * \funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperpadding,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperpadding,
   },
   tuple/delimiter/left/.store in=\funprog@tuple@delimiter@left,
   tuple/delimiter/right/.store in=\funprog@tuple@delimiter@right,
@@ -269,7 +274,6 @@
 
 \pgfkeys{
   funprog,
-  list/.default=a,
   list/.style={
     data struct type=list,
     data struct id=#1,
@@ -289,14 +293,14 @@
     every list,
     reset placeholder counter,
   },
-  list/placeholder/.default=1,
   list/placeholder/.style={
     next placeholder counter,
     alias={\funprog@datastructid placeholder\the\value{placeholder}},
     node contents={},
-    minimum width=#1 * \funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
-    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
+    minimum width=#1 * \funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperpadding,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperpadding,
   },
+  list/placeholder/.default=1,
   list/index/.style={
     alias=\funprog@datastructid#1,
     node contents={$\funprog@datastructelement_{#1}$},
@@ -306,7 +310,7 @@
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
-    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -321,7 +325,7 @@
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
-    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -336,7 +340,7 @@
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
-    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@elementpadding,
+    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -355,6 +359,10 @@
 \tikzset{
   iteration position/.forward to={funprog, iteration/position},
   iteration direction/.forward to={funprog, iteration/direction},
+  enter iteration start angle/.forward to={funprog, iteration/enter start angle},
+  enter iteration delta angle/.forward to={funprog, iteration/enter delta angle},
+  exit iteration start angle/.forward to={funprog, iteration/exit start angle},
+  exit iteration delta angle/.forward to={funprog, iteration/exit delta angle},
   every enter iteration/.style={},
   enter iteration/.forward to={
     funprog, iteration/enter/\pgfkeysvalueof{/funprog/iteration/position}/\pgfkeysvalueof{/funprog/iteration/direction}=#1
@@ -371,27 +379,43 @@
 
 \pgfkeys{
   funprog,
-  iteration/position/.initial=top,
+  iteration/position/.initial=above,
   iteration/direction/.initial=from left to right,
-  iteration/enter/top/from left to right/.style={
+  iteration/enter start angle/.initial=30,
+  iteration/enter delta angle/.initial=90,
+  iteration/exit start angle/.initial=150,
+  iteration/exit delta angle/.initial=90,
+  iteration/enter/above/from left to right/.style={
     decorate,
     decoration={
       show path construction,
       moveto code={
-        \draw [start angle=30, end angle=90, radius=1cm, every enter iteration, #1] (\tikzinputsegmentfirst) arc;
+        \draw [
+          start angle=\pgfkeysvalueof{/funprog/iteration/enter start angle},
+          delta angle=\pgfkeysvalueof{/funprog/iteration/enter delta angle},
+          radius=1cm,
+          every enter iteration,
+          #1
+        ] (\tikzinputsegmentfirst) arc;
       },
     }
   },
-  iteration/enter/top/from right to left/.style={
+  iteration/enter/above/from right to left/.style={
     decorate,
     decoration={
       show path construction,
       moveto code={
-        \draw [start angle=150, end angle=90, radius=1cm, every enter iteration, #1] (\tikzinputsegmentfirst) arc;
+        \draw [
+          start angle=180 - \pgfkeysvalueof{/funprog/iteration/enter start angle},
+          delta angle=-\pgfkeysvalueof{/funprog/iteration/enter delta angle},
+          radius=1cm,
+          every enter iteration,
+          #1
+        ] (\tikzinputsegmentfirst) arc;
       },
     }
   },
-  iteration/direct/top/from left to right/.style={
+  iteration/direct/above/from left to right/.style={
     decorate,
     decoration={
       show path construction,
@@ -400,7 +424,7 @@
       },
     }
   },
-  iteration/direct/top/from right to left/.style={
+  iteration/direct/above/from right to left/.style={
     decorate,
     decoration={
       show path construction,
@@ -409,21 +433,33 @@
       },
     }
   },
-  iteration/exit/top/from left to right/.style={
+  iteration/exit/above/from left to right/.style={
     decorate,
     decoration={
       show path construction,
       moveto code={
-        \draw [start angle=150, end angle=90, radius=1cm, every exit iteration, #1] (\tikzinputsegmentfirst) arc;
+        \draw [
+          start angle=\pgfkeysvalueof{/funprog/iteration/exit start angle},
+          delta angle=-\pgfkeysvalueof{/funprog/iteration/exit delta angle},
+          radius=1cm,
+          every exit iteration,
+          #1
+        ] (\tikzinputsegmentfirst) arc;
       },
     }
   },
-  iteration/exit/top/from right to left/.style={
+  iteration/exit/above/from right to left/.style={
     decorate,
     decoration={
       show path construction,
       moveto code={
-        \draw [start angle=30, end angle=90, radius=1cm, every exit iteration, #1] (\tikzinputsegmentfirst) arc;
+        \draw [
+          start angle=180 - \pgfkeysvalueof{/funprog/iteration/exit start angle},
+          delta angle=\pgfkeysvalueof{/funprog/iteration/exit delta angle},
+          radius=1cm,
+          every exit iteration,
+          #1
+] (\tikzinputsegmentfirst) arc;
       },
     }
   },
