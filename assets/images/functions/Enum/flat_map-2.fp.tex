@@ -1,63 +1,59 @@
-%\matrix [list=z] {
-  %\node (zb1) {$b_1$}; &
-  %\node (zb) [elements between]; &
-  %\node (zbn) {$b_n$}; &
-  %\node (zc1) {$c_1$}; &
-  %\node (zc) [elements between]; &
-  %\node (zcm) {$c_m$}; &
-  %\node [elements between]; &
-  %\node (zk1) {$k_1$}; &
-  %\node (zk) [elements between]; &
-  %\node (zkp) {$k_p$}; \\
-%};
+\matrix [list=z] {
+  \node (zb1) {$b_1$}; &
+  \node (zb) [elements between]; &
+  \node (zbn) {$b_n$}; &
+  \node (zc1) {$c_1$}; &
+  \node (zc) [elements between]; &
+  \node (zcm) {$c_m$}; &
+  \node [elements between]; &
+  \node (zk1) {$k_1$}; &
+  \node (zk) [elements between]; &
+  \node (zkp) {$k_p$}; \\
+};
 
-%\begin{scope}
-  %\tikzset{
-    %every list/.style={sublist}
-  %}
+\begin{scope}
+  \matrix [list=b, element size=1.5cm, above=1.25 of zb] {
+    \node [index=1]; &
+    \node [elements between]; &
+    \node [index=n]; \\
+  };
 
-  %\matrix [list=b, above=1 of zb] {
-    %\node [index=1]; &
-    %\node [elements between]; &
-    %\node [index=n]; \\
-  %};
+  \matrix [list=c, element size=1.5cm, above=1.25 of zc] {
+    \node [index=1]; &
+    \node [elements between]; &
+    \node [index=m]; \\
+  };
 
-  %\matrix [list=c, above=1 of zc] {
-    %\node [index=1]; &
-    %\node [elements between]; &
-    %\node [index=m]; \\
-  %};
+  \matrix [list=k, element size=1.5cm, above=1.25 of zk] {
+    \node [index=1]; &
+    \node [elements between]; &
+    \node [index=p]; \\
+  };
+\end{scope}
 
-  %\matrix [list=k, above=1 of zk] {
-    %\node [index=1]; &
-    %\node [elements between]; &
-    %\node [index=p]; \\
-  %};
-%\end{scope}
+\matrix [list=a, above=4.5 of list z] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
 
-%\matrix [list=a, above=4 of list z] {
-  %\node [index=1]; &
-  %\node [index=2]; &
-  %\node [elements between]; &
-  %\node [index=n]; \\
-%};
+\bracetobrace
+  {bn.south east}{b1.south west}
+  {zb1.north west}{zbn.north east}
 
-%\bracetobrace
-  %{bn.south east}{b1.south west}
-  %{zb1.north west}{zbn.north east}
+\bracetobrace
+  {cm.south east}{c1.south west}
+  {zc1.north west}{zcm.north east}
 
-%\bracetobrace
-  %{cm.south east}{c1.south west}
-  %{zc1.north west}{zcm.north east}
+\bracetobrace
+  {kp.south east}{k1.south west}
+  {zk1.north west}{zkp.north east}
 
-%\bracetobrace
-  %{kp.south east}{k1.south west}
-  %{zk1.north west}{zkp.north east}
-
-%\foreach \i/\j in {1/b,2/c,n/k}{
-  %\node (fun \i) [fun, below=.5 of a\i];
-  %\draw [->] (a\i.south) -- (fun \i.in);
-  %\draw [brace] (list \j.north west) -- (list \j.north east);
-  %\draw [->, out=270, in=90] (fun \i.out) to (last brace);
-%}
+\foreach \i/\j in {1/b,2/c,n/k}{
+  \node (fun \i) [fun, below=.5 of a\i];
+  \draw [->] (a\i.south) -- (fun \i.in);
+  \draw [brace] (list \j.north west) -- (list \j.north east);
+  \draw [->, out=270, in=90] (fun \i.out) to (last brace);
+}
 
