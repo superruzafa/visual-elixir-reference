@@ -1,0 +1,11 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [measure=$n>0$, measure position=below] (list a.south west) -- (list a.south east);
+
+\draw [->] (last measure label) -- +(0, -1)
+  node [below] {\false};

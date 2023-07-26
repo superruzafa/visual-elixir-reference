@@ -1,0 +1,9 @@
+\node [empty collection=a];
+\draw (empty collection a.south west) -- ++ (0, -.25) -- ++ (-1, -.5) -- ++(0, -.125) coordinate (a) -- ++(0, -.125);
+\draw (empty collection a.south east) -- ++ (0, -.25) -- ++ (1, -.5) -- ++(0, -.125) coordinate (b) -- ++(0, -.125);
+\draw [measure=$0$, measure amplitude=0] (a) -- (b);
+
+\draw [->] (last measure label) -- +(0, -1)
+  node [below] {\true};
+
+
