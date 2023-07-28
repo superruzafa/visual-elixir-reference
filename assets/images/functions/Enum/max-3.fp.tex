@@ -45,21 +45,3 @@
 
 \node [base right=of ai] {$a_i \ge_{\small\texttt{sorter}} a_j \, \forall j \in \texttt{enumerable}$};
 
-%\draw [<-] (fun2.north in 2) -- (\currcoord |- a3.south);
-%\draw [subflow ->] (fun2.south in) -- +(0, -1)
-    %node (n2) [below, font=\normalsize] {\false\,$\Rightarrow a_3$};
-
-%\coordinate (x) at ($ (fun2.east) + (.125, 0) $);
-%\draw [subflow ->, flow shape |..|=rule] (n2.north -| x) -- (funn.north in 1);
-
-%\draw [<-] (funn.north in 2) -- (\currcoord |- an.south);
-%\draw [subflow ->] (funn.south in) -- +(0, -.5)
-    %node (nn) [below, font=\normalsize] {\true\,$\Rightarrow a_i$};
-
-%\draw [flow ->] (nn) -- +(0, -1)
-    %node (b) [below] {$a_i$};
-
-%\matrix [matrix of math nodes, nodes={inner ysep=.125\masterunit}, row sep=.125\masterunit, left delimiter=\{, right=.5 of b] {
-  %a_i \geq_{sorter} a_j,\, j \in [1, i - 1] \\
-  %a_i >_{sorter} a_j,\, j \in [i + 1, n] \\
-%};
