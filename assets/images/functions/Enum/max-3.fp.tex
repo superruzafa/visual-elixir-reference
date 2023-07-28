@@ -1,0 +1,65 @@
+\tikzset{
+  sorter/.style={
+    fun={\texttt{sorter}},
+    font=\normalsize,
+    function arity=2,
+  }
+}
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node (fun 1) [sorter, below=1.25 of a1.south east];
+\node (fun 2) at (fun 1 -| a2.south east) [sorter];
+\node (fun n) at (fun 1 -| an.south west) [sorter];
+
+\coordinate (rule) at ($ (a1.south)!.5!(fun 1.in) $);
+
+\draw [->, out=270, in=90] (a1.south) to (fun 1.in 1);
+\draw [->, out=270, in=90] (a2.south) to (fun 1.in 2);
+\draw [->, out=270, in=90] (a3.south) to (fun 2.in 2);
+\draw [->, out=270, in=90] (an.south) to (fun n.in 2);
+
+\draw [->] (fun 1.out) -- +(0, -.5)
+  node (n1) [below, font=\Large] {\true\ $\Rightarrow a_1$};
+
+\coordinate (x) at ($ (fun 1.west)!.5!(fun 2.east) $);
+
+\draw [->] (n1.north -| x) -- (\currcoord |- rule) -| (fun 2.in 1);
+
+\draw [->] (fun 2.out) -- +(0, -1)
+  node (n2) [below, font=\Large] {\false\ $\Rightarrow a_3$};
+
+\draw [->, dashed] (n2.18) -- (\currcoord |- rule) -| (fun n.in 1);
+
+\draw [->] (fun n.out) -- +(0, -1.5)
+  node (nn) [below, font=\Large] {\true\ $\Rightarrow a_i$};
+
+\draw [->] (nn.south) -- +(0, -.5)
+  node (ai) [below] {$a_i$};
+
+\node [base right=of ai] {$a_i \ge_{\small\texttt{sorter}} a_j \, \forall j \in \texttt{enumerable}$};
+
+%\draw [<-] (fun2.north in 2) -- (\currcoord |- a3.south);
+%\draw [subflow ->] (fun2.south in) -- +(0, -1)
+    %node (n2) [below, font=\normalsize] {\false\,$\Rightarrow a_3$};
+
+%\coordinate (x) at ($ (fun2.east) + (.125, 0) $);
+%\draw [subflow ->, flow shape |..|=rule] (n2.north -| x) -- (funn.north in 1);
+
+%\draw [<-] (funn.north in 2) -- (\currcoord |- an.south);
+%\draw [subflow ->] (funn.south in) -- +(0, -.5)
+    %node (nn) [below, font=\normalsize] {\true\,$\Rightarrow a_i$};
+
+%\draw [flow ->] (nn) -- +(0, -1)
+    %node (b) [below] {$a_i$};
+
+%\matrix [matrix of math nodes, nodes={inner ysep=.125\masterunit}, row sep=.125\masterunit, left delimiter=\{, right=.5 of b] {
+  %a_i \geq_{sorter} a_j,\, j \in [1, i - 1] \\
+  %a_i >_{sorter} a_j,\, j \in [i + 1, n] \\
+%};
