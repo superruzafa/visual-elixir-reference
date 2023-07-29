@@ -1,0 +1,25 @@
+\matrix [list=a] {
+  \node [index=0]; &
+  \node [elements between]; &
+  \node (astart) {$a_{\small\texttt{start}}$}; &
+  \node [elements between]; &
+  \node (astart+count-1) {$a_{\small\texttt{start}+\texttt{count}-1}$}; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration=dashed] (a0.north) -- (astart.north);
+
+\draw [measure=\texttt{count}] (astart.north west) -- (astart+count-1.north east);
+
+\matrix [list=b, element=a, below=2 of astart.south, matrix anchor=bstart.north] {
+  \node (bstart) {$a_{\small\texttt{start}}$}; &
+  \node [elements between]; &
+  \node (bstart+count-1) {$a_{\small\texttt{start}+\texttt{count}-1}$}; \\
+};
+
+\bracetobrace
+  {astart+count-1.south east}{astart.south west}
+  {bstart.north west}{bstart+count-1.north east}
+
