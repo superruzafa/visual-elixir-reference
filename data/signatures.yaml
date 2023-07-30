@@ -403,6 +403,16 @@
         defmodule Enum do
           def zip(enumerable1, enumerable2)
         end
+    - name: zip_with/2
+      signature: |
+        defmodule Enum do
+          def zip_with(enumerables, zip_fun)
+        end
+    - name: zip_with/3
+      signature: |
+        defmodule Enum do
+          def zip_with(enumerable1, enumerable2, zip_fun)
+        end
 
 - name: Integer
   functions:
