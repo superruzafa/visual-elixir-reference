@@ -353,6 +353,68 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% interval
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+  every interval/.style={},
+  interval/.forward to={funprog, interval},
+  interval amplitude/.forward to={funprog, interval/amplitude},
+  interval segments/.forward to={funprog, interval/segments},
+}
+
+\pgfkeys{
+  funprog,
+  interval/.style={
+    decorate,
+    decoration={
+      show path construction,
+      lineto code={
+        \foreach [remember=\pos as \lastpos (initially 0), count=\i] \pos/\style in \funprog@interval@segments{
+          \draw
+            [/tikz/every interval, /funprog/interval/style=\style]
+          let
+            \p1=(\tikzinputsegmentfirst),
+            \p2=(\tikzinputsegmentlast),
+            \n1={veclen(\x2 - \x1, \y2 - \y1)},
+            \p{unit}=({(\x2 - \x1) / \n1}, {(\y2 - \y1) / \n1}),
+            \n2={\pgf@x * sign(\x2 - \x1)},
+            \n3={\pgf@y * sign(\y2 - \y1)},
+            \p{start}=(\x1 + \lastpos * \n1 * \x{unit}, \y1 + \lastpos * \n1 * \y{unit}),
+            \p{end}=(\x1 + \pos * \n1 * \x{unit}, \y1 + \pos * \n1 * \y{unit}),
+            \n4={int(\i + 1)}
+          in
+            (\p{start})
+               coordinate (interval #1 mark \i)
+            -- +(-\y{unit} * \funprog@interval@amplitude, \x{unit} * \funprog@interval@amplitude)
+               coordinate (interval #1 mark top \i)
+            -- +(0, 0)
+            -- +(\y{unit} * \funprog@interval@amplitude, -\x{unit} * \funprog@interval@amplitude)
+               coordinate (interval #1 mark bottom \i)
+            -- +(0, 0)
+            -- (\p{end}) 
+               coordinate (interval #1 mark \n4)
+            -- +(-\y{unit} * \funprog@interval@amplitude, \x{unit} * \funprog@interval@amplitude)
+               coordinate (interval #1 mark top \n4)
+            -- +(0, 0)
+            -- +(\y{unit} * \funprog@interval@amplitude, -\x{unit} * \funprog@interval@amplitude)
+               coordinate (interval #1 mark bottom \n4)
+            -- +(0, 0)
+          ;
+        }
+      }
+    }
+  },
+  interval/amplitude/.store in=\funprog@interval@amplitude,
+  interval/amplitude=5mm,
+  interval/segments/.store in=\funprog@interval@segments,
+  interval/segments={1/solid},
+  interval/style/.is choice,
+  interval/style/solid/.style={solid},
+  interval/style/dashed/.style={dashed},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % iteration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
