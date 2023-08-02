@@ -876,6 +876,11 @@
         defmodule Range do
           def new(first, last, step)
         end
+    - name: to_list/1
+      signature: |
+        defmodule Range do
+          def to_list(range)
+        end
 
 - name: Stream
   functions:
