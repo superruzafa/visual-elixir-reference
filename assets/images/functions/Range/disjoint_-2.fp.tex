@@ -1,12 +1,14 @@
+%\draw [help lines, step=.5] (-1, -1) grid (5, 1);
+
 \tikzset{
-  interval segments={.2/solid,.4/solid,.8/dashed,1/solid},
+  interval segments={{2/9}/solid,{4/9}/solid,{7/9}/dashed,1/solid},
 }
 
-\draw [interval=a] (0, 0) -- +(3, 0);
+\draw [interval=a] (0, 0) -- +(4.5, 0);
 \node at (interval a mark top 1) [above] {$a_1$};
 \node at (interval a mark top 5) [above] {$a_n$};
 
-\draw [interval=b] (4, -1) -- +(3, 0);
+\draw [interval=b] (5.5, -1) -- +(4.5, 0);
 \node at (interval b mark top 1) [above] {$b_1$};
 \node at (interval b mark top 5) [above] {$b_m$};
 
