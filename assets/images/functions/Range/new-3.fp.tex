@@ -1,0 +1,20 @@
+%\draw [help lines, step=.5] (-1, -1) grid (5, 1);
+
+\draw [interval=a, interval segments={{1/4}/solid,{2/4}/solid,{7/8}/dashed,1/solid}] (0, 0) -- +(4, 0);
+
+\node [below=0 of interval a mark bottom 1] {\texttt{first}};
+\node [below=0 of interval a mark bottom 5] {\texttt{last}};
+
+\draw [iteration] (interval a mark top 1) -- (interval a mark top 2);
+\node at (last iteration) [above] {\large+\texttt{step}};
+
+\draw [iteration] (interval a mark top 2) -- (interval a mark top 3);
+\node at (last iteration) [above] {\large+\texttt{step}};
+
+\draw [exit iteration] (interval a mark top 3);
+\node at (last iteration) [above] {\large+\texttt{step}};
+
+\draw [enter iteration] (interval a mark top 4);
+\draw [iteration=dashed] (interval a mark top 4) -- ($ (interval a mark top 5) + (.5, 0) $);
+\node at (last iteration) [above] {\large+\texttt{step}};
+

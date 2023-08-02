@@ -871,6 +871,11 @@
         defmodule Range do
           def new(first, last)
         end
+    - name: new/3
+      signature: |
+        defmodule Range do
+          def new(first, last, step)
+        end
 
 - name: Stream
   functions:

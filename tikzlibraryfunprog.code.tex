@@ -458,7 +458,7 @@
           radius=1cm,
           every enter iteration,
           #1
-        ] (\tikzinputsegmentfirst) arc;
+        ] (\tikzinputsegmentfirst) arc coordinate (last iteration);
       },
     }
   },
@@ -473,7 +473,7 @@
           radius=1cm,
           every enter iteration,
           #1
-        ] (\tikzinputsegmentfirst) arc;
+        ] (\tikzinputsegmentfirst) arc coordinate (last iteration);
       },
     }
   },
@@ -506,7 +506,7 @@
           radius=1cm,
           every exit iteration,
           #1
-        ] (\tikzinputsegmentfirst) arc;
+        ] (\tikzinputsegmentfirst) arc coordinate (last iteration);
       },
     }
   },
@@ -521,7 +521,7 @@
           radius=1cm,
           every exit iteration,
           #1
-] (\tikzinputsegmentfirst) arc;
+] (\tikzinputsegmentfirst) arc coordinate (last iteration);
       },
     }
   },
