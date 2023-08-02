@@ -11,10 +11,9 @@
 \draw [iteration] (interval a mark top 2) -- (interval a mark top 3);
 \node at (last iteration) [above] {\large+\texttt{step}};
 
-\draw [exit iteration] (interval a mark top 3);
+\draw [iteration=dashed] (interval a mark top 3) -- (interval a mark top 4);
 \node at (last iteration) [above] {\large+\texttt{step}};
 
-\draw [enter iteration] (interval a mark top 4);
 \draw [iteration=dashed] (interval a mark top 4) -- ($ (interval a mark top 5) + (.5, 0) $);
 \node at (last iteration) [above] {\large+\texttt{step}};
 
