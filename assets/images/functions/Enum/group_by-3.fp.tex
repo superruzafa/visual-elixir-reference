@@ -50,7 +50,8 @@
 };
 
 \coordinate (x) at ($ (value.south)!.5!(map b.north) $);
-\node at (map b.north |- x) [draw, rotate=-90, single arrow, single arrow head extend=1mm] {};
+
+\node at (map b.north |- x) {$\Downarrow$};
 
 \matrix [list=k1, element=v, below left=1 and 0 of v1] {
   \node [index=1]; &
