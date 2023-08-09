@@ -1,0 +1,28 @@
+\matrix [list=a] {
+  \node [index=-n]; &
+  \node [elements between]; &
+  \node (ai) {$a_{\small\texttt{first}}$}; &
+  \node (ai+1) {$a_{\small\texttt{first}+1}$}; &
+  \node [elements between]; &
+  \node (aj) {$a_{\small\texttt{last}}$}; &
+  \node [elements between]; &
+  \node [index=-2]; &
+  \node [index=-1]; \\
+};
+
+\draw [interval=i, interval segments={{2/7}/solid,{4/7}/solid,{5/7}/dashed,1/solid}] ($ (ai.north west) + (0, .5) $) -- ($ (aj.north east) + (0, .5) $);
+
+\node at (interval i mark top 1) [above] {\texttt{first}};
+\node at (interval i mark top 5) [above] {\texttt{last}};
+
+\matrix [list=b, element=a, below=2 of ai.south, matrix anchor=bi.north] {
+  \node (bi) {$a_{\small\texttt{first}}$}; &
+  \node (bi+1) {$a_{\small\texttt{first}+1}$}; &
+  \node [elements between]; &
+  \node (bj) {$a_{\small\texttt{last}}$}; \\
+};
+
+\bracetobrace
+  {aj.south east}{ai.south west}
+  {bi.north west}{bj.north east}
+
