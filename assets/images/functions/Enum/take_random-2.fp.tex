@@ -8,12 +8,12 @@
 \matrix [list=b, below=2 of list a] {
   \node (b1) {$a_{k_1}$}; &
   \node [elements between]; &
-  \node (bm) {$a_{k_m}$}; \\
+  \node (bm) {$a_{k_{\small\texttt{count}}}$}; \\
 };
 
 \draw [measure={$\texttt{count}\le n$}, measure position=below] (b1.south west) -- (bm.south east);
 
-\node at ($ (list a)!.5!(list b) $) [draw, rotate=-90, single arrow, single arrow head extend=1mm] {};
+\node at ($ (list a)!.5!(list b) $) {$\Downarrow$};
 
 \matrix [matrix of math nodes, column 1/.style={anchor=base west}, nodes={inner ysep=.125}, row sep=.125, left delimiter=\{, right=.5 of list b] {
   a_{k_i} \in \texttt{enumerable} \\
