@@ -421,6 +421,11 @@
         defmodule Integer do
           def digits(integer, base \\ 10)
         end
+    - name: to_string/2
+      signature: |
+        defmodule Integer do
+          def to_string(integer, base \\ 10)
+        end
     - name: undigits/2
       signature: |
         defmodule Integer do

@@ -1,0 +1,9 @@
+\def\base{\texttt{base}}
+
+\node (a) {$d_{n-1}\ldots d_1d_0$};
+\node (b) [below=2 of a] {$d_0\cdot\base^0+d_1\cdot\base^1+\ldots+d_{n-1}\cdot\base^{n-1}=\displaystyle\sum_{i=0}^{n-1}d_i\cdot\base^i$};
+\node (c) [below=2 of b] {$``s_{m-1}\ldots s_1s_0"$};
+
+\node at ($ (a.south)!.5!(b.north) $) {$\Downarrow$};
+\node at ($ (b.south)!.5!(c.north) $) {$\Downarrow$};
+
