@@ -685,6 +685,11 @@
         defmodule Keyword do
           def put_new_lazy(keywords, key, fun)
         end
+    - name: replace/3
+      signature: |
+        defmodule Keyword do
+          def replace(keywords, key, value)
+        end
     - name: replace!/3
       signature: |
         defmodule Keyword do
