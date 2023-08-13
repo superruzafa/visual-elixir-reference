@@ -1,0 +1,18 @@
+\matrix [keyword list=a] {
+  \node [key value={\key}{$v_1$}]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [key value={\key}{$v_i$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [keyword list=b, element=a, below=2 of keyword list a] {
+  \node [key value={\key}{\texttt{value}}]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node at ($ (keyword list a)!.5!(keyword list b) $) {$\Downarrow$};
+

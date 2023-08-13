@@ -8,7 +8,9 @@ aliases: ['/Keyword/replace!/3/']
 
 {{< signature >}}
 
-Alters the value stored under `key` to value, but only if the entry `key` already exists in keywords.
+Puts `value` under `key` only if the key already exists in keywords.
+
+In case the key exists multiple times in the keyword list, it removes later occurrences.
 
 {{< figure src="images/functions/Keyword/replace_-3.svg" >}}
 
