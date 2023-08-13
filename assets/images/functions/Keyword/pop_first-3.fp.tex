@@ -1,0 +1,35 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (vkey) [key value={\key}{$\vkey$}]; &
+  \node [elements between]; &
+  \node (vkey') [key value={\key}{$\vkey^\prime$}]; &
+  \node [elements after]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple=t, wrapper, element size=2 cm, below=2 of keyword list a] {
+  \node (t1) {$\vkey$}; & \node [separator]; &
+  \node (t2) [placeholder=5]; \\
+};
+
+\matrix at (t2) [keyword list=b, element=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node (x) [elements between]; &
+  \node (bvkey') [key value={\key}{$\vkey^\prime$}]; &
+  \node [elements after]; &
+  \node [index=n]; \\
+};
+
+\draw [->, out=270, in=90] (vkey.south) to (t1);
+
+\bracetobrace
+  {vkey.south west}{a1.south west}
+  {b1.north west}{x.north}
+
+\bracetobrace
+  {an.south east}{vkey.south east}
+  {x.north}{bn.north east}
+
