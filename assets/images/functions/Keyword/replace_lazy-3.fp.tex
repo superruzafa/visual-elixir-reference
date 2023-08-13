@@ -1,0 +1,25 @@
+\matrix [keyword list=a] {
+  \node (vkey) [key value={\key}{$v_1$}]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [key value={\key}{$v_i$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [keyword list=b, element=a, below=2 of keyword list a.south east, anchor=north east] {
+  \node [key value={\key}{\texttt{value}}]; \coordinate (vkey value) at (last value.west); &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\coordinate (x) ate ($ (keyword list a)!.5!(keyword list b) $);
+
+\node (fun) [fun, below=1 of vkey];
+
+\draw [->] (vkey.south) -- (fun.in);
+\draw [->] (fun.out) -- (\currcoord |- vkey value) -- (\currcoord -| keyword list b.west);
+
+\node at (x) {$\Downarrow$};
+
