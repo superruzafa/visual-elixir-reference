@@ -9,16 +9,12 @@
 \draw [iteration] (a1.north) -- (a2.north);
 \draw [iteration=dashed] (a2.north) -- (an.north);
 
-%\foreach \i/\d in {1/.5,2/1,n/.5}{
-    %\predtop[\d]{a\i.north}{$k_\i\ne\texttt{key}$}
-%}
-
 \matrix [keyword list=b, below=2 of a1.south, matrix anchor=b1.north] {
   \node [index=1]; &
   \node [index=2]; &
   \node [elements between]; &
   \node [index=n]; &
-  \node (bkey) [key value={\key}{$\vkey$}]; \\
+  \node (bkey) [key value={\key}{\texttt{value}}]; \\
 };
 
 \bracetobrace
