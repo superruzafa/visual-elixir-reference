@@ -1,0 +1,40 @@
+\tikzset{
+  put_new_lazy fun/.style={
+    fun,
+    function arity=0
+  }
+}
+
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (an.north);
+
+\foreach \i/\e [count=\xi, evaluate=\xi as \offset using isodd(\xi) ? .75 : 1.25)] in {1,2,n}{
+  \draw [shorten >=1ex] (a\i.north) -- +(0, \offset)
+    node [anchor=base] {$k_{\i}\neq\texttt{key}$};
+}
+
+\matrix [keyword list=b, below=2 of keyword list a.south west, anchor=north west] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node (vkey) [key value={\texttt{key}}{$\vkey$}]; \coordinate (vkey value) at (last value.east); \\
+};
+
+\bracetobrace
+  {an.south east}{a1.south west}
+  {b1.north west}{bn.north east}
+
+\draw [<-] (vkey.north) -- +(0, 1);
+
+\draw [<-] (vkey value) -- ++(1, 0) -- +(0, 1)
+  node [put_new_lazy fun, anchor=out];
+
