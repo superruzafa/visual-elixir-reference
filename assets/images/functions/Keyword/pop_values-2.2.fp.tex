@@ -1,0 +1,29 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\e [count=\xi, evaluate=\xi as \offset using isodd(\xi) ? .75 : 1.25)] in {1,2,n}{
+  \draw [shorten >=1ex] (a\i.north) -- +(0, \offset)
+    node [anchor=base] {$k_{\i}\neq\texttt{key}$};
+}
+
+\matrix [tuple=t, wrapper, element size=2 cm, below=2 of keyword list a] {
+  \node (t1) [empty collection]; & \node [separator]; &
+  \node (t2) [placeholder=3.5]; \\
+};
+
+\matrix at (t2) [keyword list=b, element=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\bracetobrace
+  {an.south east}{a1.south west}
+  {b1.north west}{bn.north east}
+
+\draw [<-] (t1.north) -- +(0, 1);

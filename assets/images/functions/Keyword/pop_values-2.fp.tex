@@ -1,0 +1,36 @@
+\matrix [keyword list=a] {
+  \node (a1) [key value={\key}{$v_1$}]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (ai-1) [key value={\key}{$v_{i-1}$}]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node (an-1) [key value={\key}{$v_{n-1}$}]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple, wrapper, element size=2cm, below=2 of keyword list a] {
+  \node (t1) [placeholder=4]; & \node [separator]; &
+  \node (t2) [placeholder=4]; \\
+};
+
+\matrix at (t1) [keyword list=a, element=a] {
+  \node (b1) [key value={\key}{$v_1$}]; &
+  \node [elements between]; &
+  \node (bi-1) [key value={\key}{$v_{i-1}$}]; &
+  \node [elements between]; &
+  \node (bn-1) [key value={\key}{$v_{n-1}$}]; \\
+};
+
+\matrix at (t2) [keyword list=b, element=a] {
+  \node (b2) [index=2]; &
+  \node [elements between]; &
+  \node (bi) [index=i]; &
+  \node [elements between]; &
+  \node (bn) [index=n]; \\
+};
+
+\foreach \i in {1,2,i-1,i,n-1,n}{
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}
+
