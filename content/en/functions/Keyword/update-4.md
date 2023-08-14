@@ -12,6 +12,6 @@ If there are duplicated keys, they are all removed and only the first one is upd
 
 {{< figure src="images/functions/Keyword/update-4.svg" >}}
 
-If the `key` does not exist, inserts the given `value` value.
+If the `key` does not exist, inserts `value` under `key`.
 
 {{< figure src="images/functions/Keyword/update-4.2.svg" >}}
