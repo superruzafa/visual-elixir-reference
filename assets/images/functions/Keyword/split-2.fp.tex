@@ -1,0 +1,43 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\e [count=\xi, evaluate=\xi as \offset using isodd(\xi) ? .75 : 1.25)] in {
+  1/\in,
+  2/\notin,
+  3/\in,
+  n-1/\in,
+  n/\notin}
+{
+  \draw [shorten >=1ex] (a\i.north) -- +(0, \offset)
+    node [anchor=base] {$k_{\i}\e\texttt{keys}$};
+}
+
+\matrix (b) [tuple, wrapper, element size=2cm, below=2 of keyword list a] {
+  \node (t1) [placeholder=4]; & \node [separator]; &
+  \node (t2) [placeholder=2.5]; \\
+};
+
+\matrix at (t1) [keyword list=b] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\matrix at (t2) [keyword list=b] {
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1,2,3,n-1,n}{
+  \draw [->, out=270, in=90] (a\i) to (b\i);
+}
+
