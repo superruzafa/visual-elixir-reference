@@ -600,6 +600,11 @@
         defmodule Keyword do
           def fetch!(keywords, key)
         end
+    - name: filter/2
+      signature: |
+        defmodule Keyword do
+          def filter(keywords, fun)
+        end
     - name: from_keys/2
       signature: |
         defmodule Keyword do
