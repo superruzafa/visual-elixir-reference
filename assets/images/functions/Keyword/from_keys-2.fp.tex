@@ -1,0 +1,11 @@
+\def\value{\texttt{value}}
+
+\matrix [keyword list=a] {
+  \node [key value={$k_1$}{\value}]; &
+  \node [key value={$k_2$}{\value}]; &
+  \node [elements between]; &
+  \node [key value={$k_n$}{\value}]; \\
+};
+
+\node [above=1 of keyword list a] {$\Downarrow$};
+
