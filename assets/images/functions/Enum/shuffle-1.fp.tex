@@ -1,0 +1,29 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=1]; &
+  \node [index=n]; &
+  \node [elements between]; &
+  \node [index=2]; \\
+};
+
+\coordinate (x) at ($ (list a)!.5!(list b) $);
+
+\draw [->, out=0, in=180] ($ (x) + (-7.5mm, -2.5mm) $) to ($ (x) + (7.5mm, 2.5mm) $);
+\draw [->, out=0, in=180] ($ (x) + (-7.5mm, 2.5mm) $) to ($ (x) + (7.5mm, -2.5mm) $);
+\node (rand) at (x) [outer sep=0, draw, circle, minimum size=2cm] {};
+
+\foreach \i/\a/\b  in {1/150/240,2/120/330,i/60/210,n/30/300}{
+  \draw [->, out=270, in=\a] (a\i.south) to (rand);
+  \draw [->, out=\b, in=90] (rand) to (b\i.north);
+}
+
