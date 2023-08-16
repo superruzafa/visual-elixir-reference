@@ -2,33 +2,33 @@
   \node [index=1]; &
   \node [index=2]; &
   \node [elements between]; &
-  \node [index=i-1]; &
-  \node [index=i]; &
-  \node [index=i+1]; &
+  \node (aindex-1) {$a_{\small\texttt{index}-1}$}; &
+  \node (aindex) {$a_{\small\texttt{index}}$}; &
+  \node (aindex+1) {$a_{\small\texttt{index}+1}$}; &
   \node [elements between]; &
   \node [index=n]; \\
 };
 
 \draw [enter iteration] (a1.north);
 \draw [iteration] (a1.north) -- (a2.north);
-\draw [iteration={dashed}] (a2.north) -- (ai-1.north);
-\draw [iteration] (ai-1.north) -- (ai.north);
+\draw [iteration={dashed}] (a2.north) -- (aindex-1.north);
+\draw [iteration] (aindex-1.north) -- (aindex.north);
 
 \matrix [list=b, element=a, below=2 of list a] {
   \node [index=1]; &
   \node [index=2]; &
   \node [elements between]; &
-  \node [index=i-1]; &
-  \node [index=i+1]; &
+  \node (bindex-1) {$a_{\small\texttt{index}-1}$}; &
+  \node (bindex+1) {$a_{\small\texttt{index}+1}$}; &
   \node [elements between]; &
   \node [index=n]; \\
 };
 
 \bracetobrace
-  {ai-1.south east}{a1.south west}
-  {b1.north west}{bi-1.north east}
+  {aindex-1.south east}{a1.south west}
+  {b1.north west}{bindex-1.north east}
 
 \bracetobrace
-  {an.south east}{ai+1.south west}
-  {bi+1.north west}{bn.north east}
+  {an.south east}{aindex+1.south west}
+  {bindex+1.north west}{bn.north east}
 
