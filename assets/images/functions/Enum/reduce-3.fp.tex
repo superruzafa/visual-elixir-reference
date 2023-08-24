@@ -25,7 +25,7 @@
 %\draw [->] (a1.south) |- (\currcoord |- rule) -| (fun2.in 2);
 
 \draw [<-] (fun1.in 2) |- (\currcoord |- rule) -- ++(-1, 0)
-  node [value, left] {$\texttt{acc}$};
+  node [left] {$\texttt{acc}$};
 
 \coordinate (p) at ($ (fun1.out)!.5!(fun2.west) $);
 \draw [->] (fun1.out) -- (p) |- (\currcoord |- rule) -| (fun2.in 2);
@@ -37,7 +37,7 @@
 \draw [->, dashed] (funi.out) -- (p) |- (\currcoord |- rule) -| (funn.in 2);
 
 \draw [->] (funn.out) -| ++(.5, -1)
-  node [value, below] {$b$};
+  node [below] {$b$};
 
 %\coordinate (rule) at ($ (fun2.north io 1)!.5!(a2.south) $);
 %\path let

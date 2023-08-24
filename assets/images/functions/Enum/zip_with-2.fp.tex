@@ -1,4 +1,5 @@
-\matrix [list=z1, element size=1cm] {
+\def\ziplistitemsize{1cm}
+\matrix [list=z1, element size=\ziplistitemsize] {
   \node (z1a) {$a_1$}; &
   \node (z1b) {$b_1$}; &
   \node (z1c) {$c_1$}; &
@@ -6,7 +7,7 @@
   \node (z1k) {$k_1$}; \\
 };
 
-\matrix [list=z2, element size=1cm, right=.5 of list z1] {
+\matrix [list=z2, element size=\ziplistitemsize, right=.5 of list z1] {
   \node (z2a) {$a_2$}; &
   \node (z2b) {$b_2$}; &
   \node (z2c) {$c_2$}; &
@@ -14,7 +15,7 @@
   \node (z2k) {$k_2$}; \\
 };
 
-\matrix [list=zn, element size=1cm, right=1 of list z2] {
+\matrix [list=zn, element size=\ziplistitemsize, right=1 of list z2] {
   \node (zna) {$a_n$}; &
   \node (znb) {$b_n$}; &
   \node (znc) {$c_n$}; &
@@ -23,16 +24,16 @@
 };
 
 
-\matrix [list=e, wrapper, element size=1cm, above=1 of list z2] {
-  \node (e1) [placeholder=4]; &
-  \node (e2) [placeholder=3.5]; &
-  \node (e3) [placeholder=3.5]; &
+\matrix [list=e, wrapper, element size=\ziplistitemsize, above=1 of list z2] {
+  \node (e1) [placeholder=4 * \ziplistitemsize]; &
+  \node (e2) [placeholder=3.5 * \ziplistitemsize]; &
+  \node (e3) [placeholder=3.5 * \ziplistitemsize]; &
   \node [elements between=1]; &
-  \node (e4) [placeholder=4]; \\
+  \node (e4) [placeholder=4 * \ziplistitemsize]; \\
 };
 
 
-\matrix at (e1) [list=a, element size=1cm] {
+\matrix at (e1) [list=a, element size=\ziplistitemsize] {
   \node [index=1]; &
   \node [index=2]; &
   \node [elements between=.5]; &
@@ -40,21 +41,21 @@
   \node [elements after=.5]; \\
 };
 
-\matrix at (e2) [list=b, element size=1cm] {
+\matrix at (e2) [list=b, element size=\ziplistitemsize] {
   \node [index=1]; &
   \node [index=2]; &
   \node [elements between=.5]; &
   \node [index=n]; \\
 };
 
-\matrix at (e3) [list=c, element size=1cm] {
+\matrix at (e3) [list=c, element size=\ziplistitemsize] {
   \node [index=1]; &
   \node [index=2]; &
   \node [elements between=.5]; &
   \node [index=n]; \\
 };
 
-\matrix at (e4) [list=k, element size=1cm] {
+\matrix at (e4) [list=k, element size=\ziplistitemsize] {
   \node [index=1]; &
   \node [index=2]; &
   \node [elements between=.5]; &

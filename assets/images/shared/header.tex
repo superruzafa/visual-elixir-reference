@@ -4,9 +4,17 @@
 \tikzset{
   x=2cm,
   y=2cm,
-  font=\LARGE,
-  value/.style={
-    %font=\Large,
+  font=\LARGE
+}
+
+\def\listitemsize{2cm}
+\def\listpaddingsize{4mm}
+
+\tikzset{
+  every list/.style={
+    element size=\listitemsize,
+    wrapper padding=\listpaddingsize,
+    line width=1mm,
   },
 }
 
@@ -22,14 +30,6 @@
   every empty collection/.style={
     element size=2cm,
     line width=.4mm,
-  },
-}
-
-\tikzset{
-  every list/.style={
-    element size=2cm,
-    wrapper padding=4mm,
-    line width=1mm,
   },
 }
 

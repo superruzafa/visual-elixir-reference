@@ -10,10 +10,9 @@
 
 \let\funprog@datastructtype\empty
 \let\funprog@datastructid\empty
-\let\funprog@datastructelement\empty
-\let\funprog@datastructelement\empty
-\let\funprog@datastruct@elementsize\empty
-\def\funprog@datastruct@wrapperpadding{0}
+\let\funprog@datastruct@element\empty
+\def\funprog@datastruct@elementsize{1cm}
+\def\funprog@datastruct@wrapperpadding{5mm}
 \def\funprog@datastruct@wrapperlevel{0}
 \let\funprog@placeholdersize\empty
 
@@ -37,7 +36,7 @@
   funprog,
   data struct type/.store in=\funprog@datastructtype,
   data struct id/.store in=\funprog@datastructid,
-  data struct element/.store in=\funprog@datastructelement,
+  data struct element/.store in=\funprog@datastruct@element,
   data struct element size/.store in=\funprog@datastruct@elementsize,
   data struct wrapper level/.store in=\funprog@datastruct@wrapperlevel,
   data struct wrapper level/.default=1,
@@ -57,7 +56,9 @@
   },
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % tuple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \let\funprog@tuple@delimiter@left\empty
 \let\funprog@tuple@delimiter@right\empty
@@ -118,7 +119,7 @@
   tuple/delimiter=parenthesis,
   tuple/index/.style={
     alias=\funprog@datastructid#1,
-    node contents={$\funprog@datastructelement_{#1}$},
+    node contents={$\funprog@datastruct@element_{#1}$},
     minimum width=\funprog@datastruct@elementsize,
   },
   tuple/elements before/.style={
@@ -132,7 +133,9 @@
   },
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % map
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tikzset{
   every map/.style={},
@@ -161,7 +164,7 @@
   },
   map/index/.style={
     alias=\funprog@datastructid#1,
-    %node contents={$\funprog@datastructelement_{#1}$},
+    %node contents={$\funprog@datastruct@element_{#1}$},
     key value={$k_{#1}$}{$v_{#1}$}
   },
   map/key value/.style 2 args={
@@ -265,7 +268,9 @@
   },
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tikzset{
   every list/.style={},
@@ -284,7 +289,7 @@
       anchor=center,
       inner sep=0pt,
       outer sep=0pt,
-      minimum size=\funprog@datastruct@elementsize,
+      minimum size=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
     },
     column sep=-\pgflinewidth,
     row sep=-\pgflinewidth,
@@ -293,24 +298,23 @@
     every list,
     reset placeholder counter,
   },
+  list/.default=a,
   list/placeholder/.style={
     next placeholder counter,
     alias={\funprog@datastructid placeholder\the\value{placeholder}},
     node contents={},
-    minimum width=#1 * \funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperpadding,
-    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperpadding,
+    minimum width=#1 + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
   },
-  list/placeholder/.default=1,
+  list/placeholder/.default=1cm,
   list/index/.style={
     alias=\funprog@datastructid#1,
-    node contents={$\funprog@datastructelement_{#1}$},
+    node contents={$\funprog@datastruct@element_{#1}$},
   },
   list/elements before/.style={
     draw=none,
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
-    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -325,7 +329,6 @@
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
-    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
     append after command={
       \pgfextra
       \draw [dashed]
@@ -340,7 +343,6 @@
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
-    minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
     append after command={
       \pgfextra
       \draw [dashed]

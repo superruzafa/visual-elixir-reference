@@ -2,7 +2,7 @@
   [
     start chain=going base right,
     node distance=0,
-    every node/.style={on chain, outer ysep=1ex, inner sep=0, value}
+    every node/.style={on chain, outer ysep=1ex, inner sep=0}
   ]
   \node {``};
   \node (b1) [on chain] {$a_1$};
@@ -34,7 +34,7 @@
   \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
 };
 
-\node (joiner) [value, below=1.5 of p] {\texttt{joiner}};
+\node (joiner) [below=1.5 of p] {\texttt{joiner}};
 
 \foreach \i in {1,2,i-1,i,n}{
   \draw [->, out=90, in=270] (joiner.north) to (bjoiner\i.south);

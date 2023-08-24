@@ -33,7 +33,7 @@
 \coordinate (bottom rule) at ($ (b2.north)!.5!(fun2.south) $);
 
 \draw [<-] (fun1.in 2) -- (\currcoord |- top rule) -- +(-1, 0)
-  node [value, left] {\texttt{acc}};
+  node [left] {\texttt{acc}};
 
 \coordinate (x) at ($ (fun1)!.5!(fun2) $);
 \draw [->] (fun1.out |- bottom rule) -| (x) -- (\currcoord |- top rule) -| (fun2.in 2);

@@ -14,13 +14,13 @@
   \node (t2) [placeholder=2.5]; \\
 };
 
-\matrix at (t1) [list, element=a] {
+\matrix at (t1) [list=b, element=a] {
     \node (b1) [index=1]; &
     \node [elements between=.5]; &
     \node (bcount) {$a_{\small{\texttt{count}}}$}; \\
 };
 
-\matrix at (t2) [list, element=a] {
+\matrix at (t2) [list=c, element=a] {
   \node (bcount+1) {$a_{\small{\texttt{count+1}}}$};&
   \node [elements between=.5]; &
   \node (bn) [index=n]; \\

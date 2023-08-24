@@ -21,30 +21,28 @@
   \draw ($ (k5.mid) + (-.25, -.25) $) rectangle ($ (k6.mid) + (.25, .25) $);
 \end{scope}
 
-\matrix [list=p, wrapper, element size=2cm, below=2 of list a] {
-  \node (p1) [placeholder=2]; &
-  \node (p2) [placeholder=1]; &
-  \node (p3) [placeholder=1]; &
-  \node (p4) [placeholder=2]; &
+\matrix [list=p, wrapper, below=2 of list a] {
+  \node (p1) [placeholder=2 * \listitemsize]; &
+  \node (p2) [placeholder=1 * \listitemsize]; &
+  \node (p3) [placeholder=1 * \listitemsize]; &
+  \node (p4) [placeholder=2 * \listitemsize]; &
   \node [elements after]; \\
 };
 
-\begin{scope}
-  \matrix [list=b1, element=a] at (p1) {
-    \node [index=1]; &
-    \node [index=2]; \\
-  };
-  \matrix [list=b2, element=a] at (p2) {
-    \node [index=3]; \\
-  };
-  \matrix [list=b3, element=a] at (p3) {
-    \node [index=4]; \\
-  };
-  \matrix [list=b4, element=a] at (p4) {
-    \node [index=5]; &
-    \node [index=6]; \\
-  };
-\end{scope}
+\matrix [list=b1, element=a] at (p1) {
+  \node [index=1]; &
+  \node [index=2]; \\
+};
+\matrix [list=b2, element=a] at (p2) {
+  \node [index=3]; \\
+};
+\matrix [list=b3, element=a] at (p3) {
+  \node [index=4]; \\
+};
+\matrix [list=b4, element=a] at (p4) {
+  \node [index=5]; &
+  \node [index=6]; \\
+};
 
 \bracetobrace
   {a2.south east}{a1.south west}
