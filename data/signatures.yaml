@@ -492,7 +492,7 @@
     - name: keymember?/3
       signature: |
         defmodule List do
-          def keymember?(list, key, position)
+          def keymember?(list, key, index)
         end
     - name: keyreplace/4
       signature: |
