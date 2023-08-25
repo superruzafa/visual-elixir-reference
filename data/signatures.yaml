@@ -482,7 +482,7 @@
     - name: keydelete/3
       signature: |
         defmodule List do
-          def keydelete(list, key, position)
+          def keydelete(list, key, index)
         end
     - name: keyfind/4
       signature: |

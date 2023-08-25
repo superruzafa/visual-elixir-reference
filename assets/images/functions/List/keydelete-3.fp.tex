@@ -1,0 +1,34 @@
+\def\index{\small\texttt{index}}
+\matrix [list=a] {
+  \node (a1) {$\{a_{1_1},\ldots,a_{1_{\index}},\ldots,a_{1_m}\}$}; &
+  \node (a2) {$\{a_{2_1},\ldots,a_{2_{\index}},\ldots,a_{2_p}\}$}; &
+  \node [elements between]; &
+  \node (ai) {$\{a_{i_1},\ldots,a_{i_{\index}},\ldots,a_{i_q}\}$}; &
+  \node [elements between]; &
+  \node (an) {$\{a_{n_1},\ldots,a_{n_r}\}$}; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (ai.north);
+
+\foreach \i/\j in {1/=,2/=,i/\neq}{
+  \draw (a\i.north) -- +(0, 1)
+    node [above] {$a_{\i_{\index}}\j\texttt{key}$};
+}
+
+\matrix [list=b, below=2 of list a] {
+  \node (b1) {$\{a_{1_1},\ldots,a_{1_{\index}},\ldots,a_{1_m}\}$}; &
+  \node (b2) {$\{a_{2_1},\ldots,a_{2_{\index}},\ldots,a_{2_p}\}$}; &
+  \node (be) [elements between]; &
+  \node (bn) {$\{a_{n_1},\ldots,a_{n_r}\}$}; \\
+};
+
+\bracetobrace
+  {ai.south west}{a1.south west}
+  {b1.north west}{be.north}
+
+\bracetobrace
+  {an.south east}{ai.south east}
+  {be.north}{bn.north east}
+
