@@ -1,7 +1,7 @@
 \matrix [list=a] {
   \node [index=-n]; &
   \node [elements between]; &
-  \node (a-i) {$a_{-\texttt{\scriptsize{i}}}$}; &
+  \node (a-i) {$a_{-\small\texttt{index}}$}; &
   \node [elements between]; &
   \node [index=-2]; &
   \node [index=-1]; \\
@@ -17,7 +17,7 @@
 \matrix [list=b, element=a, below=2 of list a] {
   \node [index=-n]; &
   \node [elements between]; &
-  \node (b-i-1) {$a_{-\texttt{\scriptsize{i}}}$}; &
+  \node (b-i-1) {$a_{-\small\texttt{index}}$}; &
   \node (b-i) {\texttt{value}}; &
   \node [elements between]; &
   \node [index=-2]; &
@@ -32,5 +32,5 @@
   {a-i.south east}{a-n.south west}
   {b-n.north west}{b-i-1.north east}
 
-\draw [<-] (b-i.north) -- +(0, 1);
+\draw [<-] (b-i.north) -- +(0, .5);
 
