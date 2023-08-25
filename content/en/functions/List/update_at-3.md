@@ -7,7 +7,8 @@ url: List/update_at/3
 
 {{< signature >}}
 
-Returns a list with an updated value at the specified `index`.
+Returns a list where its `index`-th element is updated according ta function `fun`.
+
 If `index` is out of bounds, the original list is returned.
 
 {{< figure src="images/functions/List/update_at-3.svg" >}}
