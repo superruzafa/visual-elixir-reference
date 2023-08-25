@@ -502,7 +502,7 @@
     - name: keystore/4
       signature: |
         defmodule List do
-          def keystore(list, key, position, new_tuple)
+          def keystore(list, key, index, new_tuple)
         end
     - name: keytake/3
       signature: |
