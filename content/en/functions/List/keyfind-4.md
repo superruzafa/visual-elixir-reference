@@ -7,7 +7,7 @@ url: /List/keyfind/4
 
 {{< signature >}}
 
-Receives a list of tuples and returns the first tuple where the element at `position` in the tuple matches the given key.
+Receives a list of tuples and returns the first tuple where the `index`-th element is the given `key`.
 
 {{< figure src="images/functions/List/keyfind-4.svg" >}}
 

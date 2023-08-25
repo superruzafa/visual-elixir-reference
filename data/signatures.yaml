@@ -487,7 +487,7 @@
     - name: keyfind/4
       signature: |
         defmodule List do
-          def keyfind(list, key, position, default \\ nil)
+          def keyfind(list, key, index, default \\ nil)
         end
     - name: keymember?/3
       signature: |

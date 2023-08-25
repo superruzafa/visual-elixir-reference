@@ -1,0 +1,22 @@
+\def\index{\small\texttt{index}}
+\matrix [list=a] {
+  \node (a1) {$\{a_{1_1},\ldots,a_{1_{\index}},\ldots,a_{1_m}\}$}; &
+  \node (a2) {$\{a_{2_1},\ldots,a_{2_{\index}},\ldots,a_{2_p}\}$}; &
+  \node [elements between]; &
+  \node (an) {$\{a_{n_1},\ldots,a_{n_{\index}},\ldots,a_{n_q}\}$}; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (an.north);
+
+\foreach \i in {1,2,n}{
+  \draw (a\i.north) -- +(0, 1)
+    node [above] {$a_{\i_{\index}}\neq\texttt{key}$};
+}
+
+\draw [->] (an.north) .. controls +(1, 1) and +(0, 3) .. +(3, -2)
+  node [anchor=north] {\false};
+
+\draw [->] (an.north) .. controls +(1, 1) and +(0, 3) .. +(3, -2)
+  node [anchor=north] {\texttt{default}};
