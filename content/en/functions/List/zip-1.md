@@ -3,7 +3,7 @@ title: zip/1
 url: List/zip/1
 ---
 
-# `List.zip/1`
+# List.zip/1
 
 {{< signature >}}
 
