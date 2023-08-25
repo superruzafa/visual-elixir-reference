@@ -497,7 +497,7 @@
     - name: keyreplace/4
       signature: |
         defmodule List do
-          def keyreplace(list, key, position, new_tuple)
+          def keyreplace(list, key, index, new_tuple)
         end
     - name: keystore/4
       signature: |

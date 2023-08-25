@@ -7,7 +7,7 @@ url: /List/keyreplace/4
 
 {{< signature >}}
 
-Receives a list of tuples and if the identified element by `key` at `position` exists, it is replaced with `new_tuple`.
+Receives a list of tuples and replaces the tuple whose `index`-th element is `key` with `new_tuple`.
 
 {{< figure src="images/functions/List/keyreplace-4.svg" >}}
 
