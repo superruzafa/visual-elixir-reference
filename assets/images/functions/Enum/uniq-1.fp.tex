@@ -1,0 +1,21 @@
+\matrix [list=a] {
+  \node (a11) [index=1]; &
+  \node (a21) [index=2] node {$\times$}; &
+  \node (a12) [index=1] node {$\times$}; &
+  \node [elements between]; &
+  \node (an1) [index=n]; &
+  \node (a22) [index=2] node {$\times$}; &
+  \node [elements between]; &
+  \node (a13) [index=1] node {$\times$}; &
+  \node (an2) [index=n]; \\
+};
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node (a11) [index=1]; &
+  \node (a21) [index=2]; &
+  \node [elements between]; &
+  \node (an2) [index=n]; \\
+};
+
+\node at ($ (list a)!.5!(list b) $) {$\Downarrow$};
+
