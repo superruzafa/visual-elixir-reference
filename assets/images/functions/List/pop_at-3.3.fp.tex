@@ -1,0 +1,31 @@
+\matrix [list=a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration] (a0.north) to (a1.north);
+\draw [iteration=dashed] (a1.north) to (an-1.north);
+
+\matrix [tuple, wrapper, element size=\listitemsize, below=2 of list a] {
+  \node (b) {\texttt{default}}; & \node [separator]; &
+  \node (t2) [placeholder=3.5 * \listitemsize]; \\
+};
+
+\matrix at (t2) [list=b, element=a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\draw [measure={$n-1<\texttt{index}$}, measure amplitude=2cm] (list a.north west) -- (list a.north east);
+
+\draw [<-] (b.north) -- +(0, .5);
+
+\bracetobrace
+  {list a.south east}{list a.south west}
+  {list b.north west}{list b.north east}
+
