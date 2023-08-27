@@ -1,0 +1,25 @@
+\tikzset{
+  repeatedly fun/.style={
+    fun,
+    function arity=0,
+  }
+}
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\foreach \i in {1, 2, i}{
+  \draw [<-] (a\i.north) -- +(0, 1)
+    node (fun \i) [repeatedly fun, above];
+}
+
+\draw [enter iteration] (fun 1.north);
+\draw [iteration] (fun 1.north) -- (fun 2.north);
+\draw [iteration=dashed] (fun 2.north) -- (fun i.north);
+\draw [iteration=dashed] (fun i.north) -- +(1, 0);
+
