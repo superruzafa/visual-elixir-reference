@@ -2,8 +2,8 @@
     \node [index=1]; &
     \node [index=2]; &
     \node [elements between]; &
-    \node (ac) {$a_{\texttt{\small{count}}}$}; &
-    \node (ac+1) {$a_{\texttt{\small{count+1}}}$}; &
+    \node (ac) {$a_{\small\texttt{count}}$}; &
+    \node (ac+1) {$a_{\small\texttt{count}+1}$}; &
     \node [elements between]; &
     \node [index=n]; \\
 };
@@ -11,7 +11,7 @@
 \draw [measure=\texttt{count}] (a1.north west) -- (ac.north east);
 
 \matrix [list=b, element=a, below=2 of an.south east, matrix anchor=bn.north east] {
-    \node (bc+1) {$a_{\texttt{\small{count+1}}}$}; &
+    \node (bc+1) {$a_{\small\texttt{count}+1}$}; &
     \node [elements between]; &
     \node [index=n];; \\
 };
