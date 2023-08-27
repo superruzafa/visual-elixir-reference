@@ -1,0 +1,28 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (ai.north);
+
+\foreach \i in {1, 2, i}{
+  \applyfuntop{a\i.north}{\texttt{fun}}{$b_\i$}
+}
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\bracetobrace
+  {list a.south east}{list a.south west}
+  {list b.north west}{list b.north east}
+
