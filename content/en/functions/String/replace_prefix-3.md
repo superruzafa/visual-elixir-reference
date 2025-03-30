@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.replace_prefix/3`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `replace_prefix/3` function.
 
 {{< figure src="images/functions/String/replace_prefix-3.svg" >}}

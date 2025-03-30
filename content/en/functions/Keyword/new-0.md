@@ -3,9 +3,6 @@ title: new/0
 url: /Keyword/new/0
 ---
 
-# Keyword.new/0
-
-{{< signature >}}
 
 Returns an empty keyword list, i.e. an empty list.
 

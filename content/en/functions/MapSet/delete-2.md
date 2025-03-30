@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `MapSet.delete/2`
-
-{{< signature >}}
-
 Brief description and usage of the `MapSet`'s `delete/2` function.
 
 {{< figure src="images/functions/MapSet/delete-2.svg" >}}

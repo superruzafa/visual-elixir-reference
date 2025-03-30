@@ -3,9 +3,6 @@ title: elem/2
 url: Kernel/elem/2
 ---
 
-# Kernel.elem/2
-
-{{< signature >}}
 
 Gets the element at the zero-based `index` in `tuple`.
 Allowed in guard tests.

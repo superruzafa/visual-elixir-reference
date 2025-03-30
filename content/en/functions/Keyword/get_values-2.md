@@ -3,9 +3,6 @@ title: get_values/2
 url: Keyword/get_values/2
 ---
 
-# Keyword.get_values/2
-
-{{< signature >}}
 
 Gets all values for a specific key.
 

@@ -1,0 +1,25 @@
+\matrix [list=a] {
+  \node (a1) {\texttt{start}}; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\foreach \i in {2, 3, i}{
+    \node (fun \i) [fun, above=.5 of a\i];
+    \draw [->] (fun \i.out) -- (a\i.north);
+}
+
+\coordinate (top rule) at ($ (fun 2.in) + (0, .5) $);
+
+\draw [->] ($ (fun 2.out)!.5!(a2.north) $) -| ($ (fun 2)!.5!(fun 3) $) -- (\currcoord |- top rule) -| (fun 3.in);
+\draw [->, dashed] ($ (fun 3.out)!.5!(a3.north) $) -| ($ (fun 3)!.5!(fun i) $) -- (\currcoord |- top rule) -| (fun i.in);
+\draw [->, dashed] ($ (fun i.out)!.5!(ai.north) $) -| ($ (fun i.east) + (.25, 0) $);
+
+\draw [<-] (a1.north) -- (\currcoord |- top rule) coordinate (x) -- +(0, .5)
+    node [above] {\texttt{start}};
+
+\draw [->] (x) -| (fun 2.in);
+

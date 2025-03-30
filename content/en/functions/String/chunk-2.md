@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.chunk/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `chunk/2` function.
 
 {{< figure src="images/functions/String/chunk-2.svg" >}}

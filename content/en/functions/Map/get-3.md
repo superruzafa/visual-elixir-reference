@@ -3,9 +3,6 @@ title: get/3
 url: Map/get/3
 ---
 
-# Map.get/3
-
-{{< signature >}}
 
 Gets the value for a specific `key` in `map`.
 

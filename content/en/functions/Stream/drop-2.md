@@ -3,10 +3,6 @@ title: drop/2
 url: /Stream/drop/2
 ---
 
-# Stream.drop/2
-
-{{< signature >}}
-
 Lazily drops the next `count` elements from the stream.
 
 {{< figure src="images/functions/Stream/drop-2.svg" >}}

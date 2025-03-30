@@ -3,10 +3,6 @@ title: fetch/2
 url: Enum/fetch/2
 ---
 
-# Enum.fetch/2
-
-{{< signature >}}
-
 Finds the element at the given `index` (zero-based) and returns `{:ok, element}` if found.
 
 {{< figure src="images/functions/Enum/fetch-2.svg" >}}

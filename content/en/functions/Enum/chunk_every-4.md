@@ -3,10 +3,6 @@ title: chunk_every/4
 url: Enum/chunk_every/4
 ---
 
-# Enum.chunk_every/4
-
-{{< signature >}}
-
 Returns list of lists containing `count` elements each, where each new chunk starts `step` elements into `enumerable`.
 
 `step` is optional and, if not passed, defaults to `count`, i.e. chunks do not overlap.

@@ -6,9 +6,6 @@ draft: true
 ---
 
 # `List.improper_/1`
-
-{{< signature >}}
-
 Brief description and usage of the `List`'s `improper_/1` function.
 
 {{< figure src="images/functions/List/improper_-1.svg" >}}

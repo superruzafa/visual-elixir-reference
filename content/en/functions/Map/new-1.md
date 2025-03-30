@@ -3,9 +3,6 @@ title: new/1
 url: Map/new/1
 ---
 
-# Map.new/1
-
-{{< signature >}}
 
 Creates a map from an `enumerable`.
 

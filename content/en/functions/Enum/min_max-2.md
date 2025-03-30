@@ -3,10 +3,6 @@ title: min_max/2
 url: /Enum/min_max/2
 ---
 
-# Enum.min_max/2
-
-{{< signature >}}
-
 Returns a tuple with the minimal and the maximal elements in the enumerable according to Erlang's term ordering.
 If multiple elements are considered maximal or minimal, the first one that was found is returned.
 

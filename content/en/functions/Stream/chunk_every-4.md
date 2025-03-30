@@ -3,10 +3,6 @@ title: chunk_every/4
 url: /Stream/chunk_every/4
 ---
 
-# Stream.chunk_every/4
-
-{{< signature >}}
-
 Streams the enumerable in chunks, containing `count` elements each, where each new chunk starts `step` elements into the enumerable.
 
 `step` is optional and, if not passed, defaults to `count`, i.e. chunks do not overlap.

@@ -3,9 +3,6 @@ title: pop/3
 url: /Map/pop/3
 ---
 
-# Map.pop/3
-
-{{< signature >}}
 
 Returns and removes the value associated with key in map.
 

@@ -4,9 +4,6 @@ url: /Map/pop_/2
 aliases: ['/Map/pop!/2/']
 ---
 
-# Map.pop!/2
-
-{{< signature >}}
 
 Returns and removes the value associated with key in map.
 

@@ -3,9 +3,6 @@ title: to_integer/2
 url: List/to_integer/2
 ---
 
-# List.to_integer/2
-
-{{< signature >}}
 
 Returns an integer whose text representation is `charlist` in base `base`.
 

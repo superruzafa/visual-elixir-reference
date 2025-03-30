@@ -3,10 +3,6 @@ title: slice/3
 url: Enum/slice/3
 ---
 
-# Enum.slice/3
-
-{{< signature >}}
-
 Returns a subset list of the given `enumerable`, from `start` (zero-based) with `count` number of elements if available.
 
 {{< figure src="images/functions/Enum/slice-3.svg" >}}

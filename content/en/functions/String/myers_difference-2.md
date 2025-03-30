@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.myers_difference/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `myers_difference/2` function.
 
 {{< figure src="images/functions/String/myers_difference-2.svg" >}}

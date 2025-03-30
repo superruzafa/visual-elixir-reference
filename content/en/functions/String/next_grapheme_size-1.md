@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.next_grapheme_size/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `next_grapheme_size/1` function.
 
 {{< figure src="images/functions/String/next_grapheme_size-1.svg" >}}

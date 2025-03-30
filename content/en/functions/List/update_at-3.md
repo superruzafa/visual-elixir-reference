@@ -3,9 +3,6 @@ title: update_at/3
 url: List/update_at/3
 ---
 
-# List.update_at/3
-
-{{< signature >}}
 
 Returns a list where its `index`-th element is updated according ta function `fun`.
 

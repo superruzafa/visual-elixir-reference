@@ -3,22 +3,30 @@
 {{ define "meta_keywords" }}{{ i18n "function_keywords" .Page }}{{ end }}
 
 {{ define "main" }}
-
-{{- if not hugo.IsProduction -}}
-{{ $module := .Page.Parent.Title }}
-{{ $function := .Title}}
-<div class="dev-tools">
-    <ul>
-        <li><a href="https://hexdocs.pm/elixir/{{ $module }}.html#{{ $function }}">Official doc</a></li>
-    </ul>
-</div>
-{{- end -}}
+{{ $module := .Parent.Title }}
+{{ $function := .Title }}
 
 <main class="function">
     <nav class="breadcrumbs">
         {{ with .Parent }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} / 
         <a href="{{ .Permalink }}">{{ .Title }}</a>
     </nav>
+
+    <h1><a href="https://hexdocs.pm/elixir/{{ .Parent.Title }}.html#{{ .Title }}">{{ .Parent.Title }}.{{ .Title }}</a></h1>
+
+
+    {{- range $.Site.Data.signatures -}}
+        {{- if eq $module .name -}}
+            {{- range .functions -}}
+                {{- if eq $function .name -}}
+    <div class="signature">
+        {{- highlight .signature "elixir" "" -}}
+    </div>
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+
     {{ .Content }}
     <nav class="prev-next">
         {{ with .NextInSection }}<a class="prev-next__prev" href="{{ .Permalink }}">← {{ .Title }}</a>{{ end }}

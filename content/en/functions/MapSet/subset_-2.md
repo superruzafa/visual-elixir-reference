@@ -6,9 +6,6 @@ draft: true
 ---
 
 # `MapSet.subset_/2`
-
-{{< signature >}}
-
 Brief description and usage of the `MapSet`'s `subset_/2` function.
 
 {{< figure src="images/functions/MapSet/subset_-2.svg" >}}

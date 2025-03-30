@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.duplicate/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `duplicate/2` function.
 
 {{< figure src="images/functions/String/duplicate-2.svg" >}}

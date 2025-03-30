@@ -3,10 +3,6 @@ title: min_max_by/3
 url: /Enum/min_max_by/3
 ---
 
-# Enum.min_max_by/3
-
-{{< signature >}}
-
 Returns a tuple with the minimal and the maximal elements in the enumerable as calculated by the given function.
 If multiple elements are considered maximal or minimal, the first one that was found is returned.
 

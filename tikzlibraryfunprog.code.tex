@@ -1,4 +1,5 @@
 \usetikzlibrary {matrix}
+\usetikzlibrary {positioning}
 \usetikzlibrary {fit}
 
 \makeatletter
@@ -97,9 +98,10 @@
     next placeholder counter,
     alias={\funprog@datastructid placeholder\the\value{placeholder}},
     node contents={},
-    minimum width=#1 + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
+    minimum width=#1 * \funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
     minimum height=\funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperpadding,
   },
+  tuple/placeholder/.default=1,
   tuple/delimiter/left/.store in=\funprog@tuple@delimiter@left,
   tuple/delimiter/right/.store in=\funprog@tuple@delimiter@right,
   tuple/delimiter/.is choice,
@@ -302,9 +304,9 @@
     next placeholder counter,
     alias={\funprog@datastructid placeholder\the\value{placeholder}},
     node contents={},
-    minimum width=#1 + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
+    minimum width=#1 * \funprog@datastruct@elementsize + 2 * \funprog@datastruct@wrapperlevel * \funprog@datastruct@wrapperpadding,
   },
-  list/placeholder/.default=1cm,
+  list/placeholder/.default=1,
   list/index/.style={
     alias=\funprog@datastructid#1,
     node contents={$\funprog@datastruct@element_{#1}$},

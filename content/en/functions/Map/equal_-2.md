@@ -6,9 +6,6 @@ draft: true
 ---
 
 # `Map.equal_/2`
-
-{{< signature >}}
-
 Brief description and usage of the `Map`'s `equal_/2` function.
 
 {{< figure src="images/functions/Map/equal_-2.svg" >}}

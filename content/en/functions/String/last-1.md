@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.last/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `last/1` function.
 
 {{< figure src="images/functions/String/last-1.svg" >}}

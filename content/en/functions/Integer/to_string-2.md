@@ -4,9 +4,6 @@ url: /Integer/to_string/2
 ---
 
 # Integer.to_string/2
-
-{{< signature >}}
-
 Returns a binary which corresponds to the text representation of `integer`.
 
 {{< figure src="images/functions/Integer/to_string-2.svg" >}}

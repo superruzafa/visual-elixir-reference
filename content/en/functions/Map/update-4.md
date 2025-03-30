@@ -3,9 +3,6 @@ title: update/4
 url: /Map/update/4
 ---
 
-# Map.update/4
-
-{{< signature >}}
 
 Updates the `key` in `map` with the given function `fun`.
 

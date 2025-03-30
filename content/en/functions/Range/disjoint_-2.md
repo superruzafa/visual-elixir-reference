@@ -6,9 +6,6 @@ aliases:
 ---
 
 # Range.disjoint?/2
-
-{{< signature >}}
-
 Returns `true` if `range1` **does not** overlap `range2`.
 
 {{< figure src="images/functions/Range/disjoint_-2.svg" >}}

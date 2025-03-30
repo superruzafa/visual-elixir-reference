@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `List.myers_difference/3`
-
-{{< signature >}}
-
 Brief description and usage of the `List`'s `myers_difference/3` function.
 
 {{< figure src="images/functions/List/myers_difference-3.svg" >}}

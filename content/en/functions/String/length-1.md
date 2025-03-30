@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.length/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `length/1` function.
 
 {{< figure src="images/functions/String/length-1.svg" >}}

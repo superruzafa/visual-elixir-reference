@@ -3,9 +3,6 @@ title: put_new_lazy/3
 url: /Keyword/put_new_lazy/3
 ---
 
-# Keyword.put_new_lazy/3
-
-{{< signature >}}
 
 Evaluates `fun` and puts the result under `key` in `keywords` unless `key` is already present.
 

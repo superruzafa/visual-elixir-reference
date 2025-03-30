@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.split_at/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `split_at/2` function.
 
 {{< figure src="images/functions/String/split_at-2.svg" >}}

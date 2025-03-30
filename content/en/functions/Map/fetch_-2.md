@@ -4,9 +4,6 @@ url: /Map/fetch_/2
 aliases: ['/Map/fetch!/2/']
 ---
 
-# Map.fetch!/2
-
-{{< signature >}}
 
 Fetches the value for a specific `key` in the given `map`.
 

@@ -3,9 +3,6 @@ title: wrap/1
 url: List/wrap/1
 ---
 
-# List.wrap/1
-
-{{< signature >}}
 
 Wraps `term` in a list if this is not list.
 

@@ -4,9 +4,6 @@ url: /Integer/undigits/2
 ---
 
 # Integer.undigits/2
-
-{{< signature >}}
-
 Returns the integer represented by the ordered digits.
 
 {{< figure src="images/functions/Integer/undigits-2.svg" >}}

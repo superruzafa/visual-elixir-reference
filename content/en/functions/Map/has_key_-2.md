@@ -3,9 +3,6 @@ title: has_key?/2
 url: Map/has_key?/2
 ---
 
-# Map.has_key?/2
-
-{{< signature >}}
 
 Returns `true` if the given `key` exists in the given `map`.
 

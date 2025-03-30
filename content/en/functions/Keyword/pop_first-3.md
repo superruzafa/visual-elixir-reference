@@ -3,9 +3,6 @@ title: pop_first/3
 url: Keyword/pop_first/3
 ---
 
-# Keyword.pop_first/3
-
-{{< signature >}}
 
 Returns the first value for `key` and removes all associated entries in the keyword list.
 

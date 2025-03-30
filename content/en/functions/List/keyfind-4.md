@@ -3,9 +3,6 @@ title: keyfind/4
 url: /List/keyfind/4
 ---
 
-# List.keyfind/4
-
-{{< signature >}}
 
 Receives a list of tuples and returns the first tuple where the `index`-th element is the given `key`.
 

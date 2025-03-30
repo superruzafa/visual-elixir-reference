@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `MapSet.put/2`
-
-{{< signature >}}
-
 Brief description and usage of the `MapSet`'s `put/2` function.
 
 {{< figure src="images/functions/MapSet/put-2.svg" >}}

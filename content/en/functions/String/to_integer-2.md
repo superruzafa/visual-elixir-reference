@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.to_integer/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `to_integer/2` function.
 
 {{< figure src="images/functions/String/to_integer-2.svg" >}}

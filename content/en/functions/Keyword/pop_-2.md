@@ -4,9 +4,6 @@ url: /Keyword/pop_/2
 aliases: ['/Keyword/pop!/2/']
 ---
 
-# Keyword.pop!/2
-
-{{< signature >}}
 
 Returns the first value for `key` and removes all associated entries in the keyword list.
 

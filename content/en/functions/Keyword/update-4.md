@@ -3,9 +3,6 @@ title: update/4
 url: /Keyword/update/4
 ---
 
-# `Keyword.update/4`
-
-{{< signature >}}
 
 Updates the `key` in `keywords` with the given function.
 If there are duplicated keys, they are all removed and only the first one is updated.

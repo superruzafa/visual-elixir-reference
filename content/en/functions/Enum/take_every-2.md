@@ -3,10 +3,6 @@ title: take_every/2
 url: Enum/take_every/2
 ---
 
-# Enum.take_every/2
-
-{{< signature >}}
-
 Returns a list of every `nth` element in the `enumerable`, starting with the first element.
 
 The first element is always included, unless `nth` is 0.

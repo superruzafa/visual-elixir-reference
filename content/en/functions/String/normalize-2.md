@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.normalize/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `normalize/2` function.
 
 {{< figure src="images/functions/String/normalize-2.svg" >}}

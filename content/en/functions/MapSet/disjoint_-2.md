@@ -6,9 +6,6 @@ draft: true
 ---
 
 # `MapSet.disjoint_/2`
-
-{{< signature >}}
-
 Brief description and usage of the `MapSet`'s `disjoint_/2` function.
 
 {{< figure src="images/functions/MapSet/disjoint_-2.svg" >}}

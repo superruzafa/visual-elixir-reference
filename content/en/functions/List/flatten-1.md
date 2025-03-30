@@ -3,9 +3,6 @@ title: flatten/1
 url: List/flatten/1
 ---
 
-# List.flatten/1
-
-{{< signature >}}
 
 Flattens the given `list` of nested lists.
 

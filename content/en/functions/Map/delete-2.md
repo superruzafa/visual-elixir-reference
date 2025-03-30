@@ -3,9 +3,6 @@ title: delete/2
 url: Map/delete/2
 ---
 
-# Map.delete/2
-
-{{< signature >}}
 
 Deletes the entry in map for a specific `key`.
 

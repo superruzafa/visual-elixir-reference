@@ -3,10 +3,6 @@ title: map_reduce/3
 url: Enum/map_reduce/3
 ---
 
-# Enum.map_reduce/3
-
-{{< signature >}}
-
 Invokes the given function to each element in the enumerable to reduce it to a single element, while keeping an accumulator.
 
 Returns a tuple where the first element is the mapped enumerable and the second one is the final accumulator.

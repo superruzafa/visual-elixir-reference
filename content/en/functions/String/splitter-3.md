@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.splitter/3`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `splitter/3` function.
 
 {{< figure src="images/functions/String/splitter-3.svg" >}}

@@ -3,9 +3,6 @@ title: replace_at/3
 url: /List/replace_at/3
 ---
 
-# List.replace_at/3
-
-{{< signature >}}
 
 Returns a list with a replaced value at the specified `index`.
 

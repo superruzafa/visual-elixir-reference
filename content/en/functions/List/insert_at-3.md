@@ -3,9 +3,6 @@ title: insert_at/3
 url: List/insert_at/3
 ---
 
-# List.insert_at/3
-
-{{< signature >}}
 
 Returns a list with value inserted at the specified index.
 Note that index is capped at the list length.

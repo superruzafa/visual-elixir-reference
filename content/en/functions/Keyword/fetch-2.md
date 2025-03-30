@@ -3,9 +3,6 @@ title: fetch/2
 url: Keyword/fetch/2
 ---
 
-# Keyword.fetch/2
-
-{{< signature >}}
 
 Fetches the value for a specific `key` and returns it in a tuple.
 

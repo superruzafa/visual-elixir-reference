@@ -3,9 +3,6 @@ title: split/2
 url: /Keyword/split/2
 ---
 
-# Keyword.split/2
-
-{{< signature >}}
 
 Takes all entries corresponding to the given `keys` in `keywords` and extracts them into a separate keyword list.
 

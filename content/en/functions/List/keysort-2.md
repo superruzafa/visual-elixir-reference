@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `List.keysort/2`
-
-{{< signature >}}
-
 Brief description and usage of the `List`'s `keysort/2` function.
 
 {{< figure src="images/functions/List/keysort-2.svg" >}}

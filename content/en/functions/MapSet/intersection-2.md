@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `MapSet.intersection/2`
-
-{{< signature >}}
-
 Brief description and usage of the `MapSet`'s `intersection/2` function.
 
 {{< figure src="images/functions/MapSet/intersection-2.svg" >}}

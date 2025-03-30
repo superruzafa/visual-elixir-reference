@@ -3,10 +3,6 @@ title: drop_every/2
 url: /Stream/drop_every/2
 ---
 
-# Stream.drop_every/2
-
-{{< signature >}}
-
 Creates a stream that drops every `nth` element from the enumerable.
 
 The first element is always dropped, unless `nth` is 0.

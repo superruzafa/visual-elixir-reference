@@ -3,9 +3,6 @@ title: delete_at/2
 url: Tuple/delete_at/2
 ---
 
-# Tuple.delete_at/2
-
-{{< signature >}}
 
 Deletes the element at the given `index` from `tuple`.
 

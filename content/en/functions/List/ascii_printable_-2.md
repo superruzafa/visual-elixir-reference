@@ -6,9 +6,6 @@ draft: true
 ---
 
 # `List.ascii_printable_/2`
-
-{{< signature >}}
-
 Brief description and usage of the `List`'s `ascii_printable_/2` function.
 
 {{< figure src="images/functions/List/ascii_printable_-2.svg" >}}

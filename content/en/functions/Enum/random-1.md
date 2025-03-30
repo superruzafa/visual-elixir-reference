@@ -3,10 +3,6 @@ title: random/1
 url: Enum/random/1
 ---
 
-# Enum.random/1
-
-{{< signature >}}
-
 Returns a random element from `enumerable`.
 
 This function uses Erlang's `:rand` module to calculate the random value. Check its documentation for setting a different random algorithm or a different seed.

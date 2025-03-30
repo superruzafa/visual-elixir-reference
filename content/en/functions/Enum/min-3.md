@@ -3,13 +3,9 @@ title: min/3
 url: /Enum/min/3
 ---
 
-# Enum.min/3
-
-{{< signature >}}
-
 Returns the minimal element in the enumerable according to Erlang's term ordering.
 
-By default, the comparison is done with the `<=` sorter function. If multiple elements are considered minimal, the first one that was found is returned.
+By default, the comparison is done with the `<=` sort function. If multiple elements are considered minimal, the first one that was found is returned.
 
 {{< figure src="images/functions/Enum/min-3.svg" >}}
 

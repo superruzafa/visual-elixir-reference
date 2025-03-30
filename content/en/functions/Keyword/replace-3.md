@@ -4,9 +4,6 @@ url: /Keyword/replace/3
 aliases: ['/Keyword/replace/3/']
 ---
 
-# Keyword.replace/3
-
-{{< signature >}}
 
 Puts `value` under `key` only if the key already exists in `keywords`.
 

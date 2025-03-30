@@ -3,10 +3,6 @@ title: chunk_while/4
 url: Enum/chunk_while/4
 ---
 
-# Enum.chunk_while/4
-
-{{< signature >}}
-
 Chunks `enumerable` with fine grained control when every chunk is emitted.
 
 `chunk_fun` receives the current element and the accumulator and must return

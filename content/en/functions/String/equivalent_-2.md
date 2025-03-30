@@ -6,9 +6,6 @@ draft: true
 ---
 
 # `String.equivalent_/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `equivalent_/2` function.
 
 {{< figure src="images/functions/String/equivalent_-2.svg" >}}

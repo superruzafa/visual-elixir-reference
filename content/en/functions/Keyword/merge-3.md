@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `Keyword.merge/3`
-
-{{< signature >}}
-
 Brief description and usage of the `Keyword`'s `merge/3` function.
 
 {{< figure src="images/functions/Keyword/merge-3.svg" >}}

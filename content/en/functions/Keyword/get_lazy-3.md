@@ -3,9 +3,6 @@ title: get_lazy/3
 url: Keyword/get_lazy/3
 ---
 
-# Keyword.get_lazy/3
-
-{{< signature >}}
 
 Gets the value for a specific `key`.
 

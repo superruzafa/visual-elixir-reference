@@ -3,9 +3,6 @@ title: duplicate/2
 url: List/duplicate/2
 ---
 
-# List.duplicate/2
-
-{{< signature >}}
 
 Duplicates the given element `count` times in a list.
 If `count` is 0, an empty list is returned.

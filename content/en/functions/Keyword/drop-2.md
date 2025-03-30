@@ -3,9 +3,6 @@ title: drop/2
 url: Keyword/drop/2
 ---
 
-# Keyword.drop/2
-
-{{< signature >}}
 
 Drops the entries in the keyword list for a specific `key`.
 

@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.trim/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `trim/1` function.
 
 {{< figure src="images/functions/String/trim-1.svg" >}}

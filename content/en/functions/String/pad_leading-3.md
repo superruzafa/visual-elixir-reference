@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.pad_leading/3`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `pad_leading/3` function.
 
 {{< figure src="images/functions/String/pad_leading-3.svg" >}}
