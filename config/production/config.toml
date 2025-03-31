@@ -1,1 +1,2 @@
-googleAnalytics = "G-X9FDL6QBE0"
+[services.googleAnalytics]
+id = "G-X9FDL6QBE0"
