@@ -7,9 +7,12 @@
   \node [index=-1]; \\
 };
 
-%\draw [enter iteration] (a0.north);
-%\draw [iteration] (a0.north) -- (a1.north);
-%\draw [iteration=dashed] (a1.north) -- (ai.north);
+\begin{scope}
+    [iteration direction=from right to left]
+    \draw [enter iteration] (a-1.north);
+    \draw [iteration] (a-1.north) -- (a-2.north);
+    \draw [iteration=dashed] (a-2.north) -- (a-i.north);
+\end{scope}
 
 \matrix [list=b, element=a, below=2 of list a] {
   \node [index=-n]; &

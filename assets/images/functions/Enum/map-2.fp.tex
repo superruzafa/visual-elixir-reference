@@ -17,7 +17,7 @@
 };
 
 \foreach \i in {1, 2, i, n}{
-  \node (fun\i) at ($ (a\i.south)!.5!(b\i.north) $) [fun=\texttt{fun}];
+    \node (fun\i) at ($ (a\i.south)!.5!(b\i.north) $) [fun=\texttt{fun}];
     \draw [->] (a\i.south) -- (fun\i.in);
     \draw [->] (fun\i.out) -- (b\i.north);
 }

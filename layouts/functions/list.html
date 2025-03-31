@@ -4,16 +4,6 @@
 
 {{ define "main" }}
 
-{{- if not hugo.IsProduction -}}
-{{ $module := .Title }}
-<div class="dev-tools">
-    <ul>
-        <li><a href="https://hexdocs.pm/elixir/{{ $module }}.html">Official doc</a></li>
-    </ul>
-</div>
-{{- end -}}
-
-<!-- <h1>{{ .Title }}</h1> -->
 {{ .Content }}
 
 <strong>Functions of the {{ .Title }} module:</strong>

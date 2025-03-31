@@ -12,7 +12,7 @@
 \draw [iteration] (a1.north) -- (a2.north);
 \draw [iteration=dashed] (a2.north) -- (ai.north);
 
-\foreach \i/\j in {1/=,2/=,i/\neq}{
+\foreach \i/\j in {1/\neq,2/\neq,i/=}{
   \draw (a\i.north) -- +(0, 1)
     node [above] {$a_{\i_{\index}}\j\texttt{key}$};
 }

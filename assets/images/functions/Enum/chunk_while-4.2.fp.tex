@@ -106,12 +106,35 @@
 \draw [->] (acci.south) -- +(0, -.5)
   node (after fun) [after fun, anchor=in];
 
-\matrix [list=b, below=1 of after fun.out, matrix anchor=bm.north] {
+\begin{scope}
+  [
+    start chain=tuple going base right,
+    every node/.style={
+      on chain=tuple,
+      inner xsep=0,
+      inner ysep=1mm,
+    }, 
+    node distance=0,
+    font=\large,
+  ]
+  \node (a) [below left=.75 and .65 of after fun.out] {$\{$};
+  \node {\texttt{:cont}};
+  \node {,\,};
+  \node (bma) {$b_m$};
+  \node {,\,};
+  \node (acci+1) {$acc_{i+1}$};
+  \node (b) {$\}$};
+\end{scope}
+
+\node (x) [fit=(a) (b)] {};
+\draw [->] (after fun.out) -- (\currcoord |- x.north); 
+
+\matrix [list=b, below=.5 of bma.south, matrix anchor=bm.north] {
   \node [index=1]; &
   \node [elements between=.85]; &
   \node [index=m]; \\
 };
 
-\draw [->] (b1a.south -| b1.north) -- (b1.north);
-\draw [->] (after fun.out) -- (bm.north);
+\draw [->] (b1a.south) -- (b1a.south |- b1.north);
+\draw [->] (bma.south) -- (bm.north);
 

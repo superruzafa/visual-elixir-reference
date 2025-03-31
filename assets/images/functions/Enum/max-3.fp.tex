@@ -1,7 +1,6 @@
 \tikzset{
-  sorter/.style={
-    fun={\texttt{sorter}},
-    font=\normalsize,
+  sort/.style={
+    fun={\texttt{sort}},
     function arity=2,
   }
 }
@@ -14,9 +13,9 @@
   \node [index=n]; \\
 };
 
-\node (fun 1) [sorter, below=1.25 of a1.south east];
-\node (fun 2) at (fun 1 -| a2.south east) [sorter];
-\node (fun n) at (fun 1 -| an.south west) [sorter];
+\node (fun 1) [sort, below=1.25 of a1.south east];
+\node (fun 2) at (fun 1 -| a2.south east) [sort];
+\node (fun n) at (fun 1 -| an.south west) [sort];
 
 \coordinate (rule) at ($ (a1.south)!.5!(fun 1.in) $);
 
@@ -43,5 +42,5 @@
 \draw [->] (nn.south) -- +(0, -.5)
   node (ai) [below] {$a_i$};
 
-\node [base right=of ai] {$a_i \ge_{\small\texttt{sorter}} a_j \, \forall j \in \texttt{enumerable}$};
+\node [base right=of ai] {$a_i \ge_{\small\texttt{sort}} a_j \, \forall j \in \texttt{enumerable}$};
 

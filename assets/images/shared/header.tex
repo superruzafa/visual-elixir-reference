@@ -7,16 +7,37 @@
   font=\LARGE
 }
 
+\definecolor{textcolor}{RGB}{0, 0, 0}
+\definecolor{linecolor}{RGB}{71, 40, 115}
+\definecolor{backgroundcolor}{RGB}{248, 239, 219}
+
 \def\listitemsize{2cm}
 \def\listpaddingsize{4mm}
+\let\mapitemsize\listitemsize;
 
 \tikzset{
   every list/.style={
+    nodes={
+        draw=linecolor,
+        rounded corners=2.5mm,
+        text=textcolor,
+        fill=backgroundcolor,
+    },
     element size=\listitemsize,
     wrapper padding=\listpaddingsize,
-    line width=1mm,
+    line width=.85mm,
   },
 }
+
+\tikzset{
+    /funprog/list/every elements before/.style={ rounded corners=0 },
+    /funprog/list/every elements between/.style={ rounded corners=0 },
+    /funprog/list/every elements after/.style={ rounded corners=0 },
+    /funprog/map/every elements before/.style={ rounded corners=0 },
+    /funprog/map/every elements between/.style={ rounded corners=0 },
+    /funprog/map/every elements after/.style={ rounded corners=0 },
+}
+
 
 \tikzset{
   keyword list/.style={
@@ -28,6 +49,7 @@
 
 \tikzset{
   every empty collection/.style={
+    draw=linecolor,
     element size=2cm,
     line width=.4mm,
   },
@@ -53,9 +75,10 @@
     function port funnel width=2.5mm,
     function port separation=1.25mm,
     function port height=1.875mm,
-    line width=.8mm,
+    line width=.85mm,
     font=\Large,
-    draw,
+    draw=linecolor,
+    fill=backgroundcolor,
     node contents={#1},
   },
   fun/.default={\texttt{fun}},
@@ -63,11 +86,15 @@
 
 \tikzset{
   ->/.style={
-    -{Stealth[#1]},
+    -{Straight Barb[round, #1]},
+    shorten >=0.4mm,
+    draw=linecolor,
     line width=0.8mm,
   },
   <-/.style={
-    {Stealth[#1]}-,
+    {Straight Barb[round, #1]}-,
+    draw=linecolor,
+    shorten <=0.4mm,
     line width=0.8mm,
   },
 }
@@ -90,9 +117,9 @@
   enter iteration delta angle=60,
   exit iteration start angle=150,
   exit iteration delta angle=60,
-  every enter iteration/.style={<-, radius=.85cm},
-  every iteration/.style={->},
-  every exit iteration/.style={->, radius=.85cm},
+  every enter iteration/.style={<-, shorten <=2.4mm, radius=.85cm},
+  every iteration/.style={->, shorten >=2.4mm},
+  every exit iteration/.style={->, shorten >=2.4mm, radius=.85cm},
 }
 
 \tikzset{
@@ -109,6 +136,7 @@
 
 \tikzset{
   every brace/.style={
+    draw=linecolor,
     line width=.6mm,
   },
   brace amplitude=5mm,

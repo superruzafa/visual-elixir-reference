@@ -1,14 +1,19 @@
 \matrix [list=a] {
   \node (a11) [index=1]; &
-  \node (a21) [index=2] node {$\times$}; &
-  \node (a12) [index=1] node {$\times$}; &
+  \node (a21) [index=2]; &
+  \node (a12) [index=1]; &
   \node [elements between]; &
   \node (an1) [index=n]; &
-  \node (a22) [index=2] node {$\times$}; &
+  \node (a22) [index=2]; &
   \node [elements between]; &
-  \node (a13) [index=1] node {$\times$}; &
+  \node (a13) [index=1]; &
   \node (an2) [index=n]; \\
 };
+
+\node at (a12) {$\times$};
+\node at (a22) {$\times$};
+\node at (a13) {$\times$};
+\node at (an2) {$\times$};
 
 \matrix [list=b, element=a, below=2 of list a] {
   \node (a11) [index=1]; &

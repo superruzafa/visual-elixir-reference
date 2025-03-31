@@ -9,9 +9,9 @@
   \node [index=n]; \\
 };
 
-\matrix [tuple=t, below=3 of map a]{
+\matrix [tuple=t, element size=\mapitemsize, below=3 of map a]{
   \node (tkey) {$\vkey$}; & \node [separator]; &
-  \node (t2) [element size=1.7cm, placeholder=4]; \\
+  \node (t2) [placeholder=5]; \\
 };
 
 \matrix at (t2) [map=b] {
@@ -28,21 +28,4 @@
 \draw [->] (vkey) -| (fun.in);
 \draw [->] (fun.out) -- +(0, -.5)
   node [below] {\texttt{:pop}};
-
-
-%\begin{scope}
-  %[start chain=tuple going base right, every node/.style={on chain=tuple, inner sep=0}, node distance=0]
-  %\node [below left=.75 and 0 of fun] {$\{$};
-  %\node (res b) {$b$};
-  %\node {,\,};
-  %\node (res vfun) {$\vof{fun}$};
-  %\node {$\}$};
-%\end{scope}
-
-%\node (res) [fit=(res b) (res vfun)] {};
-%\draw [->] (vkey) -| (fun.north);
-%\draw [->] (fun.out) -- (res.north);
-
-%\draw [->, shorten <=.5ex] (res b) -- +(0, -.5) -| (b.north);
-%\draw [->, shorten <=.5ex] (res vfun) |- (vfun);
 

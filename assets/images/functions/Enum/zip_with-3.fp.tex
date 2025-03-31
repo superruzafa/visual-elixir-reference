@@ -18,8 +18,8 @@
 \coordinate (x) at ($ (list z1.north west)!.5!(list zn.north east) $);
 
 \matrix [list=e, wrapper, element size=\ziplistitemsize, above=1 of x] {
-  \node (e1) [placeholder=4 * \ziplistitemsize]; &
-  \node (e2) [placeholder=3.5 * \ziplistitemsize]; \\
+  \node (e1) [placeholder=4]; &
+  \node (e2) [placeholder=3.5]; \\
 };
 
 \matrix at (e1) [list=a, element size=\ziplistitemsize] {
@@ -45,7 +45,7 @@
 
 \tikzset{
   zip_fun/.style={
-    fun={\texttt{zip\_fun}},
+    fun={\texttt{fun}},
   }
 }
 

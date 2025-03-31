@@ -1,6 +1,7 @@
 \usetikzlibrary {matrix}
 \usetikzlibrary {positioning}
 \usetikzlibrary {fit}
+\usetikzlibrary {shapes.multipart}
 
 \makeatletter
 
@@ -31,6 +32,9 @@
   elements before/.forward to={funprog, \funprog@datastructtype/elements before},
   elements between/.forward to={funprog, \funprog@datastructtype/elements between},
   elements after/.forward to={funprog, \funprog@datastructtype/elements after},
+  every elements before/.forward to={funprog, \funprog@datastructtype/every elements before},
+  every elements between/.forward to={funprog, \funprog@datastructtype/every elements between},
+  every elements after/.forward to={funprog, \funprog@datastructtype/every elements after},
 }
 
 \pgfkeys{
@@ -170,78 +174,112 @@
   },
   map/key value/.style 2 args={
     node contents={},
-    append after command={
-      \pgfextra
-      \coordinate (_funprog_x)  ($ (\tikzlastnode.west)!.5!(\tikzlastnode.east) $);
-      \draw [line width=.75\pgflinewidth] 
-        ($(\tikzlastnode.west) + (\pgflinewidth, 0) $) --
-        ($(_funprog_x) + (-1mm, 0)$) --
-        ($(_funprog_x) + (0, -1mm)$) --
-        ($(_funprog_x) + (1mm, 0)$) --
-        ($ (\tikzlastnode.east) + (-\pgflinewidth, 0) $);
-      \coordinate (_funprog_n) at ($ (\tikzlastnode.north) + (0, -.5\pgflinewidth) $);
-      \coordinate (_funprog_s) at ($ (\tikzlastnode.south) + (0, .5\pgflinewidth) $);
-      \coordinate (_funprog_k) at ($ (_funprog_n)!.25!(_funprog_s) $);
-      \coordinate (_funprog_v) at ($ (_funprog_n)!.75!(_funprog_s) $);
-      %\draw (n) circle [radius=1pt];
-      %\draw (s) circle [radius=1pt];
-      %\draw (k) circle [radius=1pt];
-      %\draw (v) circle [radius=1pt];
-      %\draw (\tikzlastnode.center) circle [radius=1pt];
-      %\coordinate (a) at ($ (\tikzlastnode.north)!.25!(\tikzlastnode.south) $);
-      %\draw [very thin, red] (\tikzlastnode.west |- k) -- (\tikzlastnode.east |- k);
-      %\draw [very thin, red] (\tikzlastnode.west |- v) -- (\tikzlastnode.east |- v);
-      %\node (k1) [anchor=base, yshift={height("x") / -2}] at (k) {x};
-      \node (last key) [draw=none, minimum size=0, anchor=base, yshift={height("x") / -2}] at (_funprog_k) {#1};
-      \node (last value) [draw=none, minimum size=0, anchor=base, yshift={height("x") / -2}] at (_funprog_v) {#2};
-      \endpgfextra
-    }
+    path picture={
+        \coordinate (_funprog_n) at ($ (path picture bounding box.north) + (0, -.5\pgflinewidth) $);
+        \coordinate (_funprog_s) at ($ (path picture bounding box.south) + (0, .5\pgflinewidth) $);
+        \coordinate (_funprog_k) at ($ (_funprog_n)!.25!(_funprog_s) $);
+        \coordinate (_funprog_v) at ($ (_funprog_n)!.75!(_funprog_s) $);
+        \node (last key) [draw=none, fill=none, minimum size=0, anchor=base, yshift={height("x") / -2}] at (_funprog_k) {#1};
+        \node (last value) [draw=none, fill=none, minimum size=0, anchor=base, yshift={height("x") / -2}] at (_funprog_v) {#2};
+        \draw [line width=\pgflinewidth]
+            (path picture bounding box.west) -- (path picture bounding box.east);
+    },
+    %append after command={
+      %\pgfextra
+      %\coordinate (_funprog_x)  ($ (\tikzlastnode.west)!.5!(\tikzlastnode.east) $);
+      %\draw [line width=.75\pgflinewidth] 
+        %($(\tikzlastnode.west) + (\pgflinewidth, 0) $) --
+        %($(_funprog_x) + (-1mm, 0)$) --
+        %($(_funprog_x) + (0, -1mm)$) --
+        %($(_funprog_x) + (1mm, 0)$) --
+        %($ (\tikzlastnode.east) + (-\pgflinewidth, 0) $);
+      %\coordinate (_funprog_n) at ($ (\tikzlastnode.north) + (0, -.5\pgflinewidth) $);
+      %\coordinate (_funprog_s) at ($ (\tikzlastnode.south) + (0, .5\pgflinewidth) $);
+      %\coordinate (_funprog_k) at ($ (_funprog_n)!.25!(_funprog_s) $);
+      %\coordinate (_funprog_v) at ($ (_funprog_n)!.75!(_funprog_s) $);
+      %%\draw (n) circle [radius=1pt];
+      %%\draw (s) circle [radius=1pt];
+      %%\draw (k) circle [radius=1pt];
+      %%\draw (v) circle [radius=1pt];
+      %%\draw (\tikzlastnode.center) circle [radius=1pt];
+      %%\coordinate (a) at ($ (\tikzlastnode.north)!.25!(\tikzlastnode.south) $);
+      %%\draw [very thin, red] (\tikzlastnode.west |- k) -- (\tikzlastnode.east |- k);
+      %%\draw [very thin, red] (\tikzlastnode.west |- v) -- (\tikzlastnode.east |- v);
+      %%\node (k1) [anchor=base, yshift={height("x") / -2}] at (k) {x};
+      %\node (last key) [draw=none, minimum size=0, anchor=base, yshift={height("x") / -2}] at (_funprog_k) {#1};
+      %\node (last value) [draw=none, minimum size=0, anchor=base, yshift={height("x") / -2}] at (_funprog_v) {#2};
+      %\endpgfextra
+    %}
   },
+  map/every elements before/.style={},
+  map/elements before/.default=.5,
   map/elements before/.style={
     draw=none,
+    fill=none,
+    every elements before,
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
     minimum height=\funprog@datastruct@elementsize,
-    append after command={
-      \pgfextra
-      \draw [dashed]
-            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
-            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
-      \endpgfextra
+    path picture={
+        \draw [dashed]
+            (path picture bounding box.north west) -- (path picture bounding box.north east)
+            (path picture bounding box.south east) -- (path picture bounding box.south west);
     },
+    %append after command={
+      %\pgfextra
+      %\draw [dashed]
+            %(\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            %(\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      %\endpgfextra
+    %},
   },
-  map/elements before/.default=.5,
+  map/every elements between/.style={},
+  map/elements between/.default=.5,
   map/elements between/.style={
     draw=none,
+    fill=none,
+    every elements between,
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
     minimum height=\funprog@datastruct@elementsize,
-    append after command={
-      \pgfextra
-      \draw [dashed]
-            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
-            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
-      \endpgfextra
+    path picture={
+        \draw [dashed]
+            (path picture bounding box.north west) -- (path picture bounding box.north east)
+            (path picture bounding box.south east) -- (path picture bounding box.south west);
     },
+    %append after command={
+      %\pgfextra
+      %\draw [dashed]
+            %(\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            %(\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      %\endpgfextra
+    %},
   },
-  map/elements between/.default=.5,
+  map/every elements after/.style={},
+  map/elements after/.default=.5,
   map/elements after/.style={
     draw=none,
+    fill=none,
+    every elements after,
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
     minimum height=\funprog@datastruct@elementsize,
-    append after command={
-      \pgfextra
-      \draw [dashed]
-            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
-            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
-      \endpgfextra
+    path picture={
+        \draw [dashed]
+            (path picture bounding box.north west) -- (path picture bounding box.north east)
+            (path picture bounding box.south east) -- (path picture bounding box.south west);
     },
+    %append after command={
+      %\pgfextra
+      %\draw [dashed]
+            %(\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            %(\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      %\endpgfextra
+    %},
   },
-  map/elements after/.default=.5,
 }
 
 % empty collection ------------------------------------------------------------
@@ -311,48 +349,72 @@
     alias=\funprog@datastructid#1,
     node contents={$\funprog@datastruct@element_{#1}$},
   },
+  list/every elements before/.style={},
+  list/elements before/.default=.5,
   list/elements before/.style={
     draw=none,
+    fill=none,
+    every elements before,
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
-    append after command={
-      \pgfextra
-      \draw [dashed]
-            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
-            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
-      \endpgfextra
+    path picture={
+        \draw [dashed]
+            (path picture bounding box.north west) -- (path picture bounding box.north east)
+            (path picture bounding box.south east) -- (path picture bounding box.south west);
     },
+    %append after command={
+      %\pgfextra
+      %\draw [dashed]
+            %(\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            %(\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      %\endpgfextra
+    %},
   },
-  list/elements before/.default=.5,
-  list/elements between/.style={
-    draw=none,
-    node contents={},
-    outer sep=0pt,
-    minimum width=#1 * \funprog@datastruct@elementsize,
-    append after command={
-      \pgfextra
-      \draw [dashed]
-            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
-            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
-      \endpgfextra
-    },
-  },
+  list/every elements between/.style={},
   list/elements between/.default=.5,
+  list/elements between/.style={
+      draw=none,
+      fill=none,
+      every elements between,
+      outer sep=0pt,
+      node contents={},
+      minimum width=#1 * \funprog@datastruct@elementsize,
+      path picture={
+        \draw [dashed]
+            (path picture bounding box.north west) -- (path picture bounding box.north east)
+            (path picture bounding box.south east) -- (path picture bounding box.south west);
+      },
+    %append after command={
+      %\pgfextra{
+        %\draw [draw=\pgfkeysvalueof{/pgf/color}, dashed]
+            %(\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            %(\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      %}
+    %},
+  },
+  list/every elements after/.style={},
+  list/elements after/.default=.5,
   list/elements after/.style={
     draw=none,
+    fill=none,
+    every elements after,
     node contents={},
     outer sep=0pt,
     minimum width=#1 * \funprog@datastruct@elementsize,
-    append after command={
-      \pgfextra
-      \draw [dashed]
-            (\tikzlastnode.north west) -- (\tikzlastnode.north east)
-            (\tikzlastnode.south west) -- (\tikzlastnode.south east);
-      \endpgfextra
+    path picture={
+        \draw [dashed]
+            (path picture bounding box.north west) -- (path picture bounding box.north east)
+            (path picture bounding box.south east) -- (path picture bounding box.south west);
     },
+    %append after command={
+      %\pgfextra
+      %\draw [dashed]
+            %(\tikzlastnode.north west) -- (\tikzlastnode.north east)
+            %(\tikzlastnode.south west) -- (\tikzlastnode.south east);
+      %\endpgfextra
+    %},
   },
-  list/elements after/.default=.5,
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
