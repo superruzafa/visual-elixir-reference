@@ -1,11 +1,10 @@
-FROM local/tinytex
+FROM superruzafa/tinytex:0.6.0
 
-RUN apt update && \
-    apt install -y \
+RUN apk update && \
+    apk add \
       make \
       hugo \
-      inotify-tools \
-      pdf2svg
+      inotify-tools
 
 RUN tlmgr update --self
 RUN tlmgr install standalone
