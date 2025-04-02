@@ -1,8 +1,8 @@
 SHARED_TEX_FILES := tikzlibraryfunprog.code.tex $(shell find assets/images/shared -name '*.tex')
-TEX_FILES := $(shell find assets/images/functions -name '*.fp.tex')
-TEX_PDF_FILES := $(subst assets,resources/_gen,$(subst .fp.tex,.tex,$(TEX_FILES)))
+TEX_FILES := $(shell find assets/images/functions -name '*.tex')
+TEX_PDF_FILES := $(subst assets,resources/_gen,$(subst .tex,.tex,$(TEX_FILES)))
 PDF_FILES := $(subst .tex,.pdf,$(TEX_PDF_FILES))
-SVG_FILES := $(subst assets,static,$(subst .fp.tex,.svg,$(TEX_FILES)))
+SVG_FILES := $(subst assets,static,$(subst .tex,.svg,$(TEX_FILES)))
 
 all: $(SVG_FILES)
 
@@ -15,7 +15,7 @@ resources/_gen/%.pdf: resources/_gen/%.tex
 	rm -f $(subst .pdf,.aux,$@)
 	rm -f $(subst .pdf,.log,$@)
 
-resources/_gen/%.tex: assets/%.fp.tex $(SHARED_TEX_FILES)
+resources/_gen/%.tex: assets/%.tex $(SHARED_TEX_FILES)
 	mkdir -p $(dir $@)
 	cat \
 		assets/images/shared/preamble.tex \
@@ -27,9 +27,9 @@ resources/_gen/%.tex: assets/%.fp.tex $(SHARED_TEX_FILES)
 .PHONY: watch
 watch:
 	while true; do \
-		inotifywait --monitor --recursive ./ --include '.fp.tex' --event modify | \
+		inotifywait --monitor --recursive ./ --include '.tex' --event modify | \
 		while read path action file; do \
-			echo $${path}$${file} | sed s/assets/static/ | sed s/\.fp\.tex/\.svg/ | xargs make; \
+			echo $${path}$${file} | sed s/assets/static/ | sed s/\.tex/\.svg/ | xargs make; \
 		done \
 	done
 

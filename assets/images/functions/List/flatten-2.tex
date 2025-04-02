@@ -1,44 +1,43 @@
-\matrix [fptk, listx={a}{1.25}] {
-    \placeholder[1]{2.25} &
-    \elems &
-    \placeholder[2]{2.25} \\
+\matrix [list=a, wrapper] {
+    \node (p1) [placeholder=2]; &
+    \node [elements between]; &
+    \node (p2) [placeholder=2]; \\
 };
 
-\matrix [fptk, list=e, element=b, base right=1 of a] {
-    \elem{1} &
-    \elem{2} &
-    \elems &
-    \elem{m} \\
+\matrix [list=b, base right=1 of list a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=m]; \\
 };
 
-\matrix at (a1) [fptk, list=c, element=a] {
-    \elem{1} &
-    \elem{2} \\
+\matrix at (p1) [list=c, element=a] {
+    \node [index=1]; &
+    \node [index=2]; \\
 };
 
-\matrix at (a2) [fptk, list=c, element=a] {
-    \elem{n-1} &
-    \elem{n} \\
+\matrix at (p2) [list=c, element=a] {
+    \node [index=n-1]; &
+    \node [index=n]; \\
 };
 
-\matrix (a) [fptk, list=d, element=a, below=2 of $ (a.west)!.5!(e.east) $] {
-    \elem{1} &
-    \elem{2} &
-    \elems &
-    \elem{n-1} &
-    \elem{n} &
-    \elemx{n+1}{$b_1$} &
-    \elemx{n+2}{$b_2$} &
-    \elems &
-    \elemx{n+m}{$b_m$} \\
+\matrix [list=d, below=2 of $ (list a.south west)!.5!(list b.south east) $] {
+    \node (da1) {$a_1$}; &
+    \node {$a_2$}; &
+    \node [elements between]; &
+    \node {$a_{n-1}$}; &
+    \node (dan) {$a_n$}; &
+    \node (db1) {$b_1$}; &
+    \node {$b_2$}; &
+    \node [elements between]; &
+    \node (dbm) {$b_m$}; \\
 };
 
 \bracetobrace
-    {[yshift=-.25\masterunit] c2.south east}{[yshift=-.25\masterunit] c1.south west}
-    {d1.north west}{d2.north east}
+    {bm.south east}{b1.south west}
+    {db1.north west}{dbm.north east}
+
 \bracetobrace
-    {[yshift=-.25\masterunit] cn.south east}{[yshift=-.25\masterunit] cn-1.south west}
-    {dn-1.north west}{dn.north east}
-\bracetobrace
-    {em.south east}{e1.south west}
-    {dn+1.north west}{dn+m.north east}
+    {[yshift=-5mm]cn.south east}{[yshift=-5mm]c1.south west}
+    {da1.north west}{dan.north east}
+

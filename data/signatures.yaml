@@ -508,7 +508,7 @@
     - name: keytake/3
       signature: |
         defmodule List do
-          def keytake(list, key, position)
+          def keytake(list, key, index)
         end
     - name: last/2
       signature: |

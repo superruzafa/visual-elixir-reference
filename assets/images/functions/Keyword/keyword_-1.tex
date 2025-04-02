@@ -1,41 +1,10 @@
-\matrix [fptk, keyword list={keyword list}] {
-    \keyword{1} &
-    \elems[.75] &
-    \keyword{n} \\
+\matrix [keyword list=a] {
+    \node [key value={$k_1$}{$v_1$}]; &
+    \node [key value={$k_2$}{$v_2$}]; &
+    \node [elements between]; &
+    \node [key value={$k_n$}{$v_n$}]; \\
 };
 
-\node [fptk, empty collection=empty collection, above=.5 of keyword list.north east, anchor=south east];
+\node (true) [below=2 of keyword list a] {\true};
+\node at ($ (true.north)!.5!(keyword list a.south) $) {$\Downarrow$};
 
-\matrix [fptk, list=list, element=a, below=.5 of keyword list] {
-    \elem{1} &
-    \elems[.75] &
-    \elem{n} \\
-};
-
-\matrix [fptk, map=map, below=.5 of list] {
-    \keyvalue{1} &
-    \elems[.75] &
-    \keyvalue{n}\\
-};
-
-\matrix [fptk, tuple=tuple, below=1.5 of map.east, anchor=east] {
-    \elem[a]{1} & \comma &
-    \elems &
-    \elem[a]{n} \\
-};
-
-\node (atom) [below=1 of tuple.east, anchor=east] {\texttt{:atom}};
-
-\node [below=1 of atom.east, anchor=east] {\vdots};
-
-\foreach \t/\b in {
-    empty collection/\true,
-    keyword list/\true,
-    list/\false,
-    map/\false,
-    tuple/\false,
-    atom/\false
-}{
-    \draw [shorten <=.5\masterunit, shorten >=.5\masterunit, thick, double, -Stealth] (\t.base east) -- +(2, 0)
-        node [inner sep=0pt, right] {\b};
-}

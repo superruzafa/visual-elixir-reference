@@ -15,6 +15,3 @@ Indexes are normalized, meaning that negative indexes will be counted from the e
 
 {{< figure src="images/functions/Enum/slice-2.2.svg" >}}
 
-If the normalized `range.first` is out of bounds of the given enumerable, or this one is greater than the normalized `range.last`, then `[]` is returned.
-
-{{< figure src="images/functions/Enum/slice-2.3.svg" >}}

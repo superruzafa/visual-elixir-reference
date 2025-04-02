@@ -4,7 +4,7 @@ url: /List/keytake/3
 ---
 
 
-Receives a list of tuples and returns the first tuple where the element at position in the tuple matches the given key, as well as the list without found tuple.
+Receives a list of tuples and returns the first tuple where the element at `index` in the tuple matches the given `key`, as well as the list without found tuple.
 
 {{< figure src="images/functions/List/keytake-3.svg" >}}
 
