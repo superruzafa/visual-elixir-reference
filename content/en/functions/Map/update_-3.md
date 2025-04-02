@@ -4,9 +4,6 @@ url: /Map/update_/3
 aliases: ['/Map/update!/3/']
 ---
 
-# Map.update!/3
-
-{{< signature >}}
 
 Updates the `key` in `map` with the given function `fun`.
 

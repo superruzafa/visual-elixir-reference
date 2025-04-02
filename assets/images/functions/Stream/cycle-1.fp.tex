@@ -1,0 +1,27 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (an.north);
+\draw [->, bend right=90, shorten >=5mm] (an.north) to (a1.north);
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node [index=1]; &
+  \node [elements after]; \\
+};
+
+\node at ($ (list a)!.5!(list b) $) {$\Downarrow$};
+

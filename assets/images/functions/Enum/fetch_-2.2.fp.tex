@@ -1,0 +1,18 @@
+\matrix [list=a] {
+  \node [elements before]; &
+  \node (a-index) {$a_{\small\texttt{-index}}$}; &
+  \node [elements between]; &
+  \node [index=-2]; &
+  \node [index=-1]; \\
+};
+
+\begin{scope}
+  [iteration direction=from right to left]
+  \draw [enter iteration] (a-1.north);
+  \draw [iteration] (a-1.north) -- (a-2.north);
+  \draw [iteration=dashed] (a-2.north) -- (a-index.north);
+\end{scope}
+
+\draw [->] (a-index.south) -- +(0, -1)
+  node [below, anchor=north] {$a_{\small\texttt{-index}}$};
+

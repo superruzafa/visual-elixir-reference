@@ -3,9 +3,6 @@ title: merge/2
 url: /Map/merge/2
 ---
 
-# Map.merge/2
-
-{{< signature >}}
 
 Merges two maps into one.
 

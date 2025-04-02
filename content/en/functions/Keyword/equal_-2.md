@@ -5,9 +5,6 @@ aliases: ['/Keyword/equal_/2/']
 draft: true
 ---
 
-# Keyword.equal_/2
-
-{{< signature >}}
 
 Brief description and usage of the `Keyword`'s `equal_/2` function.
 

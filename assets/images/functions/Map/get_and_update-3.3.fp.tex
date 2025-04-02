@@ -1,0 +1,31 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i-1]; &
+  \node (akey) [key value={\texttt{key}}{$\vkey$}];
+    \coordinate (vkey) at (last value.west); &
+  \node [index=i+1]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple=t, element size=\mapitemsize, below=3 of map a]{
+  \node (tkey) {$\vkey$}; & \node [separator]; &
+  \node (t2) [placeholder=5]; \\
+};
+
+\matrix at (t2) [map=b] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i-1]; &
+  \node [index=i+1]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node (fun) at ($ ($ (map a)!.33!(map b) $) + (-.45, 0) $) [fun];
+
+\draw [->] (vkey) -| (fun.in);
+\draw [->] (fun.out) -- +(0, -.5)
+  node [below] {\texttt{:pop}};
+

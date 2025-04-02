@@ -1,0 +1,70 @@
+\def\ziplistitemsize{1cm}
+
+\matrix [list=z1, element size=\ziplistitemsize] {
+  \node (z1a) {$a_1$}; &
+  \node (z1b) {$b_1$}; \\
+};
+
+\matrix [list=z2, element size=\ziplistitemsize, right=.5 of list z1] {
+  \node (z2a) {$a_2$}; &
+  \node (z2b) {$b_2$}; \\
+};
+
+\matrix [list=zn, element size=\ziplistitemsize, right=1 of list z2] {
+  \node (zna) {$a_n$}; &
+  \node (znb) {$b_n$}; \\
+};
+
+\coordinate (x) at ($ (list z1.north west)!.5!(list zn.north east) $);
+
+\matrix [list=e, wrapper, element size=\ziplistitemsize, above=1 of x] {
+  \node (e1) [placeholder=4]; &
+  \node (e2) [placeholder=3.5]; \\
+};
+
+\matrix at (e1) [list=a, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; &
+  \node [elements after=.5]; \\
+};
+
+\matrix at (e2) [list=b, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; \\
+};
+
+\foreach \e in {a,b}{
+  \foreach \i in {1,2,n}{
+    \draw [->, out=270, in=90] (\e\i.south) to (z\i\e.north);
+  }
+}
+
+\tikzset{
+  zip_fun/.style={
+    fun={\texttt{fun}},
+  }
+}
+
+\foreach \i in {1,2,n}{
+  \node (zip_fun \i) [zip_fun, below=1 of list z\i];
+  \draw [brace] (list z\i.south east) -- (list z\i.south west);
+  \draw [->] (last brace) -- (zip_fun \i.in);
+};
+
+\coordinate (x) at ($ (zip_fun 1.south west)!.5!(zip_fun n.south east) $);
+
+\matrix [list=z, below=1 of x] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1,2,n}{
+  \draw [->, out=270, in=90] (zip_fun \i.out) to (z\i.north);
+};
+

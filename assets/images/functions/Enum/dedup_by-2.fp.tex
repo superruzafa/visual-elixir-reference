@@ -1,0 +1,34 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [index=4]; &
+  \node [index=5]; &
+  \node [index=6]; &
+  \node [index=7]; &
+  \node [index=8]; &
+  \node [elements after]; \\
+};
+
+\foreach \i/\k in {1/1, 2/2, 3/2, 4/3, 5/4, 6/4, 7/4, 8/2}{
+  \applyfuntop{a\i.north}{\texttt{fun}}{$k_{\k}$}
+  \coordinate (k\i) at (last label);
+}
+
+\draw [rounded corners=2.5mm] ($ (k2.mid) + (-.25, -.25) $) rectangle ($ (k3.mid) + (.25, .25) $);
+
+\draw [rounded corners=2.5mm] ($ (k5.mid) + (-.25, -.25) $) rectangle ($ (k7.mid) + (.25, .25) $);
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=4]; &
+  \node [index=5]; &
+  \node [index=8]; &
+  \node [elements after]; \\
+};
+
+\foreach \i in {1,2,4,5,8}{
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}
+

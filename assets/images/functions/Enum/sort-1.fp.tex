@@ -1,0 +1,24 @@
+\matrix [list=a] {
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=n]; &
+    \node [elements between]; &
+    \node [index=1]; &
+    \node [elements between]; &
+    \node [index=i]; \\
+};
+
+\matrix [list=b, element=a, below=2 of list a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=i]; &
+    \node [elements between]; &
+    \node [index=n]; \\
+};
+
+\bracetobrace
+    {list a.south east}{list a.south west}
+    {list b.north west}{list b.north east}
+
+\node [right=1em of list b] {$a_j \leq a_k \forall j < k$};

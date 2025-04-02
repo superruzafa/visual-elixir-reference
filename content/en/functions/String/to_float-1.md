@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.to_float/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `to_float/1` function.
 
 {{< figure src="images/functions/String/to_float-1.svg" >}}

@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `Enum.into/2`
-
-{{< signature >}}
-
 Brief description and usage of the `Enum`'s `into/2` function.
 
 {{< figure src="images/functions/Enum/into-2.svg" >}}

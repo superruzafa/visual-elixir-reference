@@ -1,0 +1,16 @@
+\matrix [tuple=a] {
+  \node [index=0]; & \node [separator]; &
+  \node [index=1]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node (ai) {$a_{\small\texttt{index}}$}; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration] (a0.north) -- (a1.north);
+\draw [iteration=dashed] (a1.north) -- (ai.north);
+
+\draw [->] (ai.south) -- +(0, -1)
+  node [below] {$a_{\small\texttt{index}}$};
+

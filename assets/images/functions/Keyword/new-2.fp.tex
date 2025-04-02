@@ -1,0 +1,34 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n-2]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\v in {
+  1/$\{k_1{,}v_1\}$,
+  2/$\{k_2{,}v_2\}$,
+  3/$\{k_1{,}v^\prime_1\}$,
+  n-2/$\{k_n{,}v_n\}$,
+  n-1/$\{k_2{,}v^\prime_2\}$,
+  n/$\{k_1{,}v^{\prime\prime}_1\}$
+}{
+  \applyfunbottom{a\i.south}{\texttt{fun}}{\v};
+}
+
+\coordinate (x) at (last label.south);
+
+\matrix [keyword list=b, below=3.5 of list a] {
+  \node [key value={$k_1$}{$v_1^{\prime\prime}$}]; &
+  \node [key value={$k_2$}{$v_2^{\prime}$}]; &
+  \node [elements between]; &
+  \node [key value={$k_n$}{$v_n$}]; \\
+};
+
+\coordinate (x) at (x -| keyword list b.north);
+\coordinate (x) at ($ (x)!.5!(keyword list b.north) $);
+
+\node at (x) {$\Downarrow$};

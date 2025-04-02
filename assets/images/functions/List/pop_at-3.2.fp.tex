@@ -1,0 +1,37 @@
+\matrix [list=a] {
+  \node [index=-n]; &
+  \node [elements between]; &
+  \node (a-index) {$a_{\small\texttt{-index}}$}; &
+  \node [elements between]; &
+  \node [index=-2]; &
+  \node [index=-1]; \\
+};
+
+\begin{scope}[iteration direction=from right to left]
+  \draw [enter iteration] (a-1.north);
+  \draw [iteration] (a-1.north) to (a-2.north);
+  \draw [iteration=dashed] (a-2.north) to (a-index.north);
+\end{scope}
+
+\matrix [tuple, wrapper, element size=\listitemsize, below=2 of list a] {
+  \node (b) {$a_{\small\texttt{-index}}$}; & \node [separator]; &
+  \node (t2) [placeholder=3.5]; \\
+};
+
+\matrix at (t2) [list=b, element=a] {
+  \node [index=-n]; &
+  \node (be) [elements between]; &
+  \node [index=-2]; &
+  \node [index=-1]; \\
+};
+
+\draw [->, out=270, in=90] (a-index) to (b);
+
+\bracetobrace
+  {a-1.south east}{a-index.south east}
+  {be.north}{b-1.north east}
+
+\bracetobrace
+  {a-index.south west}{a-n.south west}
+  {b-n.north west}{be.north}
+

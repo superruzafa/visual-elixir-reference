@@ -3,9 +3,6 @@ title: put_new/3
 url: /Keyword/put_new/3
 ---
 
-# Keyword.put_new/3
-
-{{< signature >}}
 
 Puts the given `value` under `key` unless the entry `key` already exists.
 

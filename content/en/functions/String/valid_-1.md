@@ -6,9 +6,6 @@ draft: true
 ---
 
 # `String.valid_/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `valid_/1` function.
 
 {{< figure src="images/functions/String/valid_-1.svg" >}}

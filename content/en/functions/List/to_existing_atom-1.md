@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `List.to_existing_atom/1`
-
-{{< signature >}}
-
 Brief description and usage of the `List`'s `to_existing_atom/1` function.
 
 {{< figure src="images/functions/List/to_existing_atom-1.svg" >}}

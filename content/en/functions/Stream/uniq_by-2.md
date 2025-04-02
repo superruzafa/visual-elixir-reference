@@ -3,10 +3,6 @@ title: uniq_by/2
 url: /Stream/uniq_by/2
 ---
 
-# Stream.uniq_by/2
-
-{{< signature >}}
-
 Creates a stream that only emits elements if they are unique, by removing the elements for which function `fun` returned duplicate elements.
 
 The function `fun` maps every element to a term which is used to determine if two elements are duplicates.

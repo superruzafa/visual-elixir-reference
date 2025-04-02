@@ -3,9 +3,6 @@ title: get/3
 url: Keyword/get/3
 ---
 
-# Keyword.get/3
-
-{{< signature >}}
 
 Gets the value for a specific `key`.
 

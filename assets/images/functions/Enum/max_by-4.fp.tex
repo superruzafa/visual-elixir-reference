@@ -1,0 +1,52 @@
+\tikzset{
+  sort/.style={
+    fun={\texttt{sort}},
+    function arity=2,
+  }
+}
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1,2,3,n}{
+  \draw [->] (a\i.south) -- +(0, -.5)
+    node (fun \i) [fun, anchor=in];
+  \draw [->] (fun \i.out) -- +(0, -.5)
+    node (b\i) [below] {$w_\i$};
+}
+
+\coordinate (x) at ($ (b1.south)!.5!(b2.south) $);
+\node (sort 1) [sort, below=1 of x];
+
+\coordinate (x) at ($ (b2.south)!.5!(b3.south) $);
+\node (sort 2) [sort, below=1 of x];
+
+\node (sort n) [sort, below=1 of bn, anchor=in 2];
+
+\draw [->, out=270, in=90] (b1.south) to (sort 1.in 1);
+\draw [->, out=270, in=90] (b2.south) to (sort 1.in 2);
+\draw [->, out=270, in=90] (b3.south) to (sort 2.in 2);
+
+\draw [->] (sort 1.out) -- +(0, -1)
+  node (res 1) [below, font=\Large] {$\true \Rightarrow w_1$};
+
+\coordinate (rule) at ($ (b1)!.5!(sort 1.in) $);
+\coordinate (x) at ($ (sort 1)!.5!(sort 2) $);
+\draw [->] (x |- res 1.north) -- (\currcoord |- rule) -| (sort 2.in 1);
+
+\draw [->] (sort 2.out) -- +(0, -1.5)
+  node (res 2) [below, font=\Large] {$\false \Rightarrow w_3$};
+
+\draw [->] (bn.south) -- (sort n.in 2);
+\draw [->, dashed] (res 2.19) -- (\currcoord |- rule) -| (sort n.in 1);
+
+\draw [->] (sort n.out) -- +(0, -1)
+  node (res n) [below, font=\Large] {$\true \Rightarrow w_i$};
+
+\node [right=of res n] {$\texttt{fun}(a_i) \ge_{\small\texttt{sort}} \texttt{fun}(a_j) \forall i \ne j$};
+

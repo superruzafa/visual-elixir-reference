@@ -1,0 +1,33 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (akey) [key value={\texttt{key}}{$\vkey$}];
+    \coordinate (vkey) at (last value.east); &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+
+\matrix [map=b, below=2 of map a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (bkey) [key value={\texttt{key}}{$\vkey$}];
+    \coordinate (b) at (last value.east); &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node at ($ ($ (akey)!.5!(bkey) $) + (.75, 0) $) (fun) [fun];
+\draw [->] (vkey) -| (fun.in);
+\draw [->] (fun.out) |- (b);
+
+\bracetobrace
+  {akey.south west}{a1.south west}
+  {b1.north west}{bkey.north west}
+
+\bracetobrace
+  {an.south east}{akey.south east}
+  {bkey.north east}{bn.north east}
+

@@ -4,9 +4,6 @@ url: /Keyword/keyword_/1
 aliases: ['/Keyword/keyword?/1/']
 ---
 
-# Keyword.keyword?/1
-
-{{< signature >}}
 
 Returns `true` if `term` is a keyword list; otherwise returns `false`.
 

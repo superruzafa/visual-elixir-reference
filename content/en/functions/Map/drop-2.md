@@ -3,9 +3,6 @@ title: drop/2
 url: Map/drop/2
 ---
 
-# Map.drop/2
-
-{{< signature >}}
 
 Drops the given `keys` from `map`.
 

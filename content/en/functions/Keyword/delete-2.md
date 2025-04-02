@@ -3,9 +3,6 @@ title: delete/2
 url: Keyword/delete/2
 ---
 
-# Keyword.delete/2
-
-{{< signature >}}
 
 Deletes the entries in the keyword list for a specific `key`.
 

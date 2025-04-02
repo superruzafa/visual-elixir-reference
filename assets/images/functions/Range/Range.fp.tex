@@ -1,0 +1,12 @@
+\draw [interval=a, interval segments={{2/9}/solid,{4/9}/solid,{7/9}/dashed,1/solid}] (0, 0) -- +(4.5, 0);
+
+\node [below=0 of interval a mark bottom 1] {\texttt{first}};
+\draw (interval a mark bottom 2) -- +(0, -.5)
+    node [below] {\normalsize{\texttt{first} + 1}};
+\draw (interval a mark bottom 3) -- +(0, -1)
+    node [below] {\normalsize{\texttt{first} + 2}};
+\draw (interval a mark bottom 4) -- +(0, -.5)
+    node [below] {\normalsize{\texttt{last} - 1}};
+\node [below=0 of interval a mark bottom 5] {\texttt{last}};
+
+\node [above=1 of interval a] {\texttt{first..last}};

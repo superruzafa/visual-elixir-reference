@@ -3,9 +3,6 @@ title: put_new_lazy/3
 url: Map/put_new_lazy/3
 ---
 
-# Map.put_new_lazy/3
-
-{{< signature >}}
 
 Evaluates `fun` and puts the result under `key` in `map` unless `key` is already present.
 

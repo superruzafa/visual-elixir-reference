@@ -1,0 +1,16 @@
+%\draw [help lines, step=.5] (-1, -2) grid (8, 1);
+
+\draw [interval=a, interval segments={{2/9}/solid,{5/9}/dashed,{7/9}/solid,1/solid}] (0, 0) -- +(4.5, 0);
+\node at (interval a mark top 1) [above] {$a_1$};
+\node at (interval a mark top 5) [above] {$a_n$};
+
+\draw [interval=b, interval segments={{2/9}/solid,{4/9}/solid,{7/9}/dashed,1/solid}] (2.5, -1) -- +(4.5, 0);
+\node at (interval b mark top 1) [above] {$b_1 \equiv a_{n-2}$};
+\node at (interval b mark top 5) [above] {$b_m$};
+
+\draw [loosely dashed] ($ (interval a mark 3) + (0, 1) $) -- ($ (interval b mark 1) + (0, -1) $);
+\draw [loosely dashed] ($ (interval a mark 5) + (0, 1) $) -- ($ (interval b mark 3) + (0, -1) $);
+
+\node (x) at ($ (interval b mark 2) + (0, -1) $) {$\Downarrow$};
+\node [below=of x] {\false};
+

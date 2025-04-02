@@ -1,0 +1,31 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node (akey) [key value={\texttt{key}}{$\vkey$}]; &
+  \node [elements between]; &
+  \node (ai) [key value={\texttt{key}}{$\vkey^\prime$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration] (a2.north) -- (akey.north);
+
+\matrix [keyword list=b, below=2 of keyword list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (ai) [key value={\texttt{key}}{$\vkey^\prime$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\bracetobrace
+  {a2.south east}{a1.south west}
+  {b1.north west}{b2.north east}
+
+\bracetobrace
+  {an.south east}{akey.south east}
+  {b2.north east}{bn.north east}
+

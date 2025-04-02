@@ -3,10 +3,6 @@ title: reduce_while/3
 url: Enum/reduce_while/3
 ---
 
-# Enum.reduce_while/3
-
-{{< signature >}}
-
 Reduces `enumerable` until it's exhausted or `fun` returns `{:halt, term}`.
 
 The return value for `fun` is expected to be

@@ -1,0 +1,20 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (akey) [key value={\texttt{key}}{$\vkey$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [map=b, below=2 of map a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (akey) [key value={\texttt{key}}{$\vkey$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node at ($ (map a)!.5!(map b) $) [draw, rotate=-90, single arrow, single arrow head extend=1mm] {};
+

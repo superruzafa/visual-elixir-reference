@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.codepoints/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `codepoints/1` function.
 
 {{< figure src="images/functions/String/codepoints-1.svg" >}}

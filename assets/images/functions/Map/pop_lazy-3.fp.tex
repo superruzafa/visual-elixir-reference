@@ -1,0 +1,34 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i-1]; &
+  \node (akey) [key value={\texttt{key}}{$\vkey$}]; &
+  \node [index=i+1]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple, element size=\mapitemsize, below=2 of map a]{
+  \node (t1) {$\vkey$}; & \node [separator]; &
+  \node (t2) [placeholder=5]; \\
+};
+
+\matrix at (t2) [map=b] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i-1]; &
+  \node [index=i+1]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [->, out=270, in=90] (akey.south) to (t1.north);
+
+\bracetobrace
+  {ai-1.south east}{a1.south west}
+  {b1.north west}{bi-1.north east}
+
+\bracetobrace
+  {an.south east}{ai+1.south west}
+  {bi+1.north west}{bn.north east}
+

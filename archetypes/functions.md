@@ -14,9 +14,6 @@ draft: true
 ---
 
 # {{ $module }}.{{ $function }}
-
-{{< signature >}}
-
 Brief description and usage of the `{{ $module }}`'s `{{ $function }}` function.
 
 {{< figure src="images/functions/{{ $module }}/{{ $basename }}.svg" >}}

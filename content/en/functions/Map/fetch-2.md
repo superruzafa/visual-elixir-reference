@@ -3,9 +3,6 @@ title: fetch/2
 url: Map/fetch/2
 ---
 
-# Map.fetch/2
-
-{{< signature >}}
 
 Fetches the value for a specific `key` in the given `map` by returning `{:ok, value}`.
 

@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.pad_trailing/3`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `pad_trailing/3` function.
 
 {{< figure src="images/functions/String/pad_trailing-3.svg" >}}

@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.replace/4`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `replace/4` function.
 
 {{< figure src="images/functions/String/replace-4.svg" >}}

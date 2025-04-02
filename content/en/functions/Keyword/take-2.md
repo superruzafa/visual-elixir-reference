@@ -3,9 +3,6 @@ title: take/2
 url: Keyword/take/2
 ---
 
-# Keyword.take/2
-
-{{< signature >}}
 
 Takes all entries corresponding to the given `keys` and returns them in a new keyword list.
 

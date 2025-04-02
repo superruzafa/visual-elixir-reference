@@ -3,8 +3,6 @@ title: Enum
 url: /Enum
 ---
 
-# Enum module
-
-Provides a set of algorithms to work with enumerables.
+A module for working with data types implementing the `Enumerable` protocol, such as [`List`](../List), [`Map`](../Map), [`Range`](../Range)...
 
 {{< figure src="images/functions/Enum/Enum.svg" >}}

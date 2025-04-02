@@ -1,0 +1,23 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (ai.north);
+
+\foreach \i/\r in {
+    1/\false,
+    2/\nil,
+    i/\true
+}{
+  \applyfuntop{a\i.north}{\texttt{fun}}{\r}
+}
+
+\draw [->] (ai.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2)
+  node [below, anchor=north] {\true};
+

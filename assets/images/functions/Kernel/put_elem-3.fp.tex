@@ -1,0 +1,32 @@
+\matrix [tuple=a] {
+  \node [index=0]; & \node [separator]; &
+  \node [index=1]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node (aindex) {$a_{\small\texttt{index}}$}; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node [index=n-1]; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration] (a0.north) -- (a1.north);
+\draw [iteration=dashed] (a1.north) -- (aindex.north);
+
+\matrix [tuple=b, element=a, below=2 of tuple a] {
+  \node [index=0]; & \node [separator]; &
+  \node [index=1]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node (value) {\texttt{value}}; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node [index=n-1]; \\
+};
+
+\bracetobrace
+  {aindex.south west}{a0.south west}
+  {b0.north west}{value.north west}
+
+\bracetobrace
+  {an-1.south east}{aindex.south east}
+  {value.north east}{bn-1.north east}
+
+\draw [<-] (value.north) -- +(0, .5);
+

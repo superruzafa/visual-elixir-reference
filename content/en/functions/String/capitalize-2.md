@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.capitalize/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `capitalize/2` function.
 
 {{< figure src="images/functions/String/capitalize-2.svg" >}}

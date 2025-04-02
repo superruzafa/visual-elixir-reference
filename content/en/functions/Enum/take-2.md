@@ -3,10 +3,6 @@ title: take/2
 url: Enum/take/2
 ---
 
-# Enum.take/2
-
-{{< signature >}}
-
 Takes `count` elements from the beginning of `enumerable`.
 
 {{< figure src="images/functions/Enum/take-2.svg" >}}

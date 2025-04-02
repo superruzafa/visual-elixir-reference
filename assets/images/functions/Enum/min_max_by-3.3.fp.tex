@@ -1,0 +1,14 @@
+\tikzset{
+  empty fallback/.style={
+    fun={\texttt{empty}\\\texttt{fallback}},
+    function arity=0,
+    align=center,
+  }
+}
+
+\node [empty collection=a];
+\node (arrow) [base right=.5 of empty collection a] {$\Rightarrow$}; 
+\node (fun) [empty fallback, right=.5 of arrow];
+
+\node (b) [exception, draw, below right=1 and 1 of fun, anchor=north] {\texttt{Enum.EmptyError}};
+\draw [exception, ->, out=0, in=90] (fun.east) to (b.north);

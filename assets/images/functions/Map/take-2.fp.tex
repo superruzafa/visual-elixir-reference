@@ -1,0 +1,35 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i-1]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\e [count=\xi, evaluate=\xi as \offset using isodd(\xi) ? .75 : 1.25)] in {
+  1/\in,
+  2/\notin,
+  i-1/\notin,
+  i/\in,
+  n-1/\in,
+  n/\notin}
+{
+  \draw [shorten >=1ex] (a\i.north) -- +(0, \offset)
+    node [anchor=base] {$k_{\i}\e\texttt{keys}$};
+}
+
+\matrix [map=b, below=2 of map a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\foreach \i in {1,i,n-1}{
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}
+

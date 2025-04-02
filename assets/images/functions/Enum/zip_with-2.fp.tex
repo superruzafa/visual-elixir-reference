@@ -1,0 +1,98 @@
+\def\ziplistitemsize{1cm}
+\matrix [list=z1, element size=\ziplistitemsize] {
+  \node (z1a) {$a_1$}; &
+  \node (z1b) {$b_1$}; &
+  \node (z1c) {$c_1$}; &
+  \node [elements between=.5]; &
+  \node (z1k) {$k_1$}; \\
+};
+
+\matrix [list=z2, element size=\ziplistitemsize, right=.5 of list z1] {
+  \node (z2a) {$a_2$}; &
+  \node (z2b) {$b_2$}; &
+  \node (z2c) {$c_2$}; &
+  \node [elements between=.5]; &
+  \node (z2k) {$k_2$}; \\
+};
+
+\matrix [list=zn, element size=\ziplistitemsize, right=1 of list z2] {
+  \node (zna) {$a_n$}; &
+  \node (znb) {$b_n$}; &
+  \node (znc) {$c_n$}; &
+  \node [elements between=.5]; &
+  \node (znk) {$k_n$}; \\
+};
+
+
+\matrix [list=e, wrapper, element size=\ziplistitemsize, above=1 of list z2] {
+  \node (e1) [placeholder=4]; &
+  \node (e2) [placeholder=3.5]; &
+  \node (e3) [placeholder=3.5]; &
+  \node [elements between=1]; &
+  \node (e4) [placeholder=4]; \\
+};
+
+
+\matrix at (e1) [list=a, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; &
+  \node [elements after=.5]; \\
+};
+
+\matrix at (e2) [list=b, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; \\
+};
+
+\matrix at (e3) [list=c, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; \\
+};
+
+\matrix at (e4) [list=k, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; &
+  \node [elements after=.5]; \\
+};
+
+%\foreach \e in {a,b,c,k}{
+  %\foreach \i in {1,2,n}{
+    %\draw [->, out=270, in=90] (\e\i.south) to (z\i\e.north);
+  %}
+%}
+
+\node at ($ (list e.south)!.5!(list z2.north) $) {$\Downarrow$};
+
+\tikzset{
+  zip_fun/.style={
+    fun={\texttt{fun}},
+  }
+}
+
+\foreach \i in {1,2,n}{
+  \node (zip_fun \i) [zip_fun, below=1 of list z\i];
+  \draw [brace] (list z\i.south east) -- (list z\i.south west);
+  \draw [->] (last brace) -- (zip_fun \i.in);
+};
+
+\coordinate (x) at ($ (zip_fun 1.south west)!.5!(zip_fun n.south east) $);
+
+\matrix [list=z, below=1 of x] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1,2,n}{
+  \draw [->, out=270, in=90] (zip_fun \i.out) to (z\i.north);
+};
+

@@ -3,4 +3,6 @@ title: Tuple
 url: /Tuple
 ---
 
-Functions for working with tuples.
+Tuples are intended as fixed-size containers for multiple elements.
+
+{{< figure src="images/functions/Tuple/Tuple.svg" >}}

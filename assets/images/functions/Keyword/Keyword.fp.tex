@@ -1,0 +1,19 @@
+\matrix [keyword list=a] {
+    \node [key value={$k_1$}{$v_1$}]; &
+    \node [key value={$k_2$}{$v_2$}]; &
+    \node [elements between]; &
+    \node [key value={$k_i$}{$v_i$}]; &
+    \node [elements between]; &
+    \node [key value={$k_n$}{$v_n$}]; \\
+};
+
+\matrix [list=a, above=1 of keyword list a] {
+    \node {$\{k_1: v_1\}$}; & 
+    \node {$\{k_2: v_2\}$}; & 
+    \node [elements between]; &
+    \node {$\{k_i: v_i\}$}; & 
+    \node [elements between]; &
+    \node {$\{k_n: v_n\}$}; \\
+};
+
+

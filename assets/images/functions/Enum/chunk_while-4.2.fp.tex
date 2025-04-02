@@ -1,0 +1,140 @@
+\tikzset{
+  chunk fun/.style={
+    fun={\texttt{chunk}\\\texttt{fun}},
+    function arity=2,
+    align=center,
+    font=\large,
+  },
+  after fun/.style={
+    fun={\texttt{after}\\\texttt{fun}},
+    align=center,
+    font=\large,
+  }
+}
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\foreach \i in {1, 2, i}{
+    \draw [->] (a\i.south) -- +(0, -1)
+        node (chunk fun \i) [chunk fun, anchor=in 1];
+}
+
+\coordinate (rule) at ($ (a1.south)!.5!(chunk fun 1.in 1) $);
+
+\draw [<-] (chunk fun 1.in 2) -- (\currcoord |- rule) -- +(-1, 0)
+  node [left] {\texttt{acc}};
+
+\begin{scope}
+  [
+    start chain=tuple going base right,
+    every node/.style={
+      on chain=tuple,
+      inner xsep=0,
+      inner ysep=1mm,
+    },
+    node distance=0,
+    font=\large,
+  ]
+  \node (a) [below left=.75 and .55 of chunk fun 1.out] {$\{$};
+  \node {\texttt{:cont}};
+  \node {,\,};
+  \node (acc1) {$acc_1$};
+  \node (b) {$\}$};
+\end{scope}
+
+\node (x) [fit=(a) (b)] {};
+\draw [->] (chunk fun 1.out) -- (\currcoord |- x.north);
+\coordinate (x) at ($ (chunk fun 1)!.5!(chunk fun 2) $);
+\draw [->] (acc1.north -| x) -- (\currcoord |- rule) -| (chunk fun 2.in 2);
+
+
+
+\begin{scope}
+  [
+    start chain=tuple going base right,
+    every node/.style={
+      on chain=tuple,
+      inner xsep=0,
+      inner ysep=1mm,
+    },
+    node distance=0,
+    font=\large,
+  ]
+  \node (a) [below left=1.5 and .75 of chunk fun 2.out] {$\{$};
+  \node {\texttt{:cont}};
+  \node {,\,};
+  \node (b1a) {$b_1$};
+  \node {,\,};
+  \node (acc2) {$acc_2$};
+  \node (b) {$\}$};
+\end{scope}
+
+\node (x) [fit=(a) (b)] {};
+\draw [->] (chunk fun 2.out) -- (\currcoord |- x.north);
+\draw [->, dashed] (acc2.north) -- (\currcoord |- rule) -| (chunk fun i.in 2);
+
+
+
+
+\begin{scope}
+  [
+    start chain=tuple going base right,
+    every node/.style={
+      on chain=tuple,
+      inner xsep=0,
+      inner ysep=1mm,
+    },
+    node distance=0,
+    font=\large,
+  ]
+  \node (a) [below left=.75 and .5 of chunk fun i.out] {$\{$};
+  \node {\texttt{:halt}};
+  \node {,\,};
+  \node (acci) {$acc_i$};
+  \node (b) {$\}$};
+\end{scope}
+
+\node (x) [fit=(a) (b)] {};
+\draw [->] (chunk fun i.out) -- (\currcoord |- x.north);
+
+\draw [->] (acci.south) -- +(0, -.5)
+  node (after fun) [after fun, anchor=in];
+
+\begin{scope}
+  [
+    start chain=tuple going base right,
+    every node/.style={
+      on chain=tuple,
+      inner xsep=0,
+      inner ysep=1mm,
+    }, 
+    node distance=0,
+    font=\large,
+  ]
+  \node (a) [below left=.75 and .65 of after fun.out] {$\{$};
+  \node {\texttt{:cont}};
+  \node {,\,};
+  \node (bma) {$b_m$};
+  \node {,\,};
+  \node (acci+1) {$acc_{i+1}$};
+  \node (b) {$\}$};
+\end{scope}
+
+\node (x) [fit=(a) (b)] {};
+\draw [->] (after fun.out) -- (\currcoord |- x.north); 
+
+\matrix [list=b, below=.5 of bma.south, matrix anchor=bm.north] {
+  \node [index=1]; &
+  \node [elements between=.85]; &
+  \node [index=m]; \\
+};
+
+\draw [->] (b1a.south) -- (b1a.south |- b1.north);
+\draw [->] (bma.south) -- (bm.north);
+

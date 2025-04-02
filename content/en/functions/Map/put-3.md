@@ -3,9 +3,6 @@ title: put/3
 url: /Map/put/3
 ---
 
-# Map.put/3
-
-{{< signature >}}
 
 Puts the given `value` under `key` in `map`.
 

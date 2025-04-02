@@ -1,0 +1,33 @@
+\matrix [map=b] {
+  \node [key value={$b_1$}{$c_1$}]; &
+  \node [key value={$b_2$}{$c_2$}]; &
+  \node [elements between]; &
+  \node [key value={$b_m$}{$c_m$}]; \\
+};
+
+\node (legend) [right=.5 of map b]
+  {$c_j=\displaystyle\sum_{i=1}^{n}1|\texttt{fun}(a_i) = b_j$};
+
+\coordinate (x) at ($ (map b.west)!.5!(legend.east) $);
+
+\matrix [list=a, above=2 of x |- map b.north] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\j in {
+  1/2,
+  2/m,
+  3/1,
+  n-1/m,
+  n/2
+}{
+  \applyfuntop{a\i.north}{\texttt{fun}}{$b_{\j}$}
+}
+
+\node at ($ (map b.north)!.5!(map b.north |- list a.south) $) {$\Downarrow$};
+

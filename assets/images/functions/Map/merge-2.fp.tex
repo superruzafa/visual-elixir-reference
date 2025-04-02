@@ -1,0 +1,35 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=i+j]; \\
+};
+
+\matrix [map=b, below=1 of ai.south west, anchor=bi.north west] {
+  \node (bi) [key value={$k_i$}{$v_i^\prime$}]; &
+  \node [elements between]; &
+  \node (bi+j) [key value={$k_{i+j}$}{$v_{i+j}^\prime$}]; &
+  \node [elements between]; &
+  \node (bn) [key value={$k_n$}{$v_n^\prime$}]; \\
+};
+
+\matrix [map=c, below=1 of bi.south west, anchor=ci.north west] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node (ci) [key value={$k_i$}{$v_i^\prime$}]; &
+  \node [elements between]; &
+  \node (ci+j) [key value={$k_{i+j}$}{$v_{i+j}^\prime$}]; &
+  \node [elements between]; &
+  \node (cn) [key value={$k_n$}{$v_n^\prime$}]; \\
+};
+
+\draw [->] (a1.south) -- (c1.north);
+\foreach \i in {i, i+j, n}{
+  \draw [->] (b\i.south) -- (c\i.north);
+};
+
+\draw [dashed]
+  ($ (ai.north west) + (0, .5) $) -- ($ (bi.south west) + (0, -.5) $)
+  ($ (ai+j.north east) + (0, .5) $) -- ($ (bi+j.south east) + (0, -.5) $);
+

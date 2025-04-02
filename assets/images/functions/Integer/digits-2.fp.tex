@@ -1,0 +1,11 @@
+\node (a) {$1\_234$};
+
+\matrix [list=b, below=2 of a] {
+  \node {$1$}; &
+  \node {$2$}; &
+  \node {$3$}; &
+  \node {$4$}; \\
+};
+
+\node at ($ (a.south)!.5!(list b.north) $) {$\Downarrow$};
+

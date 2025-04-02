@@ -4,25 +4,22 @@
 
 {{ define "main" }}
 
-{{- if not hugo.IsProduction -}}
-{{ $module := .Title }}
-<div class="dev-tools">
-    <ul>
-        <li><a href="https://hexdocs.pm/elixir/{{ $module }}.html">Official doc</a></li>
+<main class="module">
+    <nav class="breadcrumbs">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </nav>
+
+    <h1>{{ .Title }}</h1>
+
+    {{ .Content }}
+
+    <ul class="function-list">
+    {{ range .Pages }}
+        <li class="function-item{{ if .Draft }} draft{{ end }}"><a href="{{ partial "safe_function_url.html" . }}">{{ .Title }}</a></li>
+    {{ end }}
     </ul>
-</div>
-{{- end -}}
 
-<!-- <h1>{{ .Title }}</h1> -->
-{{ .Content }}
-
-<strong>Functions of the {{ .Title }} module:</strong>
-
-<ul class="function-list">
-{{ range .Pages }}
-    <li class="function-item{{ if .Draft }} draft{{ end }}"><a href="{{ partial "safe_function_url.html" . }}">{{ .Title }}</a></li>
-{{ end }}
-</ul>
+</main>
 
 {{ partial "translations.html" . }}
 {{ end }}

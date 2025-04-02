@@ -1,0 +1,52 @@
+\matrix [list=a] {
+  \node (a0nth) [index=0]; &
+  \node (a1) {$a_1$}; &
+  \node [elements between]; &
+  \node (a1nth-1) {$a_{\small\texttt{nth}-1}$}; &
+  \node (a1nth) {$a_{\small\texttt{nth}}$}; &
+  \node [elements between=1]; &
+  \node (ainth-1) {$a_{i\cdot\small\texttt{nth}-1}$}; &
+  \node (ainth) {$a_{i\cdot\small\texttt{nth}}$}; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [list=b, below=2 of list a] {
+  \node (b0nth) [index=0]; &
+  \node (b1) {$a_1$}; &
+  \node [elements between]; &
+  \node (b1nth-1) {$a_{\small\texttt{nth}-1}$}; &
+  \node (b1nth) {$b_{\small\texttt{nth}}$}; &
+  \node [elements between=1]; &
+  \node (binth-1) {$a_{i\cdot\small\texttt{nth}-1}$}; &
+  \node (binth) {$b_{i\cdot\small\texttt{nth}}$}; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration=dashed] (a0.north) -- (a1nth.north);
+\draw [iteration=dashed] (a1nth.north) -- (ainth.north);
+
+\draw [measure={$\texttt{nth}$}, measure amplitude=2cm] (a0.north west) -- (a1nth-1.north east);
+\draw [measure={$\texttt{nth}$}, measure amplitude=2cm] (a1nth.north west) -- (ainth-1.north east);
+\draw [measure={$<\texttt{nth}$}, measure amplitude=2cm] (ainth.north west) -- (an.north east);
+
+\foreach \i in {0, 1, i}{
+  \node (fun\i) at ($ (a\i nth)!.5!(b\i nth) $) [fun, anchor=center];
+  \draw [->] (a\i nth.south) -- (fun\i.in);
+  \draw [->] (fun\i.out) -- (b\i nth.north);
+};
+
+\bracetobrace
+  {a1nth-1.south east}{a1.south west}
+  {b1.north west}{b1nth-1.north east}
+
+\bracetobrace
+  {ainth-1.south east}{a1nth.south east}
+  {b1nth.north east}{binth-1.north east}
+
+\bracetobrace
+  {an.south east}{ainth.south east}
+  {binth.north east}{bn.north east}
+

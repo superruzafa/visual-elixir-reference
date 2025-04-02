@@ -1,0 +1,20 @@
+\def\value{\texttt{value}}
+
+\matrix [list=k] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [keyword list=b, below=1 of list k] {
+  \node (b1) [key value={$k_1$}{\value}]; &
+  \node (b2) [key value={$k_2$}{\value}]; &
+  \node [elements between]; &
+  \node (bn) [key value={$k_n$}{\value}]; \\
+};
+
+\foreach \i in {1,2,n}{
+    \draw [->] (k\i.south) -- (b\i.north);
+}
+

@@ -3,9 +3,6 @@ title: to_list/1
 url: /Map/to_list/1
 ---
 
-# Map.to_list/1
-
-{{< signature >}}
 
 Converts `map` to a list.
 

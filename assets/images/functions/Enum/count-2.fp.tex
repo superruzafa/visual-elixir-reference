@@ -1,0 +1,29 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [index=i+1];; &
+  \node [elements between]; &
+  \node [index=n-1];; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\r in {
+  1/\false,
+  2/\true,
+  i/\true,
+  i+1/\nil,
+  n-1/\true,
+  n/\false
+}{
+  \applyfuntop{a\i.north}{\texttt{fun}}{\r};
+}
+
+\node (b) [below=2 of list a] {$\displaystyle \sum_{i=1}^n 1|\texttt{fun}(a_i)$};
+
+\foreach \i in {2,i,n-1}{
+  \draw [->, out=270, in=90] (a\i.south) to
+    node [sloped, above=.5ex] {$+1$} (b.north);
+}
+

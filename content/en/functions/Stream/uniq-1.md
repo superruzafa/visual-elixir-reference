@@ -3,10 +3,6 @@ title: uniq/1
 url: /Stream/uniq/1
 ---
 
-# Stream.uniq/1
-
-{{< signature >}}
-
 Creates a stream that only emits elements if they are unique.
 
 {{< figure src="images/functions/Stream/uniq-1.svg" >}}

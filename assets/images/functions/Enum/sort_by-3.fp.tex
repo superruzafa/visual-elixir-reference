@@ -1,0 +1,56 @@
+\matrix [list=a] {
+  \node [elements before]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node [elements between]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\foreach \i in {1,2,i,n}{
+  \applyfunbottom{a\i.south}{\texttt{mapper}}{$b_\i$}
+}
+
+\matrix [list=b, element=a, below=6 of list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\tikzset{
+  sorter fun/.style={
+    fun,
+    function arity=2,
+    function port separation=4mm,
+    node contents={\texttt{sorter}},
+  }
+}
+
+\matrix [below=3.5 of list a, column sep=1em]{
+  \node (sorter1) [sorter fun]; &
+  \node (sorter2) [sorter fun]; &
+  \node (sorter3) [sorter fun]; &
+  \node (sorter4) [sorter fun]; &
+  \node (sorter5) [sorter fun]; \\
+};
+
+\foreach \a/\b/\r [count=\i] in {
+    2/n/\true,
+    n/1/\false,
+    1/i/\true,
+    2/1/\false,
+    n/i/\false
+}{
+    \draw [<-, shorten >=1ex] (sorter\i.in 1) -- +(0, .5)
+        node [anchor=base] {$b_\a$};
+    \draw [<-, shorten >=1ex] (sorter\i.in 2) -- +(0, .5)
+        node [anchor=base] {$b_\b$};
+    \draw [->, shorten >=2ex] (sorter\i.out) -- ++(0, -.75)
+        node [below, anchor=base] {\r};
+}

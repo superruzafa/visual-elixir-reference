@@ -1,0 +1,13 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [brace] (an.south east) -- (a1.south west);
+
+\draw [->] (last brace) -- +(0, -1)
+  node [below]
+  {$a_1 + a_2 + \dots + a_n = \displaystyle\sum_{i=1}^n a_i$};
+ 

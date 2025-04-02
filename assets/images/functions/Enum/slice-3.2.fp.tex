@@ -1,0 +1,29 @@
+\matrix [list=a] {
+  \node [index=-n]; &
+  \node [elements between]; &
+  \node (a-start) {$a_{\small-\texttt{start}}$}; &
+  \node [elements between]; &
+  \node (a-start+count-1) {$a_{\small-\texttt{start}+\texttt{count}-1}$}; &
+  \node [elements between]; &
+  \node [index=-1]; \\
+};
+
+\begin{scope}
+  [iteration direction=from right to left]
+  \draw [enter iteration] (a-1.north);
+  \draw [iteration=dashed] (a-1.north) -- (a-start+count-1.north);
+  \draw [iteration=dashed] (a-start+count-1.north) -- (a-start.north);
+\end{scope}
+
+\draw [measure=\texttt{count}, measure amplitude=2cm] (a-start.north west) -- (a-start+count-1.north east);
+
+\matrix [list=b, element=a, below=2 of a-start.south, matrix anchor=b-start.north] {
+  \node (b-start) {$a_{\small-\texttt{start}}$}; &
+  \node [elements between]; &
+  \node (b-start+count-1) {$a_{\small-\texttt{start}+\texttt{count}-1}$}; \\
+};
+
+\bracetobrace
+  {a-start+count-1.south east}{a-start.south west}
+  {b-start.north west}{b-start+count-1.north east}
+

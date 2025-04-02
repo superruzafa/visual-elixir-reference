@@ -1,0 +1,29 @@
+\matrix [list=a] {
+	\node [index=1]; &
+	\node [index=2]; &
+	\node [elements between]; &
+	\node [index=n-1]; &
+	\node [index=n]; \\
+};
+
+\matrix [list=b, below=2 of list a] {
+  \node [index=1]; &
+  \node (be1) {\texttt{elem}}; &
+  \node [index=2]; &
+  \node (be2) {\texttt{elem}}; &
+  \node [elements between]; &
+  \node (ben-1) {\texttt{elem}}; &
+  \node [index=n-1]; &
+  \node (ben) {\texttt{elem}}; &
+  \node [index=n]; \\
+};
+
+\coordinate (rule) at ($ (list a)!.6!(list b) $);
+
+\foreach \i in {1, 2, n-1, n}{
+  \node (fun\i) at (b\i |- rule) [fun];
+  \draw [->, out=270, in=90] (a\i.south) to (fun\i.in);
+  \draw [->] (fun\i.out) to (b\i.north);
+  \draw [<-] (be\i.north) -- +(0, 1);
+}
+

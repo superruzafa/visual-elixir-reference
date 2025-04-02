@@ -4,11 +4,6 @@ url: Enum/any_/2
 aliases:
   - '/Enum/any?/2/'
 ---
-
-# Enum.any?/2
-
-{{< signature >}}
-
 Returns `true` if **at least one element** in `enumerable` evaluates to a truthy value when the function `fun` is applied over it.
 
 {{< figure src="images/functions/Enum/any_-2.svg" >}}

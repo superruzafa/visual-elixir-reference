@@ -1,0 +1,42 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple, element size=\mapitemsize, below=2 of map a]{
+  \node (t1) [placeholder=3.5]; & \node [separator]; &
+  \node (t2) [placeholder=2.5]; \\
+};
+
+\matrix at (t1) [map=b] {
+  \node [index=1]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\matrix at (t2) [map=b] {
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\e [count=\xi, evaluate=\xi as \offset using isodd(\xi) ? .75 : 1.25)] in {
+  1/\in,
+  2/\notin,
+  3/\in,
+  n-1/\in,
+  n/\notin
+}{
+  \draw [shorten >=1ex] (a\i.north) -- +(0, \offset)
+    node [anchor=base] {$k_{\i}\e\texttt{keys}$};
+}
+
+\foreach \i in {1,2,3,n-1,n}{
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+};
+

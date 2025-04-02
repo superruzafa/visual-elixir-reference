@@ -198,7 +198,7 @@
         defmodule Enum do
           def max(
             enumerable,
-            sorter \\ &>=/2,
+            sort \\ &>=/2,
             empty_fallback \\ fn -> raise(Enum.EmptyError) end
           )
         end
@@ -208,7 +208,7 @@
           def max_by(
             enumerable,
             fun,
-            sorter \\ &>=/2,
+            sort \\ &>=/2,
             empty_fallback \\ fn -> raise(Enum.EmptyError) end)
           )
         end
@@ -222,7 +222,7 @@
         defmodule Enum do
           def min(
             enumerable,
-            sorter \\ &<=/2,
+            sort \\ &<=/2,
             empty_fallback \\ fn -> raise(Enum.EmptyError) end
           )
         end
@@ -232,7 +232,7 @@
           def min_by(
             enumerable,
             fun,
-            sorter \\ &<=/2,
+            sort \\ &<=/2,
             empty_fallback \\ fn -> raise(Enum.EmptyError) end)
           )
         end
@@ -247,10 +247,11 @@
     - name: min_max_by/3
       signature: |
         defmodule Enum do
-          def min_max(
+          def min_max_by(
             enumerable,
             fun,
-            empty_fallback \\ fn -> raise(Enum.EmptyError) end
+            sorter_or_empty_fallback \\ &</2,
+            empty_fallback \\ fn -> raise Enum.EmptyError end
           )
         end
     - name: random/1
@@ -403,6 +404,16 @@
         defmodule Enum do
           def zip(enumerable1, enumerable2)
         end
+    - name: zip_with/2
+      signature: |
+        defmodule Enum do
+          def zip_with(enumerables, fun)
+        end
+    - name: zip_with/3
+      signature: |
+        defmodule Enum do
+          def zip_with(enumerable1, enumerable2, fun)
+        end
 
 - name: Integer
   functions:
@@ -410,6 +421,11 @@
       signature: |
         defmodule Integer do
           def digits(integer, base \\ 10)
+        end
+    - name: to_string/2
+      signature: |
+        defmodule Integer do
+          def to_string(integer, base \\ 10)
         end
     - name: undigits/2
       signature: |
@@ -434,10 +450,10 @@
         defmodule List do
           def duplicate(elem, count)
         end
-    - name: first/1
+    - name: first/2
       signature: |
         defmodule List do
-          def first(list)
+          def first(list, default \\ nil)
         end
     - name: flatten/1
       signature: |
@@ -467,37 +483,37 @@
     - name: keydelete/3
       signature: |
         defmodule List do
-          def keydelete(list, key, position)
+          def keydelete(list, key, index)
         end
     - name: keyfind/4
       signature: |
         defmodule List do
-          def keyfind(list, key, position, default \\ nil)
+          def keyfind(list, key, index, default \\ nil)
         end
     - name: keymember?/3
       signature: |
         defmodule List do
-          def keymember?(list, key, position)
+          def keymember?(list, key, index)
         end
     - name: keyreplace/4
       signature: |
         defmodule List do
-          def keyreplace(list, key, position, new_tuple)
+          def keyreplace(list, key, index, new_tuple)
         end
     - name: keystore/4
       signature: |
         defmodule List do
-          def keystore(list, key, position, new_tuple)
+          def keystore(list, key, index, new_tuple)
         end
     - name: keytake/3
       signature: |
         defmodule List do
           def keytake(list, key, position)
         end
-    - name: last/1
+    - name: last/2
       signature: |
         defmodule List do
-          def last(list)
+          def last(list, default \\ nil)
         end
     - name: pop_at/3
       signature: |
@@ -539,11 +555,6 @@
         defmodule List do
           def wrap(term)
         end
-    - name: zip/1
-      signature: |
-        defmodule List do
-          def zip(list_of_lists)
-        end
 
 - name: Kernel
   functions:
@@ -584,6 +595,16 @@
       signature: |
         defmodule Keyword do
           def fetch!(keywords, key)
+        end
+    - name: filter/2
+      signature: |
+        defmodule Keyword do
+          def filter(keywords, fun)
+        end
+    - name: from_keys/2
+      signature: |
+        defmodule Keyword do
+          def from_keys(keys, value)
         end
     - name: get/3
       signature: |
@@ -670,10 +691,25 @@
         defmodule Keyword do
           def put_new_lazy(keywords, key, fun)
         end
+    - name: reject/2
+      signature: |
+        defmodule Keyword do
+          def reject(keywords, fun)
+        end
+    - name: replace/3
+      signature: |
+        defmodule Keyword do
+          def replace(keywords, key, value)
+        end
     - name: replace!/3
       signature: |
         defmodule Keyword do
           def replace!(keywords, key, value)
+        end
+    - name: replace_lazy/3
+      signature: |
+        defmodule Keyword do
+          def replace_lazy(keywords, key, fun)
         end
     - name: split/2
       signature: |
@@ -758,11 +794,6 @@
         defmodule Map do
           def keys(map)
         end
-    - name: new/0
-      signature: |
-        defmodule Map do
-          def new()
-        end
     - name: merge/2
       signature: |
         defmodule Map do
@@ -772,6 +803,11 @@
       signature: |
         defmodule Map do
           def merge(map1, map2, fun)
+        end
+    - name: new/0
+      signature: |
+        defmodule Map do
+          def new()
         end
     - name: new/1
       signature: |
@@ -861,6 +897,16 @@
         defmodule Range do
           def new(first, last)
         end
+    - name: new/3
+      signature: |
+        defmodule Range do
+          def new(first, last, step)
+        end
+    - name: to_list/1
+      signature: |
+        defmodule Range do
+          def to_list(range)
+        end
 
 - name: Stream
   functions:
@@ -887,52 +933,52 @@
     - name: cycle/1
       signature: |
         defmodule Stream do
-          def cycle(stream)
+          def cycle(enumerable)
         end
     - name: dedup/1
       signature: |
         defmodule Stream do
-          def dedup(stream)
+          def dedup(enumerable)
         end
     - name: dedup_by/2
       signature: |
         defmodule Stream do
-          def dedup_by(stream, fun)
+          def dedup_by(enumerable, fun)
         end
     - name: drop/2
       signature: |
         defmodule Stream do
-          def drop(stream, count)
+          def drop(enumerable, count)
         end
     - name: drop_every/2
       signature: |
         defmodule Stream do
-          def drop_every(stream, nth)
+          def drop_every(enumerable, nth)
         end
     - name: drop_while/2
       signature: |
         defmodule Stream do
-          def drop_every(stream, fun)
+          def drop_every(enumerable, fun)
         end
     - name: each/2
       signature: |
         defmodule Stream do
-          def each(stream, fun)
+          def each(enumerable, fun)
         end
     - name: filter/2
       signature: |
         defmodule Stream do
-          def filter(stream, fun)
+          def filter(enumerable, fun)
         end
     - name: flat_map/2
       signature: |
         defmodule Stream do
-          def flat_map(stream, fun)
+          def flat_map(enumerable, fun)
         end
     - name: intersperse/2
       signature: |
         defmodule Stream do
-          def intersperse(stream, elem)
+          def intersperse(enumerable, elem)
         end
     - name: interval/1
       signature: |
@@ -947,17 +993,17 @@
     - name: map/2
       signature: |
         defmodule Stream do
-          def map(stream, fun)
+          def map(enumerable, fun)
         end
     - name: map_every/3
       signature: |
         defmodule Stream do
-          def map_every(stream, nth, fun)
+          def map_every(enumerable, nth, fun)
         end
     - name: reject/2
       signature: |
         defmodule Stream do
-          def reject(stream, fun)
+          def reject(enumerable, fun)
         end
     - name: repeatedly/1
       signature: |
@@ -967,27 +1013,27 @@
     - name: scan/2
       signature: |
         defmodule Stream do
-          def scan(stream, fun)
+          def scan(enumerable, fun)
         end
     - name: scan/3
       signature: |
         defmodule Stream do
-          def scan(stream, acc, fun)
+          def scan(enumerable, acc, fun)
         end
     - name: take/2
       signature: |
         defmodule Stream do
-          def take(stream, count)
+          def take(enumerable, count)
         end
     - name: take_while/2
       signature: |
         defmodule Stream do
-          def take(stream, fun)
+          def take(enumerable, fun)
         end
     - name: take_every/2
       signature: |
         defmodule Stream do
-          def take_every(stream, count)
+          def take_every(enumerable, count)
         end
     - name: timer/1
       signature: |
@@ -997,12 +1043,12 @@
     - name: transform/3
       signature: |
         defmodule Stream do
-          def transform(stream, acc, fun)
+          def transform(enumerable, acc, fun)
         end
     - name: transform/4
       signature: |
         defmodule Stream do
-          def transform(stream, start_fun, fun, after_fun)
+          def transform(enumerable, start_fun, fun, after_fun)
         end
     - name: unfold/2
       signature: |
@@ -1012,22 +1058,22 @@
     - name: uniq/1
       signature: |
         defmodule Stream do
-          def uniq(stream)
+          def uniq(enumerable)
         end
     - name: uniq_by/2
       signature: |
         defmodule Stream do
-          def uniq_by(stream, fun)
+          def uniq_by(enumerable, fun)
         end
     - name: with_index/2
       signature: |
         defmodule Stream do
-          def with_index(stream, offset \\ 0)
+          def with_index(enumerable, offset \\ 0)
         end
     - name: zip/1
       signature: |
         defmodule Stream do
-          def zip(stream)
+          def zip(enumerable)
         end
     - name: zip/2
       signature: |

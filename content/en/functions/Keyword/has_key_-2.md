@@ -4,9 +4,6 @@ url: /Keyword/has_key_/2
 aliases: ['/Keyword/has_key?/2/']
 ---
 
-# Keyword.has_key?/2
-
-{{< signature >}}
 
 Returns true if a given `key` exists in the given keywords.
 

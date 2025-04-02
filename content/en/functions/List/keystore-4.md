@@ -3,9 +3,6 @@ title: keystore/4
 url: /List/keystore/4
 ---
 
-# List.keystore/4
-
-{{< signature >}}
 
 Receives a list of tuples and replaces the element identified by key at position with `new_tuple`.
 

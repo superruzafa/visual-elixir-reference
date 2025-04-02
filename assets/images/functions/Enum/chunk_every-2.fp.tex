@@ -1,0 +1,54 @@
+\matrix [list=a] {
+  \node (a1) [index=1]; &
+  \node [elements between]; &
+  \node (ac) {$a_{\texttt{\small{count}}}$}; &
+  \node (ac+1) {$a_{\texttt{\small{count+1}}}$}; &
+  \node [elements between]; &
+  \node (a2c) {$a_{\texttt{\small{2$\cdot$count}}}$}; &
+  \node [elements between=.75]; &
+  \node (anc+1) {$a_{\texttt{\small{n$\cdot$count+1}}}$}; &
+  \node [elements between=.25]; &
+  \node (anc+k) {$a_{\texttt{\small{n$\cdot$count+k}}}$}; \\
+};
+
+\draw [measure=\texttt{count}] (a1.north west) -- (ac.north east);
+\draw [measure=\texttt{count}] (ac+1.north west) -- (a2c.north east);
+\draw [measure={$\le$ \texttt{count}}] (anc+1.north west) -- (anc+k.north east);
+
+\matrix [list=p, wrapper, below=2 of list a] {
+  \node (p1) [placeholder=2.5] {}; &
+  \node (p2) [placeholder=2.5]; &
+  \node [elements between]; &
+  \node (p3) [placeholder=2.35]; \\
+};
+
+\matrix [list=b1, element=a] at (p1) {
+  \node [index=1]; &
+  \node [elements between=.5]; &
+  \node {$a_{\texttt{\small{count}}}$}; \\
+};
+
+\matrix [list=b2, element=a] at (p2) {
+  \node {$a_{\texttt{\small{count+1}}}$}; &
+  \node [elements between=.5]; &
+  \node {$a_{\texttt{\small{2$\cdot$count}}}$}; \\
+};
+
+\matrix [list=b3, element=a] at (p3) {
+  \node {$a_{\texttt{\small{n$\cdot$count+1}}}$}; &
+  \node [elements between=.25]; &
+  \node {$a_{\texttt{\small{n$\cdot$count+k}}}$}; \\
+};
+
+\bracetobrace
+  {ac.south east}{a1.south west}
+  {p1.north west}{p1.north east}
+
+\bracetobrace
+  {a2c.south east}{ac+1.south west}
+  {p2.north west}{p2.north east}
+
+\bracetobrace
+  {anc+k.south east}{anc+1.south west}
+  {p3.north west}{p3.north east}
+

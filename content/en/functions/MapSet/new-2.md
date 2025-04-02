@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `MapSet.new/2`
-
-{{< signature >}}
-
 Brief description and usage of the `MapSet`'s `new/2` function.
 
 {{< figure src="images/functions/MapSet/new-2.svg" >}}

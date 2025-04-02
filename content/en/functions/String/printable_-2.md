@@ -6,9 +6,6 @@ draft: true
 ---
 
 # `String.printable_/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `printable_/2` function.
 
 {{< figure src="images/functions/String/printable_-2.svg" >}}

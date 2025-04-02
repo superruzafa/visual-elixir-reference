@@ -1,0 +1,64 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node (acount) {$a_{\texttt{\small{count}}}$}; &
+  \node [elements between]; &
+  \node (astep+1) {$a_{\texttt{\small{step}}+1}$}; &
+  \node [elements between]; &
+  \node (astep+count) {$a_{\texttt{\small{step}}+\texttt{\small{count}}}$}; &
+  \node [elements between=.75]; &
+  \node (aistep+1) {$a_{i\cdot\texttt{\small{step}}+1}$}; &
+  \node [elements between]; &
+  \node (aistep+j) {$a_{i\cdot\texttt{\small{step}}+j}$}; \\
+};
+
+\matrix [list=b, wrapper, below=2 of list a] {
+  \node [placeholder=2.5]; &
+  \node [placeholder=2.8]; &
+  \node [elements between]; &
+  \node [placeholder=2.6]; \\
+};
+
+\matrix at (bplaceholder1) [list=b1] {
+  \node {$a_1$}; &
+  \node [elements between]; &
+  \node {$a_{\texttt{\small{count}}}$}; \\
+};
+
+\matrix at (bplaceholder2) [list=b2] {
+  \node {$a_{\texttt{\small{step}}+1}$}; &
+  \node [elements between]; &
+  \node {$a_{\texttt{\small{step}}+\texttt{\small{count}}}$}; \\
+};
+
+\matrix at (bplaceholder3) [list=b3] {
+  \node {$a_{i\cdot\texttt{\small{step}}+1}$}; &
+  \node [elements between]; &
+  \node {$a_{i\cdot\texttt{\small{step}}+j}$}; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (astep+1.north);
+\draw [iteration=dashed] (astep+1.north) -- (aistep+1.north);
+
+\draw [measure=\texttt{count}, measure amplitude=2cm]
+  (a1.north west) -- (acount.north east);
+
+\draw [measure=\texttt{count}, measure amplitude=2cm]
+  (astep+1.north west) -- (astep+count.north east);
+
+\draw [measure={$j\le\texttt{count}$}, measure amplitude=2cm]
+  (aistep+1.north west) -- (aistep+j.north east);
+
+\bracetobrace
+  {acount.south east}{a1.south west}
+  {bplaceholder1.north west}{bplaceholder1.north east}
+
+\bracetobrace
+  {astep+count.south east}{astep+1.south west}
+  {bplaceholder2.north west}{bplaceholder2.north east}
+
+\bracetobrace
+  {aistep+j.south east}{aistep+1.south west}
+  {bplaceholder3.north west}{bplaceholder3.north east}
+

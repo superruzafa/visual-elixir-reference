@@ -3,9 +3,6 @@ title: get_and_update/3
 url: Map/get_and_update/3
 ---
 
-# Map.get_and_update/3
-
-{{< signature >}}
 
 Gets the value from `key` and updates it, all in one pass.
 

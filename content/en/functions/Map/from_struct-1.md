@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `Map.from_struct/1`
-
-{{< signature >}}
-
 Brief description and usage of the `Map`'s `from_struct/1` function.
 
 {{< figure src="images/functions/Map/from_struct-1.svg" >}}

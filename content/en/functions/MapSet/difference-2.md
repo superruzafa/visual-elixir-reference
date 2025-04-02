@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `MapSet.difference/2`
-
-{{< signature >}}
-
 Brief description and usage of the `MapSet`'s `difference/2` function.
 
 {{< figure src="images/functions/MapSet/difference-2.svg" >}}

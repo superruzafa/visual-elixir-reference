@@ -1,0 +1,37 @@
+\matrix [list=a] {
+  \node [index=-n]; &
+  \node [elements between]; &
+  \node (a-i) {$a_{\small-\texttt{index}}$}; &
+  \node [elements between]; &
+  \node [index=-2]; &
+  \node [index=-1]; \\
+};
+
+\begin{scope}
+    [iteration direction=from right to left]
+    \draw [enter iteration] (a-1.north);
+    \draw [iteration] (a-1.north) -- (a-2.north);
+    \draw [iteration=dashed] (a-2.north) -- (a-i.north);
+\end{scope}
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=-n]; &
+  \node [elements between]; &
+  \node (b-i) {$b_{\small-\texttt{index}}$}; &
+  \node [elements between]; &
+  \node [index=-2]; &
+  \node [index=-1]; \\
+};
+
+\bracetobrace
+  {a-1.south east}{a-i.south east}
+  {b-i.north east}{b-1.north east}
+
+\bracetobrace
+  {a-i.south west}{a-n.south west}
+  {b-n.north west}{b-i.north west}
+
+\node (fun) at ($ (a-i.south)!.5!(b-i.north) $) [fun];
+\draw [->] (a-i.south) -- (fun.in);
+\draw [->] (fun.out) -- (b-i.north);
+

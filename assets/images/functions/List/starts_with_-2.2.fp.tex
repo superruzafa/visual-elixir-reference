@@ -1,0 +1,29 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\matrix [list=p, above = 2 of list a.north west, anchor=south west] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (ai.north);
+
+\foreach \i/\j in {1/=,2/=,i/\neq}{
+  \node (c\i) at ($ (a\i)!.5!(p\i) $) [font=\large] {$a_\i\j p_\i$};
+  \draw (a\i.north) -- (c\i);
+  \draw (p\i.south) -- (c\i);
+}
+
+\draw [->] (ai.north) .. controls +(.5, .5) and +(0, 3) .. +(2, -2)
+  node [anchor=north] {\false};
+

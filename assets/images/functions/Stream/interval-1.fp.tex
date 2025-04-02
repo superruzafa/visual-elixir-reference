@@ -1,0 +1,14 @@
+\matrix [list] {
+    \node (a0) {$0$}; &
+    \node (a1) {$1$}; &
+    \node (a2) {$2$}; &
+    \node (a3) {$3$}; &
+    \node [elements after]; \\
+};
+
+\draw [enter iteration] (a0.north) node [above left=.25 and .25] {\texttt{n} ms};
+\draw [iteration] (a0.north) -- node [above=.25] {\texttt{n} ms} (a1.north);
+\draw [iteration] (a1.north) -- node [above=.25] {\texttt{n} ms}(a2.north);
+\draw [iteration] (a2.north) -- node [above=.25] {\texttt{n} ms} (a3.north);
+\draw [exit iteration] (a3.north);
+

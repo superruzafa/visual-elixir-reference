@@ -1,0 +1,15 @@
+\matrix [map=a] {
+  \node [key value={\texttt{k1}}{$v_1$}]; &
+  \node [key value={\texttt{k2}}{$v_2$}]; &
+  \node [elements between]; &
+  \node [key value={\texttt{kn}}{$v_n$}]; \\
+};
+
+\node[above=1 of map a] {
+    \texttt{\%\{\\
+    k1: v1, k\\
+    2: v2,\\
+    ..., k\\
+    n: vn\\
+    \}}
+};

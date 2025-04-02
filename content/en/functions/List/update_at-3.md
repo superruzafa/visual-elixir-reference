@@ -3,11 +3,9 @@ title: update_at/3
 url: List/update_at/3
 ---
 
-# List.update_at/3
 
-{{< signature >}}
+Returns a list where its `index`-th element is updated according ta function `fun`.
 
-Returns a list with an updated value at the specified `index`.
 If `index` is out of bounds, the original list is returned.
 
 {{< figure src="images/functions/List/update_at-3.svg" >}}

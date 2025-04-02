@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.next_codepoint/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `next_codepoint/1` function.
 
 {{< figure src="images/functions/String/next_codepoint-1.svg" >}}

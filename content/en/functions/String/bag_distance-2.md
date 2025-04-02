@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.bag_distance/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `bag_distance/2` function.
 
 {{< figure src="images/functions/String/bag_distance-2.svg" >}}

@@ -1,0 +1,28 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (akey) [key value={\texttt{key}}{$\vkey$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [map=b, below=2 of map a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (bkey) [key value={\texttt{key}}{\texttt{value}}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\bracetobrace
+  {akey.south west}{a1.south west}
+  {b1.north west}{bkey.north west}
+
+\bracetobrace
+  {an.south east}{akey.south east}
+  {bkey.north east}{bn.north east}
+
+\draw [<-] (bkey.north) -- +(0, 1);
+

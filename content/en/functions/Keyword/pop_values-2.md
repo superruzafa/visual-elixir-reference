@@ -3,9 +3,6 @@ title: pop_values/2
 url: Keyword/pop_values/2
 ---
 
-# Keyword.pop_values/2
-
-{{< signature >}}
 
 Returns all values for `key` and removes all associated entries in the keyword list.
 

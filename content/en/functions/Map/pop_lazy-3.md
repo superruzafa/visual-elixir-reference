@@ -3,9 +3,6 @@ title: pop_lazy/3
 url: /Map/pop_lazy/3
 ---
 
-# Map.pop_lazy/3
-
-{{< signature >}}
 
 Lazily returns and removes the value associated with `key` in `map`.
 

@@ -1,0 +1,22 @@
+\matrix [keyword list=a] {
+  \node (akey) [key value={$\key$}{$\vkey$}]; &
+  \node [key value={$k_2$}{$v_2$}]; &
+  \node [elements between]; &
+  \node (akey') [key value={$\key$}{$\vkey^\prime$}]; &
+  \node [key value={$k_i$}{$v_i$}]; &
+  \node [elements between]; &
+  \node [key value={$k_{n-1}$}{$v_{n-1}$}]; &
+  \node (akey'') [key value={$\key$}{$\vkey^{\prime\prime}$}]; \\
+};
+
+\matrix [list=b, below=2 of keyword list a] {
+  \node (bkey) {$\vkey$}; &
+  \node [elements between]; &
+  \node (bkey') {$\vkey^\prime$}; &
+  \node [elements between]; &
+  \node (bkey'') {$\vkey^{\prime\prime}$}; \\
+};
+
+\foreach \i in {key, key', key''} {
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}

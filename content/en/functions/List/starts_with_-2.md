@@ -4,9 +4,6 @@ url: /List/starts_with_/2
 aliases: ['/List/starts_with?/2/']
 ---
 
-# List.starts_with?/2
-
-{{< signature >}}
 
 Returns `true` if `list` starts with the given `prefix`.
 Also if `prefix` is an empty list, it returns `true`.

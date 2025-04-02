@@ -1,0 +1,32 @@
+\matrix [list=k] {
+  \node (k1) {$k_1$}; &
+  \node (k2) {$k_2$}; &
+  \node (k1') {$k_1$}; &
+  \node (k1'') {$k_1$}; &
+  \node (k5) [elements between]; &
+  \node (k1''') {$k_1$}; &
+  \node (k2') {$k_2$}; &
+  \node (kn) {$k_n$}; \\
+};
+
+\foreach \i/\v in {
+  1/$v_1$,
+  2/$v_2$,
+  1'/$v^{\prime}_1$,
+  1''/$v^{\prime\prime}_1$,
+  1'''/$v^{\prime\prime\prime}_1$,
+  2'/$v^{\prime}_2$,
+  n/$v_n$
+}{
+  \applyfunbottom{k\i.south}{\texttt{fun}}{\v}
+}
+
+\matrix [map=b, below=4 of list k] {
+  \node [key value={$k_1$}{$v^{\prime\prime\prime}_1$}]; &
+  \node [key value={$k_2$}{$v^{\prime}_2$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node [above=1 of map b, draw, rotate=-90, single arrow, single arrow head extend=1mm] {};
+

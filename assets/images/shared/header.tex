@@ -1,8 +1,179 @@
 \begin{document}
-    \begin{tikzpicture}[
-        x=\masterunit,
-        y=\masterunit,
-        draw=defaultpencolor,
-        line width=\defaultpenwidth,
-        text=defaultpencolor,
-    ]
+\begin{tikzpicture}
+
+\tikzset{
+  x=2cm,
+  y=2cm,
+  font=\LARGE
+}
+
+\definecolor{textcolor}{RGB}{0, 0, 0}
+\definecolor{linecolor}{RGB}{71, 40, 115}
+\definecolor{backgroundcolor}{RGB}{248, 239, 219}
+
+\def\listitemsize{2cm}
+\def\listpaddingsize{4mm}
+\let\mapitemsize\listitemsize;
+
+\tikzset{
+  every list/.style={
+    nodes={
+        draw=linecolor,
+        rounded corners=2.5mm,
+        text=textcolor,
+        fill=backgroundcolor,
+    },
+    element size=\listitemsize,
+    wrapper padding=\listpaddingsize,
+    line width=.85mm,
+  },
+}
+
+\tikzset{
+    /funprog/list/every elements before/.style={ rounded corners=0 },
+    /funprog/list/every elements between/.style={ rounded corners=0 },
+    /funprog/list/every elements after/.style={ rounded corners=0 },
+    /funprog/map/every elements before/.style={ rounded corners=0 },
+    /funprog/map/every elements between/.style={ rounded corners=0 },
+    /funprog/map/every elements after/.style={ rounded corners=0 },
+}
+
+
+\tikzset{
+  keyword list/.style={
+    /funprog/.cd,
+    map=#1,
+    data struct alias=keyword list #1,
+  }
+}
+
+\tikzset{
+  every empty collection/.style={
+    draw=linecolor,
+    element size=2cm,
+    line width=.4mm,
+  },
+}
+
+\tikzset{
+  tuple delimiter=braces,
+  every tuple/.style={
+    element size=0pt,
+    wrapper padding=4mm,
+    %font=\Large,
+    nodes={
+      text height=1em,
+      text depth=.75em
+    }
+  },
+}
+
+\tikzset{
+  fun/.style={
+    shape=function,
+    function port width=5mm,
+    function port funnel width=2.5mm,
+    function port separation=1.25mm,
+    function port height=1.875mm,
+    line width=.85mm,
+    font=\Large,
+    draw=linecolor,
+    fill=backgroundcolor,
+    node contents={#1},
+  },
+  fun/.default={\texttt{fun}},
+}
+
+\tikzset{
+  ->/.style={
+    -{Straight Barb[round, #1]},
+    shorten >=0.4mm,
+    draw=linecolor,
+    line width=0.8mm,
+  },
+  <-/.style={
+    {Straight Barb[round, #1]}-,
+    draw=linecolor,
+    shorten <=0.4mm,
+    line width=0.8mm,
+  },
+}
+
+\tikzset{
+  exception/.style={
+    decorate,
+    decoration={zigzag, segment length=2mm, amplitude=.25mm},
+    line width=.4mm,
+  }
+}
+
+\tikzset{
+  interval amplitude=2mm,
+  every interval/.style={line width=.4mm}
+}
+
+\tikzset{
+  enter iteration start angle=30,
+  enter iteration delta angle=60,
+  exit iteration start angle=150,
+  exit iteration delta angle=60,
+  every enter iteration/.style={<-, shorten <=2.4mm, radius=.85cm},
+  every iteration/.style={->, shorten >=2.4mm},
+  every exit iteration/.style={->, shorten >=2.4mm, radius=.85cm},
+}
+
+\tikzset{
+  every measure arrow/.style={
+    ->,
+    line width=.4mm,
+  },
+  measure amplitude=1cm,
+  measure overflow=2.5mm,
+  measure below/.style={
+    measure amplitude=-1cm,
+  }
+}
+
+\tikzset{
+  every brace/.style={
+    draw=linecolor,
+    line width=.6mm,
+  },
+  brace amplitude=5mm,
+  brace raise=2.5mm,
+}
+
+\newcommand\bracetobrace[4]{
+  \draw [brace] (#1) -- (#2);
+  \coordinate (first brace) at (last brace);
+  \draw [brace] (#3) -- (#4);
+  \draw [->, out=270, in=90] (first brace) to (last brace);
+}
+
+\makeatletter
+\newcommand\currcoord{\the\tikz@lastxsaved,\the\tikz@lastysaved}
+\makeatother
+
+\newcommand\applyfuntop[4][2]{
+  \node (last label) [above=#1 of #2] {#4};
+  \node (last function) at ($ (last label.base)!.5!(#2) $) [function in=south, function out=north, fun=#3];
+  \draw [->] (#2) -- (last function.in);
+  \draw [->, shorten >=1mm] (last function.out) -- (last label.base);
+}
+
+\newcommand\applyfunbottom[4][2]{
+  \node (last label) [below=#1 of #2, anchor=base] {#4};
+  \node (last function) at ($ ($ (last label.base) + (0, 1ex) $)!.5!(#2) $) [fun=#3];
+  \draw [->] (#2) -- (last function.in);
+  \draw [->] (last function.out) -- (last label);
+}
+
+\def\true{\texttt{true}}
+\def\false{\texttt{false}}
+\def\nil{\texttt{nil}}
+\def\ok{\texttt{:ok}}
+\def\error{\texttt{:error}}
+
+\def\key{\texttt{key}}
+\newcommand\vof[1]{v_\texttt{\small{#1}}}
+\newcommand{\vkey}{\vof{key}}

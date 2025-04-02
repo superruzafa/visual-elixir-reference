@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.replace_leading/3`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `replace_leading/3` function.
 
 {{< figure src="images/functions/String/replace_leading-3.svg" >}}

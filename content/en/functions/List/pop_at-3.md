@@ -3,9 +3,6 @@ title: pop_at/3
 url: List/pop_at/3
 ---
 
-# List.pop_at/3
-
-{{< signature >}}
 
 Returns and removes the value at the specified index in the list.
 

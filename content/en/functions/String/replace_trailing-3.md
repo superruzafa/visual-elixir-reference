@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.replace_trailing/3`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `replace_trailing/3` function.
 
 {{< figure src="images/functions/String/replace_trailing-3.svg" >}}

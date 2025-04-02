@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.trim_trailing/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `trim_trailing/1` function.
 
 {{< figure src="images/functions/String/trim_trailing-1.svg" >}}

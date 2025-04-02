@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `MapSet.new/1`
-
-{{< signature >}}
-
 Brief description and usage of the `MapSet`'s `new/1` function.
 
 {{< figure src="images/functions/MapSet/new-1.svg" >}}

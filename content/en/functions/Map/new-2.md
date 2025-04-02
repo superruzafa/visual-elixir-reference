@@ -3,9 +3,6 @@ title: new/2
 url: Map/new/2
 ---
 
-# Map.new/2
-
-{{< signature >}}
 
 Creates a map from an `enumerable` via the given transformation function `fun`.
 

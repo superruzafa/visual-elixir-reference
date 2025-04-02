@@ -1,0 +1,37 @@
+\matrix [list=a] {
+  \node [index=-n]; &
+  \node [elements between]; &
+  \node (a-i-1) {$a_{-\small\texttt{index}-1}$}; &
+  \node (a-i) {$a_{-\small\texttt{index}}$}; &
+  \node (a-i+1) {$a_{-\small\texttt{index}+1}$}; &
+  \node [elements between]; &
+  \node [index=-2]; &
+  \node [index=-1]; \\
+};
+
+\begin{scope}
+  [iteration direction=from right to left]
+  \draw [enter iteration] (a-1.north);
+  \draw [iteration] (a-1.north) -- (a-2.north);
+  \draw [iteration={dashed}] (a-2.north) -- (a-i+1.north);
+  \draw [iteration] (a-i+1.north) -- (a-i.north);
+\end{scope}
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=-n]; &
+  \node [elements between]; &
+  \node (b-i-1) {$a_{-\texttt{\small{index}}-1}$}; &
+  \node (b-i+1) {$a_{-\texttt{\small{index}}+1}$}; &
+  \node [elements between]; &
+  \node [index=-2]; &
+  \node [index=-1]; \\
+};
+
+\bracetobrace
+  {a-1.south east}{a-i+1.south west}
+  {b-i+1.north west}{b-1.north east}
+
+\bracetobrace
+  {a-i-1.south east}{a-n.south west}
+  {b-n.north west}{b-i-1.north east}
+

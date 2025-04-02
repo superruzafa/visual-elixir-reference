@@ -3,10 +3,6 @@ title: drop/2
 url: Enum/drop/2
 ---
 
-# Enum.drop/2
-
-{{< signature >}}
-
 Drops `count` elements from the enumerable.
 
 {{< figure src="images/functions/Enum/drop-2.svg" >}}

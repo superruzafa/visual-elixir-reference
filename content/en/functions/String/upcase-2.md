@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.upcase/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `upcase/2` function.
 
 {{< figure src="images/functions/String/upcase-2.svg" >}}

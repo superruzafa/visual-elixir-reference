@@ -1,0 +1,164 @@
+\tikzset{
+  fun 2/.style={
+    fun={\texttt{fun}},
+    function arity=2,
+  }
+}
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1,2,n}{
+  \draw [->] (a\i.south) -- +(0, -1.2)
+    node (fun \i) [fun 2, below, anchor=in 1];
+}
+
+\coordinate (rule) at ($ (a1.south)!.5!(fun 1.in 1) $);
+
+\draw [<-] (fun 1.in 2) |- (\currcoord |- rule) -- +(-1, 0)
+  node [left] {\texttt{acc}};
+
+\begin{scope}
+  [
+    start chain=tuple going base right,
+    every node/.style={
+      on chain=tuple,
+      inner xsep=0,
+      inner ysep=1mm,
+    }, 
+    node distance=0
+  ]
+  \node (a) [below left=.75 and .375 of fun 1.out] {$\{$};
+  \node (b1_) {$b_1$};
+  \node {,\,};
+  \node (acc1) {$acc_1$};
+  \node (b) {$\}$};
+\end{scope}
+
+\node (x) [fit=(a) (b)] {};
+\draw [->] (fun 1.out) -- (\currcoord |- x.north);
+
+\coordinate (x) at ($ (fun 1)!.5!(fun 2) $);
+\draw [->] (acc1.north -| x) |- (\currcoord |- rule) -| (fun 2.in 2);
+
+
+
+
+\begin{scope}
+  [
+    start chain=tuple going base right,
+    every node/.style={
+      on chain=tuple,
+      inner xsep=0,
+      inner ysep=1mm,
+    }, 
+    node distance=0
+  ]
+  \node (a) [below left=1.5 and .25 of fun 2.out] {$\{$};
+  \node (b2_) {$b_2$};
+  \node {,\,};
+  \node (acc2) {$acc_2$};
+  \node (b) {$\}$};
+\end{scope}
+
+\node (x) [fit=(a) (b)] {};
+\draw [->] (fun 2.out) -- (\currcoord |- x.north);
+
+%\coordinate (x) at ($ (fun 2)!.5!(fun i) $);
+\draw [->, dashed] (acc2.north) |- (\currcoord |- rule) -| (fun n.in 2);
+
+
+
+\begin{scope}
+  [
+    start chain=tuple going base right,
+    every node/.style={
+      on chain=tuple,
+      inner xsep=0,
+      inner ysep=1mm,
+    }, 
+    node distance=0
+  ]
+  \node (a) [below left=2.25 and .25 of fun n.out] {$\{$};
+  \node (bn_) {$b_n$};
+  \node {,\,};
+  \node (accn_) {$acc_n$};
+  \node (b) {$\}$};
+\end{scope}
+
+\node (x) [fit=(a) (b)] {};
+\draw [->] (fun n.out) -- (\currcoord |- x.north);
+
+\matrix [tuple=t, wrapper, element size=2cm, below=5 of list a] {
+  \node (t1) [placeholder=3.5]; & \node [separator]; &
+  \node (accn) {$acc_n$}; \\
+};
+
+\matrix at (t1) [list=b] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1,2,n}{
+  \draw [->, out=270, in=90] (b\i_.south) to (b\i.north);
+}
+
+\draw [->, out=270, in=90] (accn_.south) to (accn.north);
+
+%\coordinate (rule) at ($ (a.south)!.5!(fun1.north) $);
+
+%\path let
+    %\p1=(fun1.east),
+    %\p2=(fun2.west),
+    %\n1={(\x2 - \x1) / 2}
+%in
+    %\pgfextra{
+        %\global\edef\offset{\n1}
+    %}
+%;
+%\draw [fptk, <- flow] (fun1.north io 2) -- (\currcoord |- rule) -- +(-1, 0)
+    %node [left] {\texttt{acc}};
+
+%\foreach \i/\j in {1/.5,2/1.5,i/.5,n/.5}{
+    %\coordinate (x) at ($ (fun\i.east) + (\offset, 0) $);
+    %\edef\tacc{\txacc[\i]}
+    %\matrix [fptk, subtuple=t\i] [
+        %below=of {{$ (fun\i.south io) + (0, -\j) $} -| x},
+        %matrix anchor=\tacc.north,
+        %ampersand replacement=\&,
+    %] {
+        %\elemx{b}{$b_\i$} \& \comma \&
+        %\elemx{acc}{$acc_\i$} \\
+    %};
+    %\draw [fptk, subflow ->] (fun\i.south io) -- (\currcoord |- t\i.north);
+%}
+
+%\draw [fptk, subflow ->, flow shape |-|=rule] (t1acc.north) -- (fun2.north io 2);
+%\draw [fptk, subflow ->, flow shape |..|=rule] (t2acc.north) -- (funi.north io 2);
+%\draw [fptk, subflow ->, flow shape |..|=rule] (tiacc.north) -- (funn.north io 2);
+
+%\matrix[fptk, list=m, element=b, below=4.5 of a] {
+    %\node [index=1]; &
+    %\node [index=2]; &
+    %\node [elements between]; &
+    %\node [index=i]; &
+    %\node [elements between]; &
+    %\node [index=n]; \\
+%};
+
+%\foreach \i in {1,2,i,n}{
+    %\draw [fptk, flow ->] (\txb[\i]) -- (\currcoord |- m\i.north);
+%}
+
+%\matrix at (m.base) [fptk, tuplex={T}{1.25}, matrix anchor=T1.base] {
+    %\placeholder[1]{7} & \comma &
+    %\elemx{acc}{$acc_n$} \\
+%};
+
+%\draw [fptk, flow ->=soft] (tnacc.south) -- (Tacc.north);

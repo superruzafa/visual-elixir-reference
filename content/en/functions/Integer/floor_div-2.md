@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `Integer.floor_div/2`
-
-{{< signature >}}
-
 Brief description and usage of the `Integer`'s `floor_div/2` function.
 
 {{< figure src="images/functions/Integer/floor_div-2.svg" >}}

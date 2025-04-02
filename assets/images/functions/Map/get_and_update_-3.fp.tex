@@ -1,0 +1,46 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node (a2) [index=2]; &
+  \node [elements between]; &
+  \node (akey) [key value={\texttt{key}}{$\vkey$}];
+    \coordinate (vkey) at (last value.west); &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple=t, element size=\mapitemsize, below=3 of map a]{
+  \node (b) {$b$}; & \node [separator]; &
+  \node (t2) [placeholder=5]; \\
+};
+
+\matrix at (t2) [map=b] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node (bkey) [key value={\texttt{key}}{$\vof{fun}$}];
+    \coordinate (vfun) at (last value.west); &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+%\draw [->] (vkey) -- (\currcoord -| ($ (vkey.west)!.5!(a2.east) $))
+    %-- +(
+
+\node (fun) at ($ ($ (map a)!.33!(map b) $) + (-.25, 0) $) [fun];
+
+\begin{scope}
+  [start chain=tuple going base right, every node/.style={on chain=tuple, inner sep=0}, node distance=0]
+  \node [below left=.75 and 0 of fun] {$\{$};
+  \node (res b) {$b$};
+  \node {,\,};
+  \node (res vfun) {$\vof{fun}$};
+  \node {$\}$};
+\end{scope}
+
+\node (res) [fit=(res b) (res vfun)] {};
+\draw [->] (vkey) -| (fun.in);
+\draw [->] (fun.out) -- (\currcoord |- res.north);
+
+\draw [->] (res b) -- +(0, -.5) -| (b.north);
+\draw [->] (res vfun) |- (vfun);
+

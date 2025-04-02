@@ -1,0 +1,48 @@
+\tikzset{
+  uniq_by fun/.style={
+    fun=\texttt{fun},
+    function in=south,
+    function out=north,
+  }
+}
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [index=i+1]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\j/\d in {
+    1/1/.5,
+    2/2/1.25,
+    3/1/.5,
+    i/m/.5,
+    i+1/2/1.25,
+    n/m/.5
+}{
+  \draw [->] (a\i.north) -- +(0, .5)
+    node (fun \i) [uniq_by fun, anchor=in];
+  \draw [->, shorten >=2mm] (fun \i.out) -- +(0, \d)
+    node (k\i) [anchor=base] {$k_\j$};
+}
+
+\foreach \a/\b in {1/3,2/i+1,i/n}{
+  \draw [rounded corners=2.5mm] ($ (k\a.mid) + (-.25, -.25) $) rectangle ($ (k\b.mid) + (.25, .25) $);
+}
+
+\matrix [list=b, element=a, below=2 of list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\foreach \i in {1, 2, i}{
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}

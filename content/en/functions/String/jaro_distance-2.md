@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.jaro_distance/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `jaro_distance/2` function.
 
 {{< figure src="images/functions/String/jaro_distance-2.svg" >}}

@@ -1,0 +1,42 @@
+\tikzset{
+  reduce while fun/.style={
+    fun,
+    function arity=2,
+  }
+};
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1, 2, n}{
+  \node (fun\i) [reduce while fun, below=1 of a\i.south, anchor=in 1];
+  \draw [->] (a\i.south) -- (fun\i.in 1);
+};
+
+\coordinate (rule) at ($ (fun1.in 1)!.5!(a1.south) $);
+
+\draw [<-] (fun1.in 2) -- (\currcoord |- rule) -- +(-1, 0)
+  node [left] {\texttt{acc}};
+
+\draw [->] (fun1.out) -- +(0, -.75)
+  node (acc1) [below] {\Large\{\texttt{:cont},\,$acc_1$\}};
+
+\coordinate (x) at ($(fun1.west)!.5!(fun2.east)$);
+
+\draw [->] (acc1.north -| x) |- (\currcoord |- rule) -| (fun2.in 2);
+
+\draw [->] (fun2.out) -- +(0, -1.5)
+  node (acc2) [below] {\Large\{\texttt{:cont},\,$acc_2$\}};
+
+\draw [->, dashed] ($ (acc2.north) + (.5, 0) $) |- (\currcoord |- rule) -| (funn.in 2);
+
+\draw [->] (funn.out) -- +(0, -2.25)
+  node (accn) [below] {\Large\{\texttt{:cont},\,$acc_n$\}};
+
+\draw [->] ($ (accn.south) + (.5, 0) $) -- +(0, -1)
+  node [below] {$acc_n$};
+

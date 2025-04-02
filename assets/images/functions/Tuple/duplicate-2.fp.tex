@@ -1,0 +1,9 @@
+\matrix [tuple=a] {
+  \node (a1) {\texttt{value}}; & \node [separator]; &
+  \node (a2) {\texttt{value}}; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node (an) {\texttt{value}}; \\
+};
+
+\draw [measure=\texttt{size}] (a1.north west) -- (an.north east);
+

@@ -1,0 +1,15 @@
+\matrix [list=a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node (ai) {$a_{\small{\texttt{index}}}$}; &
+  \node [elements between]; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration] (a0.north) -- (a1.north);
+\draw [iteration=dashed] (a1.north) -- (ai.north);
+
+\draw [->] (ai.south) -- +(0, -1)
+  node [below] {\{\ok,\,$a_{\small{\texttt{index}}}$\}};
+

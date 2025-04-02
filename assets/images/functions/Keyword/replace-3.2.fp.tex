@@ -1,0 +1,26 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\e [count=\xi, evaluate=\xi as \offset using isodd(\xi) ? .75 : 1.25)] in {1,2,n}{
+  \draw [shorten >=1ex] (a\i.north) -- +(0, \offset)
+    node [anchor=base] {$k_{\i}\neq\texttt{key}$};
+}
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (an.north);
+
+\matrix [keyword list=b, element=a, below=2 of keyword list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\bracetobrace
+  {keyword list a.south east}{keyword list a.south west}
+  {keyword list b.north west}{keyword list b.north east}

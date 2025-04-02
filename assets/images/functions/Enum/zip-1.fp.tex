@@ -1,0 +1,41 @@
+\def\ziplistitemsize{1cm}
+
+\matrix [list=e, wrapper, element size=\ziplistitemsize] {
+  \node (e1) [placeholder=4]; &
+  \node (e2) [placeholder=3.5]; &
+  \node [elements between=1]; &
+  \node (e3) [placeholder=4]; \\
+};
+
+\matrix at (e1) [list=a, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; &
+  \node [elements after=.5]; \\
+};
+
+\matrix at (e2) [list=b, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; \\
+};
+
+\matrix at (e3) [list=k, element size=\ziplistitemsize] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; &
+  \node [elements after=.5]; \\
+};
+
+\matrix [list=b, below=2 of list e] {
+  \node {$\{a_1, b_1, \ldots, k_1\}$}; &
+  \node {$\{a_2, b_2, \ldots, k_2\}$}; &
+  \node [elements between]; &
+  \node {$\{a_n, b_n, \ldots, k_n\}$}; \\
+};
+
+\node at ($ (list e)!.5!(list b) $) {$\Downarrow$};
+

@@ -1,0 +1,22 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node (b) [below=2 of list a] {\{$a_{min}$,\,$a_{max}$\}};
+
+\node at ($ (list a.south)!.5!(b.north) $) {$\Downarrow$};
+
+\matrix [
+  matrix of math nodes,
+  nodes={},
+  row sep=1, 
+  left delimiter=\{,
+  right=of b
+] {
+  a_{min} \leq a_i,\, i \in [1, n] \\
+  a_{max} \geq a_i,\, i \in [1, n] \\
+};
+

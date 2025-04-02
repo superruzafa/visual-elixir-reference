@@ -5,10 +5,6 @@ aliases:
   - '/Enum/all?/2/'
 ---
 
-# Enum.all?/2
-
-{{< signature >}}
-
 Returns `true` if **all** the elements in `enumerable` evaluate to a truthy value when the function `fun` is applied over them.
 
 {{< figure src="images/functions/Enum/all_-2.svg" >}}

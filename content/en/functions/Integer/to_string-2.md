@@ -1,15 +1,12 @@
 ---
 title: to_string/2
 url: /Integer/to_string/2
-draft: true
 ---
 
-# `Integer.to_string/2`
-
-{{< signature >}}
-
-Brief description and usage of the `Integer`'s `to_string/2` function.
+Returns a binary which corresponds to the text representation of `integer`.
 
 {{< figure src="images/functions/Integer/to_string-2.svg" >}}
+
+If `base` is provided then `integer` is converted given that base.
+
 {{< figure src="images/functions/Integer/to_string-2.2.svg" >}}
-{{< figure src="images/functions/Integer/to_string-2.3.svg" >}}

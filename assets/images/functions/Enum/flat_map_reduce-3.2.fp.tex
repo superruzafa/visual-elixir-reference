@@ -1,0 +1,86 @@
+\tikzset{
+  fun 2/.style={
+    fun,
+    function arity=2,
+  }
+}
+
+\matrix [tuple=t1, wrapper, element size=1.5cm] {
+  \node (p1) [placeholder=2.5]; & \node [separator]; &
+  \node (acc1) {$acc_1$}; \\
+};
+
+\matrix at (p1) [list=b, element size=1.5cm] {
+  \node [index=1]; &
+  \node [elements between=.5]; &
+  \node [index=m]; \\
+};
+
+\matrix [tuple=ti, wrapper, element size=1.5cm, right=.75 of tuple t1] {
+  \node (pi) [placeholder=2.5]; & \node [separator]; &
+  \node (acci) {$acc_i$}; \\
+};
+
+\matrix at (pi) [list=k, element size=1.5cm] {
+  \node [index=1]; &
+  \node (kx) [elements between=.5]; &
+  \node [index=p]; \\
+};
+
+\matrix [tuple=ti+1, base right=.75 of tuple ti] {
+  \node {\texttt{:halt}}; & \node [separator]; &
+  \node (acci+1) {$acc_{i+1}$}; \\
+};
+
+
+\foreach \i in {1,i,i+1}{
+  \node (fun \i) [fun 2, above=1 of tuple t\i];
+  \draw [brace] (tuple t\i.north west) -- (tuple t\i.north east);
+  \draw [->] (fun \i.out) -- (last brace);
+}
+
+\matrix [list=a, above=1.5 of fun i.in 1, matrix anchor=ai.south]{
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [index=i+1]; &
+  \node [elements after]; \\
+};
+
+\coordinate (rule) at ($ (list a.south)!.6!(fun i.in 2) $);
+
+\foreach \i in {1,i,i+1}{
+  \draw [->, out=270, in=90] (a\i.south) to (fun \i.in 1);
+}
+
+\draw [<-] (fun 1.in 2) -- (\currcoord |- rule) -- +(-1, 0)
+  node [left] {\texttt{acc}};
+\draw [->, dashed] (acc1.north) -- (\currcoord |- rule) -| (fun i.in 2);
+\draw [->] (acci.north) -- (\currcoord |- rule) -| (fun i+1.in 2);
+
+  
+\matrix [tuple=tb, wrapper, element size=2cm, below=2 of kx, matrix anchor=p1.north] {
+  \node (p1) [placeholder=5.5]; & \node [separator]; &
+  \node (acci+1_) {$acc_{i+1}$}; \\
+};
+
+\matrix at (p1) [list] {
+  \node (b1_) {$b_1$}; &
+  \node [elements between=.5]; &
+  \node (bm_) {$b_m$}; &
+  \node [elements between=.5]; &
+  \node (k1_) {$k_1$}; &
+  \node (kx_) [elements between=.5]; &
+  \node (kp_) {$k_p$}; \\
+};
+
+\bracetobrace
+  {bm.south east}{b1.south west}
+  {b1_.north west}{bm_.north east}
+
+\bracetobrace
+  {kp.south east}{k1.south west}
+  {k1_.north west}{kp_.north east}
+
+\draw [->, out=270, in=90] (acci+1) to (acci+1_);
+

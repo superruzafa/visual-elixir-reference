@@ -1,0 +1,25 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [tuple, element size=\mapitemsize, below=2 of map a]{
+  \node (t1) {\texttt{default}}; & \node [separator]; &
+  \node (t2) [placeholder=3.5]; \\
+};
+
+\matrix at (t2) [map=b] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [<-] (t1.north) -- +(0, 1);
+
+\bracetobrace
+  {an.south east}{a1.south west}
+  {b1.north west}{bn.north east}
+

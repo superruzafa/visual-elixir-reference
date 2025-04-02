@@ -1,0 +1,14 @@
+\tikzset{
+  empty fallback/.style={
+    fun={\texttt{empty}\\\texttt{fallback}},
+    function arity=0,
+    align=center,
+  }
+}
+
+\node [empty collection=a];
+\node (arrow) [base right=.5 of empty collection a] {$\Rightarrow$}; 
+\node (fun) [empty fallback, right=.5 of arrow];
+
+\draw [->] (fun.out) -- +(0, -1)
+  node [below] {$b$};

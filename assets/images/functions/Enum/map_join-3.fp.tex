@@ -1,0 +1,44 @@
+\begin{scope}
+  [
+    start chain=going base right,
+    node distance=0,
+    every node/.style={on chain, outer ysep=1ex, inner sep=0}
+  ]
+  \node {``};
+  \node (b1) [on chain] {$b_1$};
+  \node (bjoiner1) [on chain] {-};
+  \node (b2) [on chain] {$b_2$};
+  \node (bjoiner2) [on chain] {-};
+  \node [on chain] {\ldots};
+  \node (bjoineri-1) [on chain] {-};
+  \node (bi) [on chain] {$b_i$};
+  \node (bjoineri) [on chain] {-};
+  \node [on chain] {\ldots};
+  \node (bjoinern) [on chain] {-};
+  \node (bn) [on chain] {$b_n$};
+  \node {''};
+\end{scope}
+
+\coordinate (p) at ($ (b1)!.5!(bn) $);
+
+\matrix [list=a, above=2 of p] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i in {1,2,i,n}{
+  \node (fun\i) [fun, below=.5 of a\i.south];
+  \draw [->] (a\i.south) to (fun\i.in);
+  \draw [->, out=270, in=90] (fun\i.out) to (b\i.north);
+};
+
+\node (joiner) [below=1.5 of p] {\texttt{joiner}};
+
+\foreach \i in {1,2,i-1,i,n}{
+  \draw [->, out=90, in=270] (joiner.north) to (bjoiner\i.south);
+}
+

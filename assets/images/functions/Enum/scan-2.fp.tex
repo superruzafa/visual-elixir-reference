@@ -1,0 +1,48 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [list=b, below=2 of list a] {
+  \node (b1) {$a_1$}; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\tikzset{
+  scan fun/.style={
+    fun,
+    function arity=2,
+  }
+}
+
+\foreach \i in {2,3,i,n}{
+  \node (fun\i) at ($ (a\i)!.5!(b\i) $) [scan fun];
+  \draw [<-] (fun\i.in 1) -- (\currcoord |- a\i.south);
+  \draw [->] (fun\i.out) -- (b\i.north);
+}
+
+\coordinate (top rule) at ($ (a2.south)!.5!(fun2.north) $);
+\coordinate (bottom rule) at ($ (b2.north)!.5!(fun2.south) $);
+
+\draw [->] (a1.south) -- (b1.north);
+\draw [->] (top rule -| a1.south) -| (fun2.in 2);
+
+\coordinate (x) at ($ (fun2)!.5!(fun3) $);
+\draw [->] (fun2.out |- bottom rule) -| (x) -- (\currcoord |- top rule) -| (fun3.in 2);
+
+\coordinate (x) at ($ (fun3)!.5!(funi) $);
+\draw [->, dashed] (fun3.out |- bottom rule) -| (x) -- (\currcoord |- top rule) -| (funi.in 2);
+
+\coordinate (x) at ($ (funi)!.5!(funn) $);
+\draw [->, dashed] (funi.out |- bottom rule) -| (x) -- (\currcoord |- top rule) -| (funn.in 2);
+

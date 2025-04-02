@@ -1,0 +1,29 @@
+\matrix [tuple=a] {
+  \node [index=0]; & \node [separator]; &
+  \node [index=1]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node (ai) {$a_{\small\texttt{index}}$}; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node [index=n-1]; \\
+};
+
+\matrix [tuple=b, element=a, below=2 of tuple a] {
+  \node [index=0]; & \node [separator]; &
+  \node [index=1]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node (bvalue) {\texttt{value}}; & \node [separator]; &
+  \node (bi) {$a_{\small\texttt{index}}$}; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node [index=n-1]; \\
+};
+
+\bracetobrace
+  {ai.south west}{a0.south west}
+  {b0.north west}{bvalue.north west}
+
+\bracetobrace
+  {an-1.south east}{ai.south west}
+  {bi.north west}{bn-1.north east}
+
+\draw [<-] (bvalue.north) -- +(0, 1);
+

@@ -1,0 +1,17 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [<-] (a1.north) -- +(0, .5)
+    node [above] {head};
+
+\draw [brace] (a2.north west) -- (an.north east);
+\node at (last brace) [above] {tail};
+
+\draw [measure={$n$}, measure position=below] (a1.south west) -- (an.south east);
+

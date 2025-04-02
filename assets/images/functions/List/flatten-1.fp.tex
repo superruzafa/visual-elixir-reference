@@ -1,0 +1,54 @@
+\matrix [list=w2, wrapper=2, element=a] {
+  \node (p3) [placeholder=5.8]; &
+  \node [elements between]; &
+  \node (p4) [placeholder=1.6]; \\
+};
+
+\matrix at (p3) [list=w1, wrapper, element=a] {
+  \node (p1) [placeholder=2]; &
+  \node (p2) [placeholder=2]; &
+  \node (s5) [index=5]; \\
+};
+
+\matrix at (p1) [list=s, element=a] {
+  \node [index=1]; &
+  \node [index=2]; \\
+};
+
+\matrix at (p2) [list=s, element=a] {
+  \node [index=3]; &
+  \node [index=4]; \\
+};
+
+\matrix at (p4) [list=s, element=a] {
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\matrix [list=a, below=2 of list w2] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [index=4]; &
+  \node [index=5]; &
+  \node [elements between]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\coordinate (rule) at ($ (list w2.south) + (0, -2mm) $);
+
+\bracetobrace
+  {s2.south east |- rule}{s1.south west |- rule}
+  {a1.north west}{a2.north east}
+
+\bracetobrace
+  {s4.south east |- rule}{s3.south west |- rule}
+  {a3.north west}{a4.north east}
+
+\draw [->, out=270, in=90] (s5.south) to (a5.north);
+
+\bracetobrace
+  {sn.south east |- rule}{sn-1.south west |- rule}
+  {an-1.north west}{an.north east}
+

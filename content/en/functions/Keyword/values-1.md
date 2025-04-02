@@ -3,9 +3,6 @@ title: values/1
 url: Keyword/values/1
 ---
 
-# Keyword.values/1
-
-{{< signature >}}
 
 Returns all values from the `keyword` list.
 

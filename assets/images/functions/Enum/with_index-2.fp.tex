@@ -1,0 +1,22 @@
+\matrix [list=a] {
+  \node [index=0]; &
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=n-1]; \\
+};
+
+\matrix [list=b, below=2 of list a] {
+  \node (b0) {$\{a_0,0\}$}; &
+  \node (b1) {$\{a_1,1\}$}; &
+  \node [elements between]; &
+  \node (bi) {$\{a_i,i\}$}; &
+  \node [elements between]; &
+  \node (bn-1) {$\{a_{n-1},\tiny{n-1}\}$}; \\
+};
+
+\foreach \i in {0,1,i,n-1} {
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}
+

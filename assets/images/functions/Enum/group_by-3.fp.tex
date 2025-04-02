@@ -1,0 +1,80 @@
+\tikzset{
+  key fun/.style={
+    fun,
+    align=center,
+    node contents={\texttt{key}\\\texttt{fun}},
+    function in=south,
+    function out=north,
+  },
+  val fun/.style={
+    fun,
+    align=center,
+    node contents={\texttt{val}\\\texttt{fun}},
+  }
+};
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [index=i+1]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\j in {
+  1/1,
+  2/2,
+  3/1,
+  i/m,
+  i+1/2,
+  n/m
+}{
+  \draw [->] (a\i.north) -- +(0, .5)
+    node (key fun\i) [key fun, anchor=in];
+  \draw [->, shorten >=1mm] (key fun\i.out) -- +(0, .5)
+    node [anchor=base] {$k_\j$};
+  \draw [->] (a\i.south) -- +(0, -.5)
+    node (val fun\i) [val fun, anchor=in];
+  \draw [->, shorten >=1.5ex] (val fun\i.out) -- +(0, -.5)
+    node (value) [anchor=base] {$v_{\i}$};
+};
+
+\matrix [map=b, below=3.5 of list a] {
+  \node [key value={$k_1$}{}]; \coordinate (v1) at (last value); &
+  \node [key value={$k_2$}{}]; \coordinate (v2) at (last value); &
+  \node [elements between]; &
+  \node [key value={$k_m$}{}]; \coordinate (vm) at (last value); \\
+};
+
+\coordinate (x) at ($ (value.south)!.5!(map b.north) $);
+
+\node at (map b.north |- x) {$\Downarrow$};
+
+\matrix [list=k1, element=v, below left=1 and 0 of v1] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=3]; &
+  \node [elements after]; \\
+};
+
+\matrix [list=k2, element=v, below=2.5 of v2] {
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i+1]; &
+  \node [elements after]; \\
+};
+
+\matrix [list=km, element=v, below right=1 and 0 of vm] {
+  \node [elements before]; &
+  \node [index=i]; &
+  \node [elements between]; &
+  \node [index=m]; \\
+};
+
+\foreach \i in {1,2,m}{
+  \draw [->, shorten >=1mm] (v\i) -- (list k\i.north);
+};
+

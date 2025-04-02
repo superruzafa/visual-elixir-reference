@@ -1,0 +1,37 @@
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node (ax) [elements between]; &
+  \node (ai) [key value={\key}{$v_i$}]; \coordinate (ai value) at (last value.west); &
+  \node [elements between]; &
+  \node (aj) [key value={\key}{$v_j$}]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (ai.north);
+
+\foreach \i/\d in {1/.5,2/1}{
+  \draw (a\i.north) -- +(0, \d)
+    node [above] {$k_\i\neq\key$};
+}
+
+\matrix [keyword list=b, below=2 of ai, matrix anchor=bi.north] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node (bx) [elements between]; &
+  \node (bi) [key value={\key}{$\vkey$}]; \coordinate (bi value) at (last value.west); &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node (fun) at ($ (ax)!.5!(bx) $) [fun];
+\draw [->] (ai value) -| (fun.in);
+\draw [->] (fun.out) |- (bi value);
+
+\foreach \i in {1,2,n}{
+  \draw [->, out=270, in=90] (a\i.south) to (b\i.north);
+}
+

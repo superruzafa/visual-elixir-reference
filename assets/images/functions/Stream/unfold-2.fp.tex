@@ -1,0 +1,44 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements between]; \\
+};
+
+\foreach \i/\j in {1/1, 2/.5, i/1}{
+    \begin{scope}
+      [
+        start chain=tuple going base right,
+        every node/.style={
+          on chain=tuple,
+          inner xsep=0,
+          inner ysep=1mm,
+        }, 
+        node distance=0,
+        font=\large,
+      ]
+      \node (a) [above left=\j and .4 of a\i.north] {$\{$};
+      \node (ba\i) {$a_\i$};
+      \node {,\,};
+      \node (acc\i) {$acc_\i$};
+      \node (b) {$\}$};
+    \end{scope}
+
+    \node (fun\i) [fun, above=2 of a\i.north];
+    \node (x) [fit=(a) (b)] {};
+
+    \draw [->] (fun\i.out) -- (x.north);
+
+    \draw [->, out=270, in=90] (ba\i.south) to (a\i.north);
+}
+
+\coordinate (top rule) at ($ (fun1.north) + (0, .5) $);
+
+\draw [->, out=90, in=270] (acc1.north) to ($ (fun1)!.5!(fun2) $) -- (\currcoord |- top rule) -| (fun2.in);
+\draw [->, dashed, out=90, in=270] (acc2.north) to ($ (fun2.east) + (.5, 0) $) -- (\currcoord |- top rule) -| (funi.in);
+\draw [->, dashed, out=90, in=270] (acci.north) to ($ (funi.east) + (.5, 0) $);
+
+\draw [<-] (fun1.in) -- +(0, 1)
+    node [above] {\texttt{acc}};
+

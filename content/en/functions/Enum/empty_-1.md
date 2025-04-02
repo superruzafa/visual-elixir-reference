@@ -4,10 +4,6 @@ url: Enum/empty/1
 aliases: ['/Enum/empty?/1']
 ---
 
-# Enum.empty?/1
-
-{{< signature >}}
-
 Returns `true` if the enumerable is empty.
 
 {{< figure src="images/functions/Enum/empty-1.svg" >}}

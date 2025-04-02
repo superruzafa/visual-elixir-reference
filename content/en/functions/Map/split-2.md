@@ -3,9 +3,6 @@ title: split/2
 url: Map/split/2
 ---
 
-# Map.split/2
-
-{{< signature >}}
 
 Takes all entries corresponding to the given `keys` in `map` and extracts them into a separate map.
 

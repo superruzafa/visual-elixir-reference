@@ -1,0 +1,10 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [measure={$n$}, measure amplitude=-5mm] (a1.south west) -- (an.south east);
+\draw [->] (last measure label) -- +(0, -1) node [below] {$n$};
+

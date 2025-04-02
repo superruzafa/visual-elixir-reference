@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.trim_leading/1`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `trim_leading/1` function.
 
 {{< figure src="images/functions/String/trim_leading-1.svg" >}}

@@ -1,0 +1,50 @@
+\matrix [list=p, wrapper] {
+  \node (pa) [placeholder=2.75]; &
+  \node (pb) [placeholder=2.75]; &
+  \node [elements between]; &
+  \node (pk) [placeholder=2.75]; \\
+};
+
+\matrix at (pa) [list=a] {
+  \node [index=1]; &
+  \node [elements between=.75]; &
+  \node [index=n]; \\
+};
+\matrix at (pb) [list=b] {
+  \node [index=1]; &
+  \node [elements between=.75]; &
+  \node [index=m]; \\
+};
+\matrix at (pk) [list=k] {
+  \node [index=1]; &
+  \node [elements between=.75]; &
+  \node [index=p]; \\
+};
+
+\matrix [list=q, below=2 of list p]{
+  \node (qa1) {$a_1$}; &
+  \node [elements between=.75]; &
+  \node (qan) {$a_n$}; &
+  \node (qb1) {$b_1$}; &
+  \node [elements between=.75]; &
+  \node (qbm) {$b_n$}; &
+  \node (qk1) {$k_1$}; &
+  \node [elements between=.75]; &
+  \node (qkp) {$k_p$}; \\
+};
+
+\draw [brace, brace raise=4mm] (an.south east) -- (a1.south west);
+\coordinate (first brace) at (last brace);
+\draw [brace] (qa1.north west) -- (qan.north east);
+\draw [->, out=270, in=90] (first brace) to (last brace);
+
+\draw [brace, brace raise=4mm] (bm.south east) -- (b1.south west);
+\coordinate (first brace) at (last brace);
+\draw [brace] (qb1.north west) -- (qbm.north east);
+\draw [->, out=270, in=90] (first brace) to (last brace);
+
+\draw [brace, brace raise=4mm] (kp.south east) -- (k1.south west);
+\coordinate (first brace) at (last brace);
+\draw [brace] (qk1.north west) -- (qkp.north east);
+\draw [->, out=270, in=90] (first brace) to (last brace);
+

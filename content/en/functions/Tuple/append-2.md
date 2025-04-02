@@ -3,9 +3,6 @@ title: append/2
 url: Tuple/append/2
 ---
 
-# Tuple.append/2
-
-{{< signature >}}
 
 Inserts an element at the end of a tuple.
 

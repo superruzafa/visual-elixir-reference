@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `String.slice/2`
-
-{{< signature >}}
-
 Brief description and usage of the `String`'s `slice/2` function.
 
 {{< figure src="images/functions/String/slice-2.svg" >}}

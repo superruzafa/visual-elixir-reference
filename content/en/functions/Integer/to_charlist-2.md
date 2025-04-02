@@ -5,9 +5,6 @@ draft: true
 ---
 
 # `Integer.to_charlist/2`
-
-{{< signature >}}
-
 Brief description and usage of the `Integer`'s `to_charlist/2` function.
 
 {{< figure src="images/functions/Integer/to_charlist-2.svg" >}}

@@ -1,0 +1,5 @@
+\node (a) [empty collection];
+
+\node (b) [exception, draw, below right=1 and 1 of a, anchor=north] {\texttt{Enum.EmptyError}};
+\draw [exception, ->, out=0, in=90] (a.east) to (b.north);
+

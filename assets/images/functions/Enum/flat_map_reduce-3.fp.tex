@@ -1,0 +1,96 @@
+\tikzset{
+  fun 2/.style={
+    fun,
+    function arity=2,
+  }
+}
+
+\matrix [tuple=t1, wrapper, element size=1.5cm] {
+  \node (p1) [placeholder=2.5]; & \node [separator]; &
+  \node (acc1) {$acc_1$}; \\
+};
+
+\matrix at (p1) [list=b, element size=1.5cm] {
+  \node [index=1]; &
+  \node [elements between=.5]; &
+  \node [index=m]; \\
+};
+
+\matrix [tuple=t2, wrapper, element size=1.5cm, right=.5 of tuple t1] {
+  \node (p2) [placeholder=2.5]; & \node [separator]; &
+  \node (acc2) {$acc_2$}; \\
+};
+
+\matrix at (p2) [list=c, element size=1.5cm] {
+  \node [index=1]; &
+  \node (cx) [elements between=.5]; &
+  \node [index=p]; \\
+};
+
+\matrix [tuple=tn, wrapper, element size=1.5cm, right=.75 of tuple t2] {
+  \node (pn) [placeholder=2.5]; & \node [separator]; &
+  \node (accn) {$acc_n$}; \\
+};
+
+\matrix at (pn) [list=k, element size=1.5cm] {
+  \node [index=1]; &
+  \node [elements between=.5]; &
+  \node [index=q]; \\
+};
+
+\foreach \i in {1,2,n}{
+  \node (fun \i) [fun 2, above=1 of tuple t\i];
+  \draw [brace] (tuple t\i.north west) -- (tuple t\i.north east);
+  \draw [->] (fun \i.out) -- (last brace);
+}
+
+\matrix [list=a, above=1.5 of fun 2.in 1, matrix anchor=a2.south]{
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\coordinate (rule) at ($ (list a.south)!.4!(fun 2.in 1) $);
+
+\foreach \i in {1,2,n}{
+  \draw [->, out=270, in=90] (a\i.south) to (fun \i.in 1);
+}
+
+\draw [<-] (fun 1.in 2) -- (\currcoord |- rule) -- +(-1, 0)
+  node [left] {\texttt{acc}};
+\draw [->] (acc1.north) -- (\currcoord |- rule) -| (fun 2.in 2);
+\draw [->, dashed] (acc2.north) -- (\currcoord |- rule) -| (fun n.in 2);
+
+  
+\matrix [tuple=tb, wrapper, element size=2cm, below=2 of cx, matrix anchor=p1.north] {
+  \node (p1) [placeholder=7.5]; & \node [separator]; &
+  \node (accn_) {$acc_n$}; \\
+};
+
+\matrix at (p1) [list] {
+  \node (b1_) {$b_1$}; &
+  \node [elements between=.5]; &
+  \node (bm_) {$b_m$}; &
+  \node (c1_) {$c_1$}; &
+  \node (cx_) [elements between=.5]; &
+  \node (cp_) {$c_p$}; &
+  \node (k1_) {$k_1$}; &
+  \node [elements between=.5]; &
+  \node (kq_) {$k_q$}; \\
+};
+
+\bracetobrace
+  {bm.south east}{b1.south west}
+  {b1_.north west}{bm_.north east}
+
+\bracetobrace
+  {cp.south east}{c1.south west}
+  {c1_.north west}{cp_.north east}
+
+\bracetobrace
+  {kq.south east}{k1.south west}
+  {k1_.north west}{kq_.north east}
+
+\draw [->, out=270, in=90] (accn) to (accn_);
+

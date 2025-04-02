@@ -1,0 +1,33 @@
+\tikzset{
+  get_lazy fun/.style={
+    fun,
+    function arity=0
+  }
+}
+
+\matrix [keyword list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\e [count=\xi, evaluate=\xi as \offset using isodd(\xi) ? .75 : 1.25)] in {
+  1,
+  2,
+  n}
+{
+  \draw [shorten >=1ex] (a\i.north) -- +(0, \offset)
+    node [anchor=base] {$k_{\i}\neq\texttt{key}$};
+}
+
+\node (fun) [get_lazy fun, right=.5 of an.north east, anchor=north west];
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (an.north);
+\draw [iteration] (an.north) -- (fun.north);
+
+\draw [->] (fun.out) -- +(0, -1)
+  node [below] {$b$};
+

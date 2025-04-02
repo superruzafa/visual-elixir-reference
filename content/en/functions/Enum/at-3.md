@@ -2,11 +2,6 @@
 title: at/3
 url: Enum/at/3
 ---
-
-# Enum.at/3
-
-{{< signature >}}
-
 Finds the element in `enumerable` at the index `index` (zero-based).
 
 {{< figure src="images/functions/Enum/at-3.svg" >}}
