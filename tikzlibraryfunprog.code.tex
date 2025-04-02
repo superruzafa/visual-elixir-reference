@@ -435,6 +435,14 @@
     decoration={
       show path construction,
       lineto code={
+        \path
+        let
+          \p1=(\tikzinputsegmentfirst),
+          \p2=(\tikzinputsegmentlast),
+          \n1={abs(\x2 - \x1)},
+          \n2={abs(\y2 - \y1) + \funprog@interval@amplitude}
+        in
+            node at ($ (\p1) + (0, \n2) $) [name=interval #1, anchor=north west, minimum width=\n1, minimum height=2 * \n2, inner sep=0, outer sep=0] {};
         \foreach [remember=\pos as \lastpos (initially 0), count=\i] \pos/\style in \funprog@interval@segments{
           \draw
             [/tikz/every interval, /funprog/interval/style=\style]

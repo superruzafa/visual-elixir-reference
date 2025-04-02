@@ -4,15 +4,22 @@
 
 {{ define "main" }}
 
-{{ .Content }}
+<main class="module">
+    <nav class="breadcrumbs">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </nav>
 
-<strong>Functions of the {{ .Title }} module:</strong>
+    <h1>{{ .Title }}</h1>
 
-<ul class="function-list">
-{{ range .Pages }}
-    <li class="function-item{{ if .Draft }} draft{{ end }}"><a href="{{ partial "safe_function_url.html" . }}">{{ .Title }}</a></li>
-{{ end }}
-</ul>
+    {{ .Content }}
+
+    <ul class="function-list">
+    {{ range .Pages }}
+        <li class="function-item{{ if .Draft }} draft{{ end }}"><a href="{{ partial "safe_function_url.html" . }}">{{ .Title }}</a></li>
+    {{ end }}
+    </ul>
+
+</main>
 
 {{ partial "translations.html" . }}
 {{ end }}

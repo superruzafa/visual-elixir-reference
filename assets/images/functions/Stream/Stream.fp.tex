@@ -1,0 +1,14 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; \\
+};
+
+\matrix [list=b, element=a, opacity=0.5, right=0 of list a] {
+  \node [index=3]; &
+  \node [index=4]; &
+  \node [elements after]; \\
+};
+
+\node [right=of list b] {$\ldots\infty$};
+
+
