@@ -1,0 +1,20 @@
+\matrix [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [index=1]; &
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [index=3]; &
+    \node [index=4]; &
+    \node [index=2]; \\
+};
+
+\matrix [list=b, element=a, below=2 of list a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [index=3]; &
+    \node [index=4]; \\
+};
+
+\node at ($ (list a)!.5!(list b) $) {$\Downarrow$};
+

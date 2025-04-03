@@ -885,6 +885,44 @@
           def values(map)
         end
 
+- name: MapSet
+  functions:
+    - name: filter/2
+      signature: |
+        defmodule MapSet do
+          def filter(map_set, fun)
+        end
+    - name: new/0
+      signature: |
+        defmodule MapSet do
+          def new()
+        end
+    - name: new/1
+      signature: |
+        defmodule MapSet do
+          def new(enumerable)
+        end
+    - name: new/2
+      signature: |
+        defmodule MapSet do
+          def new(enumerable, fun)
+        end
+    - name: to_list/1
+      signature: |
+        defmodule MapSet do
+          def to_list(map_set)
+        end
+    - name: size/1
+      signature: |
+        defmodule MapSet do
+          def size(map_set)
+        end
+    - name: union/2
+      signature: |
+        defmodule MapSet do
+          def union(map_set1, map_set2)
+        end
+
 - name: Range
   functions:
     - name: disjoint?/2

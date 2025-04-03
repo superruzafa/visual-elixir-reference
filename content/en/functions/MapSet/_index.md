@@ -3,6 +3,8 @@ title: MapSet
 url: /MapSet
 ---
 
-Maps are the "go to" key-value data structure in Elixir.
+A set is a data structure that can contain unique elements of any kind, without any particular order.
+`MapSet` is the "go to" set data structure in Elixir.
 
-Maps can be created with the %{} syntax, and key-value pairs can be expressed as key => value:
+{{< figure src="images/functions/MapSet/MapSet.svg" >}}
+
