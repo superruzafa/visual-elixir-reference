@@ -1,12 +1,9 @@
 ---
 title: intersection/2
 url: /MapSet/intersection/2
-draft: true
 ---
 
-# `MapSet.intersection/2`
-Brief description and usage of the `MapSet`'s `intersection/2` function.
+Returns a set containing only members that `map_set1` and `map_set2` have in common.
 
 {{< figure src="images/functions/MapSet/intersection-2.svg" >}}
-{{< figure src="images/functions/MapSet/intersection-2.2.svg" >}}
-{{< figure src="images/functions/MapSet/intersection-2.3.svg" >}}
+

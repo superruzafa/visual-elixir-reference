@@ -1,0 +1,43 @@
+\matrix (list a) [list=aa, element=a] {
+    \node (a1) [index=1]; &
+    \node (a2) [index=2]; &
+    \node (a3) [element=b, index=2]; &
+    \node (a4) [elements between]; &
+    \node (a5) [index=n]; \\
+};
+
+\matrix (list b) [list=bb, element=b, right=1 of list a] {
+    \node (b1) [index=1]; &
+    \node (b2) [index=2]; &
+    \node (b3) [element=a, index=1]; &
+    \node (b4) [index=3]; &
+    \node (b5) [elements between]; &
+    \node (b6) [index=m]; \\
+};
+
+\coordinate (ab) at ($ (list a)!.5!(list b) $);
+
+\matrix [list, below=3 of ab] {
+    \node (c1) {$a_1$}; &
+    \node (c2) {$a_2$}; &
+    \node (c3) {$b_2$}; &
+    \node (c4) [elements between]; &
+    \node (c5) {$a_n$}; &
+    \node (c6) {$b_1$}; &
+    \node (c7) {$b_3$}; &
+    \node (c8) [elements between]; &
+    \node (c9) {$b_m$}; \\
+};
+
+\foreach \i/\j in {
+a1/c1,
+a2/c2,
+a3/c3,
+b2/c3,
+a5/c5,
+b1/c6,
+b3/c1,
+b4/c7,
+b6/c9}{
+    \draw [->, out=270, in=90] (\i.south) to (\j.north);
+}

@@ -1,0 +1,46 @@
+\matrix [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [index=3]; &
+    \node [elements between]; &
+    \node [index=i]; &
+    \node [elements between]; &
+    \node [index=n-1]; &
+    \node [index=n]; \\
+};
+
+\matrix [list=b, element=a, below=1 of a2.south, matrix anchor=b2.north] {
+    \node [elements before]; &
+    \node [index=2]; &
+    \node [elements between=1.5]; &
+    \node [index=i]; &
+    \node [elements between]; &
+    \node [index=n-1]; &
+    \node [elements between=1]; &
+    \node [index=n+1]; &
+    \node [elements after]; \\
+};
+
+\matrix [list=c, element=a, below=3 of a1.south, matrix anchor=c1.north] {
+    \node [index=1]; &
+    \node [elements between=1]; &
+    \node [index=3]; &
+    \node [elements between=3]; &
+    \node [index=n]; \\
+};
+
+\foreach \i in {1,3,n}{
+    \draw [->] (a\i.south) -- (c\i.north);
+}
+
+\tikzset{
+    -X/.style={
+        draw=linecolor,
+        line width=0.8mm,
+        -{Rays[n=4]},
+    }
+}
+
+\foreach \i in {2,i,n-1}{
+    \draw [-X] (a\i.south) -- (b\i.north);
+}

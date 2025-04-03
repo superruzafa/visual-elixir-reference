@@ -887,10 +887,20 @@
 
 - name: MapSet
   functions:
+    - name: difference/2
+      signature: |
+        defmodule MapSet do
+          def difference(map_set1, map_set2)
+        end
     - name: filter/2
       signature: |
         defmodule MapSet do
           def filter(map_set, fun)
+        end
+    - name: intersection/2
+      signature: |
+        defmodule MapSet do
+          def intersection(map_set1, map_set2)
         end
     - name: new/0
       signature: |
@@ -916,6 +926,11 @@
       signature: |
         defmodule MapSet do
           def size(map_set)
+        end
+    - name: split_with/2
+      signature: |
+        defmodule MapSet do
+          def split_with(map_set, fun)
         end
     - name: union/2
       signature: |
