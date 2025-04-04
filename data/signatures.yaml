@@ -329,6 +329,11 @@
         defmodule Enum do
           def slice(enumerable, start, count)
         end
+    - name: slide/3
+      signature: |
+        defmodule Enum do
+          def slide(enumerable, src, dst)
+        end
     - name: sort/1
       signature: |
         defmodule Enum do

@@ -1,0 +1,31 @@
+\matrix [list=a] {
+    \node [index=0]; &
+    \node [elements between]; &
+    \node {$a_{\small{\texttt{dst}}}$}; &
+    \node [elements between]; &
+    \node (afirst) {$a_{\small{\texttt{first}}}$}; &
+    \node [elements between]; &
+    \node (alast) {$a_{\small{\texttt{last}}}$}; &
+    \node [index=n-1]; \\
+};
+
+\matrix [list=b, element=a, below=2 of list a] {
+    \node [index=0]; &
+    \node [elements between]; &
+    \node (bfirst) {$a_{\small{\texttt{first}}}$}; &
+    \node [elements between]; &
+    \node (blast) {$a_{\small{\texttt{last}}}$}; &
+    \node {$a_{\small{\texttt{dst}}}$}; &
+    \node [elements between]; &
+    \node [index=n-1]; \\
+};
+
+\draw [interval=a, interval segments={{2/5}/solid,{3/5}/dashed,1/solid}] ([yshift=5mm]afirst.north west) -- ([yshift=5mm]alast.north east);
+
+\node [above=0 of interval a mark top 1] {\texttt{first}};
+\node [above=0 of interval a mark top 4] {\texttt{last}};
+
+\bracetobrace
+{alast.south east}{afirst.south west}
+{bfirst.north west}{blast.north east}
+

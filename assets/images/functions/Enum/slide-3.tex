@@ -1,0 +1,26 @@
+\matrix [list=a] {
+    \node [index=0]; &
+    \node [elements between]; &
+    \node {$a_{\small{\texttt{dst}}}$}; &
+    \node [elements between]; &
+    \node {$a_{\small{\texttt{src}-1}}$}; &
+    \node (asrc) {$a_{\small{\texttt{src}}}$}; &
+    \node {$a_{\small{\texttt{src}+1}}$}; &
+    \node [elements between]; &
+    \node [index=n-1]; \\
+};
+
+\matrix [list=b, element=a, below=2 of list a] {
+    \node [index=0]; &
+    \node [elements between]; &
+    \node (bsrc) {$a_{\small{\texttt{src}}}$}; &
+    \node {$a_{\small{\texttt{dst}}}$}; &
+    \node [elements between]; &
+    \node {$a_{\small{\texttt{src}-1}}$}; &
+    \node {$a_{\small{\texttt{src}+1}}$}; &
+    \node [elements between]; &
+    \node [index=n-1]; \\
+};
+
+\draw [->, out=270, in=90] (asrc) to (bsrc);
+
