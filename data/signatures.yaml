@@ -254,6 +254,16 @@
             empty_fallback \\ fn -> raise Enum.EmptyError end
           )
         end
+    - name: product/1
+      signature: |
+        defmodule Enum do
+          def product(enumerable)
+        end
+    - name: product_by/2
+      signature: |
+        defmodule Enum do
+          def product_by(enumerable, fun)
+        end
     - name: random/1
       signature: |
         defmodule Enum do
