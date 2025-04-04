@@ -364,6 +364,11 @@
         defmodule Enum do
           def sum(enumerable)
         end
+    - name: sum_by/2
+      signature: |
+        defmodule Enum do
+          def sum_by(enumerable, fun)
+        end
     - name: take/2
       signature: |
         defmodule Enum do
