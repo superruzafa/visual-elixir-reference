@@ -4,7 +4,7 @@ An awesome visual guide to some of the most common Elixir functions.
 
 https://superruzafa.github.io/visual-elixir-reference
 
-[![Build Status](https://travis-ci.org/superruzafa/visual-elixir-reference.svg?branch=master)](https://travis-ci.org/superruzafa/visual-elixir-reference)
+![Build Status](https://github.com/superruzafa/visual-elixir-reference/actions/workflows/main.yml/badge.svg)
 
 ## Development
 
@@ -31,4 +31,4 @@ $ make
 It will transform the .tex files into .svg images.
 
 [Hugo]: https://gohugo.io "Hugo"
-[TikZ]: https://github.com/pgf-tikz/pgf "TikZ"
+[TikZ]: https://tikz.dev "TikZ"
