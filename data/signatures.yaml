@@ -424,6 +424,16 @@
         defmodule Enum do
           def zip(enumerable1, enumerable2)
         end
+    - name: zip_reduce/3
+      signature: |
+        defmodule Enum do
+          def zip_reduce(enumerables, acc, fun)
+        end
+    - name: zip_reduce/4
+      signature: |
+        defmodule Enum do
+          def zip_reduce(left, right, acc, fun)
+        end
     - name: zip_with/2
       signature: |
         defmodule Enum do

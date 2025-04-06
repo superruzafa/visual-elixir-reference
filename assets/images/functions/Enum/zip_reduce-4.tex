@@ -1,0 +1,95 @@
+\tikzset{
+    reducer fun/.style={
+        fun,
+        function arity=2
+    },
+}
+
+%\matrix [list=e, wrapper] {,
+  %\node (e1) [placeholder=4]; &
+  %\node (e2) [placeholder=3.5]; &
+  %\node [elements between=1]; &
+  %\node (en) [placeholder=4]; \\
+%};
+
+%\matrix [list=a] {
+  %\node [index=1]; &
+  %\node [index=2]; &
+  %\node [elements between]; &
+  %\node [index=n]; \\
+%};
+
+%\matrix [list=b, right=1 of list a] {
+  %\node [index=1]; &
+  %\node [index=2]; &
+  %\node [elements between]; &
+  %\node [index=n]; &
+  %\node [elements after]; \\
+%};
+
+\begin{scope}
+    \tikzset{
+        every list/.append style={
+            element size=1cm,
+        },
+    }
+
+    \matrix [list=e1] {
+        \node {$a_1$}; &
+        \node {$b_1$}; \\
+    };
+
+    \matrix [list=e2, right=.5 of list e1] {
+        \node {$a_2$}; &
+        \node {$b_2$}; \\
+    };
+
+    \matrix [list=en, right=1 of list e2] {
+        \node {$a_n$}; &
+        \node {$b_n$}; \\
+    };
+\end{scope}
+
+\coordinate (x) at ($ (list e1.west)!.5!(list en.east) $);
+
+\matrix [list=a, above left=2 and .5 of x] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=n]; \\
+};
+
+\matrix [list=b, above right=2 and .5 of x] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=n]; &
+    \node [elements after]; \\
+};
+
+\node at ($ (x) + (0, 1) $) {$\Downarrow$};
+
+\foreach \i in {1,2,n}{
+    \node (fun \i) [reducer fun, below=1 of list e\i, anchor=in 1];
+    \draw [brace] (list e\i.south east) -- (list e\i.south west);
+    \draw [->] (last brace) -- (fun \i.in);
+}
+
+\matrix [list=b, below=1 of $(fun 1)!.5!(fun n)$] {,
+  \node [minimum width=1.5 * \listitemsize] (b1) {$acc_1$}; &
+  \node [minimum width=1.5 * \listitemsize] (b2) {$acc_2$}; &
+  \node [elements between]; &
+  \node [minimum width=1.5 * \listitemsize] (bn) {$acc_n$}; \\
+};
+
+\foreach \i in {1,2,n}{
+    \draw [->] (fun \i.out) -- (b\i.north);
+}
+
+\draw [<-, out=90, in=0] (fun 1.in 2) to +(-1.5, .5)
+    node [left] {$\texttt{acc}$};
+
+\draw [->] ($ (fun 1.out)!.5!(b1.north) $) .. controls +(1, .5) and +(0, 1.5) .. (fun 2.in 2);
+\draw [->, dotted] ($ (fun 2.out)!.5!(b2.north) $) .. controls +(1, 0) and +(0, 1.5) .. (fun n.in 2);
+
+

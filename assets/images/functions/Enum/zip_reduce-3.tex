@@ -1,0 +1,94 @@
+\tikzset{
+    every list/.append style={
+        element size=1cm,
+    },
+}
+
+\tikzset{
+    reducer fun/.style={
+        fun,
+        function arity=2
+    },
+}
+
+\matrix [list=e, wrapper] {,
+  \node (e1) [placeholder=4]; &
+  \node (e2) [placeholder=3.5]; &
+  \node [elements between=1]; &
+  \node (en) [placeholder=4]; \\
+};
+
+\matrix at (e1) [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; &
+  \node [elements after=.5]; \\
+};
+
+\matrix at (e2) [list=b] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; \\
+};
+
+\matrix at (en) [list=k] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between=.5]; &
+  \node [index=n]; &
+  \node [elements after=.5]; \\
+};
+
+\matrix [list=e1, below=1 of e1] {
+    \node {$a_1$}; &
+    \node {$b_1$}; &
+    \node [elements between]; &
+    \node {$k_1$}; \\
+};
+
+\matrix [list=e2, below=1 of e2] {
+    \node {$a_2$}; &
+    \node {$b_2$}; &
+    \node [elements between]; &
+    \node {$k_2$}; \\
+};
+
+\matrix [list=en, below=1 of en] {
+    \node {$a_n$}; &
+    \node {$b_n$}; &
+    \node [elements between]; &
+    \node {$k_n$}; \\
+};
+
+\node at ($ (list e.south)!.5!(list e2.north) $) {$\Downarrow$};
+
+\foreach \i in {1,2,n}{
+    \node (fun \i) [reducer fun, below=1 of list e\i, anchor=in 1];
+    \draw [brace] (list e\i.south east) -- (list e\i.south west);
+    \draw [->] (last brace) -- (fun \i.in);
+}
+
+\matrix [list=b, wrapper, below=1 of fun 1, matrix anchor=e1.north] {,
+  \node (e1) [placeholder=4]; &
+  \node (e2) [placeholder=3.5]; &
+  \node [elements between=1]; &
+  \node (en) [placeholder=4]; \\
+};
+
+\node at (e1) {$acc_1$};
+\node at (e2) {$acc_2$};
+\node at (en) {$acc_n$};
+
+\foreach \i in {1,2,n}{
+    \draw [->] (fun \i.out) -- (e\i.north);
+}
+
+\draw [<-, out=90, in=0] (fun 1.in 2) to +(-1.5, .5)
+    node [left] {$\texttt{acc}$};
+
+\draw [->, out=0, in=90] ($ (fun 1.out)!.5!(e1.north) $) to (fun 2.in 2);
+\draw [->, out=0, in=90, dotted] ($ (fun 2.out)!.5!(e2.north) $) to (fun n.in 2);
+
+
