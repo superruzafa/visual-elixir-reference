@@ -1,0 +1,15 @@
+\matrix [list=a] {
+  \node (a1) {\true}; &
+  \node (a2) {\true}; &
+  \node [elements between]; &
+  \node (ai) {\false}; &
+  \node [elements after]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (ai.north);
+
+\draw [->] (ai.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2)
+  node [below, anchor=north] {\false};
+

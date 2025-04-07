@@ -13,15 +13,25 @@
 
 - name: Enum
   functions:
+    - name: all?/1
+      signature: |
+        defmodule Enum do
+          def all?(enumerable)
+        end
     - name: all?/2
       signature: |
         defmodule Enum do
-          def all?(enumerable, fun \\ fn x -> x end)
+          def all?(enumerable, fun)
+        end
+    - name: any?/1
+      signature: |
+        defmodule Enum do
+          def any?(enumerable)
         end
     - name: any?/2
       signature: |
         defmodule Enum do
-          def any?(enumerable, fun \\ fn x -> x end)
+          def any?(enumerable, fun)
         end
     - name: at/3
       signature: |
