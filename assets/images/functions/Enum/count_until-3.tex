@@ -1,0 +1,26 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [index=3]; &
+  \node [elements between]; &
+  \node [index=i]; &
+  \node [elements after]; \\
+};
+
+\foreach \i/\r in {
+  1/$\true_1$,
+  2/\false,
+  3/$\true_2$,
+  i/$\true_{\texttt{\small{limit}}}$
+}{
+  \applyfuntop{a\i.north}{\texttt{fun}}{\r};
+}
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration] (a2.north) -- (a3.north);
+\draw [iteration=dashed] (a3.north) -- (ai.north);
+
+\draw [->] (ai.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2)
+  node [below, anchor=north] {\texttt{limit}};
+

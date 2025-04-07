@@ -1,0 +1,16 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\draw [enter iteration] (a1.north);
+\draw [iteration] (a1.north) -- (a2.north);
+\draw [iteration=dashed] (a2.north) -- (an.north);
+
+\draw [->] (an.north) .. controls +(1, 1) and +(0, 2) .. +(2, -2)
+  node [below, anchor=north] {$n$};
+
+\draw [measure=\texttt{limit}, measure amplitude=2cm] (a1.north west) -- ($ (an.north east) + (2, 0) $);
+

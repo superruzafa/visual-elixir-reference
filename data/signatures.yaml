@@ -78,6 +78,16 @@
         defmodule Enum do
           def count(enumerable, fun)
         end
+    - name: count_until/2
+      signature: |
+        defmodule Enum do
+          def count_until(enumerable, limit)
+        end
+    - name: count_until/3
+      signature: |
+        defmodule Enum do
+          def count_until(enumerable, fun, limit)
+        end
     - name: dedup/1
       signature: |
         defmodule Enum do
