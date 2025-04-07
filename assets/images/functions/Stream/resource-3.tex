@@ -1,0 +1,114 @@
+\tikzset{
+    start fun/.style={
+        fun=\texttt{start\_fun},
+        function arity=0,
+    },
+}
+
+\begin{scope}
+\def\smalllistitemsize{1.5cm}
+\tikzset{
+    every list/.append style={
+        element size=\smalllistitemsize,
+    },
+}
+
+\matrix[tuple=1, element size=\smalllistitemsize] {
+    \node (t11) [placeholder=2]; & \node [separator]; &
+    \node (acc1) {$acc_1$}; \\
+};
+
+\matrix at (t11) [list=b1, element=a] {
+    \node [index=1]; &
+    \node [index=2]; \\
+};
+
+\matrix[tuple=2, right=of tuple 1, element size=\smalllistitemsize] {
+    \node (t21) [placeholder=3]; & \node [separator]; &
+    \node (acc2) {$acc_2$}; \\
+};
+
+\matrix at (t21) [list=b2, element=a] {
+    \node [index=3]; &
+    \node [index=4]; &
+    \node [index=5]; \\
+};
+
+\matrix[tuple=i, right=1 of tuple 2, element size=\smalllistitemsize] {
+    \node (ti1) [placeholder=2]; & \node [separator]; &
+    \node (acci) {$acc_i$}; \\
+};
+
+\matrix at (ti1) [list=bi, element=a] {
+    \node [index=n-1]; &
+    \node [index=n]; \\
+};
+
+\matrix [tuple=i+1, right=of tuple i] {
+    \node {\texttt{:halt}}; & \node [separator]; &
+    \node (acci+1) {$acc_{i+1}$}; \\
+};
+\end{scope}
+
+\foreach \i in {1,2,i,i+1}{
+    \draw [brace] (tuple \i.north west) -- (tuple \i.north east);
+    \draw [<-] (last brace) -- +(0, .5)
+        node (fun\i) [fun, anchor=out];
+}
+
+\draw [<-] (fun1.in) -- +(0, .5)
+    node (start fun) [start fun, anchor=out];
+
+\draw [->] (acci+1.south) -- +(0, -.5)
+    node (after fun) [fun=\texttt{after\_fun}, anchor=in];
+
+\draw [->] (after fun.out) -- +(0, -.5)
+    node [below] {\_};
+
+\coordinate (top rule) at (start fun);
+\coordinate (bottom rule) at ($ (acc1.south) + (0, -1) $);
+
+\draw [->]
+    (acc1.south)
+    -- (\currcoord |- bottom rule)
+    -| ($ (tuple 1.east)!.5!(tuple 2.west) $)
+    -- (\currcoord |- top rule)
+    -| (fun2.in);
+
+\draw [->, dotted]
+    (acc2.south)
+    -- (\currcoord |- bottom rule)
+    -| ($ (tuple 2.east)!.5!(tuple i.west) $)
+    -- (\currcoord |- top rule)
+    -| (funi.in);
+
+\draw [->]
+    (acci.south)
+    -- (\currcoord |- bottom rule)
+    -| ($ (tuple i.east)!.5!(tuple i+1.west) $)
+    -- (\currcoord |- top rule)
+    -| (funi+1.in);
+
+\matrix [list=a, below=2 of $ (list b1)!.5!(list bi) $] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [index=3]; &
+    \node [index=4]; &
+    \node [index=5]; &
+    \node [elements between]; &
+    \node [index=n-1]; &
+    \node [index=n]; \\
+};
+
+\bracetobrace
+    {b12.south east}{b11.south west}
+    {a1.north west}{a2.north east}
+
+\bracetobrace
+    {b25.south east}{b23.south west}
+    {a3.north west}{a5.north east}
+
+\bracetobrace
+    {bin.south east}{bin-1.south west}
+    {an-1.north west}{an.north east}
+

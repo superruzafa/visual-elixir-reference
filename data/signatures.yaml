@@ -1113,6 +1113,11 @@
         defmodule Stream do
           def repeatedly(fun)
         end
+    - name: resource/3
+      signature: |
+        defmodule Stream do
+          def resource(start_fun, fun, after_fun)
+        end
     - name: scan/2
       signature: |
         defmodule Stream do
