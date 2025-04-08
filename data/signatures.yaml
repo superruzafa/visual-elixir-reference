@@ -1216,6 +1216,16 @@
         defmodule Tuple do
           def insert_at(tuple, index, value)
         end
+    - name: product/1
+      signature: |
+        defmodule Tuple do
+          def product(tuple)
+        end
+    - name: sum/1
+      signature: |
+        defmodule Tuple do
+          def sum(tuple)
+        end
     - name: to_list/1
       signature: |
         defmodule Tuple do

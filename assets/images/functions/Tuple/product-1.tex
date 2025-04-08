@@ -1,0 +1,13 @@
+\matrix [tuple=a] {
+  \node [index=1]; & \node [separator]; &
+  \node [index=2]; & \node [separator]; &
+  \node [elements between]; & \node [separator]; &
+  \node [index=n]; \\
+};
+
+\draw [brace] (an.south east) -- (a1.south west);
+
+\draw [->] (last brace) -- +(0, -1)
+  node [below]
+  {$a_1 \cdot a_2 \cdot \dots \cdot a_n = \displaystyle\prod_{i=1}^n a_i$};
+ 
