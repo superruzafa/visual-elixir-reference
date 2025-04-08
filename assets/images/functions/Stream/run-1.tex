@@ -1,0 +1,21 @@
+\matrix [list=a, opacity=0.5] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\matrix [list=b, element=a, right=1 of list a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\coordinate (x) at ($ (list a.east)!.5!(list b.west) $);
+
+\node at (x) {$\Rightarrow$};
+
+\node (x) [below=1 of x] {$\Downarrow$};
+\node [below=of x] {\texttt{:ok}};
+

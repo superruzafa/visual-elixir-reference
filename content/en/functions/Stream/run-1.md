@@ -1,12 +1,10 @@
 ---
 title: run/1
 url: /Stream/run/1
-draft: true
 ---
 
-# `Stream.run/1`
-Brief description and usage of the `Stream`'s `run/1` function.
+Materializes the given `stream`.
+
+This is useful when a stream needs to be run, for side effects, and there is no interest in its return result.
 
 {{< figure src="images/functions/Stream/run-1.svg" >}}
-{{< figure src="images/functions/Stream/run-1.2.svg" >}}
-{{< figure src="images/functions/Stream/run-1.3.svg" >}}

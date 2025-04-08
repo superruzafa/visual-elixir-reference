@@ -1118,6 +1118,11 @@
         defmodule Stream do
           def resource(start_fun, fun, after_fun)
         end
+    - name: run/1
+      signature: |
+        defmodule Stream do
+          def run(stream)
+        end
     - name: scan/2
       signature: |
         defmodule Stream do
