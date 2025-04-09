@@ -5,7 +5,7 @@ url: Enum/chunk_while/4
 
 Chunks `enumerable` with fine grained control when every chunk is emitted.
 
-`chunk_fun` receives the current element and the accumulator and must return
+`fun` receives the current element and the accumulator and must return
 
 - `{:cont, chunk, acc}` to emit the given chunk and continue with accumulator or
 - `{:cont, acc}` to not emit any chunk and continue with the return accumulator.
@@ -14,6 +14,6 @@ Chunks `enumerable` with fine grained control when every chunk is emitted.
 
 {{< figure src="images/functions/Enum/chunk_while-4.svg" >}}
 
-The iteration stops as soon as `chunk_fun` returns a tuple of the form `{:halt, acc}`.
+The iteration stops as soon as `fun` returns a tuple of the form `{:halt, acc}`.
 
 {{< figure src="images/functions/Enum/chunk_while-4.2.svg" >}}

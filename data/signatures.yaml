@@ -56,7 +56,7 @@
     - name: chunk_while/4
       signature: |
         defmodule Enum do
-          def chunk_while(enumerable, acc, chunk_fun, after_fun)
+          def chunk_while(enumerable, acc, fun, after_fun)
         end
     - name: concat/1
       signature: |
@@ -1031,7 +1031,7 @@
     - name: chunk_while/4
       signature: |
         defmodule Stream do
-          def chunk_while(stream, acc, chunk_fun, after_fun)
+          def chunk_while(stream, acc, fun, after_fun)
         end
     - name: cycle/1
       signature: |
