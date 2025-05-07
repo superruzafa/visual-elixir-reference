@@ -967,6 +967,11 @@
         defmodule MapSet do
           def new(enumerable, fun)
         end
+    - name: reject/2
+      signature: |
+        defmodule MapSet do
+          def reject(map_set, fun)
+        end
     - name: to_list/1
       signature: |
         defmodule MapSet do
