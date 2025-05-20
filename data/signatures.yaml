@@ -623,6 +623,11 @@
         defmodule Kernel do
           def tap(value, fun)
         end
+    - name: then/2
+      signature: |
+        defmodule Kernel do
+          def then(value, fun)
+        end
 
 - name: Keyword
   functions:
