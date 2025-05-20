@@ -618,6 +618,11 @@
         defmodule Kernel do
           def put_elem(tuple, index, value)
         end
+    - name: tap/2
+      signature: |
+        defmodule Kernel do
+          def tap(value, fun)
+        end
 
 - name: Keyword
   functions:

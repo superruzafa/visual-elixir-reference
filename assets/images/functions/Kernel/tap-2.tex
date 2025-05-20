@@ -1,0 +1,5 @@
+\node (a) {$a$};
+\node (b) [below=2 of a] {$a$};
+\node (fun) [fun, right=1 of $ (a)!.5!(b) $];
+\draw [->] (a.south) -- (b.north);
+\draw [->] ($ (a)!.2!(b) $) -| (fun.in);
