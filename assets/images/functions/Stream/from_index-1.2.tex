@@ -1,0 +1,14 @@
+\matrix [stream] {
+    \node [index=0]; &
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements after]; \\
+};
+
+\foreach \i in {0,1,2}{
+  \node (fun\i) [fun, above=.5 of a\i];
+  \draw [->] (fun\i.out) -- (a\i.north);
+  \draw [<-] (fun\i.in) -- +(0, .5)
+    node [above] {\i};
+}
+

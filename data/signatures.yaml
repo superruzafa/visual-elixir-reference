@@ -1093,6 +1093,11 @@
         defmodule Stream do
           def flat_map(enumerable, fun)
         end
+    - name: from_index/1
+      signature: |
+        defmodule Stream do
+          def from_index(fun_or_offset \\ 0)
+        end
     - name: intersperse/2
       signature: |
         defmodule Stream do

@@ -1,0 +1,12 @@
+\matrix [stream] {
+    \node (a0) {\normalsize{\texttt{offset}}}; &
+    \node (a1) {\normalsize{\texttt{offset}+1}}; &
+    \node (a2) {\normalsize{\texttt{offset}+2}}; &
+    \node [elements after]; \\
+};
+
+\draw [enter iteration] (a0.north);
+\draw [iteration] (a0.north) -- node [above=.25] {+1} (a1.north);
+\draw [iteration] (a1.north) -- node [above=.25] {+1} (a2.north);
+\draw [exit iteration] (a2.north);
+
