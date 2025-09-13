@@ -20,7 +20,7 @@ jobs:
       run: docker build -t hugo-builder .
 
     - name: Convert .tex to .svg
-      run: docker run -v ${{ github.workspace }}:/workspace hugo-builder make -C /workspace
+      run: docker run -v ${{ github.workspace }}:/workspace hugo-builder make -j -C /workspace
 
     - name: Set permissions for GitHub Actions
       run: sudo chown -R $USER:$USER $GITHUB_WORKSPACE
