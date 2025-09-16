@@ -1228,6 +1228,24 @@
         defmodule Stream do
           def zip(left, right)
         end
+    - name: zip_with/2
+      signature: |
+        defmodule Stream do
+          def zip_with(enumerables, fun)
+        end
+    - name: zip_with/3
+      signature: |
+        defmodule Stream do
+          def zip_with(enumerable1, enumerable2, fun)
+        end
+
+- name: Task
+  functions:
+    - name: async/1
+      signature: |
+        defmodule Task do
+          def async(fun)
+        end
 
 - name: Tuple
   functions:
