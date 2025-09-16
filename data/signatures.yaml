@@ -1088,6 +1088,11 @@
         defmodule Stream do
           def drop_every(enumerable, fun)
         end
+    - name: duplicate/2
+      signature: |
+        defmodule Stream do
+          def duplicate(elem, count)
+        end
     - name: each/2
       signature: |
         defmodule Stream do
