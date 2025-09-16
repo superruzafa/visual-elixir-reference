@@ -1043,6 +1043,16 @@
         defmodule Stream do
           def chunk_every(enum, count, step, leftover \\ [])
         end
+    - name: concat/1
+      signature: |
+        defmodule Stream do
+          def concat(enumerables)
+        end
+    - name: concat/2
+      signature: |
+        defmodule Stream do
+          def concat(left, right)
+        end
     - name: chunk_while/4
       signature: |
         defmodule Stream do

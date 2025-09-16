@@ -1,12 +1,8 @@
 ---
 title: concat/2
-url: /Stream/concat/2
-draft: true
+url: Stream/concat/2
 ---
 
-# `Stream.concat/2`
-Brief description and usage of the `Stream`'s `concat/2` function.
+Creates a stream that enumerates the `left` enumerable, followed by the `right` one.
 
 {{< figure src="images/functions/Stream/concat-2.svg" >}}
-{{< figure src="images/functions/Stream/concat-2.2.svg" >}}
-{{< figure src="images/functions/Stream/concat-2.3.svg" >}}
