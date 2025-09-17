@@ -1198,6 +1198,11 @@
         defmodule Stream do
           def transform(enumerable, start_fun, fun, after_fun)
         end
+    - name: transform/5
+      signature: |
+        defmodule Stream do
+          def transform(enumerable, start_fun, fun, last_fun, after_fun)
+        end
     - name: unfold/2
       signature: |
         defmodule Stream do

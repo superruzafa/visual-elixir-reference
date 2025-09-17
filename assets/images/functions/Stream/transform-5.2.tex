@@ -1,0 +1,130 @@
+\tikzset{
+    start fun/.style={
+        fun={\texttt{start\_fun}},
+        function arity=0,
+    },
+    transform fun/.style={
+        fun,
+        function arity=2,
+    },
+    last fun/.style={
+        fun={\texttt{last\_fun}},
+        function arity=1,
+    },
+    after fun/.style={
+        fun={\texttt{after\_fun}},
+        function arity=1,
+    },
+}
+
+\begin{scope}
+\def\smalllistitemsize{1.5cm}
+\tikzset{
+    every list/.append style={
+        element size=\smalllistitemsize,
+    },
+}
+
+\matrix[tuple=1, element size=\smalllistitemsize] {
+    \node (t11) [placeholder=2]; & \node [separator]; &
+    \node (acc1) {$acc_1$}; \\
+};
+
+\matrix at (t11) [list=b1, element=b] {
+    \node (b11) {$b_{1_1}$}; &
+    \node (b12) {$b_{1_2}$}; \\
+};
+
+\matrix[tuple=2, right=of tuple 1, element size=\smalllistitemsize] {
+    \node (t21) [placeholder=3]; & \node [separator]; &
+    \node (acc2) {$acc_2$}; \\
+};
+
+\matrix at (t21) [list=b2, element=b] {
+    \node (b21) {$b_{2_1}$}; &
+    \node (b22) {$b_{2_2}$}; &
+    \node (b23) {$b_{2_3}$}; \\
+};
+
+\matrix[tuple=i, right=1 of tuple 2, element size=\smalllistitemsize] {
+    \node {\texttt{:halt}}; & \node [separator]; &
+    \node (acci) {$acc_i$}; \\
+};
+
+\matrix[tuple=i+1, right=1 of tuple i, element size=\smalllistitemsize] {
+    \node (ti+11) [placeholder=2.5]; & \node [separator]; &
+    \node (acci+1) {$acc_{i+1}$}; \\
+};
+
+\matrix at (ti+11) [list=b3, element=b] {
+    \node (bi+11) {$b_{{i+1}_1}$}; &
+    \node [elements between]; &
+    \node (bi+1m) {$b_{{i+1}_m}$}; \\
+};
+
+\end{scope}
+
+\foreach \i in {1,2,i} {
+    \node (fun \i) [transform fun, above=1 of tuple \i];
+    \draw [brace] (tuple \i.north west) -- (tuple \i.north east);
+    \draw [->, out=270, in=90] (fun \i.out) to (last brace);
+}
+
+\node (last fun) [last fun, above=1 of tuple i+1];
+\draw [brace] (tuple i+1.north west) -- (tuple i+1.north east);
+\draw [->, out=270, in=90] (last fun.out) to (last brace);
+
+\matrix at ($ ($ (fun 1)!.5!(fun i) $) + (0, 2.5) $) [list=a] {
+    \node [index=1]; &
+    \node [index=2]; &
+    \node [elements between]; &
+    \node [index=i]; &
+    \node [elements after]; \\
+};
+
+\foreach \i/\j in {1,2,i} {
+    \draw [out=270, in=90, ->] (a\i.south) to (fun \i.in 1);
+}
+
+\foreach \i/\j in {1/2,2/i} {
+    \draw [out=90, in=90, ->] (acc\i.north) to (fun \j.in 2);
+}
+\draw [out=90, in=90, ->] (acci.north) to (last fun.in);
+
+\draw [<-] (fun 1.in 2) -- +(0, 1)
+    node [start fun, above];
+
+\draw [->] (acci+1.south) -- +(0, -.5)
+    node (after fun) [after fun, anchor=in];
+
+\draw [->] (after fun.out) -- +(0, -.5)
+    node [below] {\texttt{\_}};
+
+\matrix [list=b, below=6 of list a] {
+    \node (z11) {$b_{1_1}$}; &
+    \node (z12) {$b_{1_2}$}; &
+    \node (z21) {$b_{2_1}$}; &
+    \node (z22) {$b_{2_2}$}; &
+    \node (z23) {$b_{2_3}$}; &
+    \node [elements between]; &
+    \node (zi+11) {$b_{{i+1}_1}$}; &
+    \node [elements after]; &
+    \node (zi+1m) {$b_{{i+1}_m}$}; \\
+};
+
+\bracetobrace
+    {b12.south east}{b11.south west}
+    {z11.north west}{z12.north east}
+
+\bracetobrace
+    {b23.south east}{b21.south west}
+    {z21.north west}{z23.north east}
+
+%%\bracetobrace
+    %%{bnm.south east}{bn1.south west}
+    %%{zn1.north west}{znm.north east}
+
+\bracetobrace
+    {bi+1m.south east}{bi+11.south west}
+    {zi+11.north west}{zi+1m.north east}
+
