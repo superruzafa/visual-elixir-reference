@@ -1,1 +1,15 @@
-home
+{{ with site.GetPage "functions" }}
+  {{ range .Pages }}
+
+<li>
+  <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
+  <ul>
+    {{ range .Pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+</li>
+
+  {{ end }}
+{{ end }}
+
