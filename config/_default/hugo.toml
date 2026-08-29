@@ -1,0 +1,5 @@
+baseURL = "https://localhost:1313/"
+languageCode = "en"
+title = "Visual Elixir Reference"
+disablePathToLower = true
+
