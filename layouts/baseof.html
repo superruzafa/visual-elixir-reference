@@ -1,1 +1,26 @@
-baseof
+<!doctype html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Inconsolata&display=swap" rel="stylesheet">
+  {{ partial "css.html" . }}
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6/dist/fuse.min.js"></script>
+  <script src="{{ "scripts/search.js" | relURL }}"></script>
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <div class="layout">
+    {{ partial "sidebar.html" . }}
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <main class="content" id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+  {{ partial "footer.html" . }}
+  <script src="{{ "scripts/sidebar.js" | relURL }}" defer></script>
+</body>
+</html>

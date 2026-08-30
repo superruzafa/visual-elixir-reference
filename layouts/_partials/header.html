@@ -1,14 +1,16 @@
-<header class="header">
-  <div class="wrapper">
-    <div class="container-fluid d-flex align-items-center">
-      <a class="logo" href="{{ $.Site.Home.Permalink }}/">
-        <span>{{ $.Site.Title }}</span>
-      </a>
-      <div class="searchbox flex-grow-1">
-        <input id="searchbox-input" class="searchbox__input" autocomplete="false">
-        <ul id="search-results" class="search-results">
-        </ul>
-      </div>
+<header class="site-header">
+  <div class="site-header__bar">
+    <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-expanded="false" aria-controls="sidebar-nav">
+      <span class="sidebar-toggle__icon" aria-hidden="true"></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <a class="logo" href="{{ $.Site.Home.Permalink }}/">
+      <span>{{ $.Site.Title }}</span>
+    </a>
+    <div class="searchbox">
+      <input id="searchbox-input" class="searchbox__input" type="search" autocomplete="off" placeholder="Search functions…">
+      <ul id="search-results" class="search-results">
+      </ul>
     </div>
   </div>
 </header>
