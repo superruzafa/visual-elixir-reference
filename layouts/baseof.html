@@ -4,6 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'light' || stored === 'dark') {
+          document.documentElement.setAttribute('data-theme', stored);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Inconsolata&display=swap" rel="stylesheet">
@@ -22,5 +32,6 @@
   </div>
   {{ partial "footer.html" . }}
   <script src="{{ "scripts/sidebar.js" | relURL }}" defer></script>
+  <script src="{{ "scripts/theme.js" | relURL }}" defer></script>
 </body>
 </html>
