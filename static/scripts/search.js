@@ -4,12 +4,33 @@ function Search(functions) {
   this._input.addEventListener('keyup', (e) => this._inputKeyUp(e), false);
   this._input.addEventListener('keydown', (e) => this._inputKeyDown(e), false);
   this._selected_item_index = -1;
-  this._fuse = new Fuse(functions, {includeScore: true, keys: ['function', 'module']})
+  this._fuse = new Fuse(functions, {
+    includeScore: true,
+    includeMatches: true,
+    threshold: 0.4,
+    keys: [
+      {name: 'function', weight: 2},
+      {name: 'module', weight: 1}
+    ]
+  })
 }
 
 Search.prototype._search = function(query) {
-  return this._fuse.search(query)
-    .map(f => f.item);
+  var results = this._fuse.search(query);
+  var q = query.toLowerCase();
+  results.sort(function(a, b) {
+    var af = a.item.function.toLowerCase();
+    var bf = b.item.function.toLowerCase();
+    // Prefix match in function name wins over everything
+    var ap = af.startsWith(q) ? 0 : af.includes(q) ? 1 : 2;
+    var bp = bf.startsWith(q) ? 0 : bf.includes(q) ? 1 : 2;
+    if (ap !== bp) return ap - bp;
+    // Within tier 0 (prefix match), shorter name = closer match
+    if (ap === 0 && af.length !== bf.length) return af.length - bf.length;
+    // Otherwise use Fuse score
+    return a.score - b.score;
+  });
+  return results;
 }
 
 Search.prototype._inputKeyUp = function(e) {
@@ -20,14 +41,13 @@ Search.prototype._inputKeyUp = function(e) {
     case 'ArrowDown':
     case 'Tab':
     case 'Shift':
-      // ignore
       break;
     default:
       this._hideResults();
       const results = this._search(this._input.value);
       if (results.length > 0) {
         this._clearResults();
-        results.forEach(result => this._appendResult(result))
+        results.forEach(result => this._appendResult(result));
         this._showResults();
       }
   }
@@ -35,20 +55,19 @@ Search.prototype._inputKeyUp = function(e) {
 
 Search.prototype._inputKeyDown = function(e) {
   switch (e.key) {
-    case 'Enter': // Open the selected item
+    case 'Enter': {
       const selectedItem = this._getSelectedResultItem();
       if (selectedItem) {
         location.href = selectedItem.querySelector('a').href;
         return;
       }
-
       const results = this._search(this._input.value);
-      if (results.length === 0) {
-        return;
+      if (results.length > 0) {
+        location.href = results[0].item.url;
       }
-      location.href = results[0].url;
       break;
-    case 'Escape': // Closes the search
+    }
+    case 'Escape':
       this._input.blur();
       this._input.value = '';
       this._hideResults();
@@ -66,7 +85,6 @@ Search.prototype._inputKeyDown = function(e) {
       } else {
         this._moveDown();
       }
-      // Do not trigger browser's default tab (move to focusable item)
       e.preventDefault();
       break;
     default:
@@ -75,7 +93,7 @@ Search.prototype._inputKeyDown = function(e) {
 }
 
 Search.prototype._moveUp = function() {
-  if (this._selected_item_index > 0) {
+  if (this._selected_item_index >= 0) {
     this._selectResultItem(-1);
   }
 }
@@ -88,12 +106,6 @@ Search.prototype._moveDown = function() {
 
 Search.prototype._countResults = function() {
   return this._results.children.length;
-}
-
-Search.prototype._moveUp = function() {
-  if (this._selected_item_index >= 0) {
-    this._selectResultItem(-1);
-  }
 }
 
 Search.prototype._getSelectedResultItem = function() {
@@ -110,7 +122,6 @@ Search.prototype._selectResultItem = function(diff) {
   if (selectedItem != null) {
     const topPos = selectedItem.offsetTop - 100;
     selectedItem.classList.add('selected-item');
-    // Scroll inside search results.
     selectedItem.parentNode.scrollTop = topPos;
   }
 }
@@ -132,14 +143,42 @@ Search.prototype._clearResults = function() {
   }
 }
 
+Search.prototype._escapeHTML = function(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+Search.prototype._highlightMatch = function(text, matches, key) {
+  var indices = null;
+  if (matches) {
+    for (var i = 0; i < matches.length; i++) {
+      if (matches[i].key === key) {
+        indices = matches[i].indices;
+        break;
+      }
+    }
+  }
+  if (!indices || indices.length === 0) return this._escapeHTML(text);
+  var out = '';
+  var last = 0;
+  var sorted = indices.slice().sort(function(a, b) { return a[0] - b[0]; });
+  for (var j = 0; j < sorted.length; j++) {
+    var start = sorted[j][0], end = sorted[j][1] + 1;
+    out += this._escapeHTML(text.slice(last, start));
+    out += '<strong>' + this._escapeHTML(text.slice(start, end)) + '</strong>';
+    last = end;
+  }
+  out += this._escapeHTML(text.slice(last));
+  return out;
+}
+
 Search.prototype._appendResult = function(result) {
   const template = document.querySelector('#search-result-template');
   const element = document.importNode(template.content, true);
   const a = element.querySelector('a');
-  a.href = result.url;
-  const fun = element.querySelector('.search-result__function')
-  fun.textContent = result.function
-  const module = element.querySelector('.search-result__module')
-  module.textContent = result.module
+  a.href = result.item.url;
+  const fun = element.querySelector('.search-result__function');
+  fun.innerHTML = this._highlightMatch(result.item.function, result.matches, 'function');
+  const mod = element.querySelector('.search-result__module');
+  mod.innerHTML = this._highlightMatch(result.item.module, result.matches, 'module');
   this._results.appendChild(element);
 }

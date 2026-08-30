@@ -42,5 +42,21 @@
         { "module": {{ .Parent.Title }}, "function": {{ .Title }}, "url": {{ .RelPermalink }} },
 {{ end }}
     ];
-  new Search(functions);
+  var search = new Search(functions);
+
+  document.addEventListener('keydown', function (e) {
+    var tag = document.activeElement.tagName;
+    if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+      e.preventDefault();
+      document.getElementById('searchbox-input').focus();
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    var input = document.getElementById('searchbox-input');
+    var results = document.getElementById('search-results');
+    if (!input.contains(e.target) && !results.contains(e.target)) {
+      search._hideResults();
+    }
+  });
 </script>
