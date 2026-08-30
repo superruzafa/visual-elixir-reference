@@ -82,6 +82,12 @@ img {
 
 /* Header */
 .site-header {
+  --color-bg: rgb(31, 22, 40);
+  --color-bg-elevated: rgba(255, 255, 255, 0.08);
+  --color-text: #f4eefa;
+  --color-text-muted: rgba(244, 238, 250, 0.68);
+  --color-border: rgba(255, 255, 255, 0.16);
+  --color-primary: #d9c8fb;
   position: sticky;
   top: 0;
   z-index: 30;
@@ -167,6 +173,10 @@ img {
   background: var(--color-bg-elevated);
   color: var(--color-text);
   font: inherit;
+}
+
+.searchbox__input::placeholder {
+  color: var(--color-text-muted);
 }
 
 .search-results {
