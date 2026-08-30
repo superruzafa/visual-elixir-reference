@@ -18,8 +18,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Inconsolata&display=swap" rel="stylesheet">
   {{ partial "css.html" . }}
-  <script src="{{ "scripts/fuse.min.js" | relURL }}"></script>
-  <script src="{{ "scripts/search.js" | relURL }}"></script>
+  {{ partial "js.html" (dict "path" "scripts/fuse.min.js" "skipMinify" true) }}
+  {{ partial "js.html" (dict "path" "scripts/search.js") }}
 </head>
 <body>
   {{ partial "header.html" . }}
@@ -30,7 +30,7 @@
       {{ block "main" . }}{{ end }}
     </main>
   </div>
-  <script src="{{ "scripts/sidebar.js" | relURL }}" defer></script>
-  <script src="{{ "scripts/theme.js" | relURL }}" defer></script>
+  {{ partial "js.html" (dict "path" "scripts/sidebar.js" "defer" true) }}
+  {{ partial "js.html" (dict "path" "scripts/theme.js" "defer" true) }}
 </body>
 </html>

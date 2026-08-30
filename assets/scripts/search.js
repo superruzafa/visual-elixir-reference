@@ -18,16 +18,28 @@ function Search(functions) {
 Search.prototype._search = function(query) {
   var results = this._fuse.search(query);
   var q = query.toLowerCase();
+
+  function tier(item) {
+    if (item.function.toLowerCase().includes(q)) return 0; // function name contains query
+    if (item.module.toLowerCase().includes(q)) return 1;   // module name contains query
+    return 2;                                               // fuzzy match only
+  }
+
   results.sort(function(a, b) {
-    var af = a.item.function.toLowerCase();
-    var bf = b.item.function.toLowerCase();
-    // Prefix match in function name wins over everything
-    var ap = af.startsWith(q) ? 0 : af.includes(q) ? 1 : 2;
-    var bp = bf.startsWith(q) ? 0 : bf.includes(q) ? 1 : 2;
-    if (ap !== bp) return ap - bp;
-    // Within tier 0 (prefix match), shorter name = closer match
-    if (ap === 0 && af.length !== bf.length) return af.length - bf.length;
-    // Otherwise use Fuse score
+    var at = tier(a.item);
+    var bt = tier(b.item);
+    if (at !== bt) return at - bt;
+
+    if (at === 0) {
+      var af = a.item.function.toLowerCase();
+      var bf = b.item.function.toLowerCase();
+      // Within tier 0, prefix match wins, then shorter name = closer match
+      var ap = af.startsWith(q) ? 0 : 1;
+      var bp = bf.startsWith(q) ? 0 : 1;
+      if (ap !== bp) return ap - bp;
+      if (af.length !== bf.length) return af.length - bf.length;
+    }
+
     return a.score - b.score;
   });
   return results;
