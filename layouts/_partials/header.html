@@ -40,6 +40,11 @@
     const functions = [
 {{ range where $.Site.RegularPages ".Draft" false -}}
         { "module": {{ .Parent.Title }}, "function": {{ .Title }}, "url": {{ .RelPermalink }} },
+{{ end -}}
+{{ with site.GetPage "functions" -}}
+{{ range where .Pages ".Draft" false -}}
+        { "module": "Module", "function": {{ .Title }}, "url": {{ .RelPermalink }} },
+{{ end -}}
 {{ end }}
     ];
   var search = new Search(functions);

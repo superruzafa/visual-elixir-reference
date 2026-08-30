@@ -19,10 +19,15 @@ Search.prototype._search = function(query) {
   var results = this._fuse.search(query);
   var q = query.toLowerCase();
 
+  function isModule(item) {
+    return item.module === 'Module';
+  }
+
   function tier(item) {
-    if (item.function.toLowerCase().includes(q)) return 0; // function name contains query
-    if (item.module.toLowerCase().includes(q)) return 1;   // module name contains query
-    return 2;                                               // fuzzy match only
+    if (!isModule(item) && item.function.toLowerCase().includes(q)) return 0; // real function name contains query
+    if (isModule(item) && item.function.toLowerCase().includes(q)) return 1;  // module page itself matches
+    if (!isModule(item) && item.module.toLowerCase().includes(q)) return 1;   // function whose module matches
+    return 2;                                                                  // fuzzy match only
   }
 
   results.sort(function(a, b) {
@@ -38,6 +43,13 @@ Search.prototype._search = function(query) {
       var bp = bf.startsWith(q) ? 0 : 1;
       if (ap !== bp) return ap - bp;
       if (af.length !== bf.length) return af.length - bf.length;
+    }
+
+    if (at === 1) {
+      // Within tier 1, the module page itself wins over its individual functions
+      var am = isModule(a.item) ? 0 : 1;
+      var bm = isModule(b.item) ? 0 : 1;
+      if (am !== bm) return am - bm;
     }
 
     return a.score - b.score;
