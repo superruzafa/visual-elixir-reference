@@ -38,4 +38,9 @@
       closeSidebar();
     }
   });
+
+  var current = sidebar.querySelector('a[aria-current="page"]');
+  if (current) {
+    current.scrollIntoView({ block: 'center' });
+  }
 })();
