@@ -356,28 +356,6 @@ img {
   font-weight: bold;
 }
 
-/* Footer */
-.footer {
-  background: var(--color-bg-elevated);
-  border-top: 1px solid var(--color-border);
-  padding: 2rem 1.5rem;
-}
-
-.footer .section-title {
-  margin: 0 0 0.5rem;
-  font-weight: normal;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.footer .section-links {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  line-height: 2rem;
-}
-
 /* Diagrams */
 .diagram {
   text-align: center;
