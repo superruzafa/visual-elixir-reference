@@ -211,10 +211,6 @@ img {
   background: var(--color-bg-elevated);
 }
 
-.search-result__function {
-  font-family: "Inconsolata", monospace;
-}
-
 .search-result__module {
   color: var(--color-text-muted);
 }
@@ -359,7 +355,6 @@ img {
   display: block;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  font-family: "Inconsolata", monospace;
   font-size: 0.9rem;
 }
 
