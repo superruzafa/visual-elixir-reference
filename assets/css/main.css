@@ -307,6 +307,22 @@ img {
   padding: 2rem 1.5rem;
 }
 
+.function-module {
+  display: block;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.function-module:hover {
+  color: var(--color-primary);
+}
+
+.function-module + h1 {
+  margin-top: 0;
+}
+
 .sidebar-backdrop {
   display: none;
 }
