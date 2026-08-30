@@ -1,6 +1,5 @@
 ---
 title: Atom
-url: /Atom
 ---
 
 Atoms are constants whose values are their own name.

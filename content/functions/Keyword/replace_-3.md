@@ -1,7 +1,7 @@
 ---
 title: replace!/3
-url: /Keyword/replace_/3
-aliases: ['/Keyword/replace!/3/']
+aliases:
+  - /Keyword/replace!
 ---
 
 

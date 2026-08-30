@@ -1,6 +1,7 @@
 ---
 title: foldl/3
-url: List/foldl/3
+aliases:
+  - /List/foldl
 ---
 
 

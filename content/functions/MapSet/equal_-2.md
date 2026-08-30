@@ -1,7 +1,7 @@
 ---
 title: equal_/2
-url: /MapSet/equal_/2
-aliases: ['/MapSet/equal_/2/']
+aliases:
+  - /MapSet/equal
 draft: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: replace!/3
-url: /Map/replace_/3
-aliases: ['/Map/replace!/3/']
+aliases:
+  - /Map/replace!
 ---
 
 

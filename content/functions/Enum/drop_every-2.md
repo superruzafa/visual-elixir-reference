@@ -1,6 +1,7 @@
 ---
 title: drop_every/2
-url: Enum/drop_every/2
+aliases:
+  - /Enum/drop_every
 ---
 
 Returns a list where every `nth` element in `enumerable` has been dropped, starting with the first element.

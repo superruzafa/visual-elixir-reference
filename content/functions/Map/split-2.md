@@ -1,6 +1,7 @@
 ---
 title: split/2
-url: Map/split/2
+aliases:
+  - /Map/split
 ---
 
 

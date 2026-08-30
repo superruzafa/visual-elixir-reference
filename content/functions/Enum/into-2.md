@@ -1,6 +1,5 @@
 ---
 title: into/2
-url: /Enum/into/2
 draft: true
 ---
 

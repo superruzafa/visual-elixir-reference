@@ -1,6 +1,7 @@
 ---
 title: put/2
-url: /MapSet/put/2
+aliases:
+  - /MapSet/put
 draft: true
 ---
 

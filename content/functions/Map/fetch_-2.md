@@ -1,7 +1,7 @@
 ---
 title: fetch!/2
-url: /Map/fetch_/2
-aliases: ['/Map/fetch!/2/']
+aliases:
+  - /Map/fetch!
 ---
 
 

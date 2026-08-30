@@ -1,6 +1,7 @@
 ---
 title: into/3
-url: /Stream/into/3
+aliases:
+  - /Stream/into
 draft: true
 ---
 

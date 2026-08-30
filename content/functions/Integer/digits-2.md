@@ -1,6 +1,7 @@
 ---
 title: digits/2
-url: Integer/digits/2
+aliases:
+  - /Integer/digits
 ---
 
 Converts an Integer to a charlist.

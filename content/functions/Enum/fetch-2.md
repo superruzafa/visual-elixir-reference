@@ -1,6 +1,5 @@
 ---
 title: fetch/2
-url: Enum/fetch/2
 ---
 
 Finds the element at the given `index` (zero-based) and returns `{:ok, element}` if found.

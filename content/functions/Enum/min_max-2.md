@@ -1,6 +1,7 @@
 ---
 title: min_max/2
-url: /Enum/min_max/2
+aliases:
+  - /Enum/min_max
 ---
 
 Returns a tuple with the minimal and the maximal elements in the enumerable according to Erlang's term ordering.

@@ -1,6 +1,7 @@
 ---
 title: drop/2
-url: Enum/drop/2
+aliases:
+  - /Enum/drop
 ---
 
 Drops `count` elements from the enumerable.

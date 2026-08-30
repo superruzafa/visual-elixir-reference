@@ -1,6 +1,7 @@
 ---
 title: delete/2
-url: Map/delete/2
+aliases:
+  - /Map/delete
 ---
 
 

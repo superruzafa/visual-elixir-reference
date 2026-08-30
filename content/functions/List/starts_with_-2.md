@@ -1,7 +1,7 @@
 ---
 title: starts_with?/2
-url: /List/starts_with_/2
-aliases: ['/List/starts_with?/2/']
+aliases:
+  - /List/starts_with
 ---
 
 

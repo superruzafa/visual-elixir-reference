@@ -1,6 +1,5 @@
 ---
 title: flatten/1
-url: List/flatten/1
 ---
 
 

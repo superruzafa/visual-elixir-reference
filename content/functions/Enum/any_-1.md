@@ -1,8 +1,5 @@
 ---
 title: any?/1
-url: Enum/any_/1
-aliases:
-  - '/Enum/any?/1/'
 ---
 Returns `true` if at least one element in `enumerable` is truthy.
 

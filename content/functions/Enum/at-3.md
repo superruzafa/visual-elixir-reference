@@ -1,6 +1,7 @@
 ---
 title: at/3
-url: Enum/at/3
+aliases:
+  - /Enum/at
 ---
 Finds the element in `enumerable` at the index `index` (zero-based).
 

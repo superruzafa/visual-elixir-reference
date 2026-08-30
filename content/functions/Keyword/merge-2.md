@@ -1,6 +1,5 @@
 ---
 title: merge/2
-url: /Keyword/merge/2
 draft: true
 ---
 

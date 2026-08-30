@@ -1,6 +1,5 @@
 ---
 title: downcase/2
-url: /String/downcase/2
 draft: true
 ---
 

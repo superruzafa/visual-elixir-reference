@@ -1,7 +1,7 @@
 ---
 title: keymember?/3
-url: /List/keymember_/3
-aliases: ['/List/keymember?/3/']
+aliases:
+  - /List/keymember
 ---
 
 

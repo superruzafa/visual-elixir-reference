@@ -1,6 +1,7 @@
 ---
 title: delete_at/2
-url: List/delete_at/2
+aliases:
+  - /List/delete_at
 ---
 
 

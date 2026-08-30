@@ -1,6 +1,7 @@
 ---
 title: zip/2
-url: Enum/zip/2
+aliases:
+  - /Enum/zip
 ---
 
 Zips corresponding elements from two enumerables, `enumerable1` and `enumerable2` into one list of tuples.

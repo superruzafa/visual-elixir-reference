@@ -1,6 +1,7 @@
 ---
 title: transform/5
-url: Stream/transform/5
+aliases:
+  - /Stream/transform
 ---
 
 Transforms an enumerable into a stream using function-based callbacks: `start_fun`, `last_fun`, and `after_fun`.

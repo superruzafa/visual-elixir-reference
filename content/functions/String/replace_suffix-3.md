@@ -1,6 +1,5 @@
 ---
 title: replace_suffix/3
-url: /String/replace_suffix/3
 draft: true
 ---
 

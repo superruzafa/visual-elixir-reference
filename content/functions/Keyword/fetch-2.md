@@ -1,6 +1,7 @@
 ---
 title: fetch/2
-url: Keyword/fetch/2
+aliases:
+  - /Keyword/fetch
 ---
 
 

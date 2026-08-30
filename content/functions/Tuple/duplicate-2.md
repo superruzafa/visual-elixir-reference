@@ -1,6 +1,7 @@
 ---
 title: duplicate/2
-url: Tuple/duplicate/2
+aliases:
+  - /Tuple/duplicate
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: keyreplace/4
-url: /List/keyreplace/4
+aliases:
+  - /List/keyreplace
 ---
 
 

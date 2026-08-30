@@ -1,6 +1,7 @@
 ---
 title: drop/2
-url: Keyword/drop/2
+aliases:
+  - /Keyword/drop
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: sum/1
-url: Tuple/sum/1
+aliases:
+  - /Tuple/sum
 ---
 
 Returns the sum of all elements of `tuple`.

@@ -1,6 +1,7 @@
 ---
 title: merge/3
-url: /Map/merge/3
+aliases:
+  - /Map/merge
 ---
 
 

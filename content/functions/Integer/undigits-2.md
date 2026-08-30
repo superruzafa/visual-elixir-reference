@@ -1,6 +1,7 @@
 ---
 title: undigits/2
-url: /Integer/undigits/2
+aliases:
+  - /Integer/undigits
 ---
 
 Returns the integer represented by the ordered digits.

@@ -1,6 +1,7 @@
 ---
 title: pop/3
-url: Keyword/pop/3
+aliases:
+  - /Keyword/pop
 ---
 
 

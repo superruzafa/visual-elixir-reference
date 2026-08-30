@@ -1,6 +1,5 @@
 ---
 title: Map
-url: /Map
 ---
 
 **Map**s are the "go to" key-value data structure in Elixir.

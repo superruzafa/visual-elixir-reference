@@ -1,6 +1,7 @@
 ---
 title: map_reduce/3
-url: Enum/map_reduce/3
+aliases:
+  - /Enum/map_reduce
 ---
 
 Invokes the given function to each element in the enumerable to reduce it to a single element, while keeping an accumulator.

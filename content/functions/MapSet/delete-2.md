@@ -1,6 +1,7 @@
 ---
 title: delete/2
-url: /MapSet/delete/2
+aliases:
+  - /MapSet/delete
 draft: true
 ---
 

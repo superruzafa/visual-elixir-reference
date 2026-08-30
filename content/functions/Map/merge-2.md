@@ -1,6 +1,5 @@
 ---
 title: merge/2
-url: /Map/merge/2
 ---
 
 

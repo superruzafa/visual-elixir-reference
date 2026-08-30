@@ -1,6 +1,7 @@
 ---
 title: uniq/1
-url: /Stream/uniq/1
+aliases:
+  - /Stream/uniq
 ---
 
 Creates a stream that only emits elements if they are unique.

@@ -1,6 +1,5 @@
 ---
 title: with_index/2
-url: Enum/with_index/2
 ---
 
 Returns the `enumerable` with each element wrapped in a tuple alongside its index.

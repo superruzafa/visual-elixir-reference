@@ -1,6 +1,7 @@
 ---
 title: with_index/2
-url: /Stream/with_index/2
+aliases:
+  - /Stream/with_index
 ---
 
 Creates a stream where each element in the enumerable will be wrapped in a tuple alongside its index.

@@ -1,6 +1,7 @@
 ---
 title: to_string/1
-url: /List/to_string/1
+aliases:
+  - /List/to_string
 draft: true
 ---
 

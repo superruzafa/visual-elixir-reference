@@ -1,6 +1,7 @@
 ---
 title: floor_div/2
-url: /Integer/floor_div/2
+aliases:
+  - /Integer/floor_div
 draft: true
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Tuple
-url: /Tuple
 ---
 
 Tuples are intended as fixed-size containers for multiple elements.

@@ -1,6 +1,7 @@
 ---
 title: update/4
-url: /Keyword/update/4
+aliases:
+  - /Keyword/update
 ---
 
 

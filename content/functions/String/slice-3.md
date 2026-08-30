@@ -1,6 +1,5 @@
 ---
 title: slice/3
-url: /String/slice/3
 draft: true
 ---
 

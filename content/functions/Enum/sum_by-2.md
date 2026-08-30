@@ -1,6 +1,7 @@
 ---
 title: sum_by/2
-url: Enum/sum_by/2
+aliases:
+  - /Enum/sum_by
 ---
 
 Maps and computes the sum of the given `enumerable` in one pass.

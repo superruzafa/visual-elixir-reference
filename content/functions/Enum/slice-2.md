@@ -1,6 +1,7 @@
 ---
 title: slice/2
-url: Enum/slice/2
+aliases:
+  - /Enum/slice
 ---
 
 Returns a subset list of the given enumerable by `range`.

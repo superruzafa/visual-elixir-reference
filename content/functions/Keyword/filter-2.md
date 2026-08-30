@@ -1,6 +1,7 @@
 ---
 title: filter/2
-url: Keyword/filter/2
+aliases:
+  - /Keyword/filter
 ---
 
 

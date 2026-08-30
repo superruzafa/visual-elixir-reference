@@ -1,6 +1,5 @@
 ---
 title: codepoints/1
-url: /String/codepoints/1
 draft: true
 ---
 

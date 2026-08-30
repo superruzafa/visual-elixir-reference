@@ -1,6 +1,7 @@
 ---
 title: chunk_while/4
-url: Enum/chunk_while/4
+aliases:
+  - /Enum/chunk_while
 ---
 
 Chunks `enumerable` with fine grained control when every chunk is emitted.

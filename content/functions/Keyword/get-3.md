@@ -1,6 +1,7 @@
 ---
 title: get/3
-url: Keyword/get/3
+aliases:
+  - /Keyword/get
 ---
 
 

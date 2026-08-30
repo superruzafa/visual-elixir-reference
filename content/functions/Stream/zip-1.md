@@ -1,6 +1,5 @@
 ---
 title: zip/1
-url: /Stream/zip/1
 ---
 
 Zips corresponding elements from a finite collection of enumerables into one stream of tuples.

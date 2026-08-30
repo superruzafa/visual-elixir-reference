@@ -1,6 +1,7 @@
 ---
 title: gcd/2
-url: /Integer/gcd/2
+aliases:
+  - /Integer/gcd
 draft: true
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: myers_difference/2
-url: /String/myers_difference/2
 draft: true
 ---
 

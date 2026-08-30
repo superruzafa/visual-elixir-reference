@@ -1,7 +1,7 @@
 ---
 title: pop!/2
-url: /Map/pop_/2
-aliases: ['/Map/pop!/2/']
+aliases:
+  - /Map/pop!
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: mod/2
-url: /Integer/mod/2
+aliases:
+  - /Integer/mod
 draft: true
 ---
 

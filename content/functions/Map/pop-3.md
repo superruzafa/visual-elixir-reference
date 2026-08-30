@@ -1,6 +1,7 @@
 ---
 title: pop/3
-url: /Map/pop/3
+aliases:
+  - /Map/pop
 ---
 
 

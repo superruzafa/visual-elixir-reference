@@ -1,25 +1,4 @@
-{{ define "title" }}{{ .Title }} - {{ $.Site.Title }}{{ end }}
-{{ define "meta_description" }}{{ i18n "function_description" .Page }}{{ end }}
-{{ define "meta_keywords" }}{{ i18n "function_keywords" .Page }}{{ end }}
+<h1>{{ .Title }}</h1>
 
-{{ define "main" }}
+{{ .Content }}
 
-<main class="module">
-    <nav class="breadcrumbs">
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </nav>
-
-    <h1>{{ .Title }}</h1>
-
-    {{ .Content }}
-
-    <ul class="function-list">
-    {{ range .Pages }}
-        <li class="function-item{{ if .Draft }} draft{{ end }}"><a href="{{ partial "safe_function_url.html" . }}">{{ .Title }}</a></li>
-    {{ end }}
-    </ul>
-
-</main>
-
-{{ partial "translations.html" . }}
-{{ end }}

@@ -1,7 +1,7 @@
 ---
 title: ascii_printable_/2
-url: /List/ascii_printable_/2
-aliases: ['/List/ascii_printable_/2/']
+aliases:
+  - /List/ascii_printable
 draft: true
 ---
 

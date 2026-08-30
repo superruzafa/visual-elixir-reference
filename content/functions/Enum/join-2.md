@@ -1,6 +1,7 @@
 ---
 title: join/2
-url: Enum/join/2
+aliases:
+  - /Enum/join
 ---
 
 Joins the given enumerable into a binary using `joiner` as a separator.

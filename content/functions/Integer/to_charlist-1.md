@@ -1,6 +1,7 @@
 ---
 title: to_charlist/1
-url: /Integer/to_charlist/1
+aliases:
+  - /Integer/to_charlist
 draft: true
 ---
 

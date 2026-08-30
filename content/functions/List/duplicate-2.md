@@ -1,6 +1,7 @@
 ---
 title: duplicate/2
-url: List/duplicate/2
+aliases:
+  - /List/duplicate
 ---
 
 

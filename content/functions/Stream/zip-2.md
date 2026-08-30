@@ -1,6 +1,7 @@
 ---
 title: zip/2
-url: /Stream/zip/2
+aliases:
+  - /Stream/zip
 ---
 
 Zips two collections together, lazily.

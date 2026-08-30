@@ -1,6 +1,5 @@
 ---
 title: normalize/2
-url: /String/normalize/2
 draft: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: dedup/1
-url: /Stream/dedup/1
+aliases:
+  - /Stream/dedup
 ---
 
 Creates a stream that only emits elements if they are different from the last emitted element.

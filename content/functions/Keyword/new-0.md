@@ -1,6 +1,5 @@
 ---
 title: new/0
-url: /Keyword/new/0
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: equal_/2
-url: /Keyword/equal_/2
-aliases: ['/Keyword/equal_/2/']
+aliases:
+  - /Keyword/equal
 draft: true
 ---
 

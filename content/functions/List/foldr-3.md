@@ -1,6 +1,7 @@
 ---
 title: foldr/3
-url: List/foldr/3
+aliases:
+  - /List/foldr
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: take_every/2
-url: Enum/take_every/2
+aliases:
+  - /Enum/take_every
 ---
 
 Returns a list of every `nth` element in the `enumerable`, starting with the first element.

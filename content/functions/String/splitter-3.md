@@ -1,6 +1,5 @@
 ---
 title: splitter/3
-url: /String/splitter/3
 draft: true
 ---
 

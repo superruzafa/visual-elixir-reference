@@ -1,6 +1,7 @@
 ---
 title: from_struct/1
-url: /Map/from_struct/1
+aliases:
+  - /Map/from_struct
 draft: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: insert_at/3
-url: List/insert_at/3
+aliases:
+  - /List/insert_at
 ---
 
 

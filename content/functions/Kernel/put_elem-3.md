@@ -1,6 +1,7 @@
 ---
 title: put_elem/3
-url: Kernel/put_elem/3
+aliases:
+  - /Kernel/put_elem
 ---
 
 

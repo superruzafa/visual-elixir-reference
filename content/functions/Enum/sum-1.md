@@ -1,6 +1,7 @@
 ---
 title: sum/1
-url: Enum/sum/1
+aliases:
+  - /Enum/sum
 ---
 
 Returns the sum of all elements of `enumerable`.

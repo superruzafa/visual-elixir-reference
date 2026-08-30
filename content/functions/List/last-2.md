@@ -1,6 +1,7 @@
 ---
 title: last/2
-url: List/last/2
+aliases:
+  - /List/last
 ---
 
 

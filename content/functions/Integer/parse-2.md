@@ -1,6 +1,7 @@
 ---
 title: parse/2
-url: /Integer/parse/2
+aliases:
+  - /Integer/parse
 draft: true
 ---
 

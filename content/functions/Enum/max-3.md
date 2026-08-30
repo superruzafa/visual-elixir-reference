@@ -1,6 +1,7 @@
 ---
 title: max/3
-url: /Enum/max/3
+aliases:
+  - /Enum/max
 ---
 
 Returns the maximal element in the enumerable according to Erlang's term ordering.

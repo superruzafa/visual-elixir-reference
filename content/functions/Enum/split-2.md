@@ -1,6 +1,7 @@
 ---
 title: split/2
-url: Enum/split/2
+aliases:
+  - /Enum/split
 ---
 
 Splits the `enumerable` into two enumerables, leaving `count` elements in the first one.

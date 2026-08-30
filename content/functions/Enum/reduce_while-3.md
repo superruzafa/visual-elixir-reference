@@ -1,6 +1,7 @@
 ---
 title: reduce_while/3
-url: Enum/reduce_while/3
+aliases:
+  - /Enum/reduce_while
 ---
 
 Reduces `enumerable` until it's exhausted or `fun` returns `{:halt, term}`.

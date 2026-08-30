@@ -1,6 +1,7 @@
 ---
 title: new/2
-url: /Keyword/new/2
+aliases:
+  - /Keyword/new
 ---
 
 

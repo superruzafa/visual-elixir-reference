@@ -1,6 +1,7 @@
 ---
 title: take_every/2
-url: /Stream/take_every/2
+aliases:
+  - /Stream/take_every
 ---
 
 Creates a stream that takes every `nth` elements from the enumerable.

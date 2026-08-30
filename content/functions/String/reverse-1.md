@@ -1,6 +1,5 @@
 ---
 title: reverse/1
-url: /String/reverse/1
 draft: true
 ---
 

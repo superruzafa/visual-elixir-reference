@@ -1,6 +1,5 @@
 ---
 title: ends_with_/2
-url: /String/ends_with_/2
 aliases: ['/String/ends_with_/2/']
 draft: true
 ---

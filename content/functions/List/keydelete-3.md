@@ -1,6 +1,7 @@
 ---
 title: keydelete/3
-url: /List/keydelete/3
+aliases:
+  - /List/keydelete
 ---
 
 

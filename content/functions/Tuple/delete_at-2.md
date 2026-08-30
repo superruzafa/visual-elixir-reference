@@ -1,6 +1,7 @@
 ---
 title: delete_at/2
-url: Tuple/delete_at/2
+aliases:
+  - /Tuple/delete_at
 ---
 
 

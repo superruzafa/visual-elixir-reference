@@ -1,7 +1,7 @@
 ---
 title: equal_/2
-url: /Map/equal_/2
-aliases: ['/Map/equal_/2/']
+aliases:
+  - /Map/equal
 draft: true
 ---
 

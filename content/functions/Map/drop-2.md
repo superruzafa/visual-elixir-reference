@@ -1,6 +1,7 @@
 ---
 title: drop/2
-url: Map/drop/2
+aliases:
+  - /Map/drop
 ---
 
 

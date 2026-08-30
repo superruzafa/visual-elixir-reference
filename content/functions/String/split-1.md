@@ -1,6 +1,5 @@
 ---
 title: split/1
-url: /String/split/1
 draft: true
 ---
 

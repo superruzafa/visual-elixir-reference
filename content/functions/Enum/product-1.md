@@ -1,6 +1,7 @@
 ---
 title: product/1
-url: Enum/product/1
+aliases:
+  - /Enum/product
 ---
 
 Returns the product of all elements of `enumerable`.

@@ -1,8 +1,7 @@
 ---
 title: all?/2
-url: Enum/all_/2
 aliases:
-  - '/Enum/all?/2/'
+  - /Enum/all
 ---
 
 Returns `true` if **all** the elements in `enumerable` evaluate to a truthy value when the function `fun` is applied over them.

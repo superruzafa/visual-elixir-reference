@@ -1,8 +1,7 @@
 ---
 title: disjoint?/2
-url: /Range/disjoint_/2
 aliases:
-  - '/Range/disjoint?/2/'
+  - /Range/disjoint
 ---
 
 # Range.disjoint?/2

@@ -1,6 +1,7 @@
 ---
 title: to_charlist/1
-url: Atom/to_charlist/1
+aliases:
+  - /Atom/to_charlist
 ---
 
 

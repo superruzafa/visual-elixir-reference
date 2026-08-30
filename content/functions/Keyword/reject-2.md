@@ -1,6 +1,7 @@
 ---
 title: reject/2
-url: Keyword/reject/2
+aliases:
+  - /Keyword/reject
 ---
 
 

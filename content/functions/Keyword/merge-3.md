@@ -1,6 +1,7 @@
 ---
 title: merge/3
-url: /Keyword/merge/3
+aliases:
+  - /Keyword/merge
 draft: true
 ---
 

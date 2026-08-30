@@ -1,6 +1,7 @@
 ---
 title: append/2
-url: Tuple/append/2
+aliases:
+  - /Tuple/append
 ---
 
 

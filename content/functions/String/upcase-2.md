@@ -1,6 +1,5 @@
 ---
 title: upcase/2
-url: /String/upcase/2
 draft: true
 ---
 

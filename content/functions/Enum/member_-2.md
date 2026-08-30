@@ -1,7 +1,7 @@
 ---
 title: member?/2
-url: Enum/member/2
-aliases: ['/Enum/member?/2/']
+aliases:
+  - /Enum/member
 ---
 
 Returns `true` if any element in the enumerable is equal (in terms of `===/3`) to `elem`.

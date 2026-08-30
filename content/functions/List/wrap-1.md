@@ -1,6 +1,7 @@
 ---
 title: wrap/1
-url: List/wrap/1
+aliases:
+  - /List/wrap
 ---
 
 

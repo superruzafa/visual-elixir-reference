@@ -1,6 +1,7 @@
 ---
 title: min_max_by/3
-url: /Enum/min_max_by/3
+aliases:
+  - /Enum/min_max_by
 ---
 
 Returns a tuple with the minimal and the maximal elements in the enumerable as calculated by the given function.

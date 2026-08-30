@@ -1,6 +1,7 @@
 ---
 title: chunk_every/4
-url: Enum/chunk_every/4
+aliases:
+  - /Enum/chunk_every
 ---
 
 Returns list of lists containing `count` elements each, where each new chunk starts `step` elements into `enumerable`.

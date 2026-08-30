@@ -1,6 +1,5 @@
 ---
 title: to_integer/1
-url: List/to_integer/1
 ---
 
 

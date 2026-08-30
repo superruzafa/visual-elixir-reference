@@ -1,6 +1,5 @@
 ---
 title: split_at/2
-url: /String/split_at/2
 draft: true
 ---
 

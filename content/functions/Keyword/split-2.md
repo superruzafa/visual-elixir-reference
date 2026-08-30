@@ -1,6 +1,7 @@
 ---
 title: split/2
-url: /Keyword/split/2
+aliases:
+  - /Keyword/split
 ---
 
 

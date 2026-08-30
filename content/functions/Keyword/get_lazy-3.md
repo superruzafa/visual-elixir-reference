@@ -1,6 +1,7 @@
 ---
 title: get_lazy/3
-url: Keyword/get_lazy/3
+aliases:
+  - /Keyword/get_lazy
 ---
 
 

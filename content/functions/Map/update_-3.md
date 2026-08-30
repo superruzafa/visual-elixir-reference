@@ -1,7 +1,7 @@
 ---
 title: update!/3
-url: /Map/update_/3
-aliases: ['/Map/update!/3/']
+aliases:
+  - /Map/update!
 ---
 
 

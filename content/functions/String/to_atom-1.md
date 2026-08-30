@@ -1,6 +1,5 @@
 ---
 title: to_atom/1
-url: /String/to_atom/1
 draft: true
 ---
 

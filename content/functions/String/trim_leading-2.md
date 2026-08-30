@@ -1,6 +1,5 @@
 ---
 title: trim_leading/2
-url: /String/trim_leading/2
 draft: true
 ---
 

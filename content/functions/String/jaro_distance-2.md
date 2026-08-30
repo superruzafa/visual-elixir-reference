@@ -1,6 +1,5 @@
 ---
 title: jaro_distance/2
-url: /String/jaro_distance/2
 draft: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: disjoint_/2
-url: /MapSet/disjoint_/2
-aliases: ['/MapSet/disjoint_/2/']
+aliases:
+  - /MapSet/disjoint
 draft: true
 ---
 

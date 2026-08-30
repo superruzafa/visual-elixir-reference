@@ -1,6 +1,7 @@
 ---
 title: replace_at/3
-url: /List/replace_at/3
+aliases:
+  - /List/replace_at
 ---
 
 

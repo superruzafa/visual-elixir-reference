@@ -1,6 +1,7 @@
 ---
 title: keytake/3
-url: /List/keytake/3
+aliases:
+  - /List/keytake
 ---
 
 

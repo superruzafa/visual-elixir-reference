@@ -1,6 +1,5 @@
 ---
 title: length/1
-url: /String/length/1
 draft: true
 ---
 

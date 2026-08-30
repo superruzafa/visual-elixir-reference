@@ -1,6 +1,7 @@
 ---
 title: to_list/1
-url: Tuple/to_list/1
+aliases:
+  - /Tuple/to_list
 ---
 
 

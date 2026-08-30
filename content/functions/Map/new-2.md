@@ -1,6 +1,7 @@
 ---
 title: new/2
-url: Map/new/2
+aliases:
+  - /Map/new
 ---
 
 

@@ -1,6 +1,5 @@
 ---
 title: to_integer/1
-url: /String/to_integer/1
 draft: true
 ---
 

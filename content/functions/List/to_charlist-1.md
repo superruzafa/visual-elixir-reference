@@ -1,6 +1,7 @@
 ---
 title: to_charlist/1
-url: /List/to_charlist/1
+aliases:
+  - /List/to_charlist
 draft: true
 ---
 

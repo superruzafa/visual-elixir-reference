@@ -1,6 +1,7 @@
 ---
 title: has_key?/2
-url: Map/has_key?/2
+aliases:
+  - /Map/has_key
 ---
 
 

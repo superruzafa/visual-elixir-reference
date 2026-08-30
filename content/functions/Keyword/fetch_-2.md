@@ -1,7 +1,7 @@
 ---
 title: fetch!/2
-url: /Keyword/fetch_/2
-aliases: ['/Keyword/fetch!/2/']
+aliases:
+  - /Keyword/fetch!
 ---
 
 

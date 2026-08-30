@@ -1,6 +1,7 @@
 ---
 title: put_new/3
-url: /Keyword/put_new/3
+aliases:
+  - /Keyword/put_new
 ---
 
 

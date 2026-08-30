@@ -1,6 +1,5 @@
 ---
 title: transform/3
-url: Stream/transform/3
 ---
 
 Transforms an existing stream.

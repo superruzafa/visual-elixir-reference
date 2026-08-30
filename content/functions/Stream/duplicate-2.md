@@ -1,6 +1,7 @@
 ---
 title: duplicate/2
-url: /Stream/duplicate/2
+aliases:
+  - /Stream/duplicate
 ---
 
 Duplicates `elem` `count` times in a stream.

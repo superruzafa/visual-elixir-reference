@@ -1,6 +1,7 @@
 ---
 title: first/2
-url: List/first/2
+aliases:
+  - /List/first
 ---
 
 

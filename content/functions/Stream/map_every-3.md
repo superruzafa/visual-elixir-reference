@@ -1,6 +1,7 @@
 ---
 title: map_every/3
-url: /Stream/map_every/3
+aliases:
+  - /Stream/map_every
 ---
 
 Creates a stream that will apply the given function on every `nth` element from the enumerable.

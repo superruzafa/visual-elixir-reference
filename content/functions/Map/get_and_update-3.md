@@ -1,6 +1,7 @@
 ---
 title: get_and_update/3
-url: Map/get_and_update/3
+aliases:
+  - /Map/get_and_update
 ---
 
 

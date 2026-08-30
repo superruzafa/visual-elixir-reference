@@ -1,6 +1,7 @@
 ---
 title: delete_first/2
-url: Keyword/delete_first/2
+aliases:
+  - /Keyword/delete_first
 ---
 
 

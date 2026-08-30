@@ -1,6 +1,5 @@
 ---
 title: bag_distance/2
-url: /String/bag_distance/2
 draft: true
 ---
 

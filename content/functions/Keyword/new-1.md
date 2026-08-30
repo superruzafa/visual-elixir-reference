@@ -1,6 +1,5 @@
 ---
 title: new/1
-url: /Keyword/new/1
 ---
 
 

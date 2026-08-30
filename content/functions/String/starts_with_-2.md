@@ -1,6 +1,5 @@
 ---
 title: starts_with_/2
-url: /String/starts_with_/2
 aliases: ['/String/starts_with_/2/']
 draft: true
 ---

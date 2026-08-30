@@ -1,6 +1,5 @@
 ---
 title: Kernel
-url: /Kernel
 ---
 
 Kernel is Elixir's default environment.

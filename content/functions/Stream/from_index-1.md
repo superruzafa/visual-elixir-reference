@@ -1,6 +1,7 @@
 ---
 title: from_index/1
-url: Stream/from_index/1
+aliases:
+  - /Stream/from_index
 ---
 
 Builds a stream that emits a sequence of integers, starting from the given offset (defaulting to `0`).

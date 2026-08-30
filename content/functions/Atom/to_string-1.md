@@ -1,6 +1,7 @@
 ---
 title: to_string/1
-url: Atom/to_string/1
+aliases:
+  - /Atom/to_string
 ---
 
 

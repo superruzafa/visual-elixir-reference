@@ -1,8 +1,7 @@
 ---
 title: any?/2
-url: Enum/any_/2
 aliases:
-  - '/Enum/any?/2/'
+  - '/Enum/any'
 ---
 Returns `true` if **at least one element** in `enumerable` evaluates to a truthy value when the function `fun` is applied over it.
 

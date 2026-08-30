@@ -1,6 +1,7 @@
 ---
 title: interval/1
-url: Stream/interval/1
+aliases:
+  - /Stream/interval
 ---
 
 Creates a stream that emits a value after the given period `n` in milliseconds.

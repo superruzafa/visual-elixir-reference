@@ -1,6 +1,5 @@
 ---
 title: capitalize/2
-url: /String/capitalize/2
 draft: true
 ---
 

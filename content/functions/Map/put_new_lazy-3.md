@@ -1,6 +1,7 @@
 ---
 title: put_new_lazy/3
-url: Map/put_new_lazy/3
+aliases:
+  - /Map/put_new_lazy
 ---
 
 

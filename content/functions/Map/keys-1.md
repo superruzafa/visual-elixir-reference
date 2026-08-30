@@ -1,6 +1,7 @@
 ---
 title: keys/1
-url: Map/keys/1
+aliases:
+  - /Map/keys
 ---
 
 

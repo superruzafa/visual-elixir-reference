@@ -1,6 +1,7 @@
 ---
 title: resource/3
-url: /Stream/resource/3
+aliases:
+  - /Stream/resource
 ---
 
 Emits a sequence of values for a given resource.

@@ -1,6 +1,7 @@
 ---
 title: keyfind/4
-url: /List/keyfind/4
+aliases:
+  - /List/keyfind
 ---
 
 

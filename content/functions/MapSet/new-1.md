@@ -1,6 +1,5 @@
 ---
 title: new/1
-url: /MapSet/new/1
 ---
 
 Creates a set from an enumerable.

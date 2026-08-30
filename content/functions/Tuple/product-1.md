@@ -1,6 +1,7 @@
 ---
 title: product/1
-url: Tuple/product/1
+aliases:
+  - /Tuple/product
 ---
 
 Returns the product of all elements of `tuple`.

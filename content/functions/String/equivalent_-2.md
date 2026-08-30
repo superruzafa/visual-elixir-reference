@@ -1,6 +1,5 @@
 ---
 title: equivalent_/2
-url: /String/equivalent_/2
 aliases: ['/String/equivalent_/2/']
 draft: true
 ---

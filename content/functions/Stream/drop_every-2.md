@@ -1,6 +1,7 @@
 ---
 title: drop_every/2
-url: /Stream/drop_every/2
+aliases:
+  - /Stream/drop_every
 ---
 
 Creates a stream that drops every `nth` element from the enumerable.

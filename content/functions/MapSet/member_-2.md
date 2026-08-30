@@ -1,7 +1,7 @@
 ---
 title: member_/2
-url: /MapSet/member_/2
-aliases: ['/MapSet/member_/2/']
+aliases:
+  - /MapSet/member
 draft: true
 ---
 

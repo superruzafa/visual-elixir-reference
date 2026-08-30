@@ -1,6 +1,5 @@
 ---
 title: pad_trailing/3
-url: /String/pad_trailing/3
 draft: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: insert_at/3
-url: Tuple/insert_at/3
+aliases:
+  - /Tuple/insert_at
 ---
 Inserts an element into a tuple.
 

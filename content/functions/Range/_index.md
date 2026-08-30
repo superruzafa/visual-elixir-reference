@@ -1,6 +1,5 @@
 ---
 title: Range
-url: /Range
 ---
 
 Ranges represent a sequence of zero, one or many, ascending or descending integers, using the `first..last` notation.

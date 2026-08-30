@@ -1,6 +1,7 @@
 ---
 title: min/3
-url: /Enum/min/3
+aliases:
+  - /Enum/min
 ---
 
 Returns the minimal element in the enumerable according to Erlang's term ordering.

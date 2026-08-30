@@ -1,6 +1,7 @@
 ---
 title: to_integer/2
-url: List/to_integer/2
+aliases:
+  - /List/to_integer
 ---
 
 

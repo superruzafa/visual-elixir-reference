@@ -1,6 +1,7 @@
 ---
 title: random/1
-url: Enum/random/1
+aliases:
+  - /Enum/random
 ---
 
 Returns a random element from `enumerable`.

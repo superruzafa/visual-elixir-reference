@@ -1,6 +1,7 @@
 ---
 title: map_join/3
-url: Enum/map_join/3
+aliases:
+  - /Enum/map_join
 ---
 
 Maps and joins the given enumerable in one pass.

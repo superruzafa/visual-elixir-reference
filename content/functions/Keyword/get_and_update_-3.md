@@ -1,7 +1,7 @@
 ---
 title: get_and_update_/3
-url: /Keyword/get_and_update_/3
-aliases: ['/Keyword/get_and_update_/3/']
+aliases:
+  - /Keyword/get_and_update!
 draft: true
 ---
 

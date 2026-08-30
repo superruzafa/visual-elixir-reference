@@ -1,6 +1,7 @@
 ---
 title: flatten/2
-url: List/flatten/2
+aliases:
+  - /List/flatten
 ---
 
 Flattens the given list of nested lists. The list `tail` will be added at the end of the flattened list.

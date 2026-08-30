@@ -1,6 +1,7 @@
 ---
 title: put_new_lazy/3
-url: /Keyword/put_new_lazy/3
+aliases:
+  - /Keyword/put_new_lazy
 ---
 
 

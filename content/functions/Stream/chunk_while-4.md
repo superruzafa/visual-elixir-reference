@@ -1,6 +1,7 @@
 ---
 title: chunk_while/4
-url: /Stream/chunk_while/4
+aliases:
+  - /Stream/chunk_while
 ---
 
 Chunks `stream` with fine grained control when every chunk is emitted.

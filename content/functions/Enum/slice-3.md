@@ -1,6 +1,7 @@
 ---
 title: slice/3
-url: Enum/slice/3
+aliases:
+  - /Enum/slice
 ---
 
 Returns a subset list of the given `enumerable`, from `start` (zero-based) with `count` number of elements if available.

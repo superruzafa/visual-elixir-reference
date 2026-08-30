@@ -1,7 +1,7 @@
 ---
 title: replace_lazy/3
-url: /Keyword/replace_lazy/3
-aliases: ['/Keyword/replace_lazy/3/']
+aliases:
+  - /Keyword/replace_lazy
 ---
 
 

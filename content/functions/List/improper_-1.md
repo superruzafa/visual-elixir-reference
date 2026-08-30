@@ -1,7 +1,7 @@
 ---
 title: improper_/1
-url: /List/improper_/1
-aliases: ['/List/improper_/1/']
+aliases:
+  - /List/improper
 draft: true
 ---
 

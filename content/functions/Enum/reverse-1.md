@@ -1,6 +1,7 @@
 ---
 title: reverse/1
-url: Enum/reverse/1
+aliases:
+  - /Enum/reverse
 ---
 
 Returns the elements from `enumerable` in reverse order.

@@ -1,6 +1,5 @@
 ---
 title: duplicate/2
-url: /String/duplicate/2
 draft: true
 ---
 

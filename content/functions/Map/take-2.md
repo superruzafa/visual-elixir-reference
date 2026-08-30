@@ -1,6 +1,7 @@
 ---
 title: take/2
-url: Map/take/2
+aliases:
+  - /Map/take
 ---
 
 

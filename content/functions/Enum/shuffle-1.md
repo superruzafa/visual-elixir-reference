@@ -1,6 +1,7 @@
 ---
 title: shuffle/1
-url: Enum/shuffle/1
+aliases:
+  - /Enum/shuffle
 ---
 
 Returns the elements `enumerable` shuffled.

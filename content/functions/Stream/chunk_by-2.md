@@ -1,6 +1,7 @@
 ---
 title: chunk_by/2
-url: /Stream/chunk_by/2
+aliases:
+  - /Stream/chunk_by
 ---
 
 Chunks `stream` by buffering elements for which `fun` returns the same value.

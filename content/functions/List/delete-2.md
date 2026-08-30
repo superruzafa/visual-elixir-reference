@@ -1,6 +1,7 @@
 ---
 title: delete/2
-url: List/delete/2
+aliases:
+  - /List/delete
 ---
 
 

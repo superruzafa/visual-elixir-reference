@@ -1,6 +1,7 @@
 ---
 title: into/3
-url: /Enum/into/3
+aliases:
+  - /Enum/into
 draft: true
 ---
 

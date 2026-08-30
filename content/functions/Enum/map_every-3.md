@@ -1,6 +1,7 @@
 ---
 title: map_every/3
-url: Enum/map_every/3
+aliases:
+  - /Enum/map_every
 ---
 
 Returns a list of results of invoking `fun` on every `nth` element of enumerable, starting with the first element.

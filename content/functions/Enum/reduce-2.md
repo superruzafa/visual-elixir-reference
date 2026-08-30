@@ -1,6 +1,7 @@
 ---
 title: reduce/2
-url: Enum/reduce/2
+aliases:
+  - /Enum/reduce
 ---
 
 Invokes `fun` for each element in the enumerable with the accumulator.

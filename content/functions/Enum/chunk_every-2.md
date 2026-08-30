@@ -1,6 +1,5 @@
 ---
 title: chunk_every/2
-url: /Enum/chunk_every/2
 ---
 
 Returns a list of lists containing `count` elements each.

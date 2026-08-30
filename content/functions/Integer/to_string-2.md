@@ -1,6 +1,7 @@
 ---
 title: to_string/2
-url: /Integer/to_string/2
+aliases:
+  - /Integer/to_string
 ---
 
 Returns a binary which corresponds to the text representation of `integer`.

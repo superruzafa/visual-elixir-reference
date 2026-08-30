@@ -1,6 +1,5 @@
 ---
 title: contains_/2
-url: /String/contains_/2
 aliases: ['/String/contains_/2/']
 draft: true
 ---

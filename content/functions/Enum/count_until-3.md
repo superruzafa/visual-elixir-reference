@@ -1,6 +1,7 @@
 ---
 title: count_until/3
-url: Enum/count_until/3
+aliases:
+  - /Enum/count_until
 ---
 
 Counts how many elements are evaluated to truthy when `fun` is applied over them, stopping at `limit`.

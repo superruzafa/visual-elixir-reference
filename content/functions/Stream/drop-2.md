@@ -1,6 +1,7 @@
 ---
 title: drop/2
-url: /Stream/drop/2
+aliases:
+  - /Stream/drop
 ---
 
 Lazily drops the next `count` elements from the stream.

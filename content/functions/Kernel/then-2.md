@@ -1,6 +1,7 @@
 ---
 title: then/2
-url: Kernel/then/2
+aliases:
+  - /Kernel/then
 ---
 
 Pipes the first argument, `value`, into the function `fun`, and returns its result.

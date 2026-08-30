@@ -1,6 +1,7 @@
 ---
 title: to_list/1
-url: /Map/to_list/1
+aliases:
+  - /Map/to_list
 ---
 
 

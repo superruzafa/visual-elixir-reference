@@ -1,6 +1,7 @@
 ---
 title: max_by/4
-url: /Enum/max_by/4
+aliases:
+  - /Enum/max_by
 ---
 
 Returns the maximal element in the enumerable as calculated by the given `fun`.

@@ -1,6 +1,7 @@
 ---
 title: take/2
-url: /Stream/take/2
+aliases:
+  - /Stream/take
 ---
 
 Lazily takes the next `count` elements from `stream` and stops enumeration.

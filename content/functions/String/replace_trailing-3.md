@@ -1,6 +1,5 @@
 ---
 title: replace_trailing/3
-url: /String/replace_trailing/3
 draft: true
 ---
 

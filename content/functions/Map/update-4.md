@@ -1,6 +1,7 @@
 ---
 title: update/4
-url: /Map/update/4
+aliases:
+  - /Map/update
 ---
 
 

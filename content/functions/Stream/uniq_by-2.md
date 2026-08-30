@@ -1,6 +1,7 @@
 ---
 title: uniq_by/2
-url: /Stream/uniq_by/2
+aliases:
+  - /Stream/uniq_by
 ---
 
 Creates a stream that only emits elements if they are unique, by removing the elements for which function `fun` returned duplicate elements.

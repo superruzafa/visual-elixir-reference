@@ -1,6 +1,7 @@
 ---
 title: run/1
-url: /Stream/run/1
+aliases:
+  - /Stream/run
 ---
 
 Materializes the given `stream`.

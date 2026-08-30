@@ -1,6 +1,5 @@
 ---
 title: next_grapheme_size/1
-url: /String/next_grapheme_size/1
 draft: true
 ---
 

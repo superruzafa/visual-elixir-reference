@@ -1,6 +1,7 @@
 ---
 title: values/1
-url: Map/values/1
+aliases:
+  - /Map/values
 ---
 
 

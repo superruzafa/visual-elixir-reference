@@ -1,6 +1,7 @@
 ---
 title: zip/1
-url: Enum/zip/1
+aliases:
+  - /Enum/zip
 ---
 
 Zips corresponding elements from a finite collection of `enumerables` into one list of tuples.

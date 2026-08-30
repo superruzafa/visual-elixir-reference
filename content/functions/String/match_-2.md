@@ -1,6 +1,5 @@
 ---
 title: match_/2
-url: /String/match_/2
 aliases: ['/String/match_/2/']
 draft: true
 ---

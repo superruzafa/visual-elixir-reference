@@ -1,6 +1,7 @@
 ---
 title: find/3
-url: Enum/find/3
+aliases:
+  - /Enum/find
 ---
 
 Returns the first element for which `fun` returns a truthy value.

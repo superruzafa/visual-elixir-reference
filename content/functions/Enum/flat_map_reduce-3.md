@@ -1,6 +1,7 @@
 ---
 title: flat_map_reduce/3
-url: Enum/flat_map_reduce/3
+aliases:
+  - /Enum/flat_map_reduce
 ---
 
 Maps and reduces an `enumerable`, flattening the given results (only one level deep).

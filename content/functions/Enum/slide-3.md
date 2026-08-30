@@ -1,6 +1,7 @@
 ---
 title: slide/3
-url: Enum/slide/3
+aliases:
+  - /Enum/slide
 ---
 
 Slides a single element of the `enumerable` from `src` to `dst`.

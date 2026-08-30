@@ -1,6 +1,5 @@
 ---
 title: zip_with/2
-url: Stream/zip_with/2
 ---
 
 Zips corresponding elements from multiple `enumerables` into a stream, using `fun` as transforming function.

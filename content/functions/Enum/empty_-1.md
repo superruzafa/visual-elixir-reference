@@ -1,8 +1,7 @@
 ---
 title: empty?/1
-url: Enum/empty_/1
 aliases:
-  - '/Enum/empty?/1/'
+  - /Enum/empty
 ---
 
 Returns `true` if the enumerable is empty.

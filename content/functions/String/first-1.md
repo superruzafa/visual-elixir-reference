@@ -1,6 +1,5 @@
 ---
 title: first/1
-url: /String/first/1
 draft: true
 ---
 

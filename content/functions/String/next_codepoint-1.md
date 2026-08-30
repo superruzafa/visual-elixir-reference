@@ -1,6 +1,5 @@
 ---
 title: next_codepoint/1
-url: /String/next_codepoint/1
 draft: true
 ---
 

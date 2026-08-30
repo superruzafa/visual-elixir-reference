@@ -1,6 +1,7 @@
 ---
 title: uniq_by/2
-url: Enum/uniq_by/2
+aliases:
+  - /Enum/uniq_by
 ---
 
 Enumerates the `enumerable` by removing the elements for which function `fun` returned duplicate elements.

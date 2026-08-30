@@ -1,6 +1,5 @@
 ---
 title: transform/4
-url: Stream/transform/4
 ---
 
 Transforms an existing stream with function-based start and finish.

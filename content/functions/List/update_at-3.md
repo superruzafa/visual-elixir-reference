@@ -1,6 +1,7 @@
 ---
 title: update_at/3
-url: List/update_at/3
+aliases:
+  - /List/update_at
 ---
 
 

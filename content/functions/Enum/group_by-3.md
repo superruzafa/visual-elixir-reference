@@ -1,6 +1,7 @@
 ---
 title: group_by/3
-url: Enum/group_by/3
+aliases:
+  - /Enum/group_by
 ---
 
 Splits the `enumerable` into groups based on `key_fun`.

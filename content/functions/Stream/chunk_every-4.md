@@ -1,6 +1,7 @@
 ---
 title: chunk_every/4
-url: /Stream/chunk_every/4
+aliases:
+  - /Stream/chunk_every
 ---
 
 Streams the enumerable in chunks, containing `count` elements each, where each new chunk starts `step` elements into the enumerable.

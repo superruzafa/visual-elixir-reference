@@ -1,6 +1,7 @@
 ---
 title: timer/1
-url: Stream/timer/1
+aliases:
+  - /Stream/timer
 ---
 
 Creates a stream that emits a single value after `n` milliseconds.

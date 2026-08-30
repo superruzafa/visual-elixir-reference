@@ -1,6 +1,5 @@
 ---
 title: graphemes/1
-url: /String/graphemes/1
 draft: true
 ---
 

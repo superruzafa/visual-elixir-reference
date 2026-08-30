@@ -1,6 +1,7 @@
 ---
 title: to_existing_atom/1
-url: /List/to_existing_atom/1
+aliases:
+  - /List/to_existing_atom
 draft: true
 ---
 

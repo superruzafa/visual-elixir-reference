@@ -1,8 +1,5 @@
 ---
 title: all?/1
-url: Enum/all_/1
-aliases:
-  - '/Enum/all?/1/'
 ---
 
 Returns `true` if **all** the elements in `enumerable` are truthy.

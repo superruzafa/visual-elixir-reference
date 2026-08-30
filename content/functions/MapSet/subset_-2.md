@@ -1,7 +1,7 @@
 ---
 title: subset_/2
-url: /MapSet/subset_/2
-aliases: ['/MapSet/subset_/2/']
+aliases:
+  - /MapSet/subset
 draft: true
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Stream
-url: /Stream
 ---
 
 Streams are sequential data structures whose elements are evaluated _lazily_, meaning they are computed only when needed.  

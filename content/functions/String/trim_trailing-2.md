@@ -1,6 +1,5 @@
 ---
 title: trim_trailing/2
-url: /String/trim_trailing/2
 draft: true
 ---
 

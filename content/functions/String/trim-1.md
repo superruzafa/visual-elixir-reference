@@ -1,6 +1,5 @@
 ---
 title: trim/1
-url: /String/trim/1
 draft: true
 ---
 

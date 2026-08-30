@@ -1,7 +1,7 @@
 ---
 title: fetch!/2
-url: /Enum/fetch_/2
-aliases: ['/Enum/fetch!/2/']
+aliases:
+  - /Enum/fetch!
 ---
 
 Finds the element at the given `index` (zero-based) and returns it if found.

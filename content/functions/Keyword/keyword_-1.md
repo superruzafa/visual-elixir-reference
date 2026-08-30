@@ -1,7 +1,7 @@
 ---
 title: keyword?/1
-url: /Keyword/keyword_/1
-aliases: ['/Keyword/keyword?/1/']
+aliases:
+  - /Keyword/keyword
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: from_keys/2
-url: Keyword/from_keys/2
+aliases:
+  - /Keyword/from_keys
 ---
 
 

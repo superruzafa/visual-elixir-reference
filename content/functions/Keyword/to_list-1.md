@@ -1,6 +1,7 @@
 ---
 title: to_list/1
-url: /Keyword/to_list/1
+aliases:
+  - /Keyword/to_list
 ---
 
 

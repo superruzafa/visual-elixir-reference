@@ -1,6 +1,7 @@
 ---
 title: tap/2
-url: Kernel/tap/2
+aliases:
+  - /Kernel/tap
 ---
 
 Pipes the first argument, `value`, into the function `fun`, and returns `value` itself.

@@ -1,6 +1,7 @@
 ---
 title: uniq/1
-url: Enum/uniq/1
+aliases:
+  - /Enum/uniq
 ---
 
 Removes all duplicated elements.

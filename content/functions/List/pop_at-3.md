@@ -1,6 +1,7 @@
 ---
 title: pop_at/3
-url: List/pop_at/3
+aliases:
+  - /List/pop_at
 ---
 
 

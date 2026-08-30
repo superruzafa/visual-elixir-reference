@@ -1,6 +1,7 @@
 ---
 title: to_list/1
-url: /Enum/to_list/1
+aliases:
+  - /Enum/to_list
 draft: true
 ---
 

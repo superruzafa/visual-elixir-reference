@@ -1,6 +1,5 @@
 ---
 title: printable_/2
-url: /String/printable_/2
 aliases: ['/String/printable_/2/']
 draft: true
 ---

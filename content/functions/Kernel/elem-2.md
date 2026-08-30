@@ -1,6 +1,7 @@
 ---
 title: elem/2
-url: Kernel/elem/2
+aliases:
+  - /Kernel/elem
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: zip_with/2
-url: Enum/zip_with/2
+aliases:
+  - /Enum/zip_with
 ---
 
 Zips corresponding elements from multiple `enumerables` into a list, using `fun` as transforming function.

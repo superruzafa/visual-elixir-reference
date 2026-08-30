@@ -1,6 +1,7 @@
 ---
 title: to_float/1
-url: /List/to_float/1
+aliases:
+  - /List/to_float
 draft: true
 ---
 

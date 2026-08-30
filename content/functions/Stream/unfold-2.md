@@ -1,6 +1,7 @@
 ---
 title: unfold/2
-url: Stream/unfold/2
+aliases:
+  - /Stream/unfold
 ---
 
 Emits a sequence of values for the given accumulator `acc`.

@@ -1,6 +1,7 @@
 ---
 title: split_with/2
-url: Enum/split_with/2
+aliases:
+  - /Enum/split_with
 ---
 
 Splits the `enumerable` in two lists by calling `fun` with each element in the enumerable as its only argument. Returns a tuple with the first list containing all the elements in enumerable for which applying `fun` returned a truthy value, and a second list with all the elements for which applying `fun` returned a falsy value (`false` or `nil`).

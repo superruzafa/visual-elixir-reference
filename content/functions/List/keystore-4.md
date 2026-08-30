@@ -1,6 +1,7 @@
 ---
 title: keystore/4
-url: /List/keystore/4
+aliases:
+  - /List/keystore
 ---
 
 

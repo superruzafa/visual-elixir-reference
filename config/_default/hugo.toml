@@ -3,3 +3,9 @@ languageCode = "en"
 title = "Visual Elixir Reference"
 disablePathToLower = true
 
+[permalinks]
+  [permalinks.page]
+    functions = ":sectionslugs[1]/:slug"
+  [permalinks.section]
+    functions = ":slug"
+

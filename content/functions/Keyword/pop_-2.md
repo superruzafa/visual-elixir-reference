@@ -1,7 +1,7 @@
 ---
 title: pop!/2
-url: /Keyword/pop_/2
-aliases: ['/Keyword/pop!/2/']
+aliases:
+  - /Keyword/pop!
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: values/1
-url: Keyword/values/1
+aliases:
+  - /Keyword/values
 ---
 
 

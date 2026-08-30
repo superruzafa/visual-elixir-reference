@@ -1,6 +1,7 @@
 ---
 title: myers_difference/3
-url: /List/myers_difference/3
+aliases:
+  - /List/myers_difference
 draft: true
 ---
 

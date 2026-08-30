@@ -1,6 +1,7 @@
 ---
 title: keysort/2
-url: /List/keysort/2
+aliases:
+  - /List/keysort
 draft: true
 ---
 

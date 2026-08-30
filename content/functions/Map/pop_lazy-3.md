@@ -1,6 +1,7 @@
 ---
 title: pop_lazy/3
-url: /Map/pop_lazy/3
+aliases:
+  - /Map/pop_lazy
 ---
 
 

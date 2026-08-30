@@ -1,6 +1,5 @@
 ---
 title: valid_/1
-url: /String/valid_/1
 aliases: ['/String/valid_/1/']
 draft: true
 ---

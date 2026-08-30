@@ -1,6 +1,7 @@
 ---
 title: pop_values/2
-url: Keyword/pop_values/2
+aliases:
+  - /Keyword/pop_values
 ---
 
 

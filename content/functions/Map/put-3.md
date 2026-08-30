@@ -1,6 +1,7 @@
 ---
 title: put/3
-url: /Map/put/3
+aliases:
+  - /Map/put
 ---
 
 

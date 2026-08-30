@@ -1,7 +1,7 @@
 ---
 title: update!/3
-url: /Keyword/update_/3
-aliases: ['/Keyword/update!/3/']
+aliases:
+  - /Keyword/update!
 ---
 
 

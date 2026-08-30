@@ -1,6 +1,7 @@
 ---
 title: min_by/4
-url: /Enum/min_by/4
+aliases:
+  - /Enum/min_by
 ---
 
 Returns the minimal element in the enumerable as calculated by the given `fun`.

@@ -1,6 +1,7 @@
 ---
 title: get/3
-url: Map/get/3
+aliases:
+  - /Map/get
 ---
 
 

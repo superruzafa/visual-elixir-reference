@@ -1,6 +1,7 @@
 ---
 title: take/2
-url: Keyword/take/2
+aliases:
+  - /Keyword/take
 ---
 
 

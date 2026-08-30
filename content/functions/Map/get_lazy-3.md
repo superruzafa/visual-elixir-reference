@@ -1,6 +1,7 @@
 ---
 title: get_lazy/3
-url: Map/get_lazy/3
+aliases:
+  - /Map/get_lazy
 ---
 
 

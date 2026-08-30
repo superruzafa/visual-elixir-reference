@@ -1,6 +1,7 @@
 ---
 title: take/2
-url: Enum/take/2
+aliases:
+  - /Enum/take
 ---
 
 Takes `count` elements from the beginning of `enumerable`.

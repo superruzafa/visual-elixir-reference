@@ -1,6 +1,5 @@
 ---
 title: to_charlist/1
-url: /String/to_charlist/1
 draft: true
 ---
 
