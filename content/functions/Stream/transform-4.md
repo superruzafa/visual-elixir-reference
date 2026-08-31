@@ -6,4 +6,4 @@ Transforms an existing stream with function-based start and finish.
 
 The accumulator is only calculated when transformation starts. It also allows an after function to be given which is invoked when the stream halts or completes.
 
-{{< figure src="images/functions/Stream/transform-4.svg" >}}
+{{< diagram 1 >}}

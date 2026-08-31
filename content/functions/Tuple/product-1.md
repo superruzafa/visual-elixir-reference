@@ -6,11 +6,11 @@ aliases:
 
 Returns the product of all elements of `tuple`.
 
-{{< figure src="images/functions/Tuple/product-1.svg" >}}
+{{< diagram 1 >}}
 
 Returns 1 if `tuple` has no elements.
 
-{{< figure src="images/functions/Tuple/product-1.2.svg" >}}
+{{< diagram 2 >}}
 
 Raises `ArithmeticError` if enumerable contains a non-numeric value.
 

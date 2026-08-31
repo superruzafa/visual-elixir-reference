@@ -6,8 +6,8 @@ aliases:
 
 Splits the `enumerable` into two enumerables, leaving `count` elements in the first one.
 
-{{< figure src="images/functions/Enum/split-2.svg" >}}
+{{< diagram 1 >}}
 
 If `count` is a negative number, it starts counting from the back to the beginning of the enumerable.
 
-{{< figure src="images/functions/Enum/split-2.2.svg" >}}
+{{< diagram 2 >}}

@@ -4,12 +4,12 @@ title: all?/1
 
 Returns `true` if **all** the elements in `enumerable` are truthy.
 
-{{< figure src="images/functions/Enum/all_-1.svg" >}}
+{{< diagram 1 >}}
 
 As soon as one element is falsy, the iteration stops and the whole function returns `false`.
 
-{{< figure src="images/functions/Enum/all_-1.2.svg" >}}
+{{< diagram 2 >}}
 
 On empty enumerables this function returns `true`.
 
-{{< figure src="images/functions/Enum/all_-1.3.svg" >}}
+{{< diagram 3 >}}

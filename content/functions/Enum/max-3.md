@@ -8,12 +8,12 @@ Returns the maximal element in the enumerable according to Erlang's term orderin
 
 By default, the comparison is done with the `>=` sort function. If multiple elements are considered maximal, the first one that was found is returned.
 
-{{< figure src="images/functions/Enum/max-3.svg" >}}
+{{< diagram 1 >}}
 
 If the enumerable is empty, the provided `empty_fallback` is called.
 
-{{< figure src="images/functions/Enum/max-3.2.svg" >}}
+{{< diagram 2 >}}
 
 The default `empty_fallback` raises `Enum.EmptyError`.
 
-{{< figure src="images/functions/Enum/max-3.3.svg" >}}
+{{< diagram 3 >}}

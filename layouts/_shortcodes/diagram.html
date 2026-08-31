@@ -1,0 +1,36 @@
+{{- $diagramNumber := int (.Get 0) -}}
+
+{{- $module := .Page.Title -}}
+{{- $function := .Page.Title -}}
+{{- if not .Page.IsSection -}}
+  {{- $module = .Page.Parent.Title -}}
+{{- end -}}
+
+{{- $diagramSuffix := "" -}}
+{{- if lt 1 $diagramNumber -}}
+  {{- $diagramSuffix = printf ".%d" $diagramNumber -}}
+{{- end -}}
+
+{{- $base := printf "%s/%s%s" $module (replace $function "/" "-") $diagramSuffix -}}
+{{- $base = replaceRE `[?!]` "_" $base -}}
+{{- $file := printf "static/images/functions/%s.svg" $base -}}
+
+{{- if not (fileExists $file) -}}
+  {{ warnf "%s doesn't exist" $file }}
+{{- end -}}
+
+{{- $svg := readFile $file -}}
+
+{{- $prefix := replaceRE `[/.]` "-" $base -}}
+{{- $svg = replaceRE `^<\?xml[^>]*\?>\s*` "" $svg -}}
+{{- $svg = replace $svg `id="` (printf `id="%s-` $prefix) -}}
+{{- $svg = replace $svg `href="#` (printf `href="#%s-` $prefix) -}}
+{{- $svg = replace $svg `url(#` (printf `url(#%s-` $prefix) -}}
+{{- $svg = replaceRE `fill="rgb\(0%[^"]*\)"` `fill="var(--color-diagram-line)"` $svg -}}
+{{- $svg = replaceRE `stroke="rgb\(0%[^"]*\)"` `stroke="var(--color-diagram-line)"` $svg -}}
+{{- $svg = replaceRE `fill="rgb\(12[^"]*\)"` `fill="var(--color-diagram-text)"` $svg -}}
+{{- $svg = replaceRE `fill="rgb\(97[^"]*\)"` `fill="var(--color-diagram-fill)"` $svg -}}
+{{- $svg = replaceRE `fill="rgb\(100[^"]*\)"` `fill="var(--color-diagram-bg)"` $svg -}}
+<figure class="diagram">
+{{ $svg | safeHTML }}
+</figure>

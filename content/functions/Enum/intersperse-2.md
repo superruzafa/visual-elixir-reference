@@ -6,4 +6,4 @@ aliases:
 
 Intersperses `elem` between each element of `enumerable`.
 
-{{< figure src="images/functions/Enum/intersperse-2.svg" >}}
+{{< diagram 1 >}}

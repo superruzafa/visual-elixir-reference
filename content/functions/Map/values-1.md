@@ -7,4 +7,4 @@ aliases:
 
 Returns all values from `map`.
 
-{{< figure src="images/functions/Map/values-1.svg" >}}
+{{< diagram 1 >}}

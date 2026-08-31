@@ -9,4 +9,4 @@ Takes all entries corresponding to the given `keys` and returns them in a new ke
 
 Duplicated `keys` are preserved in the new keyword list.
 
-{{< figure src="images/functions/Keyword/take-2.svg" >}}
+{{< diagram 1 >}}

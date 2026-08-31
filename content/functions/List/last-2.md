@@ -7,8 +7,8 @@ aliases:
 
 Returns the last element in `list`.
 
-{{< figure src="images/functions/List/last-2.svg" >}}
+{{< diagram 1 >}}
 
 Returns `default` if `list` is empty.
 
-{{< figure src="images/functions/List/last-2.2.svg" >}}
+{{< diagram 2 >}}

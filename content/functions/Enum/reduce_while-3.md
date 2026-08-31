@@ -13,8 +13,8 @@ The return value for `fun` is expected to be
 
 If `fun` returns `{:halt, acc}` the reduction is halted and the function returns `acc`.
 
-{{< figure src="images/functions/Enum/reduce_while-3.svg" >}}
+{{< diagram 1 >}}
 
 Otherwise, if `enumerable` is exhausted, the function returns the accumulator of the last `{:cont, acc}`.
 
-{{< figure src="images/functions/Enum/reduce_while-3.2.svg" >}}
+{{< diagram 2 >}}

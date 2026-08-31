@@ -7,12 +7,12 @@ aliases:
 
 Returns and removes the value at the specified index in the list.
 
-{{< figure src="images/functions/List/pop_at-3.svg" >}}
+{{< diagram 1 >}}
 
 Negative indices indicate an offset from the end of the list.
 
-{{< figure src="images/functions/List/pop_at-3.2.svg" >}}
+{{< diagram 2 >}}
 
 If index is out of bounds, the original list is returned.
 
-{{< figure src="images/functions/List/pop_at-3.3.svg" >}}
+{{< diagram 3 >}}

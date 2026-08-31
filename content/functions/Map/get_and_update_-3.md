@@ -11,12 +11,12 @@ Gets the value from `key` and updates it, all in one pass.
 
 The returned value is a tuple with the "get" value returned by `fun` and a new map with the updated value under `key`.
 
-{{< figure src="images/functions/Map/get_and_update_-3.svg" >}}
+{{< diagram 1 >}}
 
 If `key` is not present in `map` then `KeyError` is raised.
 
-{{< figure src="images/functions/Map/get_and_update_-3.2.svg" >}}
+{{< diagram 2 >}}
 
 `fun` may also return `:pop`, which means the current value shall be removed from `map` and returned.
 
-{{< figure src="images/functions/Map/get_and_update_-3.3.svg" >}}
+{{< diagram 3 >}}

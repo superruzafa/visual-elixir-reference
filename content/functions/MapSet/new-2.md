@@ -6,4 +6,4 @@ aliases:
 
 Creates a set from an enumerable via the transformation function `fun`.
 
-{{< figure src="images/functions/MapSet/new-2.svg" >}}
+{{< diagram 1 >}}

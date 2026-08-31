@@ -7,4 +7,4 @@ aliases:
 
 Converts a list to a tuple.
 
-{{< figure src="images/functions/List/to_tuple-1.svg" >}}
+{{< diagram 1 >}}

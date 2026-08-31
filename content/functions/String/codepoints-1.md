@@ -6,6 +6,6 @@ draft: true
 # `String.codepoints/1`
 Brief description and usage of the `String`'s `codepoints/1` function.
 
-{{< figure src="images/functions/String/codepoints-1.svg" >}}
-{{< figure src="images/functions/String/codepoints-1.2.svg" >}}
-{{< figure src="images/functions/String/codepoints-1.3.svg" >}}
+{{< diagram 1 >}}
+{{< diagram 2 >}}
+{{< diagram 3 >}}

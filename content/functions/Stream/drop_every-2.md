@@ -10,4 +10,4 @@ The first element is always dropped, unless `nth` is 0.
 
 `nth` must be a non-negative integer.
 
-{{< figure src="images/functions/Stream/drop_every-2.svg" >}}
+{{< diagram 1 >}}

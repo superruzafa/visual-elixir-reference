@@ -7,8 +7,8 @@ aliases:
 
 Returns true if a given `key` exists in the given keywords.
 
-{{< figure src="images/functions/Keyword/has_key_-2.svg" >}}
+{{< diagram 1 >}}
 
 If `key` does not exist, returns `false`.
 
-{{< figure src="images/functions/Keyword/has_key_-2.2.svg" >}}
+{{< diagram 2 >}}

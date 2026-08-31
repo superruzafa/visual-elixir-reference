@@ -7,12 +7,12 @@ aliases:
 
 Wraps `term` in a list if this is not list.
 
-{{< figure src="images/functions/List/wrap-1.svg" >}}
+{{< diagram 1 >}}
 
 If `term` is already a list, it returns the list.
 
-{{< figure src="images/functions/List/wrap-1.2.svg" >}}
+{{< diagram 2 >}}
 
 If `term` is `nil`, it returns an empty list.
 
-{{< figure src="images/functions/List/wrap-1.3.svg" >}}
+{{< diagram 3 >}}

@@ -6,5 +6,5 @@ aliases:
 
 Creates a list with the elements of the set.
 
-{{< figure src="images/functions/MapSet/to_list-1.svg" >}}
+{{< diagram 1 >}}
 

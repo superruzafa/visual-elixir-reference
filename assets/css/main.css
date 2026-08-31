@@ -9,6 +9,11 @@
   --color-primary-contrast: #ffffff;
   --color-focus: #2f6fed;
 
+  --color-diagram-line: #472873;
+  --color-diagram-text: #000000;
+  --color-diagram-fill: #f8efdb;
+  --color-diagram-bg: var(--color-bg);
+
   --header-height: 3.75rem;
   --sidebar-width: 17.5rem;
   --content-max-width: 60rem;
@@ -24,6 +29,11 @@
     --color-primary: #b79aef;
     --color-primary-contrast: #14141a;
     --color-focus: #79a5ff;
+
+    --color-diagram-line: #b79aef;
+    --color-diagram-text: #eceef2;
+    --color-diagram-fill: #2a2140;
+    --color-diagram-bg: var(--color-bg);
   }
 }
 
@@ -36,6 +46,11 @@
   --color-primary: #b79aef;
   --color-primary-contrast: #14141a;
   --color-focus: #79a5ff;
+
+  --color-diagram-line: #b79aef;
+  --color-diagram-text: #eceef2;
+  --color-diagram-fill: #2a2140;
+  --color-diagram-bg: var(--color-bg);
 }
 
 /* Reset */
@@ -411,6 +426,11 @@ img {
 /* Diagrams */
 .diagram {
   text-align: center;
+}
+
+.diagram svg {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Module function listing */

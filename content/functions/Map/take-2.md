@@ -9,4 +9,4 @@ Returns a new map with all the key-value pairs in `map` where the key is in `key
 
 If `keys` contains keys that are not in map, they're simply ignored.
 
-{{< figure src="images/functions/Map/take-2.svg" >}}
+{{< diagram 1 >}}

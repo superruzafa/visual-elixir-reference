@@ -6,4 +6,4 @@ Zips corresponding elements from multiple `enumerables` into a stream, using `fu
 
 The zipping finishes as soon as any enumerable completes.
 
-{{< figure src="images/functions/Stream/zip_with-2.svg" >}}
+{{< diagram 1 >}}

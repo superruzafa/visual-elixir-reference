@@ -7,5 +7,5 @@ aliases:
 
 Returns only those elements for which `fun` returns a truthy value.
 
-{{< figure src="images/functions/Keyword/filter-2.svg" >}}
+{{< diagram 1 >}}
 

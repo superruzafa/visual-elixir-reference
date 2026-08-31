@@ -7,4 +7,4 @@ aliases:
 
 Converts an `atom` to a string.
 
-{{< figure src="images/functions/Atom/to_string-1.svg" >}}
+{{< diagram 1 >}}

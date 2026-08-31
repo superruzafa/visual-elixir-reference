@@ -6,4 +6,4 @@ aliases:
 
 Creates a stream that will apply the given function on enumeration.
 
-{{< figure src="images/functions/Stream/map-2.svg" >}}
+{{< diagram 1 >}}

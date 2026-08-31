@@ -6,12 +6,12 @@ aliases:
 
 Returns `true` if **all** the elements in `enumerable` evaluate to a truthy value when the function `fun` is applied over them.
 
-{{< figure src="images/functions/Enum/all_-2.svg" >}}
+{{< diagram 1 >}}
 
 As soon as one element evaluates to a falsy value, the iteration stops and the whole function returns `false`.
 
-{{< figure src="images/functions/Enum/all_-2.2.svg" >}}
+{{< diagram 2 >}}
 
 On empty enumerables this function returns `true`.
 
-{{< figure src="images/functions/Enum/all_-2.3.svg" >}}
+{{< diagram 3 >}}

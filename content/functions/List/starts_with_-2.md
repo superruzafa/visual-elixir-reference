@@ -8,8 +8,8 @@ aliases:
 Returns `true` if `list` starts with the given `prefix`.
 Also if `prefix` is an empty list, it returns `true`.
 
-{{< figure src="images/functions/List/starts_with_-2.svg" >}}
+{{< diagram 1 >}}
 
 Otherwise returns `false`.
 
-{{< figure src="images/functions/List/starts_with_-2.2.svg" >}}
+{{< diagram 2 >}}

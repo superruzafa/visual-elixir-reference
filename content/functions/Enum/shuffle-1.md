@@ -8,4 +8,4 @@ Returns the elements `enumerable` shuffled.
 
 This function uses Erlang's `:rand` module to calculate the random value. Check its documentation for setting a different random algorithm or a different seed.
 
-{{< figure src="images/functions/Enum/shuffle-1.svg" >}}
+{{< diagram 1 >}}

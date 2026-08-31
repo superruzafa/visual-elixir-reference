@@ -6,8 +6,8 @@ aliases:
 
 Returns `true` if the enumerable is empty.
 
-{{< figure src="images/functions/Enum/empty-1.svg" >}}
+{{< diagram 1 >}}
 
 Otherwise it returns `false`.
 
-{{< figure src="images/functions/Enum/empty-1.2.svg" >}}
+{{< diagram 2 >}}

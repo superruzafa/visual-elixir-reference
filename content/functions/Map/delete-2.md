@@ -9,4 +9,4 @@ Deletes the entry in map for a specific `key`.
 
 If the `key` does not exist, returns map unchanged.
 
-{{< figure src="images/functions/Map/delete-2.svg" >}}
+{{< diagram 1 >}}

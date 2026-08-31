@@ -10,4 +10,4 @@ Maps and joins the given enumerable in one pass.
 
 All elements returned from invoking the `fun` must be convertible to a binary, otherwise an error is raised.
 
-{{< figure src="images/functions/Enum/map_join-3.svg" >}}
+{{< diagram 1 >}}

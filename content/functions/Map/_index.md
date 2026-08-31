@@ -6,9 +6,9 @@ title: Map
 
 Maps can be created with the `%{}` syntax, and key-value pairs can be expressed as `key => value`:
 
-{{< figure src="images/functions/Map/Map.svg" >}}
+{{< diagram 1 >}}
 
 When keys are atoms the key-value pairs can be expressed as `key: value`:
 
-{{< figure src="images/functions/Map/Map.2.svg" >}}
+{{< diagram 2 >}}
 

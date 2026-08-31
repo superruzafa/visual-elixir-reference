@@ -4,4 +4,4 @@ title: Integer
 
 Functions for working with integers.
 
-{{< figure src="images/functions/Integer/Integer.svg" >}}
+{{< diagram 1 >}}

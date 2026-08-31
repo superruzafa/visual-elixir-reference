@@ -11,4 +11,4 @@ All keys in `map2` will be added to `map1`. The given function will be invoked w
 
 The value returned by `fun` is used as the value under `key` in the resulting map.
 
-{{< figure src="images/functions/Map/merge-3.svg" >}}
+{{< diagram 1 >}}

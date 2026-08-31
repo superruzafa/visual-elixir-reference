@@ -8,4 +8,4 @@ Splits the `enumerable` in two lists by calling `fun` with each element in the e
 
 The elements in both the returned lists are in the same relative order as they were in the original enumerable (if such enumerable was ordered, like a list).
 
-{{< figure src="images/functions/Enum/split_with-2.svg" >}}
+{{< diagram 1 >}}

@@ -7,8 +7,8 @@ aliases:
 
 Receives a list of tuples and replaces the tuple whose `index`-th element is `key` with `new_tuple`.
 
-{{< figure src="images/functions/List/keyreplace-4.svg" >}}
+{{< diagram 1 >}}
 
 If no tuple is found the list is returned untouched.
 
-{{< figure src="images/functions/List/keyreplace-4.2.svg" >}}
+{{< diagram 2 >}}

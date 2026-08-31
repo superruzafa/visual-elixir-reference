@@ -8,4 +8,4 @@ Flattens the given list of nested lists. The list `tail` will be added at the en
 
 Empty list elements from list are discarded, but not the ones from tail.
 
-{{< figure src="images/functions/List/flatten-2.svg" >}}
+{{< diagram 1 >}}

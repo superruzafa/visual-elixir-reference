@@ -6,10 +6,10 @@ aliases:
 
 Takes `count` elements from the beginning of `enumerable`.
 
-{{< figure src="images/functions/Enum/take-2.svg" >}}
+{{< diagram 1 >}}
 
 If a negative `count` is given, the elements will be taken from the end. 
 
-{{< figure src="images/functions/Enum/take-2.2.svg" >}}
+{{< diagram 2 >}}
 
 If `count` is 0, it returns `[]`.

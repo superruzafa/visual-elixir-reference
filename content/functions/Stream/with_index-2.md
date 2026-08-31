@@ -6,8 +6,8 @@ aliases:
 
 Creates a stream where each element in the enumerable will be wrapped in a tuple alongside its index.
 
-{{< figure src="images/functions/Stream/with_index-2.svg" >}}
+{{< diagram 1 >}}
 
 If `offset` is given, we will index from the given offset instead of from zero.
 
-{{< figure src="images/functions/Stream/with_index-2.2.svg" >}}
+{{< diagram 2 >}}

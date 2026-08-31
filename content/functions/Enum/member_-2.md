@@ -6,8 +6,8 @@ aliases:
 
 Returns `true` if any element in the enumerable is equal (in terms of `===/3`) to `elem`.
 
-{{< figure src="images/functions/Enum/member-2.svg" >}}
+{{< diagram 1 >}}
 
 If no element is found then `false` is returned.
 
-{{< figure src="images/functions/Enum/member-2.2.svg" >}}
+{{< diagram 2 >}}

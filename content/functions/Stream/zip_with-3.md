@@ -8,4 +8,4 @@ Zips corresponding elements from two enumerables, `enumerable1` and `enumerable2
 
 The zipping finishes as soon as any enumerable completes.
 
-{{< figure src="images/functions/Stream/zip_with-3.svg" >}}
+{{< diagram 1 >}}

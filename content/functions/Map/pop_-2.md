@@ -7,8 +7,8 @@ aliases:
 
 Returns and removes the value associated with key in map.
 
-{{< figure src="images/functions/Map/pop_-2.svg" >}}
+{{< diagram 1 >}}
 
 Raises `KeyError` if `key` is not present.
 
-{{< figure src="images/functions/Map/pop_-2.2.svg" >}}
+{{< diagram 2 >}}

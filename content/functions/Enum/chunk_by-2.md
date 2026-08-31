@@ -5,4 +5,4 @@ aliases:
 ---
 Splits `enumerable` on every element for which `fun` returns a new value.
 
-{{< figure src="images/functions/Enum/chunk_by-2.svg" >}}
+{{< diagram 1 >}}

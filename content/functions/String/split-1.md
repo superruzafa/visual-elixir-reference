@@ -6,6 +6,6 @@ draft: true
 # `String.split/1`
 Brief description and usage of the `String`'s `split/1` function.
 
-{{< figure src="images/functions/String/split-1.svg" >}}
-{{< figure src="images/functions/String/split-1.2.svg" >}}
-{{< figure src="images/functions/String/split-1.3.svg" >}}
+{{< diagram 1 >}}
+{{< diagram 2 >}}
+{{< diagram 3 >}}

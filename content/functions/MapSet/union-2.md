@@ -6,5 +6,5 @@ aliases:
 
 Returns a set containing all members of `map_set1` and `map_set2`.
 
-{{< figure src="images/functions/MapSet/union-2.svg" >}}
+{{< diagram 1 >}}
 

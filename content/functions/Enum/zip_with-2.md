@@ -8,4 +8,4 @@ Zips corresponding elements from multiple `enumerables` into a list, using `fun`
 
 The zipping finishes as soon as any enumerable completes.
 
-{{< figure src="images/functions/Enum/zip_with-2.svg" >}}
+{{< diagram 1 >}}

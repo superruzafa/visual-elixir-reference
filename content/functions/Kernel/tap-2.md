@@ -8,5 +8,5 @@ Pipes the first argument, `value`, into the function `fun`, and returns `value` 
 
 Useful for running synchronous side effects in a pipeline, using the `|>/2` operator.
 
-{{< figure src="images/functions/Kernel/tap-2.svg" >}}
+{{< diagram 1 >}}
 

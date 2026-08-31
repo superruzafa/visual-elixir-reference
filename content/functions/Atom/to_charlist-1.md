@@ -7,4 +7,4 @@ aliases:
 
 Converts an `atom` to a charlist.
 
-{{< figure src="images/functions/Atom/to_charlist-1.svg" >}}
+{{< diagram 1 >}}

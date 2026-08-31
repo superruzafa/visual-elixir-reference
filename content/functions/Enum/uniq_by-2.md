@@ -10,4 +10,4 @@ The function `fun` maps every element to a term. Two elements are considered dup
 
 The first occurrence of each element is kept.
 
-{{< figure src="images/functions/Enum/uniq_by-2.svg" >}}
+{{< diagram 1 >}}

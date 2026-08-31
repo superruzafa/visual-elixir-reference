@@ -13,4 +13,4 @@ Keys for which there are no entries in the keyword list are ignored.
 
 Entries with duplicated keys end up in the same keyword list.
 
-{{< figure src="images/functions/Keyword/split-2.svg" >}}
+{{< diagram 1 >}}

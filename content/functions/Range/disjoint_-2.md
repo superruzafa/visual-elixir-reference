@@ -7,8 +7,8 @@ aliases:
 # Range.disjoint?/2
 Returns `true` if `range1` **does not** overlap `range2`.
 
-{{< figure src="images/functions/Range/disjoint_-2.svg" >}}
+{{< diagram 1 >}}
 
 It returns `false` otherwise.
 
-{{< figure src="images/functions/Range/disjoint_-2.2.svg" >}}
+{{< diagram 2 >}}

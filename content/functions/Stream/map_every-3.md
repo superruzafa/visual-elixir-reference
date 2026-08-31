@@ -10,4 +10,4 @@ The first element is always passed to the given function.
 
 `nth` must be a non-negative integer.
 
-{{< figure src="images/functions/Stream/map_every-3.svg" >}}
+{{< diagram 1 >}}

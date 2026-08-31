@@ -6,6 +6,6 @@ draft: true
 # `Keyword.merge/2`
 Brief description and usage of the `Keyword`'s `merge/2` function.
 
-{{< figure src="images/functions/Keyword/merge-2.svg" >}}
-{{< figure src="images/functions/Keyword/merge-2.2.svg" >}}
-{{< figure src="images/functions/Keyword/merge-2.3.svg" >}}
+{{< diagram 1 >}}
+{{< diagram 2 >}}
+{{< diagram 3 >}}

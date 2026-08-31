@@ -6,4 +6,4 @@ aliases:
 
 Returns the elements from `enumerable` in reverse order.
 
-{{< figure src="images/functions/Enum/reverse-1.svg" >}}
+{{< diagram 1 >}}

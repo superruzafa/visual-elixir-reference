@@ -7,8 +7,8 @@ aliases:
 
 Fetches the value for a specific `key` in the given `map`.
 
-{{< figure src="images/functions/Map/fetch_-2.svg" >}}
+{{< diagram 1 >}}
 
 If `map` doesn't contain `key`, a `KeyError` exception is raised.
 
-{{< figure src="images/functions/Map/fetch_-2.2.svg" >}}
+{{< diagram 2 >}}

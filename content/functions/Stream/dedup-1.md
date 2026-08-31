@@ -10,4 +10,4 @@ This function only ever needs to store the last emitted element.
 
 Elements are compared using `===/2`.
 
-{{< figure src="images/functions/Stream/dedup-1.svg" >}}
+{{< diagram 1 >}}

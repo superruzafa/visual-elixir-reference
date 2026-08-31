@@ -6,11 +6,11 @@ aliases:
 
 Returns a subset list of the given `enumerable`, from `start` (zero-based) with `count` number of elements if available.
 
-{{< figure src="images/functions/Enum/slice-3.svg" >}}
+{{< diagram 1 >}}
 
 A negative `start` can be passed, which means the enumerable is enumerated once and the index is counted from the end.
 
-{{< figure src="images/functions/Enum/slice-3.2.svg" >}}
+{{< diagram 2 >}}
 
 It returns [] if `count` is 0 or if `start` is out of bounds.
 

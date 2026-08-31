@@ -6,4 +6,4 @@ aliases:
 
 Creates a stream that will reject elements according to the given function on enumeration.
 
-{{< figure src="images/functions/Stream/reject-2.svg" >}}
+{{< diagram 1 >}}

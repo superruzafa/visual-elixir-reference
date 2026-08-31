@@ -10,4 +10,4 @@ Returns a tuple where the first element is the mapped enumerable and the second 
 
 The function, `fun`, receives two arguments: the first one is the element, and the second one is the accumulator. `fun` must return a tuple with two elements in the form of `{result, accumulator}`.
 
-{{< figure src="images/functions/Enum/map_reduce-3.svg" >}}
+{{< diagram 1 >}}

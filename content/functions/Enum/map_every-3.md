@@ -12,4 +12,4 @@ The second argument specifying every `nth` element must be a non-negative intege
 
 If `nth` is 0, then enumerable is directly converted to a list, without `fun` being ever applied.
 
-{{< figure src="images/functions/Enum/map_every-3.svg" >}}
+{{< diagram 1 >}}

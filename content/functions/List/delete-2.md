@@ -8,4 +8,4 @@ aliases:
 Deletes the given element from the list. Returns a new list without the element.
 If the element occurs more than once in the list, just the first occurrence is removed.
 
-{{< figure src="images/functions/List/delete-2.svg" >}}
+{{< diagram 1 >}}

@@ -7,4 +7,4 @@ aliases:
 
 Returns all keys from the keyword list.
 
-{{< figure src="images/functions/Keyword/keys-1.svg" >}}
+{{< diagram 1 >}}

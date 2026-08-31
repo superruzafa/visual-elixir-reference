@@ -14,9 +14,9 @@ Once all elements have been processed, `last_fun` is called to emit any final ch
 
 Finally, `after_fun` is called with the last accumulator to perform cleanup.
 
-{{< figure src="images/functions/Stream/transform-5.svg" >}}
+{{< diagram 1 >}}
 
 The transformation can be halted before consuming all elements of the `enumerable` by returning `{:halt, acc}`.
 
-{{< figure src="images/functions/Stream/transform-5.2.svg" >}}
+{{< diagram 2 >}}
 

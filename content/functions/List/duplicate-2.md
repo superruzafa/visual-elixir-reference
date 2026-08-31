@@ -7,8 +7,8 @@ aliases:
 
 Duplicates `elem` `count` times in a list.
 
-{{< figure src="images/functions/List/duplicate-2.svg" >}}
+{{< diagram 1 >}}
 
 If `count` is 0, an empty list is returned.
 
-{{< figure src="images/functions/List/duplicate-2.2.svg" >}}
+{{< diagram 2 >}}

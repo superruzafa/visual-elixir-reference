@@ -6,4 +6,4 @@ aliases:
 
 Maps with the function `fun` and intersperses the given `enumerable` in one pass.
 
-{{< figure src="images/functions/Enum/map_intersperse-3.svg" >}}
+{{< diagram 1 >}}

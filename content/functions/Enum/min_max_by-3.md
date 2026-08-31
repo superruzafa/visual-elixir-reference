@@ -7,12 +7,12 @@ aliases:
 Returns a tuple with the minimal and the maximal elements in the enumerable as calculated by the given function.
 If multiple elements are considered maximal or minimal, the first one that was found is returned.
 
-{{< figure src="images/functions/Enum/min_max_by-3.svg" >}}
+{{< diagram 1 >}}
 
 If the enumerable is empty, the provided `empty_fallback` is called.
 
-{{< figure src="images/functions/Enum/min_max_by-3.2.svg" >}}
+{{< diagram 2 >}}
 
 The default `empty_fallback` raises `Enum.EmptyError`.
 
-{{< figure src="images/functions/Enum/min_max_by-3.3.svg" >}}
+{{< diagram 3 >}}

@@ -7,8 +7,8 @@ aliases:
 
 Gets the value for a specific `key` in `map`.
 
-{{< figure src="images/functions/Map/get-3.svg" >}}
+{{< diagram 1 >}}
 
 Otherwise, `default` is returned.
 
-{{< figure src="images/functions/Map/get-3.2.svg" >}}
+{{< diagram 2 >}}

@@ -6,8 +6,8 @@ aliases:
 
 Lazily drops the next `count` elements from the stream.
 
-{{< figure src="images/functions/Stream/drop-2.svg" >}}
+{{< diagram 1 >}}
 
 If a negative `count` is given, it will drop the last `count` elements from the stream.
 
-{{< figure src="images/functions/Stream/drop-2.2.svg" >}}
+{{< diagram 2 >}}

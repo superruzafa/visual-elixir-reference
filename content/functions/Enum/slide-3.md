@@ -6,13 +6,13 @@ aliases:
 
 Slides a single element of the `enumerable` from `src` to `dst`.
 
-{{< figure src="images/functions/Enum/slide-3.svg" >}}
+{{< diagram 1 >}}
 
 When `src` is a `Range` then multiple elements are slided.
 
-{{< figure src="images/functions/Enum/slide-3.2.svg" >}}
+{{< diagram 2 >}}
 
 When `dst` is negative count is done from the end.
 
-{{< figure src="images/functions/Enum/slide-3.3.svg" >}}
+{{< diagram 3 >}}
 

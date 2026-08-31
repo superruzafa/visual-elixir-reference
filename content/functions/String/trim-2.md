@@ -6,6 +6,6 @@ draft: true
 # `String.trim/2`
 Brief description and usage of the `String`'s `trim/2` function.
 
-{{< figure src="images/functions/String/trim-2.svg" >}}
-{{< figure src="images/functions/String/trim-2.2.svg" >}}
-{{< figure src="images/functions/String/trim-2.3.svg" >}}
+{{< diagram 1 >}}
+{{< diagram 2 >}}
+{{< diagram 3 >}}

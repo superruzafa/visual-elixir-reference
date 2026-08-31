@@ -8,8 +8,8 @@ aliases:
 Updates the `key` with the given function `fun`.
 If there are duplicated keys, they are all removed and only the first one is updated.
 
-{{< figure src="images/functions/Keyword/update_-3.svg" >}}
+{{< diagram 1 >}}
 
 If the `key` does not exist, raises `KeyError`.
 
-{{< figure src="images/functions/Keyword/update_-3.2.svg" >}}
+{{< diagram 2 >}}

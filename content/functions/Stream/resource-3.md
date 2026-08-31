@@ -12,7 +12,7 @@ The result of that call is passed to `fun`, which returns a tuple containing two
 
 `fun` is then called repeatedly with the updated accumulator until it returns `{:halt, acc}`. The final accumulator is then passed to `after_fun`.
 
-{{< figure src="images/functions/Stream/resource-3.svg" >}}
+{{< diagram 1 >}}
 
 A typical use case involves opening a file with `start_fun`, streaming its contents in some way with successive calls to `fun` (one per line), and then closing the file with `after_fun`.
 

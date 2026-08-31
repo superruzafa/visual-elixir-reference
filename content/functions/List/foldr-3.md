@@ -7,4 +7,4 @@ aliases:
 
 Folds (reduces) the given list from the right with a function. Requires an accumulator.
 
-{{< figure src="images/functions/List/foldr-3.svg" >}}
+{{< diagram 1 >}}

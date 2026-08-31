@@ -8,5 +8,5 @@ This allows for the creation of streams with potentially infinite elements, maki
 
 Additionally, streams are functionally composable, enabling the chaining of multiple operations without executing them until absolutely necessary, optimizing both performance and memory usage.
 
-{{< figure src="images/functions/Stream/Stream.svg" >}}
+{{< diagram 1 >}}
 

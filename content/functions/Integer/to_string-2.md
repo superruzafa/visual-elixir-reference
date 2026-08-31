@@ -6,8 +6,8 @@ aliases:
 
 Returns a binary which corresponds to the text representation of `integer`.
 
-{{< figure src="images/functions/Integer/to_string-2.svg" >}}
+{{< diagram 1 >}}
 
 If `base` is provided then `integer` is converted given that base.
 
-{{< figure src="images/functions/Integer/to_string-2.2.svg" >}}
+{{< diagram 2 >}}

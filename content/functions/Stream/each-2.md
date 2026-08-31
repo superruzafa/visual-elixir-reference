@@ -6,4 +6,4 @@ aliases:
 
 Executes the given function for each element.
 
-{{< figure src="images/functions/Stream/each-2.svg" >}}
+{{< diagram 1 >}}

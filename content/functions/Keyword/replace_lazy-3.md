@@ -9,8 +9,8 @@ Replaces the value under `key` using the given function only if the key already 
 
 In case the key exists multiple times in the keyword list, it removes later occurrences.
 
-{{< figure src="images/functions/Keyword/replace_lazy-3.svg" >}}
+{{< diagram 1 >}}
 
 If `key` is not present `keywords` is returned as it.
 
-{{< figure src="images/functions/Keyword/replace_lazy-3.2.svg" >}}
+{{< diagram 2 >}}

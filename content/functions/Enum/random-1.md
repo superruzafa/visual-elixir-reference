@@ -12,8 +12,8 @@ The implementation is based on the reservoir sampling algorithm. It assumes that
 
 If a range is passed into the function, this function will pick a random value between the range limits, without traversing the whole range (thus executing in constant time and constant memory).
 
-{{< figure src="images/functions/Enum/random-1.svg" >}}
+{{< diagram 1 >}}
 
 Raises `Enum.EmptyError` if enumerable is empty.
 
-{{< figure src="images/functions/Enum/random-1.2.svg" >}}
+{{< diagram 2 >}}

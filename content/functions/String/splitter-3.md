@@ -6,6 +6,6 @@ draft: true
 # `String.splitter/3`
 Brief description and usage of the `String`'s `splitter/3` function.
 
-{{< figure src="images/functions/String/splitter-3.svg" >}}
-{{< figure src="images/functions/String/splitter-3.2.svg" >}}
-{{< figure src="images/functions/String/splitter-3.3.svg" >}}
+{{< diagram 1 >}}
+{{< diagram 2 >}}
+{{< diagram 3 >}}

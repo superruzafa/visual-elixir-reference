@@ -7,4 +7,4 @@ Flattens the given `list` of nested lists.
 
 Empty list elements are discarded.
 
-{{< figure src="images/functions/List/flatten-1.svg" >}}
+{{< diagram 1 >}}

@@ -10,4 +10,4 @@ The first element is always included, unless `nth` is 0.
 
 The second argument specifying every `nth` element must be a non-negative integer.
 
-{{< figure src="images/functions/Enum/take_every-2.svg" >}}
+{{< diagram 1 >}}

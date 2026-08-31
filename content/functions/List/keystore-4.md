@@ -7,8 +7,8 @@ aliases:
 
 Receives a list of tuples and replaces the element identified by key at position with `new_tuple`.
 
-{{< figure src="images/functions/List/keystore-4.svg" >}}
+{{< diagram 1 >}}
 
 If the element does not exist, it is added to the end of the list.
 
-{{< figure src="images/functions/List/keystore-4.2.svg" >}}
+{{< diagram 2 >}}

@@ -6,4 +6,4 @@ Zips corresponding elements from a finite collection of enumerables into one str
 
 The zipping finishes as soon as any enumerable in the given collection completes.
 
-{{< figure src="images/functions/Stream/zip-1.svg" >}}
+{{< diagram 1 >}}

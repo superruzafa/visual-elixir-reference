@@ -12,4 +12,4 @@ If the last chunk does not have `count` elements to fill the chunk, elements are
 
 If `:discard` is given in `leftover`, the last chunk is discarded unless it has exactly `count` elements.
 
-{{< figure src="images/functions/Enum/chunk_every-4.svg" >}}
+{{< diagram 1 >}}

@@ -6,9 +6,9 @@ aliases:
 
 Builds a stream that emits a sequence of integers, starting from the given offset (defaulting to `0`).
 
-{{< figure src="images/functions/Stream/from_index-1.svg" >}}
+{{< diagram 1 >}}
 
 If a function is supplied, it will be invoked with elements starting from the offset.
 
-{{< figure src="images/functions/Stream/from_index-1.2.svg" >}}
+{{< diagram 2 >}}
 

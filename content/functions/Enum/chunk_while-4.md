@@ -13,8 +13,8 @@ Chunks `enumerable` with fine grained control when every chunk is emitted.
 
 `after_fun` is invoked when iteration is done and must also return `{:cont, chunk, acc}` or `{:cont, acc}`.
 
-{{< figure src="images/functions/Enum/chunk_while-4.svg" >}}
+{{< diagram 1 >}}
 
 The iteration stops as soon as `fun` returns a tuple of the form `{:halt, acc}`.
 
-{{< figure src="images/functions/Enum/chunk_while-4.2.svg" >}}
+{{< diagram 2 >}}

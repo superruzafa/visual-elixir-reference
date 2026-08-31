@@ -10,9 +10,9 @@ Returns a subset list of the given enumerable by `range`.
 
 If `range.last` is out of bounds, then it is assigned as the index of the last element.
 
-{{< figure src="images/functions/Enum/slice-2.svg" >}}
+{{< diagram 1 >}}
 
 Indexes are normalized, meaning that negative indexes will be counted from the end.
 
-{{< figure src="images/functions/Enum/slice-2.2.svg" >}}
+{{< diagram 2 >}}
 
