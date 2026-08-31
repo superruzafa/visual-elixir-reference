@@ -293,6 +293,7 @@ img {
   overflow-y: auto;
   background: var(--color-bg-elevated);
   border-right: 1px solid var(--color-border);
+  font-size: 1.05rem;
 }
 
 .tree {
@@ -305,6 +306,7 @@ img {
   max-width: var(--content-max-width);
   margin: 0 auto;
   padding: 2rem 1.5rem;
+  font-size: 1.125rem;
 }
 
 .function-module {
@@ -391,7 +393,7 @@ img {
   display: block;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .tree__module-link--empty {
