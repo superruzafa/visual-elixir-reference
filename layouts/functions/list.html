@@ -6,4 +6,10 @@
 <h1>{{ .Title }}</h1>
 
 {{ .Content }}
+
+<ul class="function-list">
+  {{ range (where .Pages ".Draft" false).ByTitle }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
 {{ end }}
