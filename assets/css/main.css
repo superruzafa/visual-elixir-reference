@@ -2,7 +2,7 @@
 :root {
   --color-bg: #ffffff;
   --color-bg-elevated: #f5f5f7;
-  --color-text: #1a1a1a;
+  --color-text: #2b2730;
   --color-text-muted: #5b5b66;
   --color-border: #e0e0e6;
   --color-primary: #6e4a9e;
@@ -82,7 +82,7 @@ img {
 
 /* Header */
 .site-header {
-  --color-bg: rgb(31, 22, 40);
+  --color-bg: #4e2a8e;
   --color-bg-elevated: rgba(255, 255, 255, 0.08);
   --color-text: #f4eefa;
   --color-text-muted: rgba(244, 238, 250, 0.68);
