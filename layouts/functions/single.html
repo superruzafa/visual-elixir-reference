@@ -6,5 +6,7 @@
 <a class="function-module" href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
 <h1>{{ .Title }}</h1>
 
+{{ partial "signature.html" . }}
+
 {{ .Content }}
 {{ end }}

@@ -1,0 +1,11 @@
+{{- $module_name := .Parent.Title -}}
+{{- $function_name := .Title -}}
+{{- range hugo.Data.signatures -}}
+    {{- if eq $module_name .name -}}
+        {{- range .functions -}}
+            {{- if eq $function_name .name -}}
+<div class="signature"><code>{{ .signature }}</code></div>
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
