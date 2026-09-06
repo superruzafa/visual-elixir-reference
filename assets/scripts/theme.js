@@ -1,9 +1,12 @@
 (function () {
   var STORAGE_KEY = 'theme';
+  var CYCLE_ORDER = ['light', 'dark', 'system'];
   var root = document.documentElement;
   var buttons = document.querySelectorAll('.theme-switch__option');
+  var cycleButton = document.getElementById('theme-switch-cycle');
+  var cycleLabel = document.getElementById('theme-switch-cycle-label');
 
-  if (!buttons.length) {
+  if (!buttons.length && !cycleButton) {
     return;
   }
 
@@ -30,6 +33,12 @@
     buttons.forEach(function (button) {
       button.setAttribute('aria-pressed', String(button.dataset.themeValue === value));
     });
+    if (cycleButton) {
+      cycleButton.dataset.themeValue = value;
+    }
+    if (cycleLabel) {
+      cycleLabel.textContent = value.charAt(0).toUpperCase() + value.slice(1);
+    }
   }
 
   buttons.forEach(function (button) {
@@ -39,6 +48,15 @@
       apply(value);
     });
   });
+
+  if (cycleButton) {
+    cycleButton.addEventListener('click', function () {
+      var current = cycleButton.dataset.themeValue || 'system';
+      var next = CYCLE_ORDER[(CYCLE_ORDER.indexOf(current) + 1) % CYCLE_ORDER.length];
+      setStored(next);
+      apply(next);
+    });
+  }
 
   apply(getStored() || 'system');
 })();
