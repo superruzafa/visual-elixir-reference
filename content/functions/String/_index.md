@@ -1,5 +1,6 @@
 ---
 title: String
+draft: true
 ---
 
 Maps are the "go to" key-value data structure in Elixir.

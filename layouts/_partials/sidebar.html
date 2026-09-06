@@ -22,12 +22,12 @@
           <li class="tree__item">
             <details class="tree__module"{{ if eq $module.Title $currentModuleTitle }} open{{ end }}>
               <summary class="tree__summary">
-                <a href="{{ $module.RelPermalink }}"{{ if eq $module.RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ $module.Title }}</a>
+                <a href="{{ $module.RelPermalink }}"{{ if $module.Draft }} class="tree__draft"{{ end }}{{ if eq $module.RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ $module.Title }}</a>
               </summary>
               <ul class="tree__list tree__list--functions">
                 {{- range $functions }}
                 <li class="tree__item">
-                  <a class="tree__function-link" href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+                  <a class="tree__function-link{{ if .Draft }} tree__draft{{ end }}" href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
                 </li>
                 {{- end }}
               </ul>

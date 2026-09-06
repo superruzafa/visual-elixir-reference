@@ -465,6 +465,12 @@ img {
   font-size: 1rem;
 }
 
+.tree__summary a.tree__draft,
+.tree__function-link.tree__draft {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
 .tree a[aria-current="page"] {
   color: var(--color-primary);
   font-weight: bold;
