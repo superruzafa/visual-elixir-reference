@@ -15,8 +15,11 @@
         {{- range .Pages.ByTitle }}
           {{- $module := . }}
           {{- $functions := (where $module.Pages ".Draft" false).ByTitle }}
+          {{- if site.BuildDrafts }}
+            {{- $functions = $module.Pages.ByTitle }}
+          {{- end }}
+          {{- if gt (len $functions) 0 }}
           <li class="tree__item">
-            {{- if gt (len $functions) 0 }}
             <details class="tree__module"{{ if eq $module.Title $currentModuleTitle }} open{{ end }}>
               <summary class="tree__summary">
                 <a href="{{ $module.RelPermalink }}"{{ if eq $module.RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ $module.Title }}</a>
@@ -29,10 +32,8 @@
                 {{- end }}
               </ul>
             </details>
-            {{- else }}
-            <a class="tree__module-link tree__module-link--empty" href="{{ $module.RelPermalink }}">{{ $module.Title }}</a>
-            {{- end }}
           </li>
+          {{- end }}
         {{- end }}
       {{- end }}
     </ul>

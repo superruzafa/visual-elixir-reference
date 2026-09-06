@@ -448,15 +448,13 @@ img {
 }
 
 .tree__summary a,
-.tree__function-link,
-.tree__module-link {
+.tree__function-link {
   text-decoration: none;
   color: var(--color-text);
 }
 
 .tree__summary a:hover,
-.tree__function-link:hover,
-.tree__module-link:hover {
+.tree__function-link:hover {
   color: var(--color-primary);
 }
 
@@ -465,12 +463,6 @@ img {
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   font-size: 1rem;
-}
-
-.tree__module-link--empty {
-  display: block;
-  padding: 0.25rem 0;
-  color: var(--color-text-muted);
 }
 
 .tree a[aria-current="page"] {
