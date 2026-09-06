@@ -2,6 +2,10 @@
   {{ .Parent.Title }}.{{ .Title }} | {{ site.Title }}
 {{ end }}
 
+{{ define "head_extra" }}
+{{ partial "pagination-links.html" . }}
+{{ end }}
+
 {{ define "main" }}
 <a class="function-module" href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
 <h1>{{ .Title }}</h1>
