@@ -1,5 +1,6 @@
 ---
 title: fetch!/2
+url: /Enum/fetch!/2/
 aliases:
   - /Enum/fetch!
 ---

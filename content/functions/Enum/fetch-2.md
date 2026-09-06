@@ -1,5 +1,7 @@
 ---
 title: fetch/2
+aliases:
+  - /Enum/fetch
 ---
 
 Finds the element at the given `index` (zero-based) and returns `{:ok, element}` if found.

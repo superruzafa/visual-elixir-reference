@@ -1,5 +1,6 @@
 ---
 title: replace!/3
+url: /Keyword/replace!/3/
 aliases:
   - /Keyword/replace!
 ---

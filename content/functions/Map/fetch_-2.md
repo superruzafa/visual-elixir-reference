@@ -1,5 +1,6 @@
 ---
 title: fetch!/2
+url: /Map/fetch!/2/
 aliases:
   - /Map/fetch!
 ---
