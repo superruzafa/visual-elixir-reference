@@ -3,17 +3,27 @@
 {{ end }}
 
 {{ define "main" }}
-<ul class="module-list">
+<section class="hero">
+  <h1 class="hero__title">Visual Elixir Reference</h1>
+  <p class="hero__text">
+    This guide collects some of the most common functions of the Elixir programming language and
+    explains them conceptually and graphically in a simple way.
+  </p>
+</section>
+
+<ul class="module-grid">
   {{ with site.GetPage "functions" }}
-    {{ range .Pages }}
-    <li>
-      <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
-      <ul>
-        {{ range .Pages }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ end }}
-      </ul>
-    </li>
+    {{ range .Pages.ByTitle }}
+      {{ $module := . }}
+      {{ $functions := where $module.Pages ".Draft" false }}
+      {{ if gt (len $functions) 0 }}
+      <li class="module-grid__item">
+        <a href="{{ $module.RelPermalink }}">
+          <span class="module-grid__title">{{ $module.Title }}</span>
+          <span class="module-grid__count">{{ len $functions }} function{{ if ne (len $functions) 1 }}s{{ end }}</span>
+        </a>
+      </li>
+      {{ end }}
     {{ end }}
   {{ end }}
 </ul>
