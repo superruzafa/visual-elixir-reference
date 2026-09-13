@@ -10,7 +10,7 @@
   --color-focus: #2f6fed;
 
   --color-diagram-line: #472873;
-  --color-diagram-text: #000000;
+  --color-diagram-text: var(--color-diagram-line);
   --color-diagram-fill: #ede9fe;
   --color-diagram-bg: var(--color-bg);
 
@@ -31,7 +31,7 @@
     --color-focus: #79a5ff;
 
     --color-diagram-line: #b79aef;
-    --color-diagram-text: #eceef2;
+    --color-diagram-text: var(--color-diagram-line);
     --color-diagram-fill: #2a2140;
     --color-diagram-bg: var(--color-bg);
   }
@@ -48,7 +48,7 @@
   --color-focus: #79a5ff;
 
   --color-diagram-line: #b79aef;
-  --color-diagram-text: #eceef2;
+  --color-diagram-text: var(--color-diagram-line);
   --color-diagram-fill: #2a2140;
   --color-diagram-bg: var(--color-bg);
 }
