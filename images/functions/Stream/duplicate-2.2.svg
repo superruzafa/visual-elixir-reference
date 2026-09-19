@@ -13,7 +13,7 @@
 <g clip-path="url(#clip-0)">
 <path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 0 169.234375 L 77.125 0 "/>
 </g>
-<path fill="none" stroke-width="1.13385" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(27.842712%, 15.684509%, 45.095825%)" stroke-opacity="1" stroke-dasharray="2.98883 1.99255" stroke-miterlimit="10" d="M -8.503406 -28.345313 L 8.504406 -28.345313 L 8.504406 28.346094 L -8.503406 28.346094 Z M -8.503406 -28.345313 " transform="matrix(1, 0, 0, -1, 38.562, 111.975)"/>
+<path fill="none" stroke-width="1.13385" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="2.9888 1.99254" stroke-miterlimit="10" d="M -8.503406 -28.345313 L 8.504406 -28.345313 L 8.504406 28.346094 L -8.503406 28.346094 Z M -8.503406 -28.345313 " transform="matrix(1, 0, 0, -1, 38.562, 111.975)"/>
 <g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
 <use xlink:href="#glyph-0-0" x="32.248" y="46.597"/>
 </g>
