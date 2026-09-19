@@ -1,3 +1,10 @@
+{{ define "title" }}
+  Page not found | {{ site.Title }}
+{{ end }}
+
 {{ define "main" }}
-404
+<section class="not-found">
+  <p class="not-found__code" aria-hidden="true">404</p>
+  <h1>Page not found</h1>
+</section>
 {{ end }}

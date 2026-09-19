@@ -607,6 +607,20 @@ h3 {
   font-size: 0.875rem;
 }
 
+/* Not found */
+.not-found {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.not-found__code {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .logo span {
