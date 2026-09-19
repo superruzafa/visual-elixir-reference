@@ -511,6 +511,8 @@
 
 - name: Tuple
   functions:
+    - name: append/2
+      signature: append(tuple, value)
     - name: delete_at/2
       signature: delete_at(tuple, index)
     - name: duplicate/2

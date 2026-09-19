@@ -24,6 +24,7 @@
   {{ partial "css.html" . }}
   {{ partial "js.html" (dict "path" "scripts/fuse.min.js" "skipMinify" true) }}
   {{ partial "js.html" (dict "path" "scripts/search.js") }}
+  {{ partial "ga.html" . }}
 </head>
 <body>
   {{ partial "header.html" . }}
