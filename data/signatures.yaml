@@ -330,6 +330,8 @@
       signature: fetch(map, key)
     - name: fetch!/2
       signature: fetch!(map, key)
+    - name: filter/2
+      signature: filter(map, fun)
     - name: get/3
       signature: get(map, key, default \\ nil)
     - name: get_and_update/3
