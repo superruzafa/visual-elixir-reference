@@ -368,6 +368,8 @@
       signature: put_new_lazy(map, key, fun)
     - name: reject/2
       signature: reject(map, fun)
+    - name: replace/3
+      signature: replace(map, key, value)
     - name: replace!/3
       signature: replace!(map, key, value)
     - name: split/2

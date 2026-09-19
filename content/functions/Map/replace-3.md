@@ -1,8 +1,7 @@
 ---
-title: replace!/3
-url: /Map/replace!/2/
+title: replace/3
 aliases:
-  - /Map/replace!
+  - /Map/replace
 ---
 
 
@@ -10,6 +9,7 @@ Alters the value stored under `key` to `value`, but only if the entry `key` alre
 
 {{< diagram 1 >}}
 
-If `key` is not present in map, a `KeyError` exception is raised.
+If `key` is not present in `map` then it is returned unchanged.
 
 {{< diagram 2 >}}
+

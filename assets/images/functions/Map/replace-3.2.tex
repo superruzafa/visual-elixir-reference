@@ -1,0 +1,21 @@
+\matrix [map=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\foreach \i/\j in {1/.5,2/1,n/.5}{
+  \draw (a\i.north) -- +(0, \j)
+    node [above] {$k_{\i}\neq\texttt{key}$};
+}
+
+\matrix [map=b, below=2 of map a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node at ($ (map a)!.5!(map b) $) {$\Downarrow$};
+
