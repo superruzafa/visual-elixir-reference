@@ -1,0 +1,41 @@
+{{- $current := . -}}
+{{- $currentModuleTitle := "" -}}
+{{- if eq $current.Type "functions" -}}
+  {{- if $current.IsSection -}}
+    {{- $currentModuleTitle = $current.Title -}}
+  {{- else -}}
+    {{- with $current.Parent -}}{{ $currentModuleTitle = .Title }}{{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<aside class="sidebar" id="sidebar-nav">
+  <nav class="tree" aria-label="Modules and functions">
+    <ul class="tree__list">
+      {{- with site.GetPage "functions" }}
+        {{- range .Pages.ByTitle }}
+          {{- $module := . }}
+          {{- $functions := (where $module.Pages ".Draft" false).ByTitle }}
+          {{- if site.BuildDrafts }}
+            {{- $functions = $module.Pages.ByTitle }}
+          {{- end }}
+          {{- if gt (len $functions) 0 }}
+          <li class="tree__item">
+            <details class="tree__module"{{ if eq $module.Title $currentModuleTitle }} open{{ end }}>
+              <summary class="tree__summary">
+                <a href="{{ $module.RelPermalink }}"{{ if $module.Draft }} class="tree__draft"{{ end }}{{ if eq $module.RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ $module.Title }}</a>
+              </summary>
+              <ul class="tree__list tree__list--functions">
+                {{- range $functions }}
+                <li class="tree__item">
+                  <a class="tree__function-link{{ if .Draft }} tree__draft{{ end }}" href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+                </li>
+                {{- end }}
+              </ul>
+            </details>
+          </li>
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    </ul>
+  </nav>
+</aside>

@@ -1,0 +1,13 @@
+---
+title: merge/3
+aliases:
+  - /Keyword/merge
+draft: true
+---
+
+# `Keyword.merge/3`
+Brief description and usage of the `Keyword`'s `merge/3` function.
+
+{{< diagram 1 >}}
+{{< diagram 2 >}}
+{{< diagram 3 >}}

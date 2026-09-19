@@ -1,0 +1,9 @@
+---
+title: zip/1
+---
+
+Zips corresponding elements from a finite collection of enumerables into one stream of tuples.
+
+The zipping finishes as soon as any enumerable in the given collection completes.
+
+{{< diagram 1 >}}

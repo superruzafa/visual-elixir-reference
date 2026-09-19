@@ -1,20 +1,30 @@
-{{ define "title" }}{{ $.Site.Title }}{{ end }}
-{{ define "meta_description" }}{{ i18n "home_description" }}{{ end }}
-{{ define "meta_keywords" }}{{ i18n "home_keywords" }}{{ end }}
+{{ define "title" }}
+  {{ site.Title }}
+{{ end }}
 
 {{ define "main" }}
-    {{ .Content }}
+<section class="hero">
+  <h1 class="hero__title">Visual Elixir Reference</h1>
+  <p class="hero__text">
+    This guide collects some of the most common functions of the Elixir programming language and
+    explains them conceptually and graphically in a simple way.
+  </p>
+</section>
 
-    {{ $modules := ($.Site.GetPage "/functions").Pages }}
-    {{ range $modules }}
-        {{ $functions := .RegularPages }}
-        {{ if len $functions | lt 0 }}
-<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-<ul class="function-list">
-            {{ range .RegularPages }}
-    <li class="function-item{{ if .Draft }} draft{{ end }}"><a href="{{ partial "safe_function_url.html" . }}">{{ .Title }}</a></li>
-            {{ end }}
-</ul>
-        {{ end }}
+<ul class="module-grid">
+  {{ with site.GetPage "functions" }}
+    {{ range .Pages.ByTitle }}
+      {{ $module := . }}
+      {{ $functions := where $module.Pages ".Draft" false }}
+      {{ if gt (len $functions) 0 }}
+      <li class="module-grid__item">
+        <a href="{{ $module.RelPermalink }}">
+          <span class="module-grid__title">{{ $module.Title }}</span>
+          <span class="module-grid__count">{{ len $functions }} function{{ if ne (len $functions) 1 }}s{{ end }}</span>
+        </a>
+      </li>
+      {{ end }}
     {{ end }}
+  {{ end }}
+</ul>
 {{ end }}

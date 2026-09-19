@@ -1,0 +1,12 @@
+---
+title: tap/2
+aliases:
+  - /Kernel/tap
+---
+
+Pipes the first argument, `value`, into the function `fun`, and returns `value` itself.
+
+Useful for running synchronous side effects in a pipeline, using the `|>/2` operator.
+
+{{< diagram 1 >}}
+

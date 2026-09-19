@@ -1,0 +1,13 @@
+---
+title: uniq_by/2
+aliases:
+  - /Enum/uniq_by
+---
+
+Enumerates the `enumerable` by removing the elements for which function `fun` returned duplicate elements.
+
+The function `fun` maps every element to a term. Two elements are considered duplicates if the return value of `fun` is equal for both of them.
+
+The first occurrence of each element is kept.
+
+{{< diagram 1 >}}

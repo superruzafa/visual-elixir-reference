@@ -1,0 +1,34 @@
+{{- $current := . -}}
+{{- $all := slice -}}
+{{- range (site.GetPage "functions").Pages.ByTitle -}}
+    {{- range (where .Pages ".Draft" false).ByTitle -}}
+        {{- $all = $all | append . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $prev := false -}}
+{{- $next := false -}}
+{{- $found := false -}}
+{{- $nextSet := false -}}
+{{- range $all -}}
+    {{- if $nextSet -}}
+    {{- else if $found -}}
+        {{- $next = . -}}
+        {{- $nextSet = true -}}
+    {{- else if eq . $current -}}
+        {{- $found = true -}}
+    {{- else -}}
+        {{- $prev = . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if gt (len $all) 0 -}}
+<link rel="first" href="{{ (index $all 0).Permalink }}">
+{{- if $prev }}
+<link rel="prev" href="{{ $prev.Permalink }}">
+{{- end }}
+{{- if $next }}
+<link rel="next" href="{{ $next.Permalink }}">
+{{- end }}
+<link rel="last" href="{{ (index $all (sub (len $all) 1)).Permalink }}">
+{{- end -}}

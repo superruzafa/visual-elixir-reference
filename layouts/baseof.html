@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4e2a8e">
+  <link rel="icon" type="image/svg+xml" href="{{ "images/favicon.svg" | relURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicon-32x32.png" | relURL }}">
+    <title>{{ block "title" . }}{{ end }}</title>
+  {{ block "head_extra" . }}{{ end }}
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'light' || stored === 'dark') {
+          document.documentElement.setAttribute('data-theme', stored);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata&display=swap" rel="stylesheet">
+  {{ partial "css.html" . }}
+  {{ partial "js.html" (dict "path" "scripts/fuse.min.js" "skipMinify" true) }}
+  {{ partial "js.html" (dict "path" "scripts/search.js") }}
+  {{ partial "ga.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <div class="layout">
+    {{ partial "sidebar.html" . }}
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <main class="content" id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+  {{ partial "js.html" (dict "path" "scripts/sidebar.js" "defer" true) }}
+  {{ partial "js.html" (dict "path" "scripts/theme.js" "defer" true) }}
+</body>
+</html>

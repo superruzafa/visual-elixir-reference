@@ -1,7 +1,10 @@
+{{ define "title" }}
+  Page not found | {{ site.Title }}
+{{ end }}
+
 {{ define "main" }}
-  <h1>Page not found!</h1>
-  <p>Go back to the <a href="{{ $.Site.Home.Permalink }}">home page</a>.</p>
-  <figure class="diagram">
-  <img src="{{ $.Site.BaseURL }}/images/functions/404.svg">
-  </figure>
+<section class="not-found">
+  <p class="not-found__code" aria-hidden="true">404</p>
+  <h1>Page not found</h1>
+</section>
 {{ end }}

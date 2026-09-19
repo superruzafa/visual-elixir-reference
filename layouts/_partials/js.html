@@ -1,0 +1,6 @@
+{{- $js := resources.Get .path -}}
+{{- if and hugo.IsProduction (not .skipMinify) -}}
+  {{- $js = $js | minify -}}
+{{- end -}}
+{{- $js = $js | fingerprint -}}
+<script src="{{ $js.RelPermalink }}"{{ if .defer }} defer{{ end }}></script>

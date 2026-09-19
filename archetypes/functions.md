@@ -16,6 +16,6 @@ draft: true
 # {{ $module }}.{{ $function }}
 Brief description and usage of the `{{ $module }}`'s `{{ $function }}` function.
 
-{{< figure src="images/functions/{{ $module }}/{{ $basename }}.svg" >}}
-{{< figure src="images/functions/{{ $module }}/{{ $basename }}.2.svg" >}}
-{{< figure src="images/functions/{{ $module }}/{{ $basename }}.3.svg" >}}
+{{< diagram 1 >}}
+{{< diagram 2 >}}
+{{< diagram 3 >}}
