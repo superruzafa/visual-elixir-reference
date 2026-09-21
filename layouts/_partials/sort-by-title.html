@@ -1,0 +1,49 @@
+{{- /*
+  Alphabetical insertion sort of PAGES by function name, then numerically by
+  arity — e.g. "fetch/2" before "fetch!/2", "pop/3" before "pop!/2",
+  "count/2" before "count_until/2".
+
+  Hugo's built-in .ByTitle/sort always compare strings through a locale
+  collator (golang.org/x/text/collate), which — independent of language
+  config — ranks "_" and "!" below letters/digits/"/". That mis-orders any
+  pair of function titles where one name is a prefix of the other, in either
+  direction (it sorts "count_until/2" before "count/2", but also "pop!/2"
+  before "pop/3"). Comparing the raw ".Title" string byte-for-byte (`lt`/`gt`
+  take a fast path straight to strings.Compare for two plain strings, see
+  tpl/compare/compare.go) avoids the collation bug but still gets
+  "fetch!/2"/"fetch/2" backwards, because the arity digit lands at a
+  different offset once the function name's length differs. So this splits
+  each title on the last "/" into (name, arity) and compares name (byte
+  order) first, arity (numeric) second — matching how Elixir/Erlang would
+  order the bare atoms. See CLAUDE.md.
+
+  Usage: {{ partialCached "sort-by-title.html" $pages $cacheKey }}
+*/ -}}
+{{- $pages := . -}}
+{{- $sorted := slice -}}
+{{- range $page := $pages -}}
+  {{- $pParts := split $page.Title "/" -}}
+  {{- $pName := index $pParts 0 -}}
+  {{- $pArity := 0 -}}
+  {{- if gt (len $pParts) 1 -}}{{- $pArity = int (index $pParts 1) -}}{{- end -}}
+  {{- $out := slice -}}
+  {{- $placed := false -}}
+  {{- range $s := $sorted -}}
+    {{- $sParts := split $s.Title "/" -}}
+    {{- $sName := index $sParts 0 -}}
+    {{- $sArity := 0 -}}
+    {{- if gt (len $sParts) 1 -}}{{- $sArity = int (index $sParts 1) -}}{{- end -}}
+    {{- $less := lt $pArity $sArity -}}
+    {{- if ne $pName $sName -}}{{- $less = lt $pName $sName -}}{{- end -}}
+    {{- if and (not $placed) $less -}}
+      {{- $out = $out | append $page -}}
+      {{- $placed = true -}}
+    {{- end -}}
+    {{- $out = $out | append $s -}}
+  {{- end -}}
+  {{- if not $placed -}}
+    {{- $out = $out | append $page -}}
+  {{- end -}}
+  {{- $sorted = $out -}}
+{{- end -}}
+{{- return $sorted -}}

@@ -14,10 +14,11 @@
       {{- with site.GetPage "functions" }}
         {{- range .Pages.ByTitle }}
           {{- $module := . }}
-          {{- $functions := (where $module.Pages ".Draft" false).ByTitle }}
+          {{- $functions := where $module.Pages ".Draft" false }}
           {{- if site.BuildDrafts }}
-            {{- $functions = $module.Pages.ByTitle }}
+            {{- $functions = $module.Pages }}
           {{- end }}
+          {{- $functions = partialCached "sort-by-title.html" $functions (print $module.Title site.BuildDrafts) }}
           {{- if gt (len $functions) 0 }}
           <li class="tree__item">
             <details class="tree__module"{{ if eq $module.Title $currentModuleTitle }} open{{ end }}>
