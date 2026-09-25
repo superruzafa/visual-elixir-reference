@@ -98,7 +98,9 @@
     - name: min_by/4
       signature: min_by(enumerable, fun, sort \\ &<=/2)
     - name: min_max/2
-      signature: min_max(enumerable)
+      signature: min_max(enumerable, fun \\ fn -> raise Enum.EmptyError end)
+    - name: min_max/3
+      signature: min_max(enumerable, sorter, empty_fallback)
     - name: min_max_by/3
       signature: min_max_by(enumerable, fun, sorter_or_empty_fallback \\ &</2)
     - name: product/1
