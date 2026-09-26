@@ -223,6 +223,8 @@
       signature: keytake(list, key, index)
     - name: last/2
       signature: last(list, default \\ nil)
+    - name: last!/1
+      signature: last!(list)
     - name: pop_at/3
       signature: pop_at(list, index, default \\ nil)
     - name: replace_at/3
