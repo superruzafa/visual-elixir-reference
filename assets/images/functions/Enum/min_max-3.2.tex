@@ -1,0 +1,57 @@
+\tikzset{
+  min_max_fun/.style={
+    fun=\texttt{compare},
+    function arity=2
+  }
+}
+
+\tikzset{
+  min_max_mod/.style={
+    draw,
+    rounded corners,
+    inner xsep=5ex,
+    inner ysep=3ex,
+    label={[font=\small, anchor=north west]north west:\texttt{module}}
+  }
+}
+
+\matrix [list=a] {
+  \node [elements before]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; &
+  \node [elements between]; &
+  \node [index=1]; &
+  \node [elements after]; \\
+};
+
+\matrix (funs) [below=2 of list a, column sep=3em, anchor=base]{
+  \node (fun1) [min_max_fun]; &
+  \node {$\ldots$}; &
+  \node (fun2) [min_max_fun]; \\
+};
+
+\foreach \a/\b/\r [count=\i] in {
+  2/n/\texttt{:lt},
+  n/1/\texttt{:gt}
+}{
+  \draw [<-] [shorten >=1ex] (fun\i.in 1) -- +(0, .5) node [anchor=base, font=\Large] {$a_\a$};
+  \draw [<-] [shorten >=1ex] (fun\i.in 2) -- +(0, .5) node [anchor=base, font=\Large] {$a_\b$};
+  \draw [->] [shorten >=2.5ex] (fun\i.out) -- ++(0, -.5) -- +(0, -2.5ex) node [below, anchor=base, font=\Large] {\r};
+}
+
+\node (module1) [fit=(fun1), min_max_mod] {};
+\node (module2) [fit=(fun2), min_max_mod] {};
+
+\node (b) [below=2 of funs] {$\{a_{min}, a_{max}\}$};
+
+\matrix [
+  matrix of math nodes,
+  nodes={},
+  row sep=1, 
+  left delimiter=\{,
+  right=of b
+] {
+  a_{min} \leq a_i,\, i \in [1, n] \\
+  a_{max} \geq a_i,\, i \in [1, n] \\
+};
