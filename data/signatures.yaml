@@ -199,6 +199,8 @@
       signature: duplicate(elem, count)
     - name: first/2
       signature: first(list, default \\ nil)
+    - name: first!/1
+      signature: first!(list)
     - name: flatten/1
       signature: flatten(list)
     - name: flatten/2

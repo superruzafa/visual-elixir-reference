@@ -1,0 +1,11 @@
+\tikzset{
+  empty fallback/.style={
+    fun={\texttt{empty}\\\texttt{fallback}},
+    function arity=0,
+    align=center,
+  }
+}
+
+\node [empty collection=a];
+\node (b) [exception, draw, below right=1 and 1 of empty collection a, anchor=north] {\texttt{ArgumentError}};
+\draw [exception, ->, out=0, in=90] (empty collection a) to (b.north);
