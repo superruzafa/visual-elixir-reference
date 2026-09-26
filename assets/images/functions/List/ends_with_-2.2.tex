@@ -1,0 +1,32 @@
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [elements between]; &
+  \node [index=n-1]; &
+  \node [index=n]; \\
+};
+
+\matrix [list=p, above = 2 of list a.north east, anchor=south east] {
+  \node [elements before]; &
+  \node [index=m-n-1]; &
+  \node [index=m-n]; &
+  \node [elements between]; &
+  \node [index=m-1]; &
+  \node [index=m]; \\
+};
+
+\draw [enter iteration] (pm-n-1.north);
+\draw [iteration] (pm-n-1.north) -- (pm-n.north);
+\draw [iteration=dashed] (pm-n.north) -- (pm-1.north);
+
+\draw [enter iteration] (a1.north);
+\draw [iteration=dashed] (a1.north) -- (an-1.north);
+
+\foreach \i/\j/\d/\e in {m-n/1/.33/=,m-1/n-1/.5/\neq}{
+  \node (c) at ($ (p\i)!\d!(a\j) $) [font=\large] {$p_{\i}\e a_{\j}$};
+  \draw (p\i.south) -- (c);
+  \draw (a\j.north) -- (c);
+}
+
+\draw [->] (an-1.north) .. controls +(.5, .5) and +(0, 3) .. +(2, -2)
+  node [anchor=north] {\false};
+

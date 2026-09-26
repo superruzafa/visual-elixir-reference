@@ -197,6 +197,8 @@
       signature: delete_at(list, index)
     - name: duplicate/2
       signature: duplicate(elem, count)
+    - name: ends_with?/2
+      signature: ends_with?(list, suffix)
     - name: first/2
       signature: first(list, default \\ nil)
     - name: first!/1
