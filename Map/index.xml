@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Map on Visual Elixir Reference</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/</link><description>Recent content in Map on Visual Elixir Reference</description><generator>Hugo</generator><language>en</language><atom:link href="https://superruzafa.github.io/visual-elixir-reference/Map/index.xml" rel="self" type="application/rss+xml"/><item><title>delete/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/delete/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/delete/2/</guid><description>&lt;p&gt;Deletes the entry in map for a specific &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; does not exist, returns map unchanged.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="396.142" height="286.073" viewBox="0 0 396.142 286.073"&gt;
 &lt;defs&gt;
@@ -848,6 +849,7 @@
 
 &lt;/figure&gt;</description></item><item><title>drop/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/drop/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/drop/2/</guid><description>&lt;p&gt;Drops the given &lt;code&gt;keys&lt;/code&gt; from &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;keys&lt;/code&gt; contains keys that are not in &lt;code&gt;map&lt;/code&gt;, they&amp;rsquo;re simply ignored.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="486.344" height="376.338" viewBox="0 0 486.344 376.338"&gt;
 &lt;defs&gt;
@@ -1805,6 +1807,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>fetch!/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/fetch!/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/fetch!/2/</guid><description>&lt;p&gt;Fetches the value for a specific &lt;code&gt;key&lt;/code&gt; in the given &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="195.845" viewBox="0 0 337.748 195.845"&gt;
 &lt;defs&gt;
@@ -2132,7 +2135,9 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;map&lt;/code&gt; doesn&amp;rsquo;t contain &lt;code&gt;key&lt;/code&gt;, a &lt;code&gt;KeyError&lt;/code&gt; exception is raised.&lt;/p&gt;</description></item><item><title>fetch/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/fetch/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/fetch/2/</guid><description>&lt;p&gt;Fetches the value for a specific &lt;code&gt;key&lt;/code&gt; in the given &lt;code&gt;map&lt;/code&gt; by returning &lt;code&gt;{:ok, value}&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="202.446" viewBox="0 0 337.748 202.446"&gt;
 &lt;defs&gt;
@@ -2489,8 +2494,10 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;map&lt;/code&gt; doesn&amp;rsquo;t contain &lt;code&gt;key&lt;/code&gt;, &lt;code&gt;:error&lt;/code&gt; is returned.&lt;/p&gt;</description></item><item><title>filter/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/filter/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/filter/2/</guid><description>&lt;p&gt;Returns a map containing only those pairs from &lt;code&gt;map&lt;/code&gt; for which &lt;code&gt;fun&lt;/code&gt; returns a truthy value.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;fun&lt;/code&gt; receives the key and value of each of the elements in the map as a key-value pair.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="452.997" height="415.988" viewBox="0 0 452.997 415.988"&gt;
 &lt;defs&gt;
@@ -3434,6 +3441,7 @@
 &lt;p&gt;&lt;code&gt;fun&lt;/code&gt; is called with the current value under &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt; and must return a two-element tuple: the &amp;ldquo;get&amp;rdquo; value (the retrieved value, which can be operated on before being returned) and the new value to be stored under &lt;code&gt;key&lt;/code&gt; in the resulting new map.&lt;/p&gt;
 &lt;p&gt;The returned value is a tuple with the &amp;ldquo;get&amp;rdquo; value returned by &lt;code&gt;fun&lt;/code&gt; and a new map with the updated value under &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>get_lazy/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/get_lazy/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/get_lazy/3/</guid><description>&lt;p&gt;Gets the value for a specific &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is present in &lt;code&gt;map&lt;/code&gt; with value &lt;em&gt;value&lt;/em&gt;, then &lt;em&gt;value&lt;/em&gt; is returned.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="219.764" viewBox="0 0 337.748 219.764"&gt;
 &lt;defs&gt;
@@ -3767,8 +3775,10 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;Otherwise, &lt;code&gt;fun&lt;/code&gt; is evaluated and its result is returned.
 This is useful if the default value is very expensive to calculate or generally difficult to setup and teardown again.&lt;/p&gt;</description></item><item><title>get/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/get/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/get/3/</guid><description>&lt;p&gt;Gets the value for a specific &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="219.764" viewBox="0 0 337.748 219.764"&gt;
 &lt;defs&gt;
@@ -4102,7 +4112,9 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;Otherwise, &lt;code&gt;default&lt;/code&gt; is returned.&lt;/p&gt;</description></item><item><title>has_key?/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/has_key/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/has_key/2/</guid><description>&lt;p&gt;Returns &lt;code&gt;true&lt;/code&gt; if the given &lt;code&gt;key&lt;/code&gt; exists in the given &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="192.863" viewBox="0 0 337.748 192.863"&gt;
 &lt;defs&gt;
@@ -4437,7 +4449,9 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;Otherwise, returns &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>keys/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/keys/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/keys/1/</guid><description>&lt;p&gt;Returns all keys from &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.118" height="286.073" viewBox="0 0 255.118 286.073"&gt;
 &lt;defs&gt;
@@ -4726,6 +4740,7 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;</description></item><item><title>merge/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/merge/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/merge/2/</guid><description>&lt;p&gt;Merges two maps into one.&lt;/p&gt;
 &lt;p&gt;All keys in &lt;code&gt;map2&lt;/code&gt; will be added to &lt;code&gt;map1&lt;/code&gt;, overriding any existing one (i.e., the keys in &lt;code&gt;map2&lt;/code&gt; &amp;ldquo;have precedence&amp;rdquo; over the ones in &lt;code&gt;map1&lt;/code&gt;).&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="363.685" height="375.931" viewBox="0 0 363.685 375.931"&gt;
 &lt;defs&gt;
@@ -5727,6 +5742,7 @@ This is useful if the default value is very expensive to calculate or generally 
 &lt;/figure&gt;</description></item><item><title>merge/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/merge/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/merge/3/</guid><description>&lt;p&gt;Merges two maps into one, resolving conflicts through the given &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;All keys in &lt;code&gt;map2&lt;/code&gt; will be added to &lt;code&gt;map1&lt;/code&gt;. The given function will be invoked when there are duplicate keys; its arguments are &lt;code&gt;key&lt;/code&gt; (the duplicate key), &lt;code&gt;value1&lt;/code&gt; (the value of &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map1&lt;/code&gt;), and &lt;code&gt;value2&lt;/code&gt; (the value of &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map2&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;The value returned by &lt;code&gt;fun&lt;/code&gt; is used as the value under &lt;code&gt;key&lt;/code&gt; in the resulting map.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="281.055" height="460.971" viewBox="0 0 281.055 460.971"&gt;
 &lt;defs&gt;
@@ -6333,6 +6349,7 @@ This is useful if the default value is very expensive to calculate or generally 
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>new/0</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/new/0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/new/0/</guid><description>&lt;p&gt;Returns a new empty map.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="164.289" height="172.346" viewBox="0 0 164.289 172.346"&gt;
 &lt;defs&gt;
@@ -6369,6 +6386,7 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;</description></item><item><title>new/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/new/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/new/1/</guid><description>&lt;p&gt;Creates a map from an &lt;code&gt;enumerable&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Duplicated keys are removed; the latest one prevails.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="425.197" height="286.073" viewBox="0 0 425.197 286.073"&gt;
 &lt;defs&gt;
@@ -6768,6 +6786,7 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;</description></item><item><title>new/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/new/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/new/2/</guid><description>&lt;p&gt;Creates a map from an &lt;code&gt;enumerable&lt;/code&gt; via the given transformation function &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Duplicated keys are removed; the latest one prevails.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="481.89" height="399.459" viewBox="0 0 481.89 399.459"&gt;
 &lt;defs&gt;
@@ -7239,6 +7258,7 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;</description></item><item><title>pop_lazy/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/pop_lazy/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/pop_lazy/3/</guid><description>&lt;p&gt;Lazily returns and removes the value associated with &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is present in &lt;code&gt;map&lt;/code&gt; with value &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;{value, new_map}&lt;/code&gt; is returned where &lt;code&gt;new_map&lt;/code&gt; is the result of removing &lt;code&gt;key&lt;/code&gt; from &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="401.558" height="307.346" viewBox="0 0 401.558 307.346"&gt;
 &lt;defs&gt;
@@ -8201,7 +8221,9 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present in &lt;code&gt;map&lt;/code&gt;, &lt;code&gt;{b, map}&lt;/code&gt; is returned, where &lt;code&gt;b&lt;/code&gt; is the result of applying &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>pop!/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/pop/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/pop/2/</guid><description>&lt;p&gt;Returns and removes the value associated with key in map.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="458.251" height="307.346" viewBox="0 0 458.251 307.346"&gt;
 &lt;defs&gt;
@@ -9302,8 +9324,10 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;Raises &lt;code&gt;KeyError&lt;/code&gt; if &lt;code&gt;key&lt;/code&gt; is not present.&lt;/p&gt;</description></item><item><title>pop/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/pop/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/pop/3/</guid><description>&lt;p&gt;Returns and removes the value associated with key in map.&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is present in &lt;code&gt;map&lt;/code&gt; with value &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;{value, new_map}&lt;/code&gt; is returned where &lt;code&gt;new_map&lt;/code&gt; is the result of removing &lt;code&gt;key&lt;/code&gt; from &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="458.251" height="307.346" viewBox="0 0 458.251 307.346"&gt;
 &lt;defs&gt;
@@ -10404,8 +10428,10 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present in &lt;code&gt;map&lt;/code&gt;, &lt;code&gt;{default, map}&lt;/code&gt; is returned.&lt;/p&gt;</description></item><item><title>put_new_lazy/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/put_new_lazy/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/put_new_lazy/3/</guid><description>&lt;p&gt;Evaluates &lt;code&gt;fun&lt;/code&gt; and puts the result under &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt; unless &lt;code&gt;key&lt;/code&gt; is already present.&lt;/p&gt;
 &lt;p&gt;This function is useful in case you want to compute the value to put under &lt;code&gt;key&lt;/code&gt; only if &lt;code&gt;key&lt;/code&gt; is not already present, as for example, when the value is expensive to calculate or generally difficult to setup and teardown again.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="286.073" viewBox="0 0 337.748 286.073"&gt;
 &lt;defs&gt;
@@ -11007,7 +11033,9 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;map&lt;/code&gt; doesn&amp;rsquo;t contain &lt;code&gt;key&lt;/code&gt; then it&amp;rsquo;s added using the value returned from &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>put_new/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/put_new/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/put_new/3/</guid><description>&lt;p&gt;Puts the given &lt;code&gt;value&lt;/code&gt; under &lt;code&gt;key&lt;/code&gt; unless the entry &lt;code&gt;key&lt;/code&gt; already exists.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="286.073" viewBox="0 0 337.748 286.073"&gt;
 &lt;defs&gt;
@@ -11609,7 +11637,9 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;map&lt;/code&gt; doesn&amp;rsquo;t contain &lt;code&gt;key&lt;/code&gt; then it&amp;rsquo;s added using &lt;code&gt;value&lt;/code&gt; as value.&lt;/p&gt;</description></item><item><title>put/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/put/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/put/3/</guid><description>&lt;p&gt;Puts the given &lt;code&gt;value&lt;/code&gt; under &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="339.449" height="286.073" viewBox="0 0 339.449 286.073"&gt;
 &lt;defs&gt;
@@ -12216,8 +12246,10 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;map&lt;/code&gt; doesn&amp;rsquo;t contain &lt;code&gt;key&lt;/code&gt; then it&amp;rsquo;s added using &lt;code&gt;value&lt;/code&gt; as value.&lt;/p&gt;</description></item><item><title>reject/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/reject/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/reject/2/</guid><description>&lt;p&gt;Returns map excluding the pairs from &lt;code&gt;map&lt;/code&gt; for which &lt;code&gt;fun&lt;/code&gt; returns a falsy value.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;fun&lt;/code&gt; receives the key and value of each of the elements in the map as a key-value pair.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="452.997" height="415.988" viewBox="0 0 452.997 415.988"&gt;
 &lt;defs&gt;
@@ -13132,6 +13164,7 @@ This is useful if the default value is very expensive to calculate or generally 
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>replace!/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/replace!/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/replace!/2/</guid><description>&lt;p&gt;Alters the value stored under &lt;code&gt;key&lt;/code&gt; to &lt;code&gt;value&lt;/code&gt;, but only if the entry &lt;code&gt;key&lt;/code&gt; already exists in map.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="339.449" height="286.073" viewBox="0 0 339.449 286.073"&gt;
 &lt;defs&gt;
@@ -13738,7 +13771,9 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present in map, a &lt;code&gt;KeyError&lt;/code&gt; exception is raised.&lt;/p&gt;</description></item><item><title>replace/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/replace/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/replace/3/</guid><description>&lt;p&gt;Alters the value stored under &lt;code&gt;key&lt;/code&gt; to &lt;code&gt;value&lt;/code&gt;, but only if the entry &lt;code&gt;key&lt;/code&gt; already exists in map.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="339.449" height="286.073" viewBox="0 0 339.449 286.073"&gt;
 &lt;defs&gt;
@@ -14345,9 +14380,11 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present in &lt;code&gt;map&lt;/code&gt; then it is returned unchanged.&lt;/p&gt;</description></item><item><title>split/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/split/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/split/2/</guid><description>&lt;p&gt;Takes all entries corresponding to the given &lt;code&gt;keys&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt; and extracts them into a separate map.&lt;/p&gt;
 &lt;p&gt;Returns a tuple with the new map and the old map with removed keys.&lt;/p&gt;
 &lt;p&gt;Keys for which there are no entries in &lt;code&gt;map&lt;/code&gt; are ignored.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="430.79" height="397.611" viewBox="0 0 430.79 397.611"&gt;
 &lt;defs&gt;
@@ -15406,6 +15443,7 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;</description></item><item><title>take/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/take/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/take/2/</guid><description>&lt;p&gt;Returns a new map with all the key-value pairs in &lt;code&gt;map&lt;/code&gt; where the key is in &lt;code&gt;keys&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;keys&lt;/code&gt; contains keys that are not in map, they&amp;rsquo;re simply ignored.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="486.344" height="376.338" viewBox="0 0 486.344 376.338"&gt;
 &lt;defs&gt;
@@ -16364,6 +16402,7 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;</description></item><item><title>to_list/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/to_list/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/to_list/1/</guid><description>&lt;p&gt;Converts &lt;code&gt;map&lt;/code&gt; to a list.&lt;/p&gt;
 &lt;p&gt;Each key-value pair in the &lt;code&gt;map&lt;/code&gt; is converted to a two-element tuple &lt;code&gt;{key, value}&lt;/code&gt; in the resulting list.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.118" height="286.073" viewBox="0 0 255.118 286.073"&gt;
 &lt;defs&gt;
@@ -16682,6 +16721,7 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;</description></item><item><title>update!/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/update/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/update/3/</guid><description>&lt;p&gt;Updates the &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt; with the given function &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is present in &lt;code&gt;map&lt;/code&gt; with value &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;fun&lt;/code&gt; is invoked with argument &lt;code&gt;value&lt;/code&gt; and its result is used as the new value of &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="339.449" height="286.073" viewBox="0 0 339.449 286.073"&gt;
 &lt;defs&gt;
@@ -17304,8 +17344,10 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present in &lt;code&gt;map&lt;/code&gt;, a &lt;code&gt;KeyError&lt;/code&gt; exception is raised.&lt;/p&gt;</description></item><item><title>update/4</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/update/4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/update/4/</guid><description>&lt;p&gt;Updates the &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;map&lt;/code&gt; with the given function &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is present in &lt;code&gt;map&lt;/code&gt; with value &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;fun&lt;/code&gt; is invoked with argument &lt;code&gt;value&lt;/code&gt; and its result is used as the new value of &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="339.449" height="286.073" viewBox="0 0 339.449 286.073"&gt;
 &lt;defs&gt;
@@ -17928,8 +17970,10 @@ This is useful if the default value is very expensive to calculate or generally 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present in &lt;code&gt;map&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt; is inserted as the value of &lt;code&gt;key&lt;/code&gt;.
 The initial value will not be passed through the update function.&lt;/p&gt;</description></item><item><title>values/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Map/values/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Map/values/1/</guid><description>&lt;p&gt;Returns all values from &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.118" height="286.073" viewBox="0 0 255.118 286.073"&gt;
 &lt;defs&gt;

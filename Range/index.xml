@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Range on Visual Elixir Reference</title><link>https://superruzafa.github.io/visual-elixir-reference/Range/</link><description>Recent content in Range on Visual Elixir Reference</description><generator>Hugo</generator><language>en</language><atom:link href="https://superruzafa.github.io/visual-elixir-reference/Range/index.xml" rel="self" type="application/rss+xml"/><item><title>disjoint?/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Range/disjoint/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Range/disjoint/2/</guid><description>&lt;p&gt;Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;range1&lt;/code&gt; &lt;strong&gt;does not&lt;/strong&gt; overlap &lt;code&gt;range2&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="651.19" height="256.817" viewBox="0 0 651.19 256.817"&gt;
 &lt;defs&gt;
@@ -86,7 +87,9 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;It returns &lt;code&gt;false&lt;/code&gt; otherwise.&lt;/p&gt;</description></item><item><title>new/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Range/new/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Range/new/2/</guid><description>&lt;p&gt;Creates a range that go from &lt;code&gt;first&lt;/code&gt; to &lt;code&gt;last&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="367.461" height="124.591" viewBox="0 0 367.461 124.591"&gt;
 &lt;defs&gt;
@@ -170,6 +173,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>new/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Range/new/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Range/new/3/</guid><description>&lt;p&gt;Creates a range that go from &lt;code&gt;first&lt;/code&gt; to &lt;code&gt;last&lt;/code&gt;, using &lt;code&gt;step&lt;/code&gt; as incrementing/decrementing value.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="343.428" height="125.708" viewBox="0 0 343.428 125.708"&gt;
 &lt;defs&gt;
@@ -282,6 +286,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>to_list/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Range/to_list/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Range/to_list/1/</guid><description>&lt;p&gt;Converts a range to a list.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="369.436" height="254.275" viewBox="0 0 369.436 254.275"&gt;
 &lt;defs&gt;

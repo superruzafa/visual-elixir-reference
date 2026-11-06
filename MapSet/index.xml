@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MapSet on Visual Elixir Reference</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/</link><description>Recent content in MapSet on Visual Elixir Reference</description><generator>Hugo</generator><language>en</language><atom:link href="https://superruzafa.github.io/visual-elixir-reference/MapSet/index.xml" rel="self" type="application/rss+xml"/><item><title>difference/2</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/difference/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/difference/2/</guid><description>&lt;p&gt;Returns a set that is &lt;code&gt;map_set1&lt;/code&gt; without the members of &lt;code&gt;map_set2&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="531.354" height="342.567" viewBox="0 0 531.354 342.567"&gt;
 &lt;defs&gt;
@@ -229,6 +230,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>filter/2</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/filter/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/filter/2/</guid><description>&lt;p&gt;Filters set by returning only the elements from &lt;code&gt;map_set&lt;/code&gt; for which invoking &lt;code&gt;fun&lt;/code&gt; returns a truthy value.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="452.997" height="414.783" viewBox="0 0 452.997 414.783"&gt;
 &lt;defs&gt;
@@ -530,6 +532,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>intersection/2</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/intersection/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/intersection/2/</guid><description>&lt;p&gt;Returns a set containing only members that &lt;code&gt;map_set1&lt;/code&gt; and &lt;code&gt;map_set2&lt;/code&gt; have in common.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="843.364" height="314.22" viewBox="0 0 843.364 314.22"&gt;
 &lt;defs&gt;
@@ -774,6 +777,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>new/0</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/new/0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/new/0/</guid><description>&lt;p&gt;Creates a new, empty set.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74.835" height="172.346" viewBox="0 0 74.835 172.346"&gt;
 &lt;path fill-rule="nonzero" fill="var(--color-diagram-bg)" fill-opacity="1" d="M 0 172.347656 L 74.835938 0 "/&gt;
@@ -783,6 +787,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>new/1</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/new/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/new/1/</guid><description>&lt;p&gt;Creates a set from an enumerable.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512.645" height="286.073" viewBox="0 0 512.645 286.073"&gt;
 &lt;defs&gt;
@@ -933,6 +938,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>new/2</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/new/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/new/2/</guid><description>&lt;p&gt;Creates a set from an enumerable via the transformation function &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="451.134" height="387.689" viewBox="0 0 451.134 387.689"&gt;
 &lt;defs&gt;
@@ -1208,6 +1214,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>reject/2</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/reject/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/reject/2/</guid><description>&lt;p&gt;Returns a set by excluding the elements from &lt;code&gt;map_set&lt;/code&gt; for which invoking &lt;code&gt;fun&lt;/code&gt; returns a truthy value.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="452.997" height="414.783" viewBox="0 0 452.997 414.783"&gt;
 &lt;defs&gt;
@@ -1507,6 +1514,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>size/1</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/size/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/size/1/</guid><description>&lt;p&gt;Returns the number of elements in &lt;code&gt;map_set&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.118" height="203.29" viewBox="0 0 255.118 203.29"&gt;
 &lt;defs&gt;
@@ -1584,6 +1592,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>split_with/2</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/split_with/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/split_with/2/</guid><description>&lt;p&gt;Splits the &lt;code&gt;map_set&lt;/code&gt; into two &lt;code&gt;MapSet&lt;/code&gt;s according to the given function &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="646.223" height="436.748" viewBox="0 0 646.223 436.748"&gt;
 &lt;defs&gt;
@@ -2083,6 +2092,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>to_list/1</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/to_list/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/to_list/1/</guid><description>&lt;p&gt;Creates a list with the elements of the set.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="311.811" height="286.073" viewBox="0 0 311.811 286.073"&gt;
 &lt;defs&gt;
@@ -2212,6 +2222,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>union/2</title><link>https://superruzafa.github.io/visual-elixir-reference/MapSet/union/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/MapSet/union/2/</guid><description>&lt;p&gt;Returns a set containing all members of &lt;code&gt;map_set1&lt;/code&gt; and &lt;code&gt;map_set2&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="677.905" height="314.22" viewBox="0 0 677.905 314.22"&gt;
 &lt;defs&gt;

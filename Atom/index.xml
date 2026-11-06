@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Atom on Visual Elixir Reference</title><link>https://superruzafa.github.io/visual-elixir-reference/Atom/</link><description>Recent content in Atom on Visual Elixir Reference</description><generator>Hugo</generator><language>en</language><atom:link href="https://superruzafa.github.io/visual-elixir-reference/Atom/index.xml" rel="self" type="application/rss+xml"/><item><title>to_charlist/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Atom/to_charlist/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Atom/to_charlist/1/</guid><description>&lt;p&gt;Converts an &lt;code&gt;atom&lt;/code&gt; to a charlist.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="285.874" height="247.616" viewBox="0 0 285.874 247.616"&gt;
 &lt;defs&gt;
@@ -80,6 +81,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>to_string/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Atom/to_string/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Atom/to_string/1/</guid><description>&lt;p&gt;Converts an &lt;code&gt;atom&lt;/code&gt; to a string.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128.292" height="210.149" viewBox="0 0 128.292 210.149"&gt;
 &lt;defs&gt;

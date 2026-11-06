@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Keyword on Visual Elixir Reference</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/</link><description>Recent content in Keyword on Visual Elixir Reference</description><generator>Hugo</generator><language>en</language><atom:link href="https://superruzafa.github.io/visual-elixir-reference/Keyword/index.xml" rel="self" type="application/rss+xml"/><item><title>delete_first/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/delete_first/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/delete_first/2/</guid><description>&lt;p&gt;Deletes the first entry in the keyword list for a specific &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; does not exist, returns the keyword list unchanged.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="396.142" height="302.84" viewBox="0 0 396.142 302.84"&gt;
 &lt;defs&gt;
@@ -699,6 +700,7 @@
 
 &lt;/figure&gt;</description></item><item><title>delete/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/delete/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/delete/2/</guid><description>&lt;p&gt;Deletes the entries in the keyword list for a specific &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; does not exist, returns the keyword list unchanged.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="451.134" height="286.073" viewBox="0 0 451.134 286.073"&gt;
 &lt;defs&gt;
@@ -1399,6 +1401,7 @@
 
 &lt;/figure&gt;</description></item><item><title>drop/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/drop/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/drop/2/</guid><description>&lt;p&gt;Drops the entries in the keyword list for a specific &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; does not exist, returns the keyword list unchanged.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="486.344" height="376.338" viewBox="0 0 486.344 376.338"&gt;
 &lt;defs&gt;
@@ -2356,6 +2359,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>fetch!/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/fetch!/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/fetch!/2/</guid><description>&lt;p&gt;Fetches the value for a specific &lt;code&gt;key&lt;/code&gt; and returns it in a tuple.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="394.441" height="212.612" viewBox="0 0 394.441 212.612"&gt;
 &lt;defs&gt;
@@ -2756,7 +2760,9 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; does not exist, a &lt;code&gt;KeyError&lt;/code&gt; is raised.&lt;/p&gt;</description></item><item><title>fetch/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/fetch/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/fetch/2/</guid><description>&lt;p&gt;Fetches the value for a specific &lt;code&gt;key&lt;/code&gt; and returns it in a tuple.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="394.441" height="219.213" viewBox="0 0 394.441 219.213"&gt;
 &lt;defs&gt;
@@ -3186,7 +3192,9 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; does not exist, returns &lt;code&gt;:error&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>filter/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/filter/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/filter/2/</guid><description>&lt;p&gt;Returns only those elements for which &lt;code&gt;fun&lt;/code&gt; returns a truthy value.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="452.997" height="415.988" viewBox="0 0 452.997 415.988"&gt;
 &lt;defs&gt;
@@ -4125,6 +4133,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>from_keys/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/from_keys/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/from_keys/2/</guid><description>&lt;p&gt;Builds a keyword list using &lt;code&gt;keys&lt;/code&gt; as keys and &lt;code&gt;value&lt;/code&gt; as fixed value.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.118" height="229.38" viewBox="0 0 255.118 229.38"&gt;
 &lt;defs&gt;
@@ -4396,6 +4405,7 @@
 
 &lt;/figure&gt;</description></item><item><title>get_lazy/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/get_lazy/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/get_lazy/3/</guid><description>&lt;p&gt;Gets the value for a specific &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If duplicated entries exist, the first one is returned.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="219.764" viewBox="0 0 337.748 219.764"&gt;
 &lt;defs&gt;
@@ -4729,7 +4739,9 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; does not exist, lazily evaluates fun and returns its result.&lt;/p&gt;</description></item><item><title>get_values/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/get_values/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/get_values/2/</guid><description>&lt;p&gt;Gets all values for a specific key.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="451.134" height="286.073" viewBox="0 0 451.134 286.073"&gt;
 &lt;defs&gt;
@@ -5317,6 +5329,7 @@
 
 &lt;/figure&gt;</description></item><item><title>get/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/get/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/get/3/</guid><description>&lt;p&gt;Gets the value for a specific &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If duplicated entries exist, the first one is returned.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="219.764" viewBox="0 0 337.748 219.764"&gt;
 &lt;defs&gt;
@@ -5650,7 +5663,9 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; does not exist, return the &lt;code&gt;default&lt;/code&gt; value (&lt;code&gt;nil&lt;/code&gt; if no default value).&lt;/p&gt;</description></item><item><title>has_key?/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/has_key/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/has_key/2/</guid><description>&lt;p&gt;Returns true if a given &lt;code&gt;key&lt;/code&gt; exists in the given keywords.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="216.782" viewBox="0 0 337.748 216.782"&gt;
 &lt;defs&gt;
@@ -5991,7 +6006,9 @@
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; does not exist, returns &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>keys/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/keys/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/keys/1/</guid><description>&lt;p&gt;Returns all keys from the keyword list.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.118" height="286.073" viewBox="0 0 255.118 286.073"&gt;
 &lt;defs&gt;
@@ -6279,6 +6296,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>keyword?/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/keyword/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/keyword/1/</guid><description>&lt;p&gt;Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;term&lt;/code&gt; is a keyword list; otherwise returns &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.118" height="247.616" viewBox="0 0 255.118 247.616"&gt;
 &lt;defs&gt;
@@ -6539,6 +6557,7 @@
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>new/0</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/new/0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/new/0/</guid><description>&lt;p&gt;Returns an empty keyword list, i.e. an empty list.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74.835" height="172.346" viewBox="0 0 74.835 172.346"&gt;
 &lt;path fill-rule="nonzero" fill="var(--color-diagram-bg)" fill-opacity="1" d="M 0 172.347656 L 74.835938 0 "/&gt;
@@ -6549,6 +6568,7 @@
 
 &lt;/figure&gt;</description></item><item><title>new/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/new/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/new/1/</guid><description>&lt;p&gt;Creates a keyword list from an enumerable.
 Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="425.197" height="286.073" viewBox="0 0 425.197 286.073"&gt;
 &lt;defs&gt;
@@ -7273,6 +7293,7 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;</description></item><item><title>new/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/new/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/new/2/</guid><description>&lt;p&gt;Creates a keyword list from an enumerable via the transformation function &lt;code&gt;fun&lt;/code&gt;.
 Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="436.331" height="371.113" viewBox="0 0 436.331 371.113"&gt;
 &lt;defs&gt;
@@ -7822,6 +7843,7 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;</description></item><item><title>pop_first/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop_first/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop_first/3/</guid><description>&lt;p&gt;Returns the first value for &lt;code&gt;key&lt;/code&gt; and removes all associated entries in the keyword list.&lt;/p&gt;
 &lt;p&gt;It returns a tuple where the first element is the first value for key and the second element is a keyword list with all entries associated with key removed.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="424.236" height="307.346" viewBox="0 0 424.236 307.346"&gt;
 &lt;defs&gt;
@@ -8640,8 +8662,10 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; is not present in the keyword list, &lt;code&gt;{default, keywords}&lt;/code&gt; is returned.&lt;/p&gt;</description></item><item><title>pop_lazy/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop_lazy/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop_lazy/3/</guid><description>&lt;p&gt;Returns the first value for &lt;code&gt;key&lt;/code&gt; and removes all associated entries in the keyword list.&lt;/p&gt;
 &lt;p&gt;It returns a tuple where the first element is the first value for key and the second element is a keyword list with all entries associated with key removed.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="424.236" height="307.346" viewBox="0 0 424.236 307.346"&gt;
 &lt;defs&gt;
@@ -9545,8 +9569,10 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; is not present in the keyword list, the value from the function &lt;code&gt;fun&lt;/code&gt; is returned in &lt;code&gt;{value, keywords}&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>pop_values/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop_values/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop_values/2/</guid><description>&lt;p&gt;Returns all values for &lt;code&gt;key&lt;/code&gt; and removes all associated entries in the keyword list.&lt;/p&gt;
 &lt;p&gt;It returns a tuple where the first element is a list of values for &lt;code&gt;key&lt;/code&gt; and the second element is a keyword list with all entries associated with &lt;code&gt;key&lt;/code&gt; removed.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="589.531" height="307.346" viewBox="0 0 589.531 307.346"&gt;
 &lt;defs&gt;
@@ -10583,8 +10609,10 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; is not present in the keyword list, &lt;code&gt;{[], keyword_list}&lt;/code&gt; is returned.&lt;/p&gt;</description></item><item><title>pop!/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop/2/</guid><description>&lt;p&gt;Returns the first value for &lt;code&gt;key&lt;/code&gt; and removes all associated entries in the keyword list.&lt;/p&gt;
 &lt;p&gt;It returns a tuple where the first element is the first value for key and the second element is a keyword list with all entries associated with key removed.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="424.236" height="307.346" viewBox="0 0 424.236 307.346"&gt;
 &lt;defs&gt;
@@ -11488,8 +11516,10 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; is not present in the keyword list, &lt;code&gt;KeyError&lt;/code&gt; is raised.&lt;/p&gt;</description></item><item><title>pop/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/pop/3/</guid><description>&lt;p&gt;Returns the first value for &lt;code&gt;key&lt;/code&gt; and removes all associated entries in the keyword list.&lt;/p&gt;
 &lt;p&gt;It returns a tuple where the first element is the first value for key and the second element is a keyword list with all entries associated with key removed.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="424.236" height="307.346" viewBox="0 0 424.236 307.346"&gt;
 &lt;defs&gt;
@@ -12393,8 +12423,10 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; is not present in the keyword list, &lt;code&gt;{default, keywords}&lt;/code&gt; is returned.&lt;/p&gt;</description></item><item><title>put_new_lazy/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/put_new_lazy/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/put_new_lazy/3/</guid><description>&lt;p&gt;Evaluates &lt;code&gt;fun&lt;/code&gt; and puts the result under &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;keywords&lt;/code&gt; unless &lt;code&gt;key&lt;/code&gt; is already present.&lt;/p&gt;
 &lt;p&gt;This function is useful in case you want to compute the value to put under &lt;code&gt;key&lt;/code&gt; only if &lt;code&gt;key&lt;/code&gt; is not already present, as for example, when the value is expensive to calculate or generally difficult to setup and teardown again.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="339.449" height="309.992" viewBox="0 0 339.449 309.992"&gt;
 &lt;defs&gt;
@@ -13000,7 +13032,9 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;keywords&lt;/code&gt; doesn’t contain &lt;code&gt;key&lt;/code&gt; then it’s added using the value returned from &lt;code&gt;fun&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>put_new/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/put_new/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/put_new/3/</guid><description>&lt;p&gt;Puts the given &lt;code&gt;value&lt;/code&gt; under &lt;code&gt;key&lt;/code&gt; unless the entry &lt;code&gt;key&lt;/code&gt; already exists.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="339.449" height="309.992" viewBox="0 0 339.449 309.992"&gt;
 &lt;defs&gt;
@@ -13606,8 +13640,10 @@ Duplicated entries are removed, the latest one prevails.&lt;/p&gt;
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;keywords&lt;/code&gt; doesn&amp;rsquo;t contain &lt;code&gt;key&lt;/code&gt; then it&amp;rsquo;s added using &lt;code&gt;value&lt;/code&gt; as value.&lt;/p&gt;</description></item><item><title>put/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/put/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/put/3/</guid><description>&lt;p&gt;Puts the given &lt;code&gt;value&lt;/code&gt; under &lt;code&gt;key&lt;/code&gt;.
 If a previous value is already stored, all entries are removed and the value is overridden.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="425.197" height="286.073" viewBox="0 0 425.197 286.073"&gt;
 &lt;defs&gt;
@@ -14523,6 +14559,7 @@ If a previous value is already stored, all entries are removed and the value is 
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>reject/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/reject/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/reject/2/</guid><description>&lt;p&gt;Returns only those elements for which &lt;code&gt;fun&lt;/code&gt; &lt;strong&gt;does not&lt;/strong&gt; return a truthy value.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="452.997" height="415.988" viewBox="0 0 452.997 415.988"&gt;
 &lt;defs&gt;
@@ -15438,6 +15475,7 @@ If a previous value is already stored, all entries are removed and the value is 
 
 &lt;/figure&gt;</description></item><item><title>replace_lazy/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/replace_lazy/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/replace_lazy/3/</guid><description>&lt;p&gt;Replaces the value under &lt;code&gt;key&lt;/code&gt; using the given function only if the key already exists in &lt;code&gt;keywords&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;In case the key exists multiple times in the keyword list, it removes later occurrences.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.947" height="286.073" viewBox="0 0 337.947 286.073"&gt;
 &lt;defs&gt;
@@ -15969,8 +16007,10 @@ If a previous value is already stored, all entries are removed and the value is 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present &lt;code&gt;keywords&lt;/code&gt; is returned as it.&lt;/p&gt;</description></item><item><title>replace!/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/replace!/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/replace!/3/</guid><description>&lt;p&gt;Puts &lt;code&gt;value&lt;/code&gt; under &lt;code&gt;key&lt;/code&gt; only if the key already exists in keywords.&lt;/p&gt;
 &lt;p&gt;In case the key exists multiple times in the keyword list, it removes later occurrences.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="286.073" viewBox="0 0 337.748 286.073"&gt;
 &lt;defs&gt;
@@ -16483,8 +16523,10 @@ If a previous value is already stored, all entries are removed and the value is 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present in &lt;code&gt;keywords&lt;/code&gt;, a &lt;code&gt;KeyError&lt;/code&gt; exception is raised.&lt;/p&gt;</description></item><item><title>replace/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/replace/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/replace/3/</guid><description>&lt;p&gt;Puts &lt;code&gt;value&lt;/code&gt; under &lt;code&gt;key&lt;/code&gt; only if the key already exists in &lt;code&gt;keywords&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;In case the key exists multiple times in the keyword list, it removes later occurrences.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="337.748" height="286.073" viewBox="0 0 337.748 286.073"&gt;
 &lt;defs&gt;
@@ -16997,10 +17039,12 @@ If a previous value is already stored, all entries are removed and the value is 
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If &lt;code&gt;key&lt;/code&gt; is not present &lt;code&gt;keywords&lt;/code&gt; is returned as it.&lt;/p&gt;</description></item><item><title>split/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/split/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/split/2/</guid><description>&lt;p&gt;Takes all entries corresponding to the given &lt;code&gt;keys&lt;/code&gt; in &lt;code&gt;keywords&lt;/code&gt; and extracts them into a separate keyword list.&lt;/p&gt;
 &lt;p&gt;Returns a tuple with the new list and the old list with removed keys.&lt;/p&gt;
 &lt;p&gt;Keys for which there are no entries in the keyword list are ignored.&lt;/p&gt;
 &lt;p&gt;Entries with duplicated keys end up in the same keyword list.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="504.491" height="397.611" viewBox="0 0 504.491 397.611"&gt;
 &lt;defs&gt;
@@ -18065,6 +18109,7 @@ If a previous value is already stored, all entries are removed and the value is 
 
 &lt;/figure&gt;</description></item><item><title>take/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/take/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/take/2/</guid><description>&lt;p&gt;Takes all entries corresponding to the given &lt;code&gt;keys&lt;/code&gt; and returns them in a new keyword list.&lt;/p&gt;
 &lt;p&gt;Duplicated &lt;code&gt;keys&lt;/code&gt; are preserved in the new keyword list.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="486.344" height="376.338" viewBox="0 0 486.344 376.338"&gt;
 &lt;defs&gt;
@@ -19022,6 +19067,7 @@ If a previous value is already stored, all entries are removed and the value is 
 &lt;/svg&gt;
 
 &lt;/figure&gt;</description></item><item><title>to_list/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/to_list/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/to_list/1/</guid><description>&lt;p&gt;Returns the keyword list itself.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256.819" height="286.073" viewBox="0 0 256.819 286.073"&gt;
 &lt;defs&gt;
@@ -19474,6 +19520,7 @@ If a previous value is already stored, all entries are removed and the value is 
 
 &lt;/figure&gt;</description></item><item><title>update!/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/update/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/update/3/</guid><description>&lt;p&gt;Updates the &lt;code&gt;key&lt;/code&gt; with the given function &lt;code&gt;fun&lt;/code&gt;.
 If there are duplicated keys, they are all removed and only the first one is updated.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="432.875" height="371.919" viewBox="0 0 432.875 371.919"&gt;
 &lt;defs&gt;
@@ -20211,8 +20258,10 @@ If there are duplicated keys, they are all removed and only the first one is upd
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; does not exist, raises &lt;code&gt;KeyError&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>update/4</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/update/4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/update/4/</guid><description>&lt;p&gt;Updates the &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;keywords&lt;/code&gt; with the given function.
 If there are duplicated keys, they are all removed and only the first one is updated.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="432.875" height="371.919" viewBox="0 0 432.875 371.919"&gt;
 &lt;defs&gt;
@@ -20950,8 +20999,10 @@ If there are duplicated keys, they are all removed and only the first one is upd
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;If the &lt;code&gt;key&lt;/code&gt; does not exist, inserts &lt;code&gt;value&lt;/code&gt; under &lt;code&gt;key&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>values/1</title><link>https://superruzafa.github.io/visual-elixir-reference/Keyword/values/1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Keyword/values/1/</guid><description>&lt;p&gt;Returns all values from the &lt;code&gt;keyword&lt;/code&gt; list.&lt;/p&gt;
 &lt;p&gt;Values from duplicated keys will be kept in the final list of values.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.118" height="286.073" viewBox="0 0 255.118 286.073"&gt;
 &lt;defs&gt;

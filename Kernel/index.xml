@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kernel on Visual Elixir Reference</title><link>https://superruzafa.github.io/visual-elixir-reference/Kernel/</link><description>Recent content in Kernel on Visual Elixir Reference</description><generator>Hugo</generator><language>en</language><atom:link href="https://superruzafa.github.io/visual-elixir-reference/Kernel/index.xml" rel="self" type="application/rss+xml"/><item><title>elem/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Kernel/elem/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Kernel/elem/2/</guid><description>&lt;p&gt;Gets the element at the zero-based &lt;code&gt;index&lt;/code&gt; in &lt;code&gt;tuple&lt;/code&gt;.
 Allowed in guard tests.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="296.261" height="178.498" viewBox="0 0 296.261 178.498"&gt;
 &lt;defs&gt;
@@ -140,7 +141,9 @@ Allowed in guard tests.&lt;/p&gt;
 
 &lt;/figure&gt;
 
+
 &lt;p&gt;It raises &lt;code&gt;ArgumentError&lt;/code&gt; when &lt;code&gt;index&lt;/code&gt; is negative or it is out of range of the tuple elements.&lt;/p&gt;</description></item><item><title>put_elem/3</title><link>https://superruzafa.github.io/visual-elixir-reference/Kernel/put_elem/3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Kernel/put_elem/3/</guid><description>&lt;p&gt;Puts &lt;code&gt;value&lt;/code&gt; at the given zero-based &lt;code&gt;index&lt;/code&gt; in &lt;code&gt;tuple&lt;/code&gt;.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="326.448" height="234.544" viewBox="0 0 326.448 234.544"&gt;
 &lt;defs&gt;
@@ -373,6 +376,7 @@ Allowed in guard tests.&lt;/p&gt;
 
 &lt;/figure&gt;</description></item><item><title>tap/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Kernel/tap/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Kernel/tap/2/</guid><description>&lt;p&gt;Pipes the first argument, &lt;code&gt;value&lt;/code&gt;, into the function &lt;code&gt;fun&lt;/code&gt;, and returns &lt;code&gt;value&lt;/code&gt; itself.&lt;/p&gt;
 &lt;p&gt;Useful for running synchronous side effects in a pipeline, using the &lt;code&gt;|&amp;gt;/2&lt;/code&gt; operator.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160.591" height="203.876" viewBox="0 0 160.591 203.876"&gt;
 &lt;defs&gt;
@@ -423,6 +427,7 @@ Allowed in guard tests.&lt;/p&gt;
 
 &lt;/figure&gt;</description></item><item><title>then/2</title><link>https://superruzafa.github.io/visual-elixir-reference/Kernel/then/2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://superruzafa.github.io/visual-elixir-reference/Kernel/then/2/</guid><description>&lt;p&gt;Pipes the first argument, &lt;code&gt;value&lt;/code&gt;, into the function &lt;code&gt;fun&lt;/code&gt;, and returns its result.&lt;/p&gt;
 &lt;p&gt;This is most commonly used in pipelines, using the &lt;code&gt;|&amp;gt;/2&lt;/code&gt; operator, allowing you to pipe a value to a function outside of its first argument.&lt;/p&gt;
+
 &lt;figure class="diagram"&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="95.891" height="242.561" viewBox="0 0 95.891 242.561"&gt;
 &lt;defs&gt;
