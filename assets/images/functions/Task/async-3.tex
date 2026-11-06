@@ -1,0 +1,32 @@
+\tikzset{
+  task fun/.style={
+    fun,
+    function arity=3,
+  },
+  module/.style={
+    draw,
+    rounded corners,
+    inner xsep=8ex,
+    inner ysep=3ex,
+    label={[font=\small, anchor=north west]north west:\texttt{module}}
+  },
+}
+\node (fun) [task fun];
+
+\draw [->] (fun.out) -- +(0, -1) node [below] (b2) {$b$};
+\node (module) [fit=(fun), module] {};
+\node (process 2) [process={(module) (b2)}];
+
+\node (args) [above=1 of fun] {\texttt{args}};
+\draw [<-] (fun.in 1) -- (\currcoord |- args.south);
+\draw [<-] (fun.in 2) -- (\currcoord |- args.south);
+\draw [<-] (fun.in 3) -- (\currcoord |- args.south);
+
+\draw [<-] ($ (fun) + (-2.5, 0) $) coordinate (async) -- +(0, 1) coordinate (start) {};
+\draw [->] (async) -- ($ (\currcoord |- process 2.south) + (0, -.25) $) node (end) {};
+\node (process 1) [process={(start) (end)}];
+
+\draw [<-link->] ($ (fun -| process 2.west) $) -| (\currcoord -| process 1.east);
+
+\draw [<-note, shorten <=4mm] (async) -- +(-1.25, 0) node [font=\large,left] {\texttt{Task.async(module, fun, args)}};
+

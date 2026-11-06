@@ -1,0 +1,61 @@
+\tikzset{
+  task fun/.style={
+    fun=#1,
+    function arity=0,
+  },
+}
+
+\draw [->] (0, 0) coordinate (start) -- +(0, -1) coordinate (async 1);
+\draw [->] (async 1) -- +(0, -.5) coordinate (async 2);
+\draw [--, dashed] (async 2) -- +(0, -.5) coordinate (async n-1);
+\draw [->] (async n-1) -- +(0, -.5) coordinate (async n);
+
+\node (fun1) [right=3.5 of async 1, task fun=$\texttt{fun}_1$];
+\draw [->] (fun1.out) -- +(0, -1.5) node [below] (b1) {$b_1$};
+\node (process 1) [process={(fun1) (b1)}];
+
+\node (fun2) at ($ (async 2 -| process 1.east) + (.5, 0) $) [anchor=west, task fun=$\texttt{fun}_2$];
+\draw [->] (fun2.out) -- +(0, -3) node [below] (b2) {$b_2$};
+\node (process 2) [process={(fun2) (b2)}];
+
+\node (funn) at ($ (async n -| process 2.east) + (.75, 0) $) [anchor=west, task fun=$\texttt{fun}_n$];
+\draw [->] (funn.out) -- +(0, -.5) node [below] (bn) {$b_n$};
+\node (process n) [alias=timeout process, process={(funn) (bn)}];
+
+\draw [->] (async n) -- +(0, -.5) coordinate (yield_many);
+\draw [-block-] (yield_many) -- ($ (\currcoord |- timeout process.south) + (0, -.5) $) coordinate (timeout);
+\draw [->] (timeout) -- +(0, -.5);
+
+\matrix [list=b, below=1 of timeout] {
+  \node [font=\large] {$\{t_1,\{\texttt{:ok}, b_1\}\}$}; &
+  \node [font=\large] {$\{t_2,\nil\}$}; &
+  \node [elements between]; &
+  \node [font=\large] {$\{t_n,\{\texttt{:ok}, b_n\}\}$}; \\
+};
+\draw [brace] (list b.north west) -- (list b.north east);
+\node (process 0) [process=(start) (list b)];
+
+\draw [<-link->] (async 1 -| process 0.east) -- (\currcoord -| process 1.west);
+\draw [<-link->]
+  (async 2 -| process 0.east) -- (\currcoord -| process 1.west)
+  (\currcoord -| process 1.east) -- (\currcoord -| process 2.west);
+\draw [<-link->]
+  (async n -| process 0.east) -- (\currcoord -| process 1.west)
+  (\currcoord -| process 1.east) -- (\currcoord -| process 2.west)
+  (\currcoord -| process 2.east) -- (\currcoord -| process n.west);
+
+\draw [->, shorten >=2mm] (b1.south) -- ++(0, -.5) -- (\currcoord -| timeout);
+\draw [->, shorten >=2mm]
+  (bn.south) -- ++(0, -.5) -- (\currcoord -| process 2.east)
+  (\currcoord -| process 2.west) -- (\currcoord -| timeout)
+  ;
+
+\coordinate (note start) at ($ (async 1 -| process 0.west) + (-.25, 0) $);
+
+\foreach \i in {1,2,n}{
+  \draw [<-note, shorten <=4mm] (async \i) -- (\currcoord -| note start) node [font=\large,left] {\texttt{t$_{\i}$ = Task.async(fun$_{\i}$)}};
+}
+
+\draw [<-note, shorten <=4mm] (yield_many) -- (\currcoord -| note start) node [font=\large,left] {\texttt{Task.yield\_many([t$_1$,t$_2$,\ldots,t$_n$], \texttt{timeout})}};
+\draw [<-note, shorten <=4mm] (timeout) -- (\currcoord -| note start) node [font=\large,left] {\texttt{timeout}};
+

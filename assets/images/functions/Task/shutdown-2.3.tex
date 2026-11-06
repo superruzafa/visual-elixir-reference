@@ -1,0 +1,25 @@
+\tikzset{
+  task fun/.style={
+    fun,
+    function arity=0,
+  },
+}
+
+\node (fun) [task fun];
+\draw [--] (fun.out) -- +(0, -2) coordinate (end);
+\node (process 2) [process={(fun) (end)}];
+
+\draw [<-] ($ (fun) + (-3.25, 0) $) coordinate (async) -- +(0, 1) coordinate (start) {};
+\draw [->] (async) -- +(0, -.5) coordinate (shutdown);
+\draw [-block-] (shutdown) -- (\currcoord |- end) coordinate (timeout);
+\draw [->] (timeout) -- +(0, -.5) node (b1) [below] {\texttt{\{:exit, reason\}}};
+\node (process 1) [process={(start) (b1)}];
+
+\draw [<-link->] ($ (fun -| process 2.west) $) -- coordinate (x) (\currcoord -| process 1.east);
+
+\draw [--x] (shutdown) -| coordinate (y) (x);
+
+\draw [<-note, shorten <=4mm] (async) -- +(-2, 0) node [font=\large,left] {\texttt{t = Task.async(fun)}};
+\draw [<-note, shorten <=4mm] (shutdown) -- +(-2, 0) node [font=\large,left,align=right] {\texttt{Task.shutdown(t, timeout)}};
+\draw [<-note, shorten <=4mm] (timeout) -- +(-2, 0) node [font=\large,left,align=right] {\texttt{timeout}};
+

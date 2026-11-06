@@ -1,0 +1,22 @@
+\tikzset{
+  task fun/.style={
+    fun,
+    function arity=0,
+  },
+}
+
+\node (fun) [task fun];
+\draw [~>] (fun.east) -- ++(.5, 0) -- +(0, -.5) node [~~, below] (error) {\texttt{error}};
+\node (process 2) [process={(fun) (error)}] {};
+\draw [~>] (process 2.south) -- +(0, -.5) node [below] (exit 2) {\texttt{exit}};
+
+\draw [<-] ($ (fun) + (-2, 0) $) coordinate (async) -- +(0, 1) coordinate (start) {};
+\draw [--] (async) -- (\currcoord |- process 2.south) coordinate (end);
+\node (process 1) [process={(start) (end)}];
+
+\draw [<-link->] ($ (fun -| process 2.west) $) -| (\currcoord -| process 1.east);
+
+\draw [~>] (process 1.south) -- +(0, -.5) node [below] (exit 1) {\texttt{exit}};
+
+\draw [<-note, shorten <=4mm] (async) -- +(-1.25, 0) node [font=\large,left] {\texttt{Task.async(fun)}};
+

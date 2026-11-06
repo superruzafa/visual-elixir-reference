@@ -1,0 +1,26 @@
+\tikzset{
+  task fun/.style={
+    fun=#1,
+    function arity=0,
+  },
+}
+
+\draw [->] (0, 0) coordinate (start) -- +(0, -1) coordinate (async 1);
+\draw [->] (async 1) -- +(0, -.5) coordinate (async 2);
+\draw [->] (async 2) -- +(0, -2.5) coordinate (end);
+
+\node (fun1) [right=1.5 of async 1, task fun=$\texttt{fun}_1$];
+\draw [->] (fun1.out) -- +(0, -1.5) node [below] (b1) {$b_1$};
+\node (process 1) [process={(fun1) (b1)}];
+
+\node (fun2) at ($ (async 2 -| process 1.east) + (.5, 0) $) [anchor=west, task fun=$\texttt{fun}_2$];
+\draw [->] (fun2.out) -- +(0, -2) node [below] (b2) {$b_2$};
+\node (process 2) [alias=largest process, process={(fun2) (b2)}];
+
+\node (process 0) [process=(start) (end)];
+
+\draw [<-link->] (async 1 -| process 0.east) -- (\currcoord -| process 1.west);
+\draw [<-link->]
+  (async 2 -| process 0.east) -- (\currcoord -| process 1.west)
+  (\currcoord -| process 1.east) -- (\currcoord -| process 2.west);
+

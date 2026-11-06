@@ -1,0 +1,55 @@
+\tikzset{
+  task fun/.style={
+    fun,
+    function arity=0,
+  },
+}
+
+\matrix [list=a] {
+  \node [index=1]; &
+  \node [index=2]; &
+  \node [elements between]; &
+  \node [index=n]; \\
+};
+
+\node (fun 1) [fun, below right=1.5 and 1 of list a];
+\draw [->] (fun 1.out) -- +(0, -.5) node (b1) [below] {$b_1$};
+\node (process 1) [process={(fun 1) (b1)}];
+
+\node (fun 2) [fun, right=.75 of fun 1];
+\draw [->] (fun 2.out) -- +(0, -1.5) node (b2) [below] {$b_2$};
+\node (process 2) [process={(fun 2) (b2)}];
+
+\node (fun n) [fun, right=1 of fun 2];
+\draw [->] (fun n.out) -- +(0, -1) node (bn) [below] {$b_n$};
+\node (process n) [process={(fun n) (bn)}];
+
+\coordinate (rule 1) at ($ (list a.south)!.75!(process 1.north) $);
+\coordinate (rule 2) at ($ (list a.south)!.5!(process 2.north) $);
+\coordinate (rule n) at ($ (list a.south)!.25!(process n.north) $);
+\coordinate (rule b) at (b2 -| list a.south);
+
+\draw [->] (a1.south) -- (\currcoord |- rule 1) -| (fun 1.in);
+\draw [->] (a2.south) -- (\currcoord |- rule 2) -| (fun 2.in);
+\draw [->] (an.south) -- (\currcoord |- rule n) -| (fun n.in);
+
+\matrix [list=b, below=1.5 of rule b] {
+  \node (c1) {\texttt{ok:$b_1$}}; &
+  \node (c2) {\texttt{ok:$b_2$}}; &
+  \node      [elements between]; &
+  \node (cn) {\texttt{ok:$b_n$}}; \\
+};
+
+\draw [->] (b1.south) -- +(0, -.5) -| (c1);
+\draw [->] (b2.south) -- ++(0, -.5) -| (c2);
+\draw [->]
+  (bn.south) -- ++(0, -.5) -- (\currcoord -| process 2.east)
+  (\currcoord -| process 2.west) -| (cn)
+  ;
+
+\node (process 0) [process=(list a) (list b)];
+
+\draw [<-link->] ($ (process 2.north west) + (.25, 0) $) |- (list a -| process 0.east) coordinate (x);
+\draw [<-link->] ($ (process 1.north west) + (.25, 0) $) |- ($ (x) + (0, -.25) $);
+\draw [<-link->] ($ (process n.north west) + (.25, 0) $) |- ($ (x) + (0, .25) $);
+

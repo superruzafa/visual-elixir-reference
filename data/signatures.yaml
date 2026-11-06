@@ -522,6 +522,24 @@
   functions:
     - name: async/1
       signature: async(fun)
+    - name: async/3
+      signature: async(module, fun, args)
+    - name: async_stream/3
+      signature: async_stream(enumerable, fun, opts \\ [])
+    - name: await/2
+      signature: await(task, timeout \\ 5000)
+    - name: await_many/2
+      signature: await_many(tasks, timeout \\ 5000)
+    - name: completed/1
+      signature: completed(value)
+    - name: ignore/1
+      signature: ignore(task)
+    - name: shutdown/2
+      signature: shutdown(task, timeout \\ 5000)
+    - name: yield/2
+      signature: yield(task, timeout \\ 5000)
+    - name: yield_many/2
+      signature: yield_many(tasks, opts \\ [])
 
 - name: Tuple
   functions:

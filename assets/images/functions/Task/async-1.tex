@@ -1,0 +1,19 @@
+\tikzset{
+  task fun/.style={
+    fun,
+    function arity=0,
+  },
+}
+
+\node (fun) [task fun];
+\draw [->] (fun.out) -- +(0, -1) node [below] (b2) {$b$};
+\node (process 2) [process={(fun) (b2)}];
+
+\draw [<-] ($ (fun) + (-2, 0) $) coordinate (async) -- +(0, 1) coordinate (start) {};
+\draw [->] (async) -- ($ (\currcoord |- process 2.south) + (0, -.25) $) node (end) {};
+\node (process 1) [process={(start) (end)}];
+
+\draw [<-link->] ($ (fun -| process 2.west) $) -| (\currcoord -| process 1.east);
+
+\draw [<-note, shorten <=4mm] (async) -- +(-1.25, 0) node [font=\large,left] {\texttt{Task.async(fun)}};
+

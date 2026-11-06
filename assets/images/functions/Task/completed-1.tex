@@ -1,0 +1,10 @@
+\draw [->] (0, 0) coordinate (start) -- +(0, -1) coordinate (completed);
+\draw [->] (completed) -- +(0, -.5) coordinate (await);
+\draw [->] (await) -- +(0, -.5) coordinate (end) node (value) [below] {\texttt{value}};
+
+\node [process=(start) (value)];
+
+\draw [<-note, shorten <=4mm] (completed) -- +(-1.25, 0) node [font=\large,left] {\texttt{t = Task.completed(value)}};
+\draw [<-note, shorten <=4mm] (await) -- +(-1.25, 0) node [font=\large,left] {\texttt{Task.await(t)}};
+
+

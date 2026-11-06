@@ -94,17 +94,19 @@
 }
 
 \tikzset{
-  ->/.style={
-    -{Straight Barb[round, #1]},
-    shorten >=0.4mm,
+  --/.style={
     draw=linecolor,
     line width=0.8mm,
   },
+  ->/.style={
+    --,
+    -{Straight Barb[round, #1]},
+    shorten >=0.4mm,
+  },
   <-/.style={
+    --,
     {Straight Barb[round, #1]}-,
-    draw=linecolor,
     shorten <=0.4mm,
-    line width=0.8mm,
   },
 }
 
@@ -186,3 +188,95 @@
 \def\key{\texttt{key}}
 \newcommand\vof[1]{v_\texttt{\small{#1}}}
 \newcommand{\vkey}{\vof{key}}
+
+\tikzset{
+  -note-/.style={
+    draw=linecolor,
+    line width=.3mm
+  },
+  note->/.style={
+    -note-,
+    -{Straight Barb[round, #1]},
+  },
+  <-note/.style={
+    -note-,
+    {Straight Barb[round, #1]}-,
+  },
+}
+
+\tikzset{
+  ~~/.style={
+    decorate,
+    decoration={zigzag, segment length=2mm, amplitude=.25mm},
+    line width=.8mm,
+  },
+  ~>/.style={
+    ~~,
+    -{Straight Barb[round, #1]},
+  },
+  <~/.style={
+    ~~,
+    {Straight Barb[round, #1]}-,
+  },
+  -block-/.style={
+    draw=linecolor,
+    line width=0.8mm,
+    opacity=0.5,
+    dotted,
+  },
+}
+
+% processes
+
+\tikzset{
+  process/.style={
+    fit=#1,
+    minimum width=2cm,
+    draw,
+    line width=0.5mm,
+    rounded corners=4mm,
+    inner xsep=.5cm,
+    inner ysep=.5cm,
+    node contents={},
+  },
+  ~~/.style={
+    decorate,
+    decoration={zigzag, segment length=2mm, amplitude=.25mm},
+    line width=.6mm,
+  },
+  ~>/.style={
+    ~~,
+    -{Straight Barb[round, #1]},
+  },
+  --x/.style={
+    line width=0.4mm,
+    solid,
+    postaction={
+      decorate,
+      decoration={
+        markings,
+        mark=at position 1 with {
+          \draw (-.075, -.075) -- (.075, .075);
+          \draw (.075, -.075) -- (-.075, .075);
+        },
+      },
+    },
+  },
+  -link-/.style={
+    line width=0.4mm,
+    solid,
+  },
+  <-link->/.style={
+    -link-,
+    postaction={
+      decorate,
+      decoration={
+        markings,
+        mark=at position 0 with {\fill [backgroundcolor] (0,0) circle (1mm);},
+        mark=at position .001 with {\draw [solid, linecolor] (0,0) circle (1mm);},
+        mark=at position .999 with {\fill [backgroundcolor] (0,0) circle (1mm);},
+        mark=at position 1 with {\draw [solid, linecolor] (0,0) circle (1mm);},
+      }
+    },
+  },
+}
